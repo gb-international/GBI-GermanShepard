@@ -14,6 +14,7 @@ class Encyclopedia extends Model
 {
     protected $fillable = [
         'state_name',
+        'city_name',
         'country',
         'thumbnail',
         'banner_image',

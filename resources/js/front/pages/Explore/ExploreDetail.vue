@@ -119,7 +119,7 @@
           <div class="tabs" :style="tabSelected == 'Itinerary' ? 'border-bottom: 3px solid #f77736' : ''" @click="changeTab('Itinerary')">
             Itinerary
           </div>
-          <!-- <div class="tabs" :style="tabSelected == 'Neighbourhood' ? 'border-bottom: 3px solid #f77736' : ''" @click="changeTab('Neighbourhood')">
+          <div class="tabs" :style="tabSelected == 'Neighbourhood' ? 'border-bottom: 3px solid #f77736' : ''" @click="changeTab('Neighbourhood')">
             Your Neighbourhood
           </div>
           <div class="tabs" :style="tabSelected == 'Encylopedia' ? 'border-bottom: 3px solid #f77736' : ''" @click="changeTab('Encylopedia')">
@@ -127,7 +127,7 @@
           </div>
           <div class="tabs" :style="tabSelected == 'Policy' ? 'border-bottom: 3px solid #f77736' : ''" @click="changeTab('Policy')">
             Policy
-          </div> -->
+          </div>
         </div>
       </div>
 
@@ -138,39 +138,39 @@
     <p class="rowheadings">Your Experience Includes</p>
     <div class="iconMainDiv">
       <div class="iconClass" v-if="itineraryData.hotel_type != '0'">
-        <img :src="$gbiAssets + '/hotel_icon.png'">
+        <img :src="$gbiAssets + '/images/icons/tour-hotel.svg'" class="svg-pink">
         <p>Hotel</p>
       </div>
       <div class="iconClass" v-if="itineraryData.flight == '1'">
-        <img :src="$gbiAssets + '/flight_icon.png'">
+        <img :src="$gbiAssets + '/images/icons/flight.svg'" class="svg-blue">
         <p>Flight</p>
       </div>
       <div class="iconClass" v-if="itineraryData.tourtype == 'International'">
-        <img :src="$gbiAssets + '/passport_icon.png'">
+       <img :src="$gbiAssets + '/images/icons/visa_passport.svg'" class="svg-r-blue">
         <p>Passport/Visa</p>
       </div>
       <div class="iconClass" v-if="itineraryData.train == '1'">
-        <img :src="$gbiAssets + '/train_icon.png'">
+        <img :src="$gbiAssets + '/images/icons/train_explore_icon.svg'" class="svg-d-green">
         <p>Train</p>
       </div>
       <div class="iconClass" v-if="itineraryData.bus == '1'">
-        <img :src="$gbiAssets + '/transport_icon.png'">
+        <img :src="$gbiAssets + '/images/icons/car-bus.svg'" class="svg-orange">
         <p>Car/Bus</p>
       </div>
       <div class="iconClass" v-if="itineraryData.food == '1'">
-        <img :src="$gbiAssets + '/dinner_icon.png'">
+        <img :src="$gbiAssets + '/images/icons/food.svg'" class="svg-teal">
         <p>Food</p>
       </div>
       <div class="iconClass">
-        <img :src="$gbiAssets + '/citytour_icon.png'">
+        <img :src="$gbiAssets + '/images/icons/city-tour.svg'" class="svg-d-blue">
         <p>City Tour</p>
       </div>
       <div class="iconClass">
-        <img :src="$gbiAssets + '/taxes_icon.png'">
+        <img :src="$gbiAssets + '/images/icons/taxes.svg'" class="svg-green">
         <p>GST</p>
       </div>
       <div class="iconClass">
-        <img :src="$gbiAssets + '/sightseeing.png'">
+        <img :src="$gbiAssets + '/images/icons/sights.svg'" class="svg-l-purple">
         <p>Sightseeing</p>
       </div>
       <!-- <div class="iconClass">
@@ -193,7 +193,9 @@
     <div class="itineraryDiv">
       <div class="singleItneraryDivMain" v-for="(data, index) in itineraryData.itinerarydays" :key="data.id">
         <div class="singleItneraryDiv d-flex justify-content-between"  @click="changeItDiv(data.id)" :style="selectedDay == data.id ? 'background-color: #F5EFFF' : 'background-color: #F5F5F5' ">
-          <p>Itinerary : Day {{ data.day}}</p>
+          <p> <img :src="$gbiAssets + '/images/icons/location-icon.svg'" class="icon-img svg-blue">
+          Itinerary : Day {{ data.day}}
+          </p>
           <i :class="selectedDay == data.id ? 'fas fa-chevron-up' : 'fas fa-chevron-down mt-1' "></i>
         </div>
         <div v-if="selectedDay == data.id" class="singleItneraryDiv2">
@@ -220,7 +222,7 @@
     
   </div>
 
-  <div class="container mt-4" v-if="tabSelected == 'Encylopedia' ">
+  <div class="container mt-4" v-if="tabSelected == 'Blank' ">
 
       <p class="rowheadings">Encylopedia</p>
       <div class="encylopediaDiv">
@@ -259,7 +261,7 @@
     </div>
 
     <!-- Neighbourhood -->
-     <div class="container mt-4" v-if="tabSelected == 'Neighbourhood' ">
+     <div class="container mt-4" v-if="tabSelected == 'Blank' ">
        <p class="heading2 mb-4" style="margin-top: 4vh">Explore Neighbourhood</p>
 
        <!-- <div style="background-color: #f77736; padding: 45px;"> 
@@ -330,6 +332,12 @@
           </GmapMap>
         </div>
 
+      </div>
+
+      <div class="container mt-4" v-if="tabSelected != 'Itinerary' ">
+        <div class="mt-4 ndt-s" style="margin-bottom: 5vh;">
+          Currently under development
+        </div>
       </div>
 
       
@@ -809,8 +817,8 @@ export default {
   margin-bottom: 25px;
 }
 .iconClass img{
-  height: 25px;
-  width: 25px;
+  height: 35px;
+  width: 35px;
   margin-right: 12px;
 }
 .iconClass p{
@@ -1030,5 +1038,17 @@ export default {
    font-weight: 600;
    font-size: 20px;
    color: #101010;
+}
+.ndt-s {
+    font-family: 'Nunito Sans';
+    font-size: 16px;
+    font-weight: 600;
+    margin-left: 10px;
+}
+.icon-img {
+    height: 30px;
+    margin-bottom: 2px;
+    margin-right: 12px;
+    width: 30px;
 }
 </style>

@@ -77,6 +77,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     Form: vform__WEBPACK_IMPORTED_MODULE_0__.Form,
@@ -95,7 +96,6 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     sendmail: function sendmail() {
       var _this = this;
-
       if (this.form.name == '' || this.form.email == '' || this.form.mobile == '' || this.form.messagecon == '') {
         /*this.$swal.fire({
             text: "Please fillup all the fields!",
@@ -103,14 +103,12 @@ __webpack_require__.r(__webpack_exports__);
             animation: true,
           });*/
       }
-
       this.form.post("/api/contact-us/send").then(function (response) {
         _this.$swal.fire({
           text: "Thank you for contacting us !",
           icon: "success",
           animation: true
         });
-
         _this.form.reset();
       })["catch"](function () {});
     }
@@ -135,6 +133,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['text'],
   data: function data() {
@@ -336,6 +335,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ContactUs",
   metaInfo: {
@@ -382,19 +382,23 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (() => {
 
 // Set the date we're counting down to
-var countDownDate = new Date("Jan 15, 2023 15:00:00").getTime(); // Update the count down every 1 second
+var countDownDate = new Date("Jan 15, 2023 15:00:00").getTime();
 
+// Update the count down every 1 second
 var x = setInterval(function () {
   // Get today's date and time
-  var now = new Date().getTime(); // Find the distance between now and the count down date
+  var now = new Date().getTime();
 
-  var distance = countDownDate - now; // Time calculations for days, hours, minutes and seconds
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
 
+  // Time calculations for days, hours, minutes and seconds
   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
   var hours = Math.floor(distance % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
   var minutes = Math.floor(distance % (1000 * 60 * 60) / (1000 * 60));
-  var seconds = Math.floor(distance % (1000 * 60) / 1000); // Output the result in an element with id="countDown"
+  var seconds = Math.floor(distance % (1000 * 60) / 1000);
 
+  // Output the result in an element with id="countDown"
   document.getElementById("countDownD1").innerHTML = (' 0' + days).toString()[days.toString().length];
   document.getElementById("countDownD2").innerHTML = (' 0' + days).slice(-1);
   document.getElementById("countDownH1").innerHTML = (' 0' + hours).toString()[hours.toString().length];
@@ -402,8 +406,9 @@ var x = setInterval(function () {
   document.getElementById("countDownM1").innerHTML = (' 0' + minutes).toString()[minutes.toString().length];
   document.getElementById("countDownM2").innerHTML = (' 0' + minutes).slice(-1);
   document.getElementById("countDownS1").innerHTML = (' 0' + seconds).toString()[seconds.toString().length];
-  document.getElementById("countDownS2").innerHTML = (' 0' + seconds).slice(-1); // If the count down is over, write some text 
+  document.getElementById("countDownS2").innerHTML = (' 0' + seconds).slice(-1);
 
+  // If the count down is over, write some text 
   if (distance < 0) {
     clearInterval(x);
     document.getElementById("countDown").innerHTML = "Ready";
@@ -429,7 +434,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.contact-btn[data-v-29a4e4ed] {\n    padding: 12px 35px;\n    border: none;\n    border-radius: 4px;\n    background: #f77736;\n    color: white;\n}\n.contact-btn[data-v-29a4e4ed]:hover{\n  background: white;\n  border: 1px solid #f77736;\n  color: #f77736;\n}\n.contact-title[data-v-29a4e4ed]{\n    color: black;\n    margin-top: 10px;\n    margin-bottom: 10px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.contact-btn[data-v-29a4e4ed] {\r\n    padding: 12px 35px;\r\n    border: none;\r\n    border-radius: 4px;\r\n    background: #f77736;\r\n    color: white;\n}\n.contact-btn[data-v-29a4e4ed]:hover{\r\n  background: white;\r\n  border: 1px solid #f77736;\r\n  color: #f77736;\n}\n.contact-title[data-v-29a4e4ed]{\r\n    color: black;\r\n    margin-top: 10px;\r\n    margin-bottom: 10px;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -453,7 +458,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.contact-h2[data-v-b108d124] {\n    font-size: 21px;\n    padding-top: 26px;\n    width: 100%;\n    margin: 0 auto;\n    text-align: center;\n    color: black;\n}\n.counter-title[data-v-b108d124]{\n  font-size: 39px;\n  font-family: 'Nunito Sans';\n  font-weight: 700;\n  color: #212529;\n  text-align: center;\n  padding: 5px;\n  margin-right: 1.6vw;\n  margin-bottom: 15px;\n}\n.counter-text[data-v-b108d124]{\n  font-size: 18px;\n  font-family: 'Nunito Sans';\n  font-weight: 600;\n  color: #212529;\n  text-align: center;\n  padding: 5px;\n  margin-right: 1.6vw;\n  margin-bottom: 50px;\n}\n.counterDigits[data-v-b108d124]{\n  display: flex;\n  justify-content: center;\n  margin-right: 1.6vw;\n}\n.counter-style1[data-v-b108d124]{\n  font-size: 28px;\n  font-family: 'Nunito Sans';\n  font-weight: 600;\n  color: white;\n  background: black;\n  text-align: center;\n  border: solid 1px;\n  border-radius: 5px;\n  margin-right: 1px;\n  padding: 5px 10px;\n}\n.counter-style2[data-v-b108d124]{\n  font-size: 15px;\n  font-family: 'Nunito Sans';\n  font-weight: 600;\n  color: black;\n  text-align: center;\n  margin-right: 1.6vw;\n  padding: 5px;\n  margin-top: -10px;\n}\n.CountDiv[data-v-b108d124]{\n  display: flex;\n  flex-direction: row;\n  justify-content: center;\n}\n.CountDiv2[data-v-b108d124]{\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n}\n.modal-div[data-v-b108d124] {\n    display: inline-block;\n    text-align: center;\n    width: 650px;\n}\n.modal-head[data-v-b108d124] {\n    display: flex;\n    align-items: flex-start;\n    justify-content: space-between;\n    padding: 1rem 1rem;\n    border-bottom: none !important;\n}\n@media (max-width: 665px) {\n.modal-div[data-v-b108d124] {\n    display: inline-block;\n    text-align: center;\n    width: 350px;\n}\n.counter-title[data-v-b108d124]{\n  font-size: 22px;\n  margin-bottom: 5px;\n}\n.counter-text[data-v-b108d124]{\n  font-size: 14px;\n  margin-bottom: 30px;\n}\n.counter-style1[data-v-b108d124]{\n  font-size: 17px;\n}\n.counter-style2[data-v-b108d124]{\n  font-size: 13px;\n}\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.contact-h2[data-v-b108d124] {\r\n    font-size: 21px;\r\n    padding-top: 26px;\r\n    width: 100%;\r\n    margin: 0 auto;\r\n    text-align: center;\r\n    color: black;\n}\n.counter-title[data-v-b108d124]{\r\n  font-size: 39px;\r\n  font-family: 'Nunito Sans';\r\n  font-weight: 700;\r\n  color: #212529;\r\n  text-align: center;\r\n  padding: 5px;\r\n  margin-right: 1.6vw;\r\n  margin-bottom: 15px;\n}\n.counter-text[data-v-b108d124]{\r\n  font-size: 18px;\r\n  font-family: 'Nunito Sans';\r\n  font-weight: 600;\r\n  color: #212529;\r\n  text-align: center;\r\n  padding: 5px;\r\n  margin-right: 1.6vw;\r\n  margin-bottom: 50px;\n}\n.counterDigits[data-v-b108d124]{\r\n  display: flex;\r\n  justify-content: center;\r\n  margin-right: 1.6vw;\n}\n.counter-style1[data-v-b108d124]{\r\n  font-size: 28px;\r\n  font-family: 'Nunito Sans';\r\n  font-weight: 600;\r\n  color: white;\r\n  background: black;\r\n  text-align: center;\r\n  border: solid 1px;\r\n  border-radius: 5px;\r\n  margin-right: 1px;\r\n  padding: 5px 10px;\n}\n.counter-style2[data-v-b108d124]{\r\n  font-size: 15px;\r\n  font-family: 'Nunito Sans';\r\n  font-weight: 600;\r\n  color: black;\r\n  text-align: center;\r\n  margin-right: 1.6vw;\r\n  padding: 5px;\r\n  margin-top: -10px;\n}\n.CountDiv[data-v-b108d124]{\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: center;\n}\n.CountDiv2[data-v-b108d124]{\r\n  display: flex;\r\n  flex-direction: column;\r\n  justify-content: center;\n}\n.modal-div[data-v-b108d124] {\r\n    display: inline-block;\r\n    text-align: center;\r\n    width: 650px;\n}\n.modal-head[data-v-b108d124] {\r\n    display: flex;\r\n    align-items: flex-start;\r\n    justify-content: space-between;\r\n    padding: 1rem 1rem;\r\n    border-bottom: none !important;\n}\n@media (max-width: 665px) {\n.modal-div[data-v-b108d124] {\r\n    display: inline-block;\r\n    text-align: center;\r\n    width: 350px;\n}\n.counter-title[data-v-b108d124]{\r\n  font-size: 22px;\r\n  margin-bottom: 5px;\n}\n.counter-text[data-v-b108d124]{\r\n  font-size: 14px;\r\n  margin-bottom: 30px;\n}\n.counter-style1[data-v-b108d124]{\r\n  font-size: 17px;\n}\n.counter-style2[data-v-b108d124]{\r\n  font-size: 13px;\n}\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -730,8 +735,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactusForm_vue_vue_type_template_id_29a4e4ed_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactusForm_vue_vue_type_template_id_29a4e4ed_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   render: () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactusForm_vue_vue_type_template_id_29a4e4ed_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   staticRenderFns: () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactusForm_vue_vue_type_template_id_29a4e4ed_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactusForm_vue_vue_type_template_id_29a4e4ed_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ContactusForm.vue?vue&type=template&id=29a4e4ed&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/ContactusForm.vue?vue&type=template&id=29a4e4ed&scoped=true&");
 
@@ -747,8 +752,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Heading_vue_vue_type_template_id_431e53a2___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Heading_vue_vue_type_template_id_431e53a2___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   render: () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Heading_vue_vue_type_template_id_431e53a2___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   staticRenderFns: () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Heading_vue_vue_type_template_id_431e53a2___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Heading_vue_vue_type_template_id_431e53a2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Heading.vue?vue&type=template&id=431e53a2& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/layout/Heading.vue?vue&type=template&id=431e53a2&");
 
@@ -764,8 +769,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactUs_vue_vue_type_template_id_b108d124_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactUs_vue_vue_type_template_id_b108d124_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   render: () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactUs_vue_vue_type_template_id_b108d124_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   staticRenderFns: () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactUs_vue_vue_type_template_id_b108d124_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactUs_vue_vue_type_template_id_b108d124_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ContactUs.vue?vue&type=template&id=b108d124&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/pages/ContactUs/ContactUs.vue?vue&type=template&id=b108d124&scoped=true&");
 
@@ -781,8 +786,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render),
-/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */   render: () => (/* binding */ render),
+/* harmony export */   staticRenderFns: () => (/* binding */ staticRenderFns)
 /* harmony export */ });
 var render = function () {
   var _vm = this
@@ -982,8 +987,8 @@ render._withStripped = true
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render),
-/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */   render: () => (/* binding */ render),
+/* harmony export */   staticRenderFns: () => (/* binding */ staticRenderFns)
 /* harmony export */ });
 var render = function () {
   var _vm = this
@@ -1009,8 +1014,8 @@ render._withStripped = true
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render),
-/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */   render: () => (/* binding */ render),
+/* harmony export */   staticRenderFns: () => (/* binding */ staticRenderFns)
 /* harmony export */ });
 var render = function () {
   var _vm = this

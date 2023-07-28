@@ -233,8 +233,10 @@ Route::namespace('Admin')->group(function (){
 	Route::namespace('Encyclopedia')->group(function(){
 		Route::post('/encyclopedia-img','EncyclopediaController@deleteImage');
 		Route::post('/encyclopedia-pdf','EncyclopediaController@deletePdf');
-		Route::get('encyclopedias/all/{size}','EncyclopediaController@all');
+		Route::get('encyclopedias/all/{type}/{size}','EncyclopediaController@all');
 		Route::resource('encyclopedias','EncyclopediaController');
+		//Route::get('encyclopedias/cities/{size}','EncyclopediaController@allCity');
+		//Route::get('encyclopedias/cities/index','EncyclopediaController@indexCity');
 		Route::resource('encyclopediacomments','EncyclopediacommentController');
 	});
 

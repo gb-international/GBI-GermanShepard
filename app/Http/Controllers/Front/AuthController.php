@@ -28,7 +28,7 @@ class AuthController extends Controller{
         $user = User::where('email', $request->email)->first();
         if (!$user) {
             return response()->json([
-                'message' => 'Wrong email or password',
+                'message' => 'Wrong email or phone number',
                 'status' => 422
             ], 422);
         }
@@ -43,9 +43,18 @@ class AuthController extends Controller{
         
         // If a user with the email was found - check if the specified password
         
-        if (!Hash::check($request->password, $user->password)) {
+       /* if (!Hash::check($request->password, $user->password)) {
             return response()->json([
                 'message' => 'Wrong email or password',
+                'status' => 422
+            ], 422);
+        } */
+
+        // If a user with the email was found after otp validation then login user
+
+        if (!($request->phone_no, $user->information->phone_no)) {
+            return response()->json([
+                'message' => 'Wrong email or phone number',
                 'status' => 422
             ], 422);
         }
@@ -64,12 +73,22 @@ class AuthController extends Controller{
             ], 500);
         }
         
-        $data = [
+       /* $data = [
             'grant_type' => 'password',
             'client_id' => $client->id,
             'client_secret' => $client->secret,
             'username' => $request->email,
-            'password' => $request->password,
+            'password' => $user->password,
+        ]; */
+
+        $data = [
+            'grant_type' => 'client_credentials',
+            'client_id' => $client->id,
+            'client_secret' => $client->secret,
+            //'username' => $request->email,
+            'scope' => ''
+            //'otp' => $request->otp,
+            //'provider' => 'users',
         ];
    
 
@@ -79,7 +98,7 @@ class AuthController extends Controller{
         // Check if the request was successful
         if ($response->getStatusCode() != 200) {
             return response()->json([
-                'message' => 'Wrong email or password',
+                'message' => 'Wrong details, please try again',
                 'status' => 422
             ], 422);
         }

@@ -17,6 +17,7 @@ import Hotel from '@/front/routes/Hotel.js';
 import NameList from '@/front/routes/NameList.js';
 import Notification from '@/front/routes/Notification.js';
 import PaymentLink from '@/front/routes/PaymentLink.js';
+import Static from '@/front/routes/Static.js';
 import User from '@/front/routes/User.js';
 
 export function createRouter() {
@@ -37,6 +38,7 @@ export function createRouter() {
             ...NameList,
             ...Notification,
             ...PaymentLink,
+            ...Static,
             ...User,
         ]
     })

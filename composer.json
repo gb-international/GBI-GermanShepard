@@ -30,7 +30,6 @@
         "league/flysystem-aws-s3-v3": "^1.0",
         "predis/predis": "^1.1",
         "pusher/pusher-php-server": "~4.0",
-        "razorpay/razorpay": "^2.8",
         "softon/indipay": "^1.2",
         "spatie/laravel-permission": "^4.2",
         "spatie/laravel-server-side-rendering": "^1.4",

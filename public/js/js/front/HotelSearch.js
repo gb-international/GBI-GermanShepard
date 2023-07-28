@@ -194,6 +194,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Booking",
   components: {
@@ -270,13 +271,11 @@ __webpack_require__.r(__webpack_exports__);
     },
     savePersons: function savePersons() {
       this.form.person = parseInt(this.form.children) + parseInt(this.form.adults);
-
       if (this.form.infants > 0) {
         this.people = this.form.person + ' + ' + this.form.infants + ' Infant(s)';
       } else {
         this.people = this.form.person;
       }
-
       this.showPersonModal = false;
       this.checkGroup();
     },
@@ -303,7 +302,6 @@ __webpack_require__.r(__webpack_exports__);
     },
     sightseeingData: function sightseeingData(city) {
       var _this = this;
-
       this.$axios.post("/api/city-sightseeing", {
         list: city
       }).then(function (response) {
@@ -320,7 +318,6 @@ __webpack_require__.r(__webpack_exports__);
     },
     BookingSubmit: function BookingSubmit() {
       var _this2 = this;
-
       if (this.$cookies.get('access_token') == null) {
         window.$(".close").click();
         this.$swal.fire({
@@ -330,7 +327,6 @@ __webpack_require__.r(__webpack_exports__);
         });
         return false;
       }
-
       var user = this.$cookies.get('user');
       console.log(user);
       this.form.user_id = user.id;
@@ -340,9 +336,7 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).then(function (response) {
         _this2.form.reset();
-
         window.$(".close").click();
-
         _this2.$swal.fire({
           icon: "success",
           title: "Booking Inquiry Sent",
@@ -353,7 +347,6 @@ __webpack_require__.r(__webpack_exports__);
           icon: "error",
           title: "Please provide valid details"
         });
-
         _this2.handleError(error);
       });
     }
@@ -513,6 +506,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "HotelSearch",
   components: {
@@ -565,24 +559,19 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     getHotels: function getHotels() {
       var _this = this;
-
       this.searchForm.location = this.$cookies.get("hotelSearch_Location");
       this.searchForm.rooms = this.$cookies.get("hotelSearch_rooms");
       this.searchForm.room_type = this.$cookies.get("hotelSearch_room_type");
       this.searchForm.guests = this.$cookies.get("hotelSearch_guests");
       this.searchForm.post("/api/hotel-search").then(function (response) {
         console.log(response);
-
         if (!response.data) {
           _this.apiFailed = true;
           return false;
         }
-
         _this.hotel_data = response.data;
-
         if (response.data.length <= 0) {
           _this.$swal.fire("Sorry", "No Hotels found.", "info");
-
           _this.$router.push('/explore-destination');
         }
       });
@@ -609,7 +598,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.marginT[data-v-4a2cc9ec] {\n  margin-top: 10px !important;\n}\nlegend[data-v-4a2cc9ec] {\n    padding-bottom: 14px;\n    text-align: left;\n}\nfieldset[data-v-4a2cc9ec] {\n    margin-bottom: 14px;\n    padding-bottom: 14px;\n}\nfieldset[data-v-4a2cc9ec], input[type=\"button\"][data-v-4a2cc9ec] {\n    border: 0;\n}\ninput[type=\"button\"][data-v-4a2cc9ec] {\n    background: #01c5c4;\n    color: #fff;\n    cursor: pointer;\n    width: 35px;\n    height: 35px;\n    font-size: 17px;\n    border-radius: 20px;\n    padding-bottom: 5px;\n}\ninput[type=\"passengers\"][data-v-4a2cc9ec] {\n    border: 1px solid #F4F3F3;\n    height: 40px;\n    width: 60%;\n    text-align: center;\n    outline: 2px solid transparent;\n    outline-offset: 2px;\n}\n.personLables[data-v-4a2cc9ec]{\n  color: grey;\n  text-align: center;\n  font-weight: 600;\n}\n.btn-primary[data-v-4a2cc9ec]{\n  background: #01c5c4 !important;\n  outline: 2px solid transparent;\n  outline-offset: 2px;\n}\n.profile_button[data-v-4a2cc9ec]{\n  background: #01c5c4 !important;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.marginT[data-v-4a2cc9ec] {\r\n  margin-top: 10px !important;\n}\nlegend[data-v-4a2cc9ec] {\r\n    padding-bottom: 14px;\r\n    text-align: left;\n}\nfieldset[data-v-4a2cc9ec] {\r\n    margin-bottom: 14px;\r\n    padding-bottom: 14px;\n}\nfieldset[data-v-4a2cc9ec], input[type=\"button\"][data-v-4a2cc9ec] {\r\n    border: 0;\n}\ninput[type=\"button\"][data-v-4a2cc9ec] {\r\n    background: #01c5c4;\r\n    color: #fff;\r\n    cursor: pointer;\r\n    width: 35px;\r\n    height: 35px;\r\n    font-size: 17px;\r\n    border-radius: 20px;\r\n    padding-bottom: 5px;\n}\ninput[type=\"passengers\"][data-v-4a2cc9ec] {\r\n    border: 1px solid #F4F3F3;\r\n    height: 40px;\r\n    width: 60%;\r\n    text-align: center;\r\n    outline: 2px solid transparent;\r\n    outline-offset: 2px;\n}\n.personLables[data-v-4a2cc9ec]{\r\n  color: grey;\r\n  text-align: center;\r\n  font-weight: 600;\n}\n.btn-primary[data-v-4a2cc9ec]{\r\n  background: #01c5c4 !important;\r\n  outline: 2px solid transparent;\r\n  outline-offset: 2px;\n}\n.profile_button[data-v-4a2cc9ec]{\r\n  background: #01c5c4 !important;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -633,7 +622,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.MainRow[data-v-afd2bd6a] {\n  display: flex;\n  justify-content: space-between !important;\n  width: 100%;\n  align-items: center;\n}\n.expDetailImg[data-v-afd2bd6a]{\n  width: 100%;\n  height: auto;\n  margin-bottom: 10px;\n}\n.expImgSm[data-v-afd2bd6a]{\n  display: none;\n}\n.expDetailImgSmall[data-v-afd2bd6a]{\n  width:  50px;\n  height: 50px;\n}\n.customCard[data-v-afd2bd6a]{\n  display: flex;\n  flex-direction: column-reverse;\n  justify-content: space-between;\n  border: 1px solid #8080804d !important;\n  border-radius: 0px;\n  width: 80vw;\n  height: auto;\n  padding: 10px;\n  margin-bottom: 20px;\n}\n.detailsRow[data-v-afd2bd6a]{\n  padding: 0px 20px;\n  text-align: right;\n}\np[data-v-afd2bd6a] {\n  font-family: Calibri (Body) !important;\n}\n.mainRow1 p[data-v-afd2bd6a] {\n    margin-bottom: 5px !important;\n}\n.detailsRow p[data-v-afd2bd6a]{\n  margin-bottom: 0px !important;\n}\n.hotelName[data-v-afd2bd6a]{\n  font-weight: 600;\n  font-size: 16px;\n}\n.locName[data-v-afd2bd6a]{\n  font-weight: 400;\n  font-size: 16px;\n  color: gray;\n}\n.stars[data-v-afd2bd6a]{\n  margin-bottom: 20px;\n}\n.stars i[data-v-afd2bd6a]{\n  font-size: 18px;\n  color: #ffa500;\n}\n.amenP[data-v-afd2bd6a]{\n  font-size: 12px;\n  font-weight: 400;\n  color: #767676;\n}\n.bookBtn[data-v-afd2bd6a]{\n    margin: 5px 0px;\n    color: white;\n    background-color: #00c4c4;\n    border-color: #00c4c4;\n    padding: 6px 25px 6px 25px;\n    width: 95px;\n    height: 35px;\n    border: 0px;\n    font-size: 15px;\n    font-weight: 500;\n}\n.bookBtn[data-v-afd2bd6a]:hover{\n  box-shadow: 2px 2px grey;\n  color: #212529;\n}\n.amenity[data-v-afd2bd6a]{\n  margin: 5px 0px;\n  color: #00c4c4;\n  text-decoration: underline;\n  font-weight: 500;\n  font-size: 14px;\n  cursor: pointer;\n}\n.guests[data-v-afd2bd6a]{\n  font-size: 14px;\n  font-weight: 500;\n}\n.price[data-v-afd2bd6a]{\n  margin-top: 20px;\n  font-size: 22px;\n  font-weight: 500;\n}\n.taxes[data-v-afd2bd6a]{\n  font-size: 13px;\n  font-weight: 400;\n  color: #2c2929;\n}\n.perRoom[data-v-afd2bd6a]{\n  font-size: 13px;\n  font-weight: 400;\n  color: #2c2929;\n}\n@media (max-width: 768px) and (min-width: 640px) {\n.customCard[data-v-afd2bd6a]{\n    width: 65vw;\n}\n}\n@media (min-width: 768px){\n.expDetailImg[data-v-afd2bd6a]{\n    width: 230px;\n    height: 170px;\n    margin-bottom: 10px;\n}\n.expImgSm[data-v-afd2bd6a]{\n    display: flex;\n    flex-direction: row;\n    justify-content: center;\n    align-items: center;\n}\n}\n@media (max-width: 1279px ) and (min-width: 768px){\n.customCard[data-v-afd2bd6a]{\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    border: 1px solid #8080804d !important;\n    border-radius: 0px;\n    width: 80vw;\n    height: 270px;\n    padding: 10px;\n    margin-bottom: 20px;\n}\n}\n@media (min-width: 1280px) {\n.customCard[data-v-afd2bd6a]{\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    border: 1px solid #8080804d !important;\n    border-radius: 0px;\n    width: 65vw;\n    height: 270px;\n    padding: 10px;\n    margin-bottom: 20px;\n}\n}\n@media (min-width: 1536px) {\n.customCard[data-v-afd2bd6a]{\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    border: 1px solid #8080804d !important;\n    border-radius: 0px;\n    width: 50vw;\n    height: 270px;\n    padding: 10px;\n    margin-bottom: 20px;\n}\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.MainRow[data-v-afd2bd6a] {\r\n  display: flex;\r\n  justify-content: space-between !important;\r\n  width: 100%;\r\n  align-items: center;\n}\n.expDetailImg[data-v-afd2bd6a]{\r\n  width: 100%;\r\n  height: auto;\r\n  margin-bottom: 10px;\n}\n.expImgSm[data-v-afd2bd6a]{\r\n  display: none;\n}\n.expDetailImgSmall[data-v-afd2bd6a]{\r\n  width:  50px;\r\n  height: 50px;\n}\n.customCard[data-v-afd2bd6a]{\r\n  display: flex;\r\n  flex-direction: column-reverse;\r\n  justify-content: space-between;\r\n  border: 1px solid #8080804d !important;\r\n  border-radius: 0px;\r\n  width: 80vw;\r\n  height: auto;\r\n  padding: 10px;\r\n  margin-bottom: 20px;\n}\n.detailsRow[data-v-afd2bd6a]{\r\n  padding: 0px 20px;\r\n  text-align: right;\n}\np[data-v-afd2bd6a] {\r\n  font-family: Calibri (Body) !important;\n}\n.mainRow1 p[data-v-afd2bd6a] {\r\n    margin-bottom: 5px !important;\n}\n.detailsRow p[data-v-afd2bd6a]{\r\n  margin-bottom: 0px !important;\n}\n.hotelName[data-v-afd2bd6a]{\r\n  font-weight: 600;\r\n  font-size: 16px;\n}\n.locName[data-v-afd2bd6a]{\r\n  font-weight: 400;\r\n  font-size: 16px;\r\n  color: gray;\n}\n.stars[data-v-afd2bd6a]{\r\n  margin-bottom: 20px;\n}\n.stars i[data-v-afd2bd6a]{\r\n  font-size: 18px;\r\n  color: #ffa500;\n}\n.amenP[data-v-afd2bd6a]{\r\n  font-size: 12px;\r\n  font-weight: 400;\r\n  color: #767676;\n}\n.bookBtn[data-v-afd2bd6a]{\r\n    margin: 5px 0px;\r\n    color: white;\r\n    background-color: #00c4c4;\r\n    border-color: #00c4c4;\r\n    padding: 6px 25px 6px 25px;\r\n    width: 95px;\r\n    height: 35px;\r\n    border: 0px;\r\n    font-size: 15px;\r\n    font-weight: 500;\n}\n.bookBtn[data-v-afd2bd6a]:hover{\r\n  box-shadow: 2px 2px grey;\r\n  color: #212529;\n}\n.amenity[data-v-afd2bd6a]{\r\n  margin: 5px 0px;\r\n  color: #00c4c4;\r\n  text-decoration: underline;\r\n  font-weight: 500;\r\n  font-size: 14px;\r\n  cursor: pointer;\n}\n.guests[data-v-afd2bd6a]{\r\n  font-size: 14px;\r\n  font-weight: 500;\n}\n.price[data-v-afd2bd6a]{\r\n  margin-top: 20px;\r\n  font-size: 22px;\r\n  font-weight: 500;\n}\n.taxes[data-v-afd2bd6a]{\r\n  font-size: 13px;\r\n  font-weight: 400;\r\n  color: #2c2929;\n}\n.perRoom[data-v-afd2bd6a]{\r\n  font-size: 13px;\r\n  font-weight: 400;\r\n  color: #2c2929;\n}\n@media (max-width: 768px) and (min-width: 640px) {\n.customCard[data-v-afd2bd6a]{\r\n    width: 65vw;\n}\n}\n@media (min-width: 768px){\n.expDetailImg[data-v-afd2bd6a]{\r\n    width: 230px;\r\n    height: 170px;\r\n    margin-bottom: 10px;\n}\n.expImgSm[data-v-afd2bd6a]{\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: center;\r\n    align-items: center;\n}\n}\n@media (max-width: 1279px ) and (min-width: 768px){\n.customCard[data-v-afd2bd6a]{\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: space-between;\r\n    border: 1px solid #8080804d !important;\r\n    border-radius: 0px;\r\n    width: 80vw;\r\n    height: 270px;\r\n    padding: 10px;\r\n    margin-bottom: 20px;\n}\n}\n@media (min-width: 1280px) {\n.customCard[data-v-afd2bd6a]{\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: space-between;\r\n    border: 1px solid #8080804d !important;\r\n    border-radius: 0px;\r\n    width: 65vw;\r\n    height: 270px;\r\n    padding: 10px;\r\n    margin-bottom: 20px;\n}\n}\n@media (min-width: 1536px) {\n.customCard[data-v-afd2bd6a]{\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: space-between;\r\n    border: 1px solid #8080804d !important;\r\n    border-radius: 0px;\r\n    width: 50vw;\r\n    height: 270px;\r\n    padding: 10px;\r\n    margin-bottom: 20px;\n}\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -855,8 +844,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HotelBooking_vue_vue_type_template_id_4a2cc9ec_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HotelBooking_vue_vue_type_template_id_4a2cc9ec_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   render: () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HotelBooking_vue_vue_type_template_id_4a2cc9ec_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   staticRenderFns: () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HotelBooking_vue_vue_type_template_id_4a2cc9ec_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HotelBooking_vue_vue_type_template_id_4a2cc9ec_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./HotelBooking.vue?vue&type=template&id=4a2cc9ec&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/HotelBooking.vue?vue&type=template&id=4a2cc9ec&scoped=true&");
 
@@ -872,8 +861,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_hotel_search_vue_vue_type_template_id_afd2bd6a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_hotel_search_vue_vue_type_template_id_afd2bd6a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   render: () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_hotel_search_vue_vue_type_template_id_afd2bd6a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   staticRenderFns: () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_hotel_search_vue_vue_type_template_id_afd2bd6a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_hotel_search_vue_vue_type_template_id_afd2bd6a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./hotel-search.vue?vue&type=template&id=afd2bd6a&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/pages/Hotel/hotel-search.vue?vue&type=template&id=afd2bd6a&scoped=true&");
 
@@ -889,8 +878,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render),
-/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */   render: () => (/* binding */ render),
+/* harmony export */   staticRenderFns: () => (/* binding */ staticRenderFns)
 /* harmony export */ });
 var render = function () {
   var _vm = this
@@ -1625,8 +1614,8 @@ render._withStripped = true
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render),
-/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */   render: () => (/* binding */ render),
+/* harmony export */   staticRenderFns: () => (/* binding */ staticRenderFns)
 /* harmony export */ });
 var render = function () {
   var _vm = this
@@ -4058,7 +4047,7 @@ module.exports = {
 /***/ }),
 
 /***/ "6dd8":
-/***/ (function(module, __webpack_exports__, __nested_webpack_require_62181__) {
+/***/ (function(module, __nested_webpack_exports__, __nested_webpack_require_62181__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(global) {/**
@@ -4988,7 +4977,7 @@ var index = (function () {
     return ResizeObserver;
 })();
 
-/* harmony default export */ __webpack_exports__["a"] = (index);
+/* harmony default export */ __nested_webpack_exports__["a"] = (index);
 
 /* WEBPACK VAR INJECTION */}.call(this, __nested_webpack_require_62181__("c8ba")))
 
@@ -9737,11 +9726,11 @@ module.exports = debounce;
 /***/ }),
 
 /***/ "fb15":
-/***/ (function(module, __webpack_exports__, __nested_webpack_require_239816__) {
+/***/ (function(module, __nested_webpack_exports__, __nested_webpack_require_239816__) {
 
 "use strict";
 // ESM COMPAT FLAG
-__nested_webpack_require_239816__.r(__webpack_exports__);
+__nested_webpack_require_239816__.r(__nested_webpack_exports__);
 
 // CONCATENATED MODULE: ./node_modules/@vue/cli-service/lib/commands/build/setPublicPath.js
 // This file is imported into lib/wc client bundles.
@@ -12783,7 +12772,7 @@ var VueSlickCarousel_component = normalizeComponent(
 // CONCATENATED MODULE: ./node_modules/@vue/cli-service/lib/commands/build/entry-lib.js
 
 
-/* harmony default export */ var entry_lib = __webpack_exports__["default"] = (VueSlickCarousel);
+/* harmony default export */ var entry_lib = __nested_webpack_exports__["default"] = (VueSlickCarousel);
 
 
 

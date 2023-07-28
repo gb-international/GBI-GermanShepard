@@ -266,6 +266,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Booking",
   components: {
@@ -335,13 +336,11 @@ __webpack_require__.r(__webpack_exports__);
     },
     savePersons: function savePersons() {
       this.form.person = parseInt(this.form.children) + parseInt(this.form.adults);
-
       if (this.form.infants > 0) {
         this.people = this.form.person + ' + ' + this.form.infants + ' Infant(s)';
       } else {
         this.people = this.form.person;
       }
-
       this.showPersonModal = false;
       this.checkGroup();
     },
@@ -368,7 +367,6 @@ __webpack_require__.r(__webpack_exports__);
     },
     sightseeingData: function sightseeingData(city) {
       var _this = this;
-
       this.$axios.post("/api/city-sightseeing", {
         list: city
       }).then(function (response) {
@@ -398,7 +396,6 @@ __webpack_require__.r(__webpack_exports__);
     },
     cityList: function cityList() {
       var _this2 = this;
-
       this.$axios.get("/api/city").then(function (response) {
         for (var i = 0; i < response.data.data.length; i++) {
           _this2.options.push({
@@ -409,7 +406,6 @@ __webpack_require__.r(__webpack_exports__);
     },
     BookingSubmit: function BookingSubmit() {
       var _this3 = this;
-
       if (this.$cookies.get('access_token') == null) {
         window.$(".close").click();
         this.$swal.fire({
@@ -419,7 +415,6 @@ __webpack_require__.r(__webpack_exports__);
         });
         return false;
       }
-
       this.form.itinerary_id = this.$route.params.id;
       this.form.post("/api/booking", {
         headers: {
@@ -427,9 +422,7 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).then(function (response) {
         _this3.form.reset();
-
         window.$(".close").click();
-
         _this3.$swal.fire({
           icon: "success",
           title: "Booking Inquiry Sent",
@@ -440,7 +433,6 @@ __webpack_require__.r(__webpack_exports__);
           icon: "error",
           title: "Please provide valid details"
         });
-
         _this3.handleError(error);
       });
     }
@@ -464,357 +456,360 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_slick_carousel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-slick-carousel */ "./node_modules/vue-slick-carousel/dist/vue-slick-carousel.umd.js");
 /* harmony import */ var vue_slick_carousel__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_slick_carousel__WEBPACK_IMPORTED_MODULE_1__);
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
 function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -908,7 +903,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   methods: {
     generate: function generate() {
       var _this = this;
-
       var spread = Math.random() + 0.001;
       this.center = {
         lat: 1.38 + (Math.random() - 0.5) * spread,
@@ -937,7 +931,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       this.iconSelected = val;
     },
     changeCity: function changeCity(val) {
-      this.citySelected = val; //this.encyData = '';
+      this.citySelected = val;
+      //this.encyData = '';
       //if(this.itineraryData.Ency){
       //this.encyData = this.itineraryData.Ency.find(({ state_name }) => state_name === val);
       //}
@@ -954,16 +949,14 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     },
     getItinerary: function getItinerary() {
       var _this2 = this;
-
       this.$axios.get("/api/itinerary-view/".concat(this.$route.params.id)).then(function (res) {
-        _this2.itineraryData = res.data; //Save search
-
+        _this2.itineraryData = res.data;
+        //Save search
         var searches = JSON.parse(localStorage.getItem("itSearches"));
         searches.push(_this2.itineraryData);
         console.log(_this2.itineraryData);
         localStorage.setItem("itSearches", JSON.stringify(searches));
         console.log(_this2.itineraryData.itineraryimages.length);
-
         if (_this2.itineraryData.itineraryimages.length < 1) {
           for (var i = 0; i < 7; i++) {
             _this2.itineraryData.itineraryimages[i] = {
@@ -972,40 +965,33 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
             };
           }
         }
-
         _this2.selectedPhoto = _this2.itineraryData.itineraryimages[0].image;
-
         if (_this2.itineraryData.itinerarydays) {
           var data = _this2.itineraryData.itinerarydays;
           var selected = [];
           _this2.selected_cities = [];
-
           if (data) {
             _this2.selected_cities = [];
-
             for (var _i = 0; _i < data.length; _i++) {
               selected.push(data[_i].day_source);
               selected.push(data[_i].day_destination);
             }
           }
-
           _this2.selected_cities = _toConsumableArray(new Set(selected));
-          _this2.citySelected = _this2.selected_cities[0]; //if(this.itineraryData.Ency.length > 1){
+          _this2.citySelected = _this2.selected_cities[0];
+          //if(this.itineraryData.Ency.length > 1){
           //this.encyData = this.itineraryData.Ency.find(({ state_name }) => state_name === this.selected_cities[0]);
           //}
-
           console.log(_this2.selected_cities);
         }
-
         _this2.getRelatedCities(_this2.itineraryData.destination);
       });
     },
     getRelatedCities: function getRelatedCities(destination) {
       var _this3 = this;
-
       this.$axios.get("/api/related-cities/".concat(destination)).then(function (res) {
-        _this3.city_list = res.data; //setTimeout(this.loading = false, 1000)
-
+        _this3.city_list = res.data;
+        //setTimeout(this.loading = false, 1000)
         _this3.loading = false;
       });
     }
@@ -1031,7 +1017,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.marginT[data-v-31645f64] {\n  margin-top: 10px !important;\n}\nlegend[data-v-31645f64] {\n    padding-bottom: 14px;\n    text-align: left;\n}\nfieldset[data-v-31645f64] {\n    margin-bottom: 14px;\n    padding-bottom: 14px;\n}\nfieldset[data-v-31645f64], input[type=\"button\"][data-v-31645f64] {\n    border: 0;\n}\ninput[type=\"button\"][data-v-31645f64] {\n    background: #01c5c4;\n    color: #fff;\n    cursor: pointer;\n    width: 35px;\n    height: 35px;\n    font-size: 17px;\n    border-radius: 20px;\n    padding-bottom: 5px;\n}\ninput[type=\"passengers\"][data-v-31645f64] {\n    border: 1px solid #F4F3F3;\n    height: 40px;\n    width: 60%;\n    text-align: center;\n    outline: 2px solid transparent;\n    outline-offset: 2px;\n}\n.personLables[data-v-31645f64]{\n  color: grey;\n  text-align: center;\n  font-weight: 600;\n}\n.btn-primary[data-v-31645f64]{\n  background: #01c5c4 !important;\n  outline: 2px solid transparent;\n  outline-offset: 2px;\n}\n.profile_button[data-v-31645f64]{\n  background: #01c5c4 !important;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.marginT[data-v-31645f64] {\r\n  margin-top: 10px !important;\n}\nlegend[data-v-31645f64] {\r\n    padding-bottom: 14px;\r\n    text-align: left;\n}\nfieldset[data-v-31645f64] {\r\n    margin-bottom: 14px;\r\n    padding-bottom: 14px;\n}\nfieldset[data-v-31645f64], input[type=\"button\"][data-v-31645f64] {\r\n    border: 0;\n}\ninput[type=\"button\"][data-v-31645f64] {\r\n    background: #01c5c4;\r\n    color: #fff;\r\n    cursor: pointer;\r\n    width: 35px;\r\n    height: 35px;\r\n    font-size: 17px;\r\n    border-radius: 20px;\r\n    padding-bottom: 5px;\n}\ninput[type=\"passengers\"][data-v-31645f64] {\r\n    border: 1px solid #F4F3F3;\r\n    height: 40px;\r\n    width: 60%;\r\n    text-align: center;\r\n    outline: 2px solid transparent;\r\n    outline-offset: 2px;\n}\n.personLables[data-v-31645f64]{\r\n  color: grey;\r\n  text-align: center;\r\n  font-weight: 600;\n}\n.btn-primary[data-v-31645f64]{\r\n  background: #01c5c4 !important;\r\n  outline: 2px solid transparent;\r\n  outline-offset: 2px;\n}\n.profile_button[data-v-31645f64]{\r\n  background: #01c5c4 !important;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1055,7 +1041,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.row2-card[data-v-2bb87509]{\n  height: auto; \n  width: 100%; \n  padding: 16px 30px;\n  font-size: 18px;\n  box-shadow: 0 0 4px rgba(7, 7, 7, 0.2);\n  background: white;\n}\n.heading2[data-v-2bb87509]{\n font-size: 17px;\n font-weight: 500;\n color: black;\n}\n.mainRow1[data-v-2bb87509]{\n  margin-top: 20px;\n  margin-bottom: 21px;\n}\n.mainRow2[data-v-2bb87509]{\n  margin-bottom: 21px;\n}\n.mainRow3[data-v-2bb87509]{\n  margin-bottom: 21px;\n}\n.expDetailImg[data-v-2bb87509]{\n  width: 100%;\n  height: 260px;\n  margin-bottom: 10px;\n  margin-right: 15px;\n  background-size: cover;\n  background-position:50% 50%;\n  image-rendering: crisp-edges;\n  image-rendering: -moz-crisp-edges;          /* Firefox */\n  image-rendering: -o-crisp-edges;            /* Opera */\n  image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming)*/\n -ms-interpolation-mode: nearest-neighbor;   /* IE (non-standard property) */\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.expDetailImg2[data-v-2bb87509]{\n  width: 100%;\n  height: 200px;\n  margin-bottom: 10px;\n  margin-right: 15px;\n  background-size: cover;\n  background-position:50% 50%;\n  image-rendering: crisp-edges;\n  image-rendering: -moz-crisp-edges;          /* Firefox */\n  image-rendering: -o-crisp-edges;            /* Opera */\n  image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming)*/\n -ms-interpolation-mode: nearest-neighbor;   /* IE (non-standard property) */\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.expDetailImgSmall[data-v-2bb87509]{\n  width:  40px;\n  height: 40px;\n  box-shadow: 0 0 4px rgba(7, 7, 7, 0.2);\n  border-radius: 5px;\n  background-size: cover;\n  background-position:50% 50%;\n  image-rendering: crisp-edges;\n  image-rendering: -moz-crisp-edges;          /* Firefox */\n  image-rendering: -o-crisp-edges;            /* Opera */\n  image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming)*/\n -ms-interpolation-mode: nearest-neighbor;   /* IE (non-standard property) */\n  -o-object-fit: cover;\n     object-fit: cover;\n  cursor: pointer;\n}\n.expDetCol1[data-v-2bb87509]{\n  width: 100%;\n}\n.expDetCol2Main[data-v-2bb87509]{\n  height: 537px;\n  width: 360px;\n  display: none;\n  box-shadow: 0 0 4px rgba(7, 7, 7, 0.2);\n  margin-top: 115px !important;\n}\n.expDetCol2[data-v-2bb87509]{\n  display: none;\n  width: 30%; \n  height: 423px; \n  border-radius: 5px;\n  background: white;\n}\n.icons[data-v-2bb87509]{\n  cursor: pointer;\n  font-size: 17px;\n  font-weight: 500;\n  padding: 6px 10px;\n  font-family:'Nunito Sans';\n}\n.e-icons[data-v-2bb87509]{\n  cursor: pointer;\n  font-size: 18px;\n  font-weight: 600;\n  padding: 3px 10px;\n  margin-right: 15px;\n  font-family:'Nunito Sans';\n}\n.icons-flex[data-v-2bb87509] {\n  display: flex;\n  align-content: center;\n  justify-content: space-around;\n  flex-direction: row;\n  font-size: 18px;\n  font-weight: 400;\n}\n.icons-flex-e[data-v-2bb87509]{\n  display: flex;\n  align-content: center;\n  justify-content: start;\n  flex-direction: row;\n  font-size: 18px;\n  font-weight: 400;\n}\n.tabs[data-v-2bb87509]{\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 600;\n  margin-right: 15px;\n}\n.custom-div[data-v-2bb87509]{\n  display: inline;\n  margin-top: 26px !important;\n  padding-top: 0.2vh !important;\n  margin-right: 20px;\n  box-shadow: 0 0 4px rgba(7, 7, 7, 0.2);\n}\n.custom-flex[data-v-2bb87509] {\n  display: flex;\n  align-content: center;\n  justify-content: flex-start;\n  flex-direction: row;\n  font-size: 18px;\n  font-weight: 400;\n}\n@media (min-width: 500px) {\n.expDetailImgSmall[data-v-2bb87509]{\n  width:  30px;\n  height: 30px;\n}\n}\n@media (min-width: 600px) {\n.expDetailImgSmall[data-v-2bb87509]{\n    width:  70px;\n    height: 70px;\n}\n.tabs[data-v-2bb87509]{\n    font-size: 18px;\n    margin-right: 18px;\n}\n}\n@media (min-width: 768px) {\n.tabs[data-v-2bb87509]{\n    font-size: 20px;\n    margin-right: 22px;\n}\n.expDetailImgSmall[data-v-2bb87509]{\n    width:  80px;\n    height: 80px;\n}\n.expDetailImg[data-v-2bb87509]{\n    height: 412px;\n    margin-bottom: 16.5px;\n}\n.expDetailImg2[data-v-2bb87509]{\n    height: 300px;\n    margin-bottom: 16.5px;\n}\n.mainRow1[data-v-2bb87509]{\n    margin-top: 35px;\n    margin-bottom: 35px;\n}\n.mainRow2[data-v-2bb87509]{\n    margin-bottom: 35px;\n}\n.mainRow3[data-v-2bb87509]{\n    margin-bottom: 35px;\n}\n.rowheadings[data-v-2bb87509]{\n    font-size: 20px !important;\n}\n.rowheadingTop[data-v-2bb87509]{\n    font-size: 22px !important;\n}\n.iconClass p[data-v-2bb87509]{\n    font-size: 18px !important;\n}\n.grandTotalMob[data-v-2bb87509]{\n    margin-bottom: 2px !important;\n}\n.grandTotalMob p[data-v-2bb87509]{\n    font-size: 18px !important;\n}\n.grandTotalMob .smallP[data-v-2bb87509]{\n    font-size: 12.5px !important;\n}\n.grandTotalMob .p2[data-v-2bb87509]{\n    margin-top: 5px !important;\n    font-size: 20px !important;\n}\n.btnConfirm[data-v-2bb87509]{\n    font-size: 20px !important;\n    height: 55px !important;\n    width: 200px !important;\n}\n}\n@media (min-width: 1024px) {\n.tabs[data-v-2bb87509]{\n    font-size: 20px;\n    margin-right: 26px;\n}\n.expDetailImgSmall[data-v-2bb87509]{\n    width:  100px;\n    height: 100px;\n}\n.grandTotalMob[data-v-2bb87509]{\n    display: none !important;\n}\n.expDetCol2Main[data-v-2bb87509]{\n    display: inline;\n}\n.expDetCol2[data-v-2bb87509]{\n    display: inline;\n}\n.expDetCol1[data-v-2bb87509]{\n    width: 70%;\n}\n.iconClass[data-v-2bb87509]{\n    width: 18% !important;\n}\n.mainRow1[data-v-2bb87509]{\n    margin-top: 55px;\n    margin-bottom: 35px;\n}\n.mainRow2[data-v-2bb87509]{\n    margin-bottom: 35px;\n}\n.mainRow3[data-v-2bb87509]{\n    margin-bottom: 35px;\n}\n.label_[data-v-2bb87509]{\n  margin-bottom: 10px;\n  font-size: 14px;\n  margin-left: 25px;\n}\n}\n.iconMainDiv[data-v-2bb87509]{\n  display: flex;\n  flex-wrap: wrap;\n  flex-direction: row;\n  width: 100%;\n  justify-content: flex-start\n}\n.iconClass[data-v-2bb87509]{\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-start;\n  align-content: center;\n  width: 45%;\n  margin-right: 15px;\n  margin-bottom: 25px;\n}\n.iconClass img[data-v-2bb87509]{\n  height: 25px;\n  width: 25px;\n  margin-right: 12px;\n}\n.iconClass p[data-v-2bb87509]{\n  font-size: 14.2px;\n  font-weight: 400;\n  color: #1d1b1b;\n}\n.rowheadingTop[data-v-2bb87509]{\n  font-size: 22Spx;\n  font-weight: 600;\n  margin-bottom: 10px;\n  color: #101010;\n  font-family: 'Nunito Sans';\n}\n.rowheadings[data-v-2bb87509]{\n  font-size: 20px;\n  font-weight: 600;\n  margin-bottom: 30px;\n  color: #101010;\n  font-family: 'Nunito Sans';\n}\n.days_head[data-v-2bb87509]{\n  font-size: 16px;\n  font-weight: 600;\n  margin-bottom: 2px;\n  color: #101010;\n  font-family: 'Nunito Sans';\n}\n.days_head2[data-v-2bb87509]{\n  font-size: 14px;\n  font-weight: 600;\n  margin-bottom: 12px;\n  color: #101010;\n  font-family: 'Nunito Sans';\n}\n.itineraryDiv[data-v-2bb87509]{\n  display: flex;\n  flex-direction: column;\n  width: 100%;\n  justify-content: center;\n  align-content: space-between;\n}\n.ItneraryHeadDiv[data-v-2bb87509]{\n  height: auto; \n  width: 100%; \n  padding: 16px 30px;\n  font-size: 18px;\n  font-weight: 400;\n  box-shadow: 0 0 4px rgba(7, 7, 7, 0.2);\n  background: white;\n  margin-top: 35px;\n  font-family: 'Nunito Sans';\n}\n.singleItneraryDivMain[data-v-2bb87509]{\n}\n.singleItneraryDiv[data-v-2bb87509]{\n  height: 55px; \n  width: 100%; \n  padding: 14px 30px;\n  font-size: 18px;\n  font-weight: 600;\n box-shadow: 0 0 4px rgba(7, 7, 7, 0.2);\n  background: white;\n  cursor: pointer;\n}\n.singleItneraryDiv2[data-v-2bb87509]{\n  height: auto; \n  width: 100%; \n  padding: 16px 30px;\n  font-size: 18px;\n  font-weight: 400;\n  box-shadow: 0 0 4px rgba(7, 7, 7, 0.2);\n  background: white;\n  font-family: 'Nunito Sans';\n}\n.priceSingleDiv[data-v-2bb87509]{\n  padding: 12px 18px !important;\n  margin: 20px 2px !important;\n}\n.priceBorder[data-v-2bb87509]{\n  border-bottom: 1px solid #8080806b;\n}\n.priceSingleDiv p[data-v-2bb87509]{\n  font-size: 15.5px;\n  font-weight: 500;\n  font-family: 'Nunito Sans';\n  color: #1d1b1b;\n  margin-right: 3px;\n}\n.priceSingleDiv .p2[data-v-2bb87509]{\n  font-size: 16.2px;\n  font-weight: 600;\n  font-family: 'Nunito Sans' ;\n  color: #1d1b1b;\n}\n.grandTotalDiv[data-v-2bb87509]{\n  padding: 13px 18px !important;\n  border-bottom: 1px solid #8080806b;\n  border-top: 1px solid #8080806b;\n  background: #007bff2b\n}\n.grandTotalMob[data-v-2bb87509]{\n  padding: 18px !important;\n  background: #007bff2b;\n  margin-bottom: 5px !important;\n}\n.grandTotalMob p[data-v-2bb87509]{\n  font-size: 15px;\n  font-weight: 600;\n  font-family: 'Nunito Sans';\n  color: #1d1b1b;\n  margin-bottom: 0rem !important;\n}\n.grandTotalMob .smallP[data-v-2bb87509]{\n  font-size: 10px;\n  font-weight: 500;\n  font-family: 'Nunito Sans';\n  color: #1d1b1b;\n}\n.grandTotalMob .p2[data-v-2bb87509]{\n  margin-top: 5px;\n  font-size: 15.7px;\n  font-weight: 600;\n  font-family: 'Nunito Sans';\n  color: black;\n}\n.grandTotalDiv p[data-v-2bb87509]{\n  font-size: 14px;\n  font-weight: 500;\n  font-family: 'Nunito Sans';\n  color: #1d1b1b;\n}\n.grandTotalDiv .smallP[data-v-2bb87509]{\n  font-size: 11px;\n  font-weight: 500;\n  font-family: 'Nunito Sans';\n  color: #1d1b1b;\n}\n.grandTotalDiv .p2[data-v-2bb87509]{\n  margin-top: 6px;\n  font-size: 16.7px;\n  font-weight: 600;\n  font-family: 'Nunito Sans';\n  color: #1d1b1b;\n  color: black;\n}\n.couponDivMain[data-v-2bb87509]{\n  padding: 12px 18px !important;\n  margin-top: 10px !important; \n  border-bottom: 1px solid #8080806b;\n}\n.couponDiv[data-v-2bb87509]{\n}\n.couponDiv p[data-v-2bb87509]{\n  font-size: 15.5px;\n  font-weight: 400;\n  font-family: 'Nunito Sans';\n  color: #3490dc;\n  margin-right: 3px;\n}\n.couponDiv .p2[data-v-2bb87509]{\n  font-size: 16.2px;\n  font-weight: 500;\n  font-family: 'Nunito Sans';\n  color: #3490dc;\n}\n.btnCpn[data-v-2bb87509]{\n  color: #fff;\n  background-color: #f77736;\n  border-color: #f77736;\n  border-radius: 0px;\n}\n.btnPay[data-v-2bb87509]{\n  color: #fff;\n  background-color: #f77736;\n  border-color: #f77736;\n  height: 52px;\n  width: 100%;\n  margin-top: 5px;\n  border-radius: 0px;\n  border-bottom-left-radius: 10px;\n  border-bottom-right-radius: 10px;\n  font-weight: 500;\n}\n.btnConfirm[data-v-2bb87509]{\n  color: #fff;\n  background-color: #f77736;\n  border-color: #f77736;\n  height: 45px;\n  width: 150px;\n  border-radius: 0px;\n}\n.verticalStep[data-v-2bb87509]{\n  height: 30px;\n  width: 1px;\n  margin-left: 45px;\n  border-left: 1px dashed #1C75BC;\n}\n.label_[data-v-2bb87509]{\n  padding: 5px 5px;\n  background-color: #f77736;\n  color: white;\n  font-size: 12px;\n  font-family: 'Nunito Sans';\n  font-weight: 600;\n  width: 100px;\n  text-align: center;\n  border-radius: 15px;\n  margin-bottom: 10px;\n  margin-left: 16px;\n}\n.overview[data-v-2bb87509]{\n   font-family: 'Nunito Sans';\n   font-weight: 600;\n   font-size: 20px;\n   color: #101010;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.row2-card[data-v-2bb87509]{\r\n  height: auto; \r\n  width: 100%; \r\n  padding: 16px 30px;\r\n  font-size: 18px;\r\n  box-shadow: 0 0 4px rgba(7, 7, 7, 0.2);\r\n  background: white;\n}\n.heading2[data-v-2bb87509]{\r\n font-size: 17px;\r\n font-weight: 500;\r\n color: black;\n}\n.mainRow1[data-v-2bb87509]{\r\n  margin-top: 20px;\r\n  margin-bottom: 21px;\n}\n.mainRow2[data-v-2bb87509]{\r\n  margin-bottom: 21px;\n}\n.mainRow3[data-v-2bb87509]{\r\n  margin-bottom: 21px;\n}\n.expDetailImg[data-v-2bb87509]{\r\n  width: 100%;\r\n  height: 260px;\r\n  margin-bottom: 10px;\r\n  margin-right: 15px;\r\n  background-size: cover;\r\n  background-position:50% 50%;\r\n  image-rendering: crisp-edges;\r\n  image-rendering: -moz-crisp-edges;          /* Firefox */\r\n  image-rendering: -o-crisp-edges;            /* Opera */\r\n  image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming)*/\r\n -ms-interpolation-mode: nearest-neighbor;   /* IE (non-standard property) */\r\n  -o-object-fit: cover;\r\n     object-fit: cover;\n}\n.expDetailImg2[data-v-2bb87509]{\r\n  width: 100%;\r\n  height: 200px;\r\n  margin-bottom: 10px;\r\n  margin-right: 15px;\r\n  background-size: cover;\r\n  background-position:50% 50%;\r\n  image-rendering: crisp-edges;\r\n  image-rendering: -moz-crisp-edges;          /* Firefox */\r\n  image-rendering: -o-crisp-edges;            /* Opera */\r\n  image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming)*/\r\n -ms-interpolation-mode: nearest-neighbor;   /* IE (non-standard property) */\r\n  -o-object-fit: cover;\r\n     object-fit: cover;\n}\n.expDetailImgSmall[data-v-2bb87509]{\r\n  width:  40px;\r\n  height: 40px;\r\n  box-shadow: 0 0 4px rgba(7, 7, 7, 0.2);\r\n  border-radius: 5px;\r\n  background-size: cover;\r\n  background-position:50% 50%;\r\n  image-rendering: crisp-edges;\r\n  image-rendering: -moz-crisp-edges;          /* Firefox */\r\n  image-rendering: -o-crisp-edges;            /* Opera */\r\n  image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming)*/\r\n -ms-interpolation-mode: nearest-neighbor;   /* IE (non-standard property) */\r\n  -o-object-fit: cover;\r\n     object-fit: cover;\r\n  cursor: pointer;\n}\n.expDetCol1[data-v-2bb87509]{\r\n  width: 100%;\n}\n.expDetCol2Main[data-v-2bb87509]{\r\n  height: 537px;\r\n  width: 360px;\r\n  display: none;\r\n  box-shadow: 0 0 4px rgba(7, 7, 7, 0.2);\r\n  margin-top: 115px !important;\n}\n.expDetCol2[data-v-2bb87509]{\r\n  display: none;\r\n  width: 30%; \r\n  height: 423px; \r\n  border-radius: 5px;\r\n  background: white;\n}\n.icons[data-v-2bb87509]{\r\n  cursor: pointer;\r\n  font-size: 17px;\r\n  font-weight: 500;\r\n  padding: 6px 10px;\r\n  font-family:'Nunito Sans';\n}\n.e-icons[data-v-2bb87509]{\r\n  cursor: pointer;\r\n  font-size: 18px;\r\n  font-weight: 600;\r\n  padding: 3px 10px;\r\n  margin-right: 15px;\r\n  font-family:'Nunito Sans';\n}\n.icons-flex[data-v-2bb87509] {\r\n  display: flex;\r\n  align-content: center;\r\n  justify-content: space-around;\r\n  flex-direction: row;\r\n  font-size: 18px;\r\n  font-weight: 400;\n}\n.icons-flex-e[data-v-2bb87509]{\r\n  display: flex;\r\n  align-content: center;\r\n  justify-content: start;\r\n  flex-direction: row;\r\n  font-size: 18px;\r\n  font-weight: 400;\n}\n.tabs[data-v-2bb87509]{\r\n  cursor: pointer;\r\n  font-size: 14px;\r\n  font-weight: 600;\r\n  margin-right: 15px;\n}\n.custom-div[data-v-2bb87509]{\r\n  display: inline;\r\n  margin-top: 26px !important;\r\n  padding-top: 0.2vh !important;\r\n  margin-right: 20px;\r\n  box-shadow: 0 0 4px rgba(7, 7, 7, 0.2);\n}\n.custom-flex[data-v-2bb87509] {\r\n  display: flex;\r\n  align-content: center;\r\n  justify-content: flex-start;\r\n  flex-direction: row;\r\n  font-size: 18px;\r\n  font-weight: 400;\n}\n@media (min-width: 500px) {\n.expDetailImgSmall[data-v-2bb87509]{\r\n  width:  30px;\r\n  height: 30px;\n}\n}\n@media (min-width: 600px) {\n.expDetailImgSmall[data-v-2bb87509]{\r\n    width:  70px;\r\n    height: 70px;\n}\n.tabs[data-v-2bb87509]{\r\n    font-size: 18px;\r\n    margin-right: 18px;\n}\n}\n@media (min-width: 768px) {\n.tabs[data-v-2bb87509]{\r\n    font-size: 20px;\r\n    margin-right: 22px;\n}\n.expDetailImgSmall[data-v-2bb87509]{\r\n    width:  80px;\r\n    height: 80px;\n}\n.expDetailImg[data-v-2bb87509]{\r\n    height: 412px;\r\n    margin-bottom: 16.5px;\n}\n.expDetailImg2[data-v-2bb87509]{\r\n    height: 300px;\r\n    margin-bottom: 16.5px;\n}\n.mainRow1[data-v-2bb87509]{\r\n    margin-top: 35px;\r\n    margin-bottom: 35px;\n}\n.mainRow2[data-v-2bb87509]{\r\n    margin-bottom: 35px;\n}\n.mainRow3[data-v-2bb87509]{\r\n    margin-bottom: 35px;\n}\n.rowheadings[data-v-2bb87509]{\r\n    font-size: 20px !important;\n}\n.rowheadingTop[data-v-2bb87509]{\r\n    font-size: 22px !important;\n}\n.iconClass p[data-v-2bb87509]{\r\n    font-size: 18px !important;\n}\n.grandTotalMob[data-v-2bb87509]{\r\n    margin-bottom: 2px !important;\n}\n.grandTotalMob p[data-v-2bb87509]{\r\n    font-size: 18px !important;\n}\n.grandTotalMob .smallP[data-v-2bb87509]{\r\n    font-size: 12.5px !important;\n}\n.grandTotalMob .p2[data-v-2bb87509]{\r\n    margin-top: 5px !important;\r\n    font-size: 20px !important;\n}\n.btnConfirm[data-v-2bb87509]{\r\n    font-size: 20px !important;\r\n    height: 55px !important;\r\n    width: 200px !important;\n}\n}\n@media (min-width: 1024px) {\n.tabs[data-v-2bb87509]{\r\n    font-size: 20px;\r\n    margin-right: 26px;\n}\n.expDetailImgSmall[data-v-2bb87509]{\r\n    width:  100px;\r\n    height: 100px;\n}\n.grandTotalMob[data-v-2bb87509]{\r\n    display: none !important;\n}\n.expDetCol2Main[data-v-2bb87509]{\r\n    display: inline;\n}\n.expDetCol2[data-v-2bb87509]{\r\n    display: inline;\n}\n.expDetCol1[data-v-2bb87509]{\r\n    width: 70%;\n}\n.iconClass[data-v-2bb87509]{\r\n    width: 18% !important;\n}\n.mainRow1[data-v-2bb87509]{\r\n    margin-top: 55px;\r\n    margin-bottom: 35px;\n}\n.mainRow2[data-v-2bb87509]{\r\n    margin-bottom: 35px;\n}\n.mainRow3[data-v-2bb87509]{\r\n    margin-bottom: 35px;\n}\n.label_[data-v-2bb87509]{\r\n  margin-bottom: 10px;\r\n  font-size: 14px;\r\n  margin-left: 25px;\n}\n}\n.iconMainDiv[data-v-2bb87509]{\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  flex-direction: row;\r\n  width: 100%;\r\n  justify-content: flex-start\n}\n.iconClass[data-v-2bb87509]{\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: flex-start;\r\n  align-content: center;\r\n  width: 45%;\r\n  margin-right: 15px;\r\n  margin-bottom: 25px;\n}\n.iconClass img[data-v-2bb87509]{\r\n  height: 35px;\r\n  width: 35px;\r\n  margin-right: 12px;\n}\n.iconClass p[data-v-2bb87509]{\r\n  font-size: 14.2px;\r\n  font-weight: 400;\r\n  color: #1d1b1b;\n}\n.rowheadingTop[data-v-2bb87509]{\r\n  font-size: 22Spx;\r\n  font-weight: 600;\r\n  margin-bottom: 10px;\r\n  color: #101010;\r\n  font-family: 'Nunito Sans';\n}\n.rowheadings[data-v-2bb87509]{\r\n  font-size: 20px;\r\n  font-weight: 600;\r\n  margin-bottom: 30px;\r\n  color: #101010;\r\n  font-family: 'Nunito Sans';\n}\n.days_head[data-v-2bb87509]{\r\n  font-size: 16px;\r\n  font-weight: 600;\r\n  margin-bottom: 2px;\r\n  color: #101010;\r\n  font-family: 'Nunito Sans';\n}\n.days_head2[data-v-2bb87509]{\r\n  font-size: 14px;\r\n  font-weight: 600;\r\n  margin-bottom: 12px;\r\n  color: #101010;\r\n  font-family: 'Nunito Sans';\n}\n.itineraryDiv[data-v-2bb87509]{\r\n  display: flex;\r\n  flex-direction: column;\r\n  width: 100%;\r\n  justify-content: center;\r\n  align-content: space-between;\n}\n.ItneraryHeadDiv[data-v-2bb87509]{\r\n  height: auto; \r\n  width: 100%; \r\n  padding: 16px 30px;\r\n  font-size: 18px;\r\n  font-weight: 400;\r\n  box-shadow: 0 0 4px rgba(7, 7, 7, 0.2);\r\n  background: white;\r\n  margin-top: 35px;\r\n  font-family: 'Nunito Sans';\n}\n.singleItneraryDivMain[data-v-2bb87509]{\n}\n.singleItneraryDiv[data-v-2bb87509]{\r\n  height: 55px; \r\n  width: 100%; \r\n  padding: 14px 30px;\r\n  font-size: 18px;\r\n  font-weight: 600;\r\n box-shadow: 0 0 4px rgba(7, 7, 7, 0.2);\r\n  background: white;\r\n  cursor: pointer;\n}\n.singleItneraryDiv2[data-v-2bb87509]{\r\n  height: auto; \r\n  width: 100%; \r\n  padding: 16px 30px;\r\n  font-size: 18px;\r\n  font-weight: 400;\r\n  box-shadow: 0 0 4px rgba(7, 7, 7, 0.2);\r\n  background: white;\r\n  font-family: 'Nunito Sans';\n}\n.priceSingleDiv[data-v-2bb87509]{\r\n  padding: 12px 18px !important;\r\n  margin: 20px 2px !important;\n}\n.priceBorder[data-v-2bb87509]{\r\n  border-bottom: 1px solid #8080806b;\n}\n.priceSingleDiv p[data-v-2bb87509]{\r\n  font-size: 15.5px;\r\n  font-weight: 500;\r\n  font-family: 'Nunito Sans';\r\n  color: #1d1b1b;\r\n  margin-right: 3px;\n}\n.priceSingleDiv .p2[data-v-2bb87509]{\r\n  font-size: 16.2px;\r\n  font-weight: 600;\r\n  font-family: 'Nunito Sans' ;\r\n  color: #1d1b1b;\n}\n.grandTotalDiv[data-v-2bb87509]{\r\n  padding: 13px 18px !important;\r\n  border-bottom: 1px solid #8080806b;\r\n  border-top: 1px solid #8080806b;\r\n  background: #007bff2b\n}\n.grandTotalMob[data-v-2bb87509]{\r\n  padding: 18px !important;\r\n  background: #007bff2b;\r\n  margin-bottom: 5px !important;\n}\n.grandTotalMob p[data-v-2bb87509]{\r\n  font-size: 15px;\r\n  font-weight: 600;\r\n  font-family: 'Nunito Sans';\r\n  color: #1d1b1b;\r\n  margin-bottom: 0rem !important;\n}\n.grandTotalMob .smallP[data-v-2bb87509]{\r\n  font-size: 10px;\r\n  font-weight: 500;\r\n  font-family: 'Nunito Sans';\r\n  color: #1d1b1b;\n}\n.grandTotalMob .p2[data-v-2bb87509]{\r\n  margin-top: 5px;\r\n  font-size: 15.7px;\r\n  font-weight: 600;\r\n  font-family: 'Nunito Sans';\r\n  color: black;\n}\n.grandTotalDiv p[data-v-2bb87509]{\r\n  font-size: 14px;\r\n  font-weight: 500;\r\n  font-family: 'Nunito Sans';\r\n  color: #1d1b1b;\n}\n.grandTotalDiv .smallP[data-v-2bb87509]{\r\n  font-size: 11px;\r\n  font-weight: 500;\r\n  font-family: 'Nunito Sans';\r\n  color: #1d1b1b;\n}\n.grandTotalDiv .p2[data-v-2bb87509]{\r\n  margin-top: 6px;\r\n  font-size: 16.7px;\r\n  font-weight: 600;\r\n  font-family: 'Nunito Sans';\r\n  color: #1d1b1b;\r\n  color: black;\n}\n.couponDivMain[data-v-2bb87509]{\r\n  padding: 12px 18px !important;\r\n  margin-top: 10px !important; \r\n  border-bottom: 1px solid #8080806b;\n}\n.couponDiv[data-v-2bb87509]{\n}\n.couponDiv p[data-v-2bb87509]{\r\n  font-size: 15.5px;\r\n  font-weight: 400;\r\n  font-family: 'Nunito Sans';\r\n  color: #3490dc;\r\n  margin-right: 3px;\n}\n.couponDiv .p2[data-v-2bb87509]{\r\n  font-size: 16.2px;\r\n  font-weight: 500;\r\n  font-family: 'Nunito Sans';\r\n  color: #3490dc;\n}\n.btnCpn[data-v-2bb87509]{\r\n  color: #fff;\r\n  background-color: #f77736;\r\n  border-color: #f77736;\r\n  border-radius: 0px;\n}\n.btnPay[data-v-2bb87509]{\r\n  color: #fff;\r\n  background-color: #f77736;\r\n  border-color: #f77736;\r\n  height: 52px;\r\n  width: 100%;\r\n  margin-top: 5px;\r\n  border-radius: 0px;\r\n  border-bottom-left-radius: 10px;\r\n  border-bottom-right-radius: 10px;\r\n  font-weight: 500;\n}\n.btnConfirm[data-v-2bb87509]{\r\n  color: #fff;\r\n  background-color: #f77736;\r\n  border-color: #f77736;\r\n  height: 45px;\r\n  width: 150px;\r\n  border-radius: 0px;\n}\n.verticalStep[data-v-2bb87509]{\r\n  height: 30px;\r\n  width: 1px;\r\n  margin-left: 45px;\r\n  border-left: 1px dashed #1C75BC;\n}\n.label_[data-v-2bb87509]{\r\n  padding: 5px 5px;\r\n  background-color: #f77736;\r\n  color: white;\r\n  font-size: 12px;\r\n  font-family: 'Nunito Sans';\r\n  font-weight: 600;\r\n  width: 100px;\r\n  text-align: center;\r\n  border-radius: 15px;\r\n  margin-bottom: 10px;\r\n  margin-left: 16px;\n}\n.overview[data-v-2bb87509]{\r\n   font-family: 'Nunito Sans';\r\n   font-weight: 600;\r\n   font-size: 20px;\r\n   color: #101010;\n}\n.ndt-s[data-v-2bb87509] {\r\n    font-family: 'Nunito Sans';\r\n    font-size: 16px;\r\n    font-weight: 600;\r\n    margin-left: 10px;\n}\n.icon-img[data-v-2bb87509] {\r\n    height: 30px;\r\n    margin-bottom: 2px;\r\n    margin-right: 12px;\r\n    width: 30px;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1277,8 +1263,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Booking_vue_vue_type_template_id_31645f64_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Booking_vue_vue_type_template_id_31645f64_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   render: () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Booking_vue_vue_type_template_id_31645f64_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   staticRenderFns: () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Booking_vue_vue_type_template_id_31645f64_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Booking_vue_vue_type_template_id_31645f64_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Booking.vue?vue&type=template&id=31645f64&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/Booking.vue?vue&type=template&id=31645f64&scoped=true&");
 
@@ -1294,8 +1280,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExploreDetail_vue_vue_type_template_id_2bb87509_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExploreDetail_vue_vue_type_template_id_2bb87509_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   render: () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExploreDetail_vue_vue_type_template_id_2bb87509_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   staticRenderFns: () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExploreDetail_vue_vue_type_template_id_2bb87509_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExploreDetail_vue_vue_type_template_id_2bb87509_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ExploreDetail.vue?vue&type=template&id=2bb87509&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/pages/Explore/ExploreDetail.vue?vue&type=template&id=2bb87509&scoped=true&");
 
@@ -1311,8 +1297,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render),
-/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */   render: () => (/* binding */ render),
+/* harmony export */   staticRenderFns: () => (/* binding */ staticRenderFns)
 /* harmony export */ });
 var render = function () {
   var _vm = this
@@ -2086,8 +2072,8 @@ render._withStripped = true
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render),
-/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */   render: () => (/* binding */ render),
+/* harmony export */   staticRenderFns: () => (/* binding */ staticRenderFns)
 /* harmony export */ });
 var render = function () {
   var _vm = this
@@ -2476,6 +2462,57 @@ var render = function () {
                 },
                 [_vm._v("\n            Itinerary\n          ")]
               ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "tabs",
+                  style:
+                    _vm.tabSelected == "Neighbourhood"
+                      ? "border-bottom: 3px solid #f77736"
+                      : "",
+                  on: {
+                    click: function ($event) {
+                      return _vm.changeTab("Neighbourhood")
+                    },
+                  },
+                },
+                [_vm._v("\n            Your Neighbourhood\n          ")]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "tabs",
+                  style:
+                    _vm.tabSelected == "Encylopedia"
+                      ? "border-bottom: 3px solid #f77736"
+                      : "",
+                  on: {
+                    click: function ($event) {
+                      return _vm.changeTab("Encylopedia")
+                    },
+                  },
+                },
+                [_vm._v("\n            Encylopedia\n          ")]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "tabs",
+                  style:
+                    _vm.tabSelected == "Policy"
+                      ? "border-bottom: 3px solid #f77736"
+                      : "",
+                  on: {
+                    click: function ($event) {
+                      return _vm.changeTab("Policy")
+                    },
+                  },
+                },
+                [_vm._v("\n            Policy\n          ")]
+              ),
             ]),
           ]),
           _vm._v(" "),
@@ -2496,8 +2533,11 @@ var render = function () {
                       _vm.itineraryData.hotel_type != "0"
                         ? _c("div", { staticClass: "iconClass" }, [
                             _c("img", {
+                              staticClass: "svg-pink",
                               attrs: {
-                                src: _vm.$gbiAssets + "/hotel_icon.png",
+                                src:
+                                  _vm.$gbiAssets +
+                                  "/images/icons/tour-hotel.svg",
                               },
                             }),
                             _vm._v(" "),
@@ -2508,8 +2548,10 @@ var render = function () {
                       _vm.itineraryData.flight == "1"
                         ? _c("div", { staticClass: "iconClass" }, [
                             _c("img", {
+                              staticClass: "svg-blue",
                               attrs: {
-                                src: _vm.$gbiAssets + "/flight_icon.png",
+                                src:
+                                  _vm.$gbiAssets + "/images/icons/flight.svg",
                               },
                             }),
                             _vm._v(" "),
@@ -2520,8 +2562,11 @@ var render = function () {
                       _vm.itineraryData.tourtype == "International"
                         ? _c("div", { staticClass: "iconClass" }, [
                             _c("img", {
+                              staticClass: "svg-r-blue",
                               attrs: {
-                                src: _vm.$gbiAssets + "/passport_icon.png",
+                                src:
+                                  _vm.$gbiAssets +
+                                  "/images/icons/visa_passport.svg",
                               },
                             }),
                             _vm._v(" "),
@@ -2532,8 +2577,11 @@ var render = function () {
                       _vm.itineraryData.train == "1"
                         ? _c("div", { staticClass: "iconClass" }, [
                             _c("img", {
+                              staticClass: "svg-d-green",
                               attrs: {
-                                src: _vm.$gbiAssets + "/train_icon.png",
+                                src:
+                                  _vm.$gbiAssets +
+                                  "/images/icons/train_explore_icon.svg",
                               },
                             }),
                             _vm._v(" "),
@@ -2544,8 +2592,10 @@ var render = function () {
                       _vm.itineraryData.bus == "1"
                         ? _c("div", { staticClass: "iconClass" }, [
                             _c("img", {
+                              staticClass: "svg-orange",
                               attrs: {
-                                src: _vm.$gbiAssets + "/transport_icon.png",
+                                src:
+                                  _vm.$gbiAssets + "/images/icons/car-bus.svg",
                               },
                             }),
                             _vm._v(" "),
@@ -2556,8 +2606,9 @@ var render = function () {
                       _vm.itineraryData.food == "1"
                         ? _c("div", { staticClass: "iconClass" }, [
                             _c("img", {
+                              staticClass: "svg-teal",
                               attrs: {
-                                src: _vm.$gbiAssets + "/dinner_icon.png",
+                                src: _vm.$gbiAssets + "/images/icons/food.svg",
                               },
                             }),
                             _vm._v(" "),
@@ -2567,7 +2618,10 @@ var render = function () {
                       _vm._v(" "),
                       _c("div", { staticClass: "iconClass" }, [
                         _c("img", {
-                          attrs: { src: _vm.$gbiAssets + "/citytour_icon.png" },
+                          staticClass: "svg-d-blue",
+                          attrs: {
+                            src: _vm.$gbiAssets + "/images/icons/city-tour.svg",
+                          },
                         }),
                         _vm._v(" "),
                         _c("p", [_vm._v("City Tour")]),
@@ -2575,7 +2629,10 @@ var render = function () {
                       _vm._v(" "),
                       _c("div", { staticClass: "iconClass" }, [
                         _c("img", {
-                          attrs: { src: _vm.$gbiAssets + "/taxes_icon.png" },
+                          staticClass: "svg-green",
+                          attrs: {
+                            src: _vm.$gbiAssets + "/images/icons/taxes.svg",
+                          },
                         }),
                         _vm._v(" "),
                         _c("p", [_vm._v("GST")]),
@@ -2583,7 +2640,10 @@ var render = function () {
                       _vm._v(" "),
                       _c("div", { staticClass: "iconClass" }, [
                         _c("img", {
-                          attrs: { src: _vm.$gbiAssets + "/sightseeing.png" },
+                          staticClass: "svg-l-purple",
+                          attrs: {
+                            src: _vm.$gbiAssets + "/images/icons/sights.svg",
+                          },
                         }),
                         _vm._v(" "),
                         _c("p", [_vm._v("Sightseeing")]),
@@ -2636,7 +2696,19 @@ var render = function () {
                             },
                             [
                               _c("p", [
-                                _vm._v("Itinerary : Day " + _vm._s(data.day)),
+                                _c("img", {
+                                  staticClass: "icon-img svg-blue",
+                                  attrs: {
+                                    src:
+                                      _vm.$gbiAssets +
+                                      "/images/icons/location-icon.svg",
+                                  },
+                                }),
+                                _vm._v(
+                                  "\n          Itinerary : Day " +
+                                    _vm._s(data.day) +
+                                    "\n          "
+                                ),
                               ]),
                               _vm._v(" "),
                               _c("i", {
@@ -2671,7 +2743,7 @@ var render = function () {
               ])
             : _vm._e(),
           _vm._v(" "),
-          _vm.tabSelected == "Encylopedia"
+          _vm.tabSelected == "Blank"
             ? _c("div", { staticClass: "container mt-4" }, [
                 _c("p", { staticClass: "rowheadings" }, [
                   _vm._v("Encylopedia"),
@@ -2744,7 +2816,7 @@ var render = function () {
             ]),
           ]),
           _vm._v(" "),
-          _vm.tabSelected == "Neighbourhood"
+          _vm.tabSelected == "Blank"
             ? _c("div", { staticClass: "container mt-4" }, [
                 _c(
                   "p",
@@ -2893,6 +2965,19 @@ var render = function () {
                     ),
                   ],
                   1
+                ),
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.tabSelected != "Itinerary"
+            ? _c("div", { staticClass: "container mt-4" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "mt-4 ndt-s",
+                    staticStyle: { "margin-bottom": "5vh" },
+                  },
+                  [_vm._v("\n          Currently under development\n        ")]
                 ),
               ])
             : _vm._e(),
@@ -5132,7 +5217,7 @@ module.exports = {
 /***/ }),
 
 /***/ "6dd8":
-/***/ (function(module, __webpack_exports__, __nested_webpack_require_62181__) {
+/***/ (function(module, __nested_webpack_exports__, __nested_webpack_require_62181__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(global) {/**
@@ -6062,7 +6147,7 @@ var index = (function () {
     return ResizeObserver;
 })();
 
-/* harmony default export */ __webpack_exports__["a"] = (index);
+/* harmony default export */ __nested_webpack_exports__["a"] = (index);
 
 /* WEBPACK VAR INJECTION */}.call(this, __nested_webpack_require_62181__("c8ba")))
 
@@ -10811,11 +10896,11 @@ module.exports = debounce;
 /***/ }),
 
 /***/ "fb15":
-/***/ (function(module, __webpack_exports__, __nested_webpack_require_239816__) {
+/***/ (function(module, __nested_webpack_exports__, __nested_webpack_require_239816__) {
 
 "use strict";
 // ESM COMPAT FLAG
-__nested_webpack_require_239816__.r(__webpack_exports__);
+__nested_webpack_require_239816__.r(__nested_webpack_exports__);
 
 // CONCATENATED MODULE: ./node_modules/@vue/cli-service/lib/commands/build/setPublicPath.js
 // This file is imported into lib/wc client bundles.
@@ -13857,7 +13942,7 @@ var VueSlickCarousel_component = normalizeComponent(
 // CONCATENATED MODULE: ./node_modules/@vue/cli-service/lib/commands/build/entry-lib.js
 
 
-/* harmony default export */ var entry_lib = __webpack_exports__["default"] = (VueSlickCarousel);
+/* harmony default export */ var entry_lib = __nested_webpack_exports__["default"] = (VueSlickCarousel);
 
 
 

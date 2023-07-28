@@ -200,6 +200,16 @@
           width: 125px;
       }
     } */
+
+    *{
+      font-family: 'Nunito Sans' !important;
+    }
+
+    .fa, .far, .fas {
+        font-family: "Font Awesome 5 Free" !important;
+    }
+
+    
       
 
     </style>

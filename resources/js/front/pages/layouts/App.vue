@@ -45,7 +45,14 @@
                 >Explore Destination</router-link
               >
             </li>
-            <li class="nav-item dropdown mr-10">
+
+            <li class="nav-item mr-10">
+              <router-link class="nav-link" :to="`/resources/travel-encyclopedia`"
+                >Encyclopedia</router-link
+              >
+            </li>
+
+            <!-- <li class="nav-item dropdown mr-10">
               <a
                 class="nav-link dropdown-toggle"
                 href="#"
@@ -153,12 +160,12 @@
                   >
                 </div>
               </div>
-            </li>
+            </li> 
             <li class="nav-item mr-10" v-if="login !== '1'">
               <router-link class="nav-link" :to="`/contact-us`"
                 >Contact Us</router-link
               >
-            </li>
+            </li> -->
             <li class="nav-item mr-10" v-if="login != '1'">
               <router-link class="nav-link" :to="`/notifications`"
                 >
@@ -305,7 +312,7 @@
       </div>
     </div>
 
-    <div :class="$route.name == 'wonderla' ? 'body-content mt-85 py-5' : 'body-content mt-85 pb-5' ">
+    <div :class="$route.name == 'wonderla' ? 'body-content mt-85 py-5' : 'body-content mt-85 pb-5' " style="min-height: 100vh !important;">
       <transition name="fade" mode="out-in">
         <router-view></router-view>
       </transition>
@@ -520,6 +527,11 @@ export default {
   font-weight: 500;
   padding: 1px 1px 1px 1px;
   color: white;
+}
+
+.nav-link-active {
+    color: #f77736 !important;
+    font-weight: 600 !important;
 }
 
 @media only screen and (max-width: 720px) {
