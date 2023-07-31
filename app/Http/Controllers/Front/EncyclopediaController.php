@@ -12,14 +12,11 @@ class EncyclopediaController extends Controller
 {
     public function index()
     {
-      return response()->json(Encyclopedia::select('thumbnail','state_name', 'country', 'slug')->get());
+      return response()->json(Encyclopedia::whereNotNull('thumbnail')->select('thumbnail','state_name', 'country', 'slug')->get());
     }
     public function view($slug)
     {     
-
-
-        $data = Encyclopedia::with('comments','images','itinerarypdfs','comments.user','comments.user.information')->where('slug',$slug)->first();
-        
+      $data = Encyclopedia::with('comments','images','itinerarypdfs','comments.user','comments.user.information')->where('slug',$slug)->first();
       return response()->json($data);
     }
 

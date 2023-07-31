@@ -9,7 +9,8 @@ use Spatie\Permission\Traits\HasRoles;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Auth;
-
+//use Illuminate\Support\Facades\Hash;
+use App\Otp;
 
 class User extends Authenticatable
 {
@@ -33,6 +34,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function validateForPassportPasswordGrant($password)
+    {
+        if($this->where('password', $password)->exists())
+        {
+            return true; 
+        }
+    }
 
     public function setEmailAttribute($value){
         return $this->attributes['email'] = strtolower($value);

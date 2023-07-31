@@ -16,216 +16,211 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vform */ "./node_modules/vform/dist/vform.common.js");
 /* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vform__WEBPACK_IMPORTED_MODULE_1__);
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -291,7 +286,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
   },
   watch: {
     "$route.params.id": function $routeParamsId(id) {
-      this.stateData(); //   this.scrollToTop();
+      this.stateData();
+      //   this.scrollToTop();
     }
   },
   beforeCreate: function beforeCreate() {
@@ -315,8 +311,10 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       url: "https://www.gowithgbi.com/encyclopedia/".concat(this.state_data.slug),
       type: 'website'
     };
-    document.cookie = "GBIMeta =" + JSON.stringify(metaInfo) + "; path=/"; // this.scrollToTop();
+    document.cookie = "GBIMeta =" + JSON.stringify(metaInfo) + "; path=/";
+    // this.scrollToTop();
   },
+
   methods: {
     updateCurrent: function updateCurrent(page_num) {
       this.page = page_num;
@@ -334,13 +332,11 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
     },
     stateData: function stateData() {
       var _this = this;
-
       var api = "/api/encyclopedia/".concat(this.$route.params.id);
       this.$axios(api).then(function (response) {
         _this.state_data = response.data;
         _this.form.encyclopedia_id = _this.state_data.id;
         var url = "/api/ency-comments/".concat(_this.form.encyclopedia_id);
-
         _this.$axios(url).then(function (response) {
           _this.comment_list = response.data;
         });
@@ -354,7 +350,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
     },
     states: function states() {
       var _this2 = this;
-
       this.$axios.get("/api/encyclopedia-list").then(function (response) {
         _this2.state_list = response.data;
       });
@@ -364,7 +359,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
         window.$("#loginButton").click();
         return false;
       }
-
       this.reply_modal = !this.reply_modal;
       this.comment_id = comment_row;
     },
@@ -383,7 +377,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
     },
     addComment: function addComment() {
       var _this3 = this;
-
       if (localStorage.token == undefined) {
         alert("Please login first");
         window.$("#loginButton").click();
@@ -395,9 +388,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
           }
         }).then(function (response) {
           _this3.stateData();
-
           _this3.stateComments();
-
           _this3.form.body = "";
           _this3.form.parent_id = null;
         });
@@ -407,7 +398,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       var url = "/encyclopedia/" + slug;
       this.$router.push(url);
     },
-    scrollToTop: function scrollToTop() {// if (typeof window !== 'undefined') {
+    scrollToTop: function scrollToTop() {
+      // if (typeof window !== 'undefined') {
       //   this.prototype.scrollTo(0,0);
       // }
     }
@@ -427,13 +419,11 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
         month: "short",
         day: "2-digit"
       });
-
       var _dateTimeFormat$forma = dateTimeFormat.formatToParts(date),
-          _dateTimeFormat$forma2 = _slicedToArray(_dateTimeFormat$forma, 5),
-          month = _dateTimeFormat$forma2[0].value,
-          day = _dateTimeFormat$forma2[2].value,
-          year = _dateTimeFormat$forma2[4].value;
-
+        _dateTimeFormat$forma2 = _slicedToArray(_dateTimeFormat$forma, 5),
+        month = _dateTimeFormat$forma2[0].value,
+        day = _dateTimeFormat$forma2[2].value,
+        year = _dateTimeFormat$forma2[4].value;
       return "".concat(day, "-").concat(month, "-").concat(year);
     }
   }
@@ -505,8 +495,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_State_view_vue_vue_type_template_id_c80cf09e___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_State_view_vue_vue_type_template_id_c80cf09e___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   render: () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_State_view_vue_vue_type_template_id_c80cf09e___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   staticRenderFns: () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_State_view_vue_vue_type_template_id_c80cf09e___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_State_view_vue_vue_type_template_id_c80cf09e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./State-view.vue?vue&type=template&id=c80cf09e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/pages/Encyclopedia/State-view.vue?vue&type=template&id=c80cf09e&");
 
@@ -522,8 +512,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render),
-/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */   render: () => (/* binding */ render),
+/* harmony export */   staticRenderFns: () => (/* binding */ staticRenderFns)
 /* harmony export */ });
 var render = function () {
   var _vm = this
@@ -3220,7 +3210,7 @@ module.exports = {
 /***/ }),
 
 /***/ "6dd8":
-/***/ (function(module, __webpack_exports__, __nested_webpack_require_62181__) {
+/***/ (function(module, __nested_webpack_exports__, __nested_webpack_require_62181__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(global) {/**
@@ -4150,7 +4140,7 @@ var index = (function () {
     return ResizeObserver;
 })();
 
-/* harmony default export */ __webpack_exports__["a"] = (index);
+/* harmony default export */ __nested_webpack_exports__["a"] = (index);
 
 /* WEBPACK VAR INJECTION */}.call(this, __nested_webpack_require_62181__("c8ba")))
 
@@ -8899,11 +8889,11 @@ module.exports = debounce;
 /***/ }),
 
 /***/ "fb15":
-/***/ (function(module, __webpack_exports__, __nested_webpack_require_239816__) {
+/***/ (function(module, __nested_webpack_exports__, __nested_webpack_require_239816__) {
 
 "use strict";
 // ESM COMPAT FLAG
-__nested_webpack_require_239816__.r(__webpack_exports__);
+__nested_webpack_require_239816__.r(__nested_webpack_exports__);
 
 // CONCATENATED MODULE: ./node_modules/@vue/cli-service/lib/commands/build/setPublicPath.js
 // This file is imported into lib/wc client bundles.
@@ -11945,7 +11935,7 @@ var VueSlickCarousel_component = normalizeComponent(
 // CONCATENATED MODULE: ./node_modules/@vue/cli-service/lib/commands/build/entry-lib.js
 
 
-/* harmony default export */ var entry_lib = __webpack_exports__["default"] = (VueSlickCarousel);
+/* harmony default export */ var entry_lib = __nested_webpack_exports__["default"] = (VueSlickCarousel);
 
 
 

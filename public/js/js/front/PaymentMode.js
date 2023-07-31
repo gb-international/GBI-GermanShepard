@@ -14,51 +14,54 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_recaptcha__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-recaptcha */ "./node_modules/vue-recaptcha/dist/vue-recaptcha.es.js");
 /* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vform */ "./node_modules/vform/dist/vform.common.js");
 /* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vform__WEBPACK_IMPORTED_MODULE_1__);
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -90,7 +93,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     if (this.$cookies.get("access_token") == null) {
       this.$router.push("/");
     }
-
     this.bankNameList();
     this.tourBank();
     this.userData();
@@ -104,7 +106,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     tourBank: function tourBank() {
       var _this = this;
-
       var data = [];
       this.$axios.post("/api/tour-bankdetail", data, {
         headers: {
@@ -114,13 +115,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         _this.bankdetail = response.data;
       })["catch"](function (error) {
         _this.formShow = true;
-
         _this.handleError(error);
       });
     },
     userData: function userData() {
       var _this2 = this;
-
       var data = {
         travel_code: this.$route.params.id
       };
@@ -136,7 +135,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     ModalForm: function ModalForm() {
       var _this3 = this;
-
       this.$axios.post("/api/tour-bankdetail-store", this.form, {
         headers: {
           Authorization: "Bearer ".concat(localStorage.token)
@@ -144,7 +142,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }).then(function (response) {
         // this.form.reset();
         console.log(response);
-
         _this3.$swal.fire({
           icon: "success",
           title: "Beneficary Added !!"
@@ -161,16 +158,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         });
         return false;
       }
-
       if (this.payment_mode == "self") {
         this.$route.push("/payment-mode");
       } else {}
-
       return false;
     },
     bankNameList: function bankNameList() {
       var _this4 = this;
-
       this.$axios.get("/api/banknames").then(function (response) {
         _this4.banknames = response.data;
       });
@@ -241,8 +235,8 @@ __webpack_require__.r(__webpack_exports__);
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PaymentMode_vue_vue_type_template_id_53b44537___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PaymentMode_vue_vue_type_template_id_53b44537___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   render: () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PaymentMode_vue_vue_type_template_id_53b44537___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   staticRenderFns: () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PaymentMode_vue_vue_type_template_id_53b44537___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PaymentMode_vue_vue_type_template_id_53b44537___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./PaymentMode.vue?vue&type=template&id=53b44537& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/pages/user/tour/PaymentMode.vue?vue&type=template&id=53b44537&");
 
@@ -257,8 +251,8 @@ __webpack_require__.r(__webpack_exports__);
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render),
-/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */   render: () => (/* binding */ render),
+/* harmony export */   staticRenderFns: () => (/* binding */ staticRenderFns)
 /* harmony export */ });
 var render = function () {
   var _vm = this

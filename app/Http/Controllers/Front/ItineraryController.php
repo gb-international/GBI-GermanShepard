@@ -246,7 +246,7 @@ class ItineraryController extends Controller
             }
             $iTcities = array_unique($iTcities);
             foreach($iTcities as $iCity){
-                $encyData = Encyclopedia::where('state_name',$iCity)->first();
+                $encyData = Encyclopedia::where('city_name',$iCity)->first();
                 if($encyData){
                     array_push($iTencyclopedia, $encyData);
                 }

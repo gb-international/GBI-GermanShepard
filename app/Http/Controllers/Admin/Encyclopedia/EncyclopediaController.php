@@ -4,7 +4,7 @@
       Author: Ajay 
       Edited by: Manas
       **************************************************** */
-/* Edits: Added country field to json responses, Added Meta Properties and tags */
+/* Edits: Added cities system, country field to json responses, Added Meta Properties and tags */
 
 namespace App\Http\Controllers\Admin\Encyclopedia;
 
@@ -20,7 +20,6 @@ use Illuminate\Support\Facades\File;
 use App\Model\Post\Tag;
 use Image;
 
-
 class EncyclopediaController extends Controller
 {
     /**
@@ -34,23 +33,54 @@ class EncyclopediaController extends Controller
     public function __construct(){
         $this->data = [];
     }
-    public function all($size)
+    public function all($type, $size)
     {
-        return response()->json(Encyclopedia::select([
-            'id','thumbnail','banner_image','state_name','country','updated_at'
+        if($type == 'Cities'){
+            return response()->json(Encyclopedia::whereNotNull('city_name')
+            ->select([
+            'id','thumbnail','banner_image','state_name','city_name','country','updated_at','slug'
             ])
             ->latest('updated_at')
             ->paginate($size));
+        } else {
+            return response()->json(Encyclopedia::whereNull('city_name')
+            ->select([
+            'id','thumbnail','banner_image','state_name','country','updated_at','slug'
+            ])
+            ->latest('updated_at')
+            ->paginate($size));
+        }
+        
     }
 
     public function index()
     {
         return response()->json(Encyclopedia::select([
-            'id','thumbnail','banner_image','state_name','country','updated_at'
+            'id','thumbnail','banner_image','state_name','city_name','country','updated_at','slug'
             ])
             ->latest('updated_at')
             ->paginate(7));
     }
+
+    /*public function allCity($size)
+    {
+        return response()->json(Encyclopedia::whereNotNull('city_name')
+            ->select([
+            'id','thumbnail','banner_image','state_name','city_name','country','updated_at'
+            ])
+            ->latest('updated_at')
+            ->paginate($size));
+    }
+
+    public function indexCity()
+    {
+        return response()->json(Encyclopedia::whereNotNull('city_name')
+            ->select([
+            'id','thumbnail','banner_image','state_name','city_name','country','updated_at'
+            ])
+            ->latest('updated_at')
+            ->paginate(7));
+    }*/
 
     /**
      * Show the form for creating a new resource.
@@ -225,6 +255,7 @@ class EncyclopediaController extends Controller
     {
       return $this->validate($request, [
             'state_name'=>'required',
+            'city_name'=>'nullable',
             'country'=>'required',
             'description'=>'required',
             'map_link'=>'required',

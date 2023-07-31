@@ -9,7 +9,7 @@ class SendSms{
     public static function send($mobile,$template_id,$message){
         $phone = '91'.$mobile;
         $id = 'csrikhi@gbinternational.in';
-        $pwd = 'Roger224225g32@';
+        $pwd = 'BulandDarwaza26014@';
         $ApiUrl = "https://www.businesssms.co.in/smsaspx?Id=".$id."&Pwd=".urlencode($pwd)."&PhNo=".$phone."&TemplateID=".$template_id."&TEXT=".urldecode($message);
         $client = new \GuzzleHttp\Client(['verify' => false ]);
         $request = $client->get($ApiUrl);

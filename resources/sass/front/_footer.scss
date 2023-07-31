@@ -3,7 +3,7 @@
         background-image: url('/images/icons/footer-image.jpg');
         background-size: cover;
         background-repeat: no-repeat;
-        height: 275px;
+        height: 395px;
         padding:0px;
         background-size: 100% 100%;
         .white-important{
@@ -35,6 +35,10 @@
             padding: 2px 0px;
     }
 }
+
+.text-bold {
+    font-weight: 600!important;
+}
 .subscribe-form{
     input{
         border-radius: 43px !important;
@@ -48,7 +52,7 @@
         border-radius: 20px;
         &:hover{
             color: #e9f8ff;
-            background-color: #3490dc;
+            background-color: #f77736;
         }
     }
 }

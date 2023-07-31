@@ -100,7 +100,7 @@
 }
 
 .explore-icon-width {
-    width: 45px;
+    width: 35px;
     cursor: pointer;
 }
 
@@ -128,7 +128,7 @@
 			text-align: center;
 			font-size: 12px;
 		}
-		.card-icon{ width: 40px;}
+		.card-icon{ width: 35px;}
 	}
 
 @media only screen and (max-width:510px){
@@ -173,19 +173,19 @@
 	}
 }
 
-	.container-custom{
-	    width: 100%;
-	    padding-right: 15px;
-	    padding-left: 15px;
-	    margin-right: auto;
-	    margin-left: auto;
-	    margin-top: 1vh;
-	}	
+	.container-custom {
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 1vh;
+		padding-left: 15px;
+		padding-right: 15px;
+		width: 100%;
+	}
 	.addCity{
 		font-size: 13px;
 		font-weight: 600;
 		text-align: left;
-		color: #00aeefa8; 
+		color: #f77736; 
 	}
 	.removeCity{
 		font-size: 13px;
@@ -214,15 +214,16 @@
 	}
 
 	.bookbtn-custom {
-	    color: white;
-	    background-color: #f77736;
-	    border-color: #f77736;
-	    padding: 4px 25px 4px 25px;
 	    width: 95px;
 	   	height: 38px;
-	    border-radius: 0px;
-	    font-size: 15px;
-	    font-weight: 500;
+		background-color: #fff;
+		border-color: #f77736;
+		border-radius: 0;
+		color: #f77736;
+		font-size: 15px;
+		font-weight: 550;
+		padding: 4px 25px;
+		font-family: 'Nunito Sans';
 	}
 
 	.img-custom {
@@ -232,8 +233,8 @@
 	}
 
 	.bookbtn-custom:hover {
-	    box-shadow: 2px 2px grey;
-		color: #212529;
+	    background-color: #f77736;
+    	color: #fff;
 	}
 
 	.explore_custom_button {
@@ -273,11 +274,11 @@
 		.cardPadding{
 			padding-bottom: 28px;
 		}
-		.container-custom{
+		/*.container-custom{
 		    width: 70%;
 		    margin-top: -6vh;
 
-		}
+		}*/
 		.addCity{
 			font-size: 15px;
 		}
@@ -298,17 +299,50 @@
 
 	}
 
-	@media (min-width: 1280px) {
-		.container-custom{
-		    width: 60%;
-		    margin-top: -8vh;
-
-		}
+	@media (max-width: 1280px) {
 		custLabel{
 			margin-left: -1vw !important;
 		}
 
 	}
+	@media (min-width: 1280px){
+		.container-custom {
+			margin-top: -8vh;
+			width: 95%;
+		}
+	}
+	@media (min-width: 1300px){
+		.container-custom {
+			margin-top: -8vh;
+			width: 90%;
+		}
+	}
+	@media (min-width: 1400px){
+		.container-custom {
+			margin-top: -8vh;
+			width: 85%;
+		}
+	}
+	@media (min-width: 1500px){
+		.container-custom {
+			margin-top: -8vh;
+			width: 82%;
+		}
+	}
+	@media (min-width: 1600px) {
+		.container-custom {
+			margin-top: -8vh;
+			width: 75%;
+		}
+	}
+
+	@media (min-width: 1700px){
+		.container-custom {
+			margin-top: -8vh;
+			width: 70%;
+		}
+	}
+		
 
 
 
@@ -963,8 +997,7 @@ color: #000;
 }
 
 .nopadding {
-   padding-left: 5 !important;
-   padding-right: 5 !important;
+	padding: 0 5px 10px;
 }
 .card-image-col {
 

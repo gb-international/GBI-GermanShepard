@@ -3,6 +3,7 @@ namespace App\Http\Controllers\Front;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller; 
 use App\User;
+use App\Otp;
 use App\Model\User\Information;
 use App\Model\Tour\TourUser;
 use App\Model\Tour\Tour;
@@ -19,16 +20,35 @@ use App\Jobs\ChangePasswordJob;
 use App\Rules\EmailValidate;
 use App\Model\User\Subscriber;
 use App\Model\Notification\Notifier;
+
 class AuthController extends Controller{
 
     public function login(Request $request){ 
+
+
+        // Check if a user with the specified number exists
+        $userinfo = Information::where('phone_no', $request->phone_no)->first();
+        if (!$userinfo) {
+            return response()->json([
+                'message' => 'Invalid phone number',
+                'status' => 422
+            ], 422);
+        }
+
+        // Check if otp is valid
+        $otpVerify = Otp::where('otp_send', $request->otp)->where('phone_no', $request->phone_no)->first();
+        if (!$otpVerify) {
+            return response()->json([
+                'message' => 'Invalid OTP',
+                'status' => 422
+            ], 422);
+        }
         
-        
-        // Check if a user with the specified email exists
-        $user = User::where('email', $request->email)->first();
+        // Retrieve user data
+        $user = User::findOrFail($userinfo->user_id);
         if (!$user) {
             return response()->json([
-                'message' => 'Wrong email or password',
+                'message' => 'Invalid user',
                 'status' => 422
             ], 422);
         }
@@ -43,12 +63,21 @@ class AuthController extends Controller{
         
         // If a user with the email was found - check if the specified password
         
-        if (!Hash::check($request->password, $user->password)) {
+       /* if (!Hash::check($request->password, $user->password)) {
             return response()->json([
                 'message' => 'Wrong email or password',
                 'status' => 422
             ], 422);
-        }
+        } 
+
+        // If a user with the email was found after otp validation then login user
+
+        if ($request->phone_no != $user->information->phone_no) {
+            return response()->json([
+                'message' => 'Wrong email or phone number',
+                'status' => 422
+            ], 422);
+        } */
         
         
         // Send an internal API request to get an access token
@@ -68,10 +97,9 @@ class AuthController extends Controller{
             'grant_type' => 'password',
             'client_id' => $client->id,
             'client_secret' => $client->secret,
-            'username' => $request->email,
-            'password' => $request->password,
+            'username' => $user->email,
+            'password' => $user->password,
         ];
-   
 
         $request = Request::create('/oauth/token', 'POST', $data);
         
@@ -79,7 +107,8 @@ class AuthController extends Controller{
         // Check if the request was successful
         if ($response->getStatusCode() != 200) {
             return response()->json([
-                'message' => 'Wrong email or password',
+                'message' => 'Wrong details, please try again',
+                //'response' => $response,
                 'status' => 422
             ], 422);
         }

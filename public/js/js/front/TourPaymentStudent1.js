@@ -14,289 +14,292 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_recaptcha__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-recaptcha */ "./node_modules/vue-recaptcha/dist/vue-recaptcha.es.js");
 /* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vform */ "./node_modules/vform/dist/vform.common.js");
 /* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vform__WEBPACK_IMPORTED_MODULE_1__);
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -307,7 +310,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   data: function data() {
     var _ref;
-
     return _ref = {
       chequePage: false,
       response: "",
@@ -367,7 +369,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     tourBank: function tourBank() {
       var _this = this;
-
       var data = [];
       this.$axios.post("/api/tour-bankdetail", data, {
         headers: {
@@ -377,13 +378,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         _this.bankdetail = response.data;
       })["catch"](function (error) {
         _this.formShow = true;
-
         _this.handleError(error);
       });
     },
     userData: function userData() {
       var _this2 = this;
-
       var data = {
         travel_code: this.tour_id
       };
@@ -397,7 +396,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         _this2.studentForm.user_id = response.data.user_id;
         _this2.studentForm.amount = response.data.price;
         _this2.price = _this2.studentForm.amount;
-
         _this2.StudentBank();
       })["catch"](function (error) {
         _this2.handleError(error);
@@ -407,7 +405,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.studentForm.tour_code = this.tour_id;
       this.studentForm.amount = this.tour_info.base_price;
       this.studentForm.user_id = this.tour_info.user_id;
-
       if (this.robot == false) {
         this.$swal.fire({
           icon: "error",
@@ -415,34 +412,30 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         });
         return false;
       }
-
       if (this.studentForm.payment_mode == "self" && this.studentForm.payment_type == "cheque") {
         this.studentForm.schoolbankdetail_id = "";
-        this.chequePage = true; // this.$router.push(`/payment-mode/${this.tour_id}`);
+        this.chequePage = true;
+        // this.$router.push(`/payment-mode/${this.tour_id}`);
       }
 
       if (this.studentForm.payment_mode == "self" && this.studentForm.payment_type == "cash") {
         this.studentForm.schoolbankdetail_id = "";
         this.submitForm();
       }
-
       if (this.studentForm.payment_mode == "student" && this.studentForm.schoolbankdetail_id != "") {
         this.studentForm.payment_type = "";
         this.submitForm();
       }
-
       return false;
     },
     bankNameList: function bankNameList() {
       var _this3 = this;
-
       this.$axios.get("/api/banknames").then(function (response) {
         _this3.banknames = response.data;
       });
     },
     StudentBank: function StudentBank() {
       var _this4 = this;
-
       var data = {
         tour_code: this.tour_id
       };
@@ -460,7 +453,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     submitForm: function submitForm() {
       var _this5 = this;
-
       this.studentForm.payment_mode = 'student';
       console.log(this.studentForm, 'hi');
       this.$axios.post("/api/tour-submit-payment", this.studentForm, {
@@ -473,15 +465,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             icon: "error",
             title: response.data.error
           });
-
           return false;
         }
-
         _this5.$swal.fire({
           icon: "success",
           title: "Successfully Added !!"
         });
-
         _this5.$router.push("/tour-list");
       });
       /*.catch((error) => {
@@ -496,18 +485,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         });
         return false;
       }
-
       this.studentForm.tour_code = this.tour_id;
-
       if (this.tour_info.profession == "teacher") {
         this.studentForm.amount = this.tour_info.price * this.tour_info.no_of_person;
       } else {
         this.studentForm.amount = this.tour_info.price;
       }
-
       this.studentForm.user_id = this.tour_info.user_id;
       this.studentForm.travel_code = this.tour_info.travel_code;
-
       var data = _defineProperty({
         user_id: "",
         travel_code: "",
@@ -521,7 +506,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         total_members: 0,
         customer_type: 'school'
       }, "price", 0);
-
       data.user_id = this.tour_info.user_id;
       data.paid_person = this.tour_info.paid_person;
       data.unpaid_person = this.tour_info.unpaid_person;
@@ -530,12 +514,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       data.price = this.studentForm.amount;
       data.travel_code = this.tour_info.travel_code;
       data.tour_id = this.tour_id;
-      data.school_id = this.userinfo.school_id; //data.customer_type = this.studentForm.customer_type
+      data.school_id = this.userinfo.school_id;
+      //data.customer_type = this.studentForm.customer_type
+
       //console.log(data)
-
       this.$cookies.set("payment-data", data, 60 * 60 * 1); // expire in 1 hour
-
-      this.$router.push("/payment-billing"); //this.$refs.submitNetPayForm.click()
+      this.$router.push("/payment-billing");
+      //this.$refs.submitNetPayForm.click()
     },
     backReset: function backReset() {
       this.chequePage = false;
@@ -620,8 +605,8 @@ __webpack_require__.r(__webpack_exports__);
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TourPayment_vue_vue_type_template_id_23775e60___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TourPayment_vue_vue_type_template_id_23775e60___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   render: () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TourPayment_vue_vue_type_template_id_23775e60___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   staticRenderFns: () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TourPayment_vue_vue_type_template_id_23775e60___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TourPayment_vue_vue_type_template_id_23775e60___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./TourPayment.vue?vue&type=template&id=23775e60& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/pages/user/student/tour/TourPayment.vue?vue&type=template&id=23775e60&");
 
@@ -636,8 +621,8 @@ __webpack_require__.r(__webpack_exports__);
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render),
-/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */   render: () => (/* binding */ render),
+/* harmony export */   staticRenderFns: () => (/* binding */ staticRenderFns)
 /* harmony export */ });
 var render = function () {
   var _vm = this

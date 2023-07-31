@@ -16,6 +16,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['text'],
   data: function data() {
@@ -40,6 +41,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['text']
 });
@@ -61,6 +63,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['text'],
   data: function data() {
@@ -175,80 +178,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 
 
 
@@ -302,7 +232,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.widthControl[data-v-27c575dc]{\n  width: 70% !important\n}\n@media only screen and (max-width: 824px) {\n.widthControl[data-v-27c575dc]{\n  width: 90% !important\n}\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.widthControl[data-v-27c575dc]{\r\n  width: 70% !important\n}\n@media only screen and (max-width: 824px) {\n.widthControl[data-v-27c575dc]{\r\n  width: 90% !important\n}\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -575,8 +505,8 @@ __webpack_require__.r(__webpack_exports__);
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Heading_vue_vue_type_template_id_431e53a2___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Heading_vue_vue_type_template_id_431e53a2___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   render: () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Heading_vue_vue_type_template_id_431e53a2___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   staticRenderFns: () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Heading_vue_vue_type_template_id_431e53a2___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Heading_vue_vue_type_template_id_431e53a2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Heading.vue?vue&type=template&id=431e53a2& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/layout/Heading.vue?vue&type=template&id=431e53a2&");
 
@@ -591,8 +521,8 @@ __webpack_require__.r(__webpack_exports__);
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Paragraph_vue_vue_type_template_id_0c63b1e4___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Paragraph_vue_vue_type_template_id_0c63b1e4___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   render: () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Paragraph_vue_vue_type_template_id_0c63b1e4___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   staticRenderFns: () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Paragraph_vue_vue_type_template_id_0c63b1e4___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Paragraph_vue_vue_type_template_id_0c63b1e4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Paragraph.vue?vue&type=template&id=0c63b1e4& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/layout/Paragraph.vue?vue&type=template&id=0c63b1e4&");
 
@@ -607,8 +537,8 @@ __webpack_require__.r(__webpack_exports__);
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SubHeading_vue_vue_type_template_id_d853df9c___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SubHeading_vue_vue_type_template_id_d853df9c___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   render: () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SubHeading_vue_vue_type_template_id_d853df9c___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   staticRenderFns: () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SubHeading_vue_vue_type_template_id_d853df9c___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SubHeading_vue_vue_type_template_id_d853df9c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SubHeading.vue?vue&type=template&id=d853df9c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/components/layout/SubHeading.vue?vue&type=template&id=d853df9c&");
 
@@ -623,8 +553,8 @@ __webpack_require__.r(__webpack_exports__);
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OurStory_vue_vue_type_template_id_27c575dc_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OurStory_vue_vue_type_template_id_27c575dc_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   render: () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OurStory_vue_vue_type_template_id_27c575dc_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   staticRenderFns: () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OurStory_vue_vue_type_template_id_27c575dc_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OurStory_vue_vue_type_template_id_27c575dc_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./OurStory.vue?vue&type=template&id=27c575dc&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/pages/AboutUs/OurStory.vue?vue&type=template&id=27c575dc&scoped=true&");
 
@@ -639,8 +569,8 @@ __webpack_require__.r(__webpack_exports__);
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render),
-/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */   render: () => (/* binding */ render),
+/* harmony export */   staticRenderFns: () => (/* binding */ staticRenderFns)
 /* harmony export */ });
 var render = function () {
   var _vm = this
@@ -665,8 +595,8 @@ render._withStripped = true
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render),
-/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */   render: () => (/* binding */ render),
+/* harmony export */   staticRenderFns: () => (/* binding */ staticRenderFns)
 /* harmony export */ });
 var render = function () {
   var _vm = this
@@ -691,8 +621,8 @@ render._withStripped = true
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render),
-/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */   render: () => (/* binding */ render),
+/* harmony export */   staticRenderFns: () => (/* binding */ staticRenderFns)
 /* harmony export */ });
 var render = function () {
   var _vm = this
@@ -717,213 +647,59 @@ render._withStripped = true
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render),
-/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */   render: () => (/* binding */ render),
+/* harmony export */   staticRenderFns: () => (/* binding */ staticRenderFns)
 /* harmony export */ });
 var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { attrs: { id: "ourstory" } }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "container" },
-      [
-        _c("heading", {
-          staticStyle: { "margin-bottom": "10px !important" },
-          attrs: { text: "Our Story" },
-        }),
-        _vm._v(" "),
-        _c("sub-heading", {
-          attrs: { text: "One’s action can inspire others to dream bigger" },
-        }),
-        _vm._v(" "),
-        _c("paragraph", {
-          attrs: {
-            text: "In ancient times, the offset of travel was only on the sole purpose of spiritual fulfillment and medicinal offerings. During the course of time, people began to explore different destinations for knowledge, cultural exploration, scenic beauty and other special interests. But much of our great historical monuments and culture are still unseen and unheard to many people.",
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { attrs: { id: "ourstory" } }, [
+      _c("div", { staticClass: "banner_ourstory text_on_image banner_bg" }, [
+        _c("div", { staticClass: "content" }, [
+          _c("p", { staticClass: "heading" }, [_vm._v("Our Story")]),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "container" }, [
+        _c(
+          "h1",
+          {
+            staticClass: "gbi_main-heading pt-3 text-capitalize",
+            staticStyle: { "margin-bottom": "10px !important" },
           },
-        }),
+          [_vm._v("\n        About Us\n    ")]
+        ),
         _vm._v(" "),
-        _c("paragraph", {
-          attrs: {
-            text: "So, with constant efforts of our CEO Mr. Jasbir Singh Rikhi to bring back our lost cultural and    architectural heritage of our country, he aims to bridge this gap and build a strong foundation in educating young minds and passionate travellers towards our rich history. He, being a passionate traveler himself from the hospitality sector, whenever used to hit the road on his Royal Enfield to explore new places, he realised that people who came to pay a visit to that particular destination would click a photo and move on without showing any interest in its rich history, culture and not even admiring the architectural and technological advancements. This made a huge impact on him and made him realise that there is a greater need to educate people(young minds and passionate travelers) about our rich cultural heritage through fun and innovative methods.",
-          },
-        }),
-        _vm._v(" "),
-        _c("paragraph", {
-          attrs: {
-            text: "And so the journey of GBI was set forth in 1983 by our CEO Mr. Jasbir Singh Rikhi single-handedly with the motive to release the pressure of classroom learning and allow young minds to learn from new and engaging environments outside their comfort zone through experiential journeys.Serving for around 40 yrs in the industry, we provide a platform for young minds and passionate travelers to explore and discover different cultural aspects and scientific explorations across the globe with journeys booked through our web platforms.",
-          },
-        }),
-        _vm._v(" "),
-        _c("paragraph", {
-          attrs: {
-            text: "Our USP as an organization is to help young minds and travelers to learn, explore and discover with best-in-class service and quality, while they hit the road with us. GBI’s travel program features observation, experiential learning and skill development along with fun loaded activities.",
-          },
-        }),
-        _vm._v(" "),
-        _c("paragraph", {
-          attrs: {
-            text: "Designed with academic standards and the requirements posed by the fellow travelers, we strive to provide a real world context in a more conceptual and practical manner. We, therefore, create enriching programs tailored to specific curriculum and our journeys are designed to support more than one disciplinary connection such as history and culture, heritage and arts to name a few. We believe that traveling with GBI can do a lot more than a change in the way a person perceives the world; it can enhance their skills and their ability to make the world a better place.",
-          },
-        }),
-        _vm._v(" "),
-        _c("paragraph", {
-          attrs: {
-            text: "We, as an organisation also cater MICE, events, corporate meetups and conferences with best-in-class service and quality that speaks for itself. With our 24x7 personal and professional support, assurance to our clients , we have been successful in maintaining an excellent track record in the educational and corporate world. We have been our client’s favourite in providing them with unforgettable experiences on their journeys through several team building activities, workshops & seminar facilities.",
-          },
-        }),
-        _vm._v(" "),
-        _c("paragraph", {
-          attrs: {
-            text: "Our team of experienced and well trained excursion event managers are capable enough to handle any situation with ease, when you are on the tour with us. Our Management believes in one simple concept that is to be truthful to ourselves and give value to our GBI clients.",
-          },
-        }),
-        _vm._v(" "),
-        _c("paragraph", {
-          attrs: {
-            text: "We as an organization believe in one simple thing “Move Ahead With Time” and so we are  changing our research patterns and approaches with time to meet the demands and requirements of the new upcoming trends.",
-          },
-        }),
-        _vm._v(" "),
-        _c("paragraph", {
-          attrs: {
-            text: "As an educational travel specialist we believe that  learning never stops, neither the advancements pertaining to history/culture, architecture, religion and science . It is us who needs to identify the scenarios that best fits us in a particular situation while we are on the go.",
-          },
-        }),
-        _vm._v(" "),
-        _c("br"),
-        _vm._v(" "),
-        _c("sub-heading", {
-          attrs: { text: "Success does not lie in results but in efforts" },
-        }),
-        _vm._v(" "),
-        _c("paragraph", {
-          attrs: {
-            text: "At GBI, we believe that to travel is to learn. It’s a belief that has shaped our path for the last 35 years and something that drive us to keep “moving ahead with time”. We foster a worldwide perspective and are attuned socially and culturally to the ever changing landscape of the classroom and the competitive global market. Keeping this in mind, we offer a number of tour programs covering a wide array of topics. Since its inception, GBI has sent more than one lakh students to different destinations across the globe.",
-          },
-        }),
-        _vm._v(" "),
-        _c("section", { staticClass: "bgcolor-section" }, [
-          _c("div", { staticClass: "col-lg-12" }, [
-            _c(
-              "article",
-              { staticClass: "about-story" },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "d-flex flex-lg-row flex-column justify-content-between align-items-center",
-                  },
-                  [
-                    _c(
-                      "div",
-                      { staticClass: "ourstory-content" },
-                      [
-                        _c("heading", { attrs: { text: "Mission" } }),
-                        _vm._v(" "),
-                        _c("sub-heading", {
-                          attrs: { text: "Learn from the diversity" },
-                        }),
-                        _vm._v(" "),
-                        _c("paragraph", {
-                          attrs: {
-                            text: "We are on a  mission to help young minds and  passionate travelers to travel to destinations that expose them to practical learning and cultural exploration.\n                      We truly understand how a place or a location can make you feel elated, and so with our customised itineraries and experienced team of travel professionals, we aim to deliver you with a great travel experience that best fits your needs and aspirations. \n                      We add our personal and professional touch to your journeys with our dedicated 24x7 personal support available anytime anywhere.",
-                          },
-                        }),
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "ourstory-content" }, [
-                      _c(
-                        "figure",
-                        {
-                          directives: [
-                            { name: "lazyload", rawName: "v-lazyload" },
-                          ],
-                          staticClass: "image__wrapper",
-                        },
-                        [
-                          _c("ImageSpinner", { staticClass: "image__spinner" }),
-                          _vm._v(" "),
-                          _c("img", {
-                            staticClass: "image__item ic-cal-re",
-                            attrs: {
-                              id: "ourstoryimg1",
-                              "data-url":
-                                "/assets/front/images/ourstory_image_.png",
-                              alt: "our story",
-                            },
-                          }),
-                        ],
-                        1
-                      ),
-                    ]),
-                  ]
-                ),
-                _vm._v(" "),
-                _c("paragraph", {
-                  staticClass: "mt-1",
-                  attrs: {
-                    text: "We at GBI know how a traveler feels when he/she travels to a new place , and to overcome the fear of FOMO(Fear Of Missing Out), we make that extra effort to plan your journeys in a much more systematic and professional manner.",
-                  },
-                }),
-              ],
-              1
-            ),
-          ]),
+        _c("h4", { staticClass: "gbi_sub-heading text-capitalize m-0 p-0" }, [
+          _vm._v(
+            "\n        Welcome to GB International, ”Your Educational Travel Planner”  . A one-stop-shop for all your travel needs\n    "
+          ),
         ]),
         _vm._v(" "),
-        _c("section", { staticClass: "bgcolor-section" }, [
-          _c("div", { staticClass: "col-lg-12" }, [
-            _c(
-              "article",
-              { staticClass: "about-story" },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "d-flex flex-lg-row flex-column justify-content-between align-items-center",
-                  },
-                  [
-                    _c(
-                      "div",
-                      { staticClass: "ourstory-content" },
-                      [
-                        _c("heading", { attrs: { text: "Vision" } }),
-                        _vm._v(" "),
-                        _c("sub-heading", {
-                          attrs: {
-                            text: "The choice of journey shapes mundane reality",
-                          },
-                        }),
-                        _vm._v(" "),
-                        _c("paragraph", {
-                          attrs: {
-                            text: "GBI’s aims to provide a travel platform whether online or offline for young minds and passionate travelers to expand their horizons and prepare them well, to face the day-to-day challenges of mundane reality. We aim to enhance their skills with a practical approach through excursions and help them connect with people, culture and mouth-watering cuisines of different continents across the globe.",
-                          },
-                        }),
-                      ],
-                      1
-                    ),
-                  ]
-                ),
-                _vm._v(" "),
-                _c("paragraph", {
-                  staticClass: "mt-1",
-                  attrs: {
-                    text: "For business travellers, we aim to provide a more customer-centric approach with our team of innovative and experienced professionals and we ensure to make your meetings and conferences memorable and cherishable ones. Through continuous adaptation of new innovative technological advancements, we aim to achieve the client’s long term meeting objectives; thereby ensuring customer satisfaction.",
-                  },
-                }),
-              ],
-              1
-            ),
-          ]),
+        _c("p", { staticClass: "gbi_paragraph pt-2" }, [
+          _vm._v(
+            "\n        One’s Action Can Inspire Others To Dream Bigger\n    "
+          ),
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "gbi_paragraph pt-2" }, [
+          _vm._v(
+            "\n        In ancient times, the offset of travel was only on the sole purpose of spiritual fulfillment and medicinal offerings. During the course of time, people began to explore different destinations for knowledge, cultural exploration, scenic beauty and other special interests. But much of our great historical monuments and culture are still unseen and unheard to many people.\n    "
+          ),
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "gbi_paragraph pt-2" }, [
+          _vm._v(
+            "\n        And so the journey of GBI was set forth in 1983 by our CEO Mr. Jasbir Singh Rikhi single-handedly with the motive to release the pressure of classroom learning and allow young minds to learn from new and engaging environments outside their comfort zone through experiential journeys.Serving for around 40 yrs in the industry, we provide a platform for young minds and passionate travelers to explore and discover different cultural aspects and scientific explorations across the globe with journeys booked through our web platforms.\n    "
+          ),
         ]),
         _vm._v(" "),
         _c("section", { staticClass: "bgcolor-section" }, [
@@ -936,77 +712,109 @@ var render = function () {
                     "d-flex flex-lg-row flex-column justify-content-between align-items-center",
                 },
                 [
-                  _c("div", { staticClass: "ourstory-content widthControl" }, [
-                    _c(
-                      "figure",
-                      {
-                        directives: [
-                          { name: "lazyload", rawName: "v-lazyload" },
-                        ],
-                        staticClass: "image__wrapper",
-                      },
-                      [
-                        _c("ImageSpinner", { staticClass: "image__spinner" }),
-                        _vm._v(" "),
-                        _c("img", {
-                          staticClass: "image__item ic-cal-re widthControl",
-                          attrs: {
-                            id: "ourstoryimg1",
-                            "data-url": "/assets/front/images/user-profile.png",
-                            alt: "our story",
-                          },
-                        }),
-                      ],
-                      1
-                    ),
+                  _c("div", { staticClass: "ourstory-content" }, [
+                    _c("p", { staticClass: "gbi_paragraph pt-2" }, [
+                      _vm._v(
+                        "\n                      Mr. Jasbir Singh Rikhi, a  passionate traveler himself from the hospitality sector, whenever used to hit the road on his Royal Enfield to explore new places, he realized that people who came to pay a visit to that particular destination would click a photo and move on without showing any interest in its rich history, culture and not even admiring the architectural and technological advancements. This made a huge impact on him and made him realize that there is a greater need to educate people(young minds and passionate travelers about our rich cultural heritage through fun and innovative methods.\n                    "
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "gbi_paragraph pt-2" }, [
+                      _vm._v(
+                        "\n                      He has been leading a team of passionate travelers. A mission and vision aimed at helping travelers of any age to learn, explore and discover the world, not just by traveling, but by blending in and enjoying the cultural and historical experiences the destination has to offer.\n                    "
+                      ),
+                    ]),
                   ]),
                   _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "ourstory-content" },
-                    [
-                      _c("heading", {
-                        attrs: { text: "CEO - Mr. Jasbir Singh Rikhi" },
+                  _c("div", { staticClass: "ourstory-content widthControl" }, [
+                    _c("figure", { staticClass: "image__wrapper loaded" }, [
+                      _c("div", {
+                        staticClass: "loader-overlay image__spinner",
                       }),
                       _vm._v(" "),
-                      _c("sub-heading", {
-                        attrs: { text: "From the desk of GBI" },
-                      }),
-                      _vm._v(" "),
-                      _c("paragraph", {
+                      _c("img", {
+                        staticClass: "image__item ic-cal-re widthControl",
                         attrs: {
-                          text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+                          id: "ourstoryimg1",
+                          "data-url": "/assets/front/images/user-profile.png",
+                          alt: "our story",
+                          src: "/assets/front/images/user-profile.png",
                         },
                       }),
-                    ],
-                    1
-                  ),
+                    ]),
+                  ]),
                 ]
               ),
             ]),
           ]),
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "clear" }),
-      ],
-      1
-    ),
-  ])
-}
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "banner_ourstory text_on_image banner_bg" },
-      [
-        _c("div", { staticClass: "content" }, [
-          _c("p", { staticClass: "heading" }, [_vm._v("Our Story")]),
+        _c("section", [
+          _c("div", { staticClass: "col-lg-12" }, [
+            _c("article", [
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "d-flex flex-lg-row flex-column justify-content-between align-items-center",
+                },
+                [
+                  _c("div", { staticClass: "ourstory-content" }, [
+                    _c(
+                      "h1",
+                      { staticClass: "gbi_main-heading pt-3 text-capitalize" },
+                      [
+                        _vm._v(
+                          "\n                      Our Achievement\n                    "
+                        ),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "h4",
+                      {
+                        staticClass: "gbi_sub-heading text-capitalize m-0 p-0",
+                      },
+                      [
+                        _vm._v(
+                          "\n                      The choice of journey shapes mundane reality\n                    "
+                        ),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "gbi_paragraph pt-2" }, [
+                      _vm._v(
+                        "\n                      Our company’s success is not just by the world class service we provide. But  how  we as a team have brought a great impact in the life of a traveler. Our main aim has always been to educate young travelers and help them learn, explore and discover ; through real-world exposure. As we believe that children understand the best when they are left to discover, explore and learn on their own in physical learning environments. Not just young students but also catering services to travel enthusiasts of all age groups is our aim. \n                    "
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "gbi_paragraph pt-2" }, [
+                      _vm._v(
+                        "\n                      Working with different sectors of society like youngsters who attend school and college, corporates with a busy life, families to bond with, couples, and people from all age groups and backgrounds. It is a challenge but we promise to deliver the best of services and cater to all your needs at all times no matter which group you belong to.\n                    "
+                      ),
+                    ]),
+                  ]),
+                ]
+              ),
+              _vm._v(" "),
+              _c("p", { staticClass: "gbi_paragraph pt-2 mt-1" }, [
+                _vm._v(
+                  "\n                Our Milestone :GBI has sent more than two  lakh students to different destinations across the globe.\n              "
+                ),
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "gbi_paragraph pt-2 mt-1" }, [
+                _vm._v(
+                  "\n                So, whether you're a student, a corporate team or a family, a first-time traveler or a seasoned jet-setter, we invite you to join us on your next adventure and discover the world with us.\n              "
+                ),
+              ]),
+            ]),
+          ]),
         ]),
-      ]
-    )
+        _vm._v(" "),
+        _c("div", { staticClass: "clear" }),
+      ]),
+    ])
   },
 ]
 render._withStripped = true

@@ -79,23 +79,23 @@
 
                       <div class="row p-0 parent_padding">
 
-                        <div class="col-12 col-sm-6 col-lg-9">
+                        <div class="col-12 col-sm-6 col-lg-9 px-2 nopadding">
                             <div class="col-sm-12 mt-1">
-                              <custLabel>Choose your transport</custLabel>
+                              <custLabel class="pl-2">Choose your transport</custLabel>
                                 <div class="row pb-2">
-                                  <div class="col-5 col-md-4 col-lg-2 mb-2 exp-icon" @click="portType = 'bus'; getCities()" :class=" portType == 'bus' ? 'filter-cl' : '' ">
+                                  <div class="col-4 col-md-4 col-lg-2 mb-2 exp-icon" @click="portType = 'bus'; getCities()" :class=" portType == 'bus' ? 'filter-cl' : '' ">
                                     <img :src="$gbiAssets + '/images/icons/bus_explore_icon.svg' " class="cursor-pointer exp-icon-wd mr-1">
                                      Bus
                                   </div>
-                                  <div class="col-5 col-md-4 col-lg-2 mb-2 exp-icon" @click="portType = 'car'; getCities()" :class=" portType == 'car' ? 'filter-cl' : '' ">
+                                  <div class="col-4 col-md-4 col-lg-2 mb-2 exp-icon" @click="portType = 'car'; getCities()" :class=" portType == 'car' ? 'filter-cl' : '' ">
                                     <img :src="$gbiAssets + '/images/icons/car_explore_icon.svg' " class="cursor-pointer exp-icon-wd mr-2">
                                      Car
                                   </div>
-                                  <div class="col-5 col-md-4 col-lg-2 mb-2 exp-icon" @click="portType = 'train'; getCities()" :class=" portType == 'train' ? 'filter-cl' : '' " >
+                                  <div class="col-4 col-md-4 col-lg-2 mb-2 exp-icon" @click="portType = 'train'; getCities()" :class=" portType == 'train' ? 'filter-cl' : '' " >
                                     <img :src="$gbiAssets + '/images/icons/train_explore_icon.svg' " class="cursor-pointer exp-icon-wd mr-1">
                                      Train
                                   </div>
-                                   <div class="col-5 col-md-4 col-lg-2 mb-2 exp-icon" @click="portType = 'plane'; getCities()" :class=" portType == 'plane' ? 'filter-cl' : '' " >
+                                   <div class="col-4 col-md-4 col-lg-2 mb-2 exp-icon" @click="portType = 'plane'; getCities()" :class=" portType == 'plane' ? 'filter-cl' : '' " >
                                     <img :src="$gbiAssets + '/images/icons/flight_explore_icon.svg' " class="cursor-pointer exp-icon-wd mr-1">
                                      Plane
                                   </div>
@@ -106,8 +106,7 @@
                          <div class="col-12 col-sm-6 col-lg-3 px-2">
                             <div class="row parent_padding">
                               <div class="col-12 input-p nopadding">
-                                <custLabel class="ml-2">Customer Type</custLabel>
-                                <div class="select">
+                                <div class="select select-style">
                                   <select
                                     class="placeholder_color ui fluid search selection dropdown"
                                     name="typetour"
@@ -195,7 +194,7 @@
                     <!-- end single location Tab panes serach bar for source and destination-->
                     <!-- start multiple location Tab panes serach bar for source and destination-->
 
-                    <div v-else class="container">
+                    <div v-else class="container"> <!-- Start of Multicity -->
                     <div class="row search-radio">
                         <div class="col-sm-6">
                           <div class="row pt-3 pb-3">
@@ -240,23 +239,23 @@
                      
                       <div class="row p-0 parent_padding">
 
-                        <div class="col-12 col-sm-6 col-lg-9">
+                        <div class="col-12 col-sm-6 col-lg-9 px-2 nopadding">
                             <div class="col-sm-12 mt-1">
-                              <custLabel>Choose your transport</custLabel>
+                              <custLabel class="pl-2">Choose your transport</custLabel>
                                 <div class="row pb-2">
-                                  <div class="col-5 col-md-4 col-lg-2 mb-2 exp-icon" @click="portType = 'bus'; getCities()" :class=" portType == 'bus' ? 'filter-cl' : '' ">
+                                  <div class="col-4 col-md-4 col-lg-2 mb-2 exp-icon" @click="portType = 'bus'; getCities()" :class=" portType == 'bus' ? 'filter-cl' : '' ">
                                     <img :src="$gbiAssets + '/images/icons/bus_explore_icon.svg' " class="cursor-pointer exp-icon-wd mr-1 ">
                                      Bus
                                   </div>
-                                  <div class="col-5 col-md-4 col-lg-2 mb-2 exp-icon" @click="portType = 'car'; getCities()" :class=" portType == 'car' ? 'filter-cl' : '' ">
-                                    <img :src="$gbiAssets + '/images/icons/car_explore_icon.svg' " class="cursor-pointer exp-icon-wd-width mr-2">
+                                  <div class="col-4 col-md-4 col-lg-2 mb-2 exp-icon" @click="portType = 'car'; getCities()" :class=" portType == 'car' ? 'filter-cl' : '' ">
+                                    <img :src="$gbiAssets + '/images/icons/car_explore_icon.svg' " class="cursor-pointer exp-icon-wd mr-2">
                                      Car
                                   </div>
-                                  <div class="col-5 col-md-4 col-lg-2 mb-2 exp-icon" @click="portType = 'train'; getCities()" :class=" portType == 'train' ? 'filter-cl' : '' " >
+                                  <div class="col-4 col-md-4 col-lg-2 mb-2 exp-icon" @click="portType = 'train'; getCities()" :class=" portType == 'train' ? 'filter-cl' : '' " >
                                     <img :src="$gbiAssets + '/images/icons/train_explore_icon.svg' " class="cursor-pointer exp-icon-wd mr-1">
                                      Train
                                   </div>
-                                   <div class="col-5 col-md-4 col-lg-2 mb-2 exp-icon" @click="portType = 'plane'; getCities()" :class=" portType == 'plane' ? 'filter-cl' : '' " >
+                                   <div class="col-4 col-md-4 col-lg-2 mb-2 exp-icon" @click="portType = 'plane'; getCities()" :class=" portType == 'plane' ? 'filter-cl' : '' " >
                                     <img :src="$gbiAssets + '/images/icons/flight_explore_icon.svg' " class="cursor-pointer exp-icon-wd mr-1">
                                      Plane
                                   </div>
@@ -268,7 +267,7 @@
                          <div class="col-12 col-sm-6 col-lg-3 px-2">
                             <div class="row parent_padding">
                               <div class="col-12 input-p nopadding">
-                                <div class="select">
+                                <div class="select select-style">
                                   <select
                                     class="placeholder_color ui fluid search selection dropdown"
                                     name="typetour"
@@ -304,13 +303,13 @@
                         </div>
                       </div>
 
-                      <div class="row p-0 parent_padding">
+                      <div class="row">
                         <div
                           class="col-sm-12 col-12"
                           v-for="(row, index) in rows"
                           :key="index"
                         >
-                          <div class="row">
+                          <div class="row p-0 parent_padding">
                             <div class="col-6 col-sm-6 input-p nopadding">
                               <model-select
                                 :options="options"
@@ -968,22 +967,31 @@ input[type="passengers"] {
     border-color: #f77736 !important;
 }
 .exp-icon{
-  border: 1px solid white;
-  border-radius: 25px;
-  padding: 8px 8px;
-  text-align: center;
-  margin-right: 15px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  justify-items: center;
-  font-family: 'Nunito Sans';
-  font-size: 14px;
-  cursor: pointer;
+    align-items: center;
+    border: 1px solid #fff;
+    border-radius: 25px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    font-family: Nunito Sans;
+    font-size: 14px;
+    justify-content: center;
+    justify-items: center;
+    margin-right: 35px;
+    padding: 10px 12px;
+    text-align: center;
 }
 .exp-icon-wd{
   width: 25px !important;
+}
+.select-style{
+  margin-top: 5px;
+}
+
+@media (min-width: 576px){
+  .select-style{
+    margin-top: 36px;
+  }
 }
 
 </style> 

@@ -165,10 +165,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 //import pagination  from 'laravel-vue-pagination';
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "FeedbackList",
-  components: {//'pagination':pagination,
+  components: {
+    //'pagination':pagination,
   },
   data: function data() {
     return {
@@ -197,10 +200,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     var _this = this;
-
     this.userData = this.$cookies.get("user");
-    this.getList(this.currentPage); //console.log(this.userData)
-
+    this.getList(this.currentPage);
+    //console.log(this.userData)
     this.$nextTick(function () {
       window.addEventListener('resize', _this.onResize);
     });
@@ -221,9 +223,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     getList: function getList(page) {
       var _this2 = this;
-
       this.$axios.get("/api/user-notifs/" + this.userData.id + "/" + this.sortType.toLowerCase() + "/" + this.listType + "?page=" + page).then(function (response) {
-        _this2.notif_list = response.data; //this.selectNotif(this.notif_list.data[0])
+        _this2.notif_list = response.data;
+        //this.selectNotif(this.notif_list.data[0])
       });
     },
     selectNotif: function selectNotif(item) {
@@ -233,7 +235,6 @@ __webpack_require__.r(__webpack_exports__);
     },
     markRead: function markRead(item) {
       var _this3 = this;
-
       if (item.read == 0) {
         this.$axios.post("/api/notification/mark-read", {
           'id': item.id
@@ -252,7 +253,6 @@ __webpack_require__.r(__webpack_exports__);
     },
     redirNotif: function redirNotif(item) {
       var _this4 = this;
-
       if (item.read == 0) {
         this.$axios.post("/api/notification/mark-read", {
           'id': item.id
@@ -263,12 +263,10 @@ __webpack_require__.r(__webpack_exports__);
         }).then(function (response) {
           //console.log(response.data);
           _this4.userData.notifCount = response.data;
-
           _this4.$cookies.set('user', _this4.userData);
         });
         item.read = 1;
       }
-
       this.rightDisplay = 'inline';
       this.leftDisplay = 'none';
       this.currentItem = item;
@@ -342,7 +340,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n*[data-v-c7aa8a70] {\n  box-sizing: border-box;\n  outline: none;\n  background: white;\n}\nbody[data-v-c7aa8a70] {\n  margin: 0;\n  font-family: Sans-serif;\n}\n.logo-img[data-v-c7aa8a70]{\n      height: 70px;\n      margin-right: 2%;\n      width: auto\n}\n.PageTitle[data-v-c7aa8a70]{\n  text-align: center;\n  font-size: 25px;\n  padding: 30px 0px 5px 0px;\n  font-weight: 550;\n}\n.feedback-full[data-v-c7aa8a70] {\n  background-color: white;\n  width: 100%;\n  padding: 8px 30px;\n  display: flex;\n  flex-direction: column;\n}\n.feedback-body[data-v-c7aa8a70] {\n  flex: 1;\n  display: flex;\n  margin: 0 auto;\n  width: 80%;\n}\n.message-top[data-v-c7aa8a70]{\n  flex: 1;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n.feedback-container[data-v-c7aa8a70] {\n  height: 100%;\n  display: flex;\n}\n.mail-left-side[data-v-c7aa8a70] {\n  width: 40%;\n  height: 100%;\n  overflow: auto;\n  padding: 20px 0px 5px 0px;\n}\n.mail-left-side-m[data-v-c7aa8a70]{\n  width: 40%;\n  height: 100%;\n  overflow: auto;\n  padding: 5px 0px 5px 0px;\n  display: none;\n}\n.mail-card[data-v-c7aa8a70] {\n  background-color: white;\n  margin-top: 5px;\n  margin-bottom: 15px;\n  padding: 15px 15px 15px 15px;\n  transition: 0.3s;\n  border: 1px solid;\n  border-left: 5px solid;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 7px 0 rgba(0, 0, 0, 0.19);\n}\n.mail-card[data-v-c7aa8a70]:hover {\n  box-shadow: none;\n}\n.mail-names[data-v-c7aa8a70] {\n  color: #000000b8;\n  font-size: 16px;\n  font-weight: 500;\n}\n.mails[data-v-c7aa8a70] {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n.mail-info[data-v-c7aa8a70] {\n  margin: 2px 65px;\n  margin-left: 0px;\n  font-weight: 500;\n  font-size: 12.5px;\n  color: grey;\n}\n.mail-info p[data-v-c7aa8a70] {\n margin-top: -2.5px;\n margin-bottom: 6px;\n font-size: 15px;\n font-weight: 600;\n}\n.date[data-v-c7aa8a70] {\n  color: grey;\n  float: right;\n  font-size: 12px;\n  font-weight: 500;\n}\n.mail-right-side[data-v-c7aa8a70] {\n  margin-top: 35px;\n  margin-left: 35px;\n  flex: 1;\n}\n.mail-right-body[data-v-c7aa8a70]{\n  background-color: white;\n  position: relative;\n  padding: 22px 20px 20px 20px;\n  font-size: 16px;\n  padding-bottom: 15px;\n  margin: 20px 10px;\n  color: #000000b8;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 7px 0 rgba(0, 0, 0, 0.19);\n}\n.message-body[data-v-c7aa8a70] {\n  overflow: auto;\n  height: auto;\n  width: 100%;\n  margin-top: 18px;\n  color: black;\n}\n.message-title[data-v-c7aa8a70] {\n  display: flex;\n  font-size: 14px;\n  font-weight: 500;\n  color: grey;\n}\n.message-title b[data-v-c7aa8a70]{\n  font-size: 14px;\n  padding-left: 5px;\n  color: #000000b8;\n  font-weight: 700;\n}\n.message-tour-info[data-v-c7aa8a70]{\n  font-size: 16px;\n  font-weight: 500;\n  color: #1f1c1c;\n  margin-bottom: 21px;\n}\n.mail-right-top[data-v-c7aa8a70]{\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-end;\n  margin-left: 10px;\n}\n.cButton[data-v-c7aa8a70] {\n  border-radius: 3px;\n  border: 1px;\n  border-radius: 100px;\n  outline: none;\n}\n.replyButton[data-v-c7aa8a70] {\n  padding: 12px 38px;\n  margin-top: 20px;\n  color: white;\n  font-size: 19px !important;\n  font-weight: 600;\n  font-family: Hawaii 5-0, sans-serif;\n  background-color: #3ebee4;\n}\n.sendLinkButton[data-v-c7aa8a70]{\n  padding: 7px 38px;\n  margin-top: 12px;\n  color: #3ebee4;\n  font-size: 17px !important;\n  font-weight: 600;\n  font-family: Hawaii 5-0, sans-serif;\n  background-color: #f4f6f9;\n  border: solid 2px #3ebee4;\n}\n.attachIcon[data-v-c7aa8a70]{\n  font-size: 32px; \n  padding-right: 10px; \n  font-weight: 300; \n  color: grey;\n}\n.filter-dd[data-v-c7aa8a70]{\n  border-radius: 10px; \n  margin-left: 30px;\n}\n.filter-dd2[data-v-c7aa8a70]{\n  border-radius: 10px;\n}\n.arrow-buttons[data-v-c7aa8a70]{\n  padding: 5px 20px;\n  border: none;\n  background-color: white;\n  margin-left: 10px;\n}\n.mail-left-top[data-v-c7aa8a70]{\n  display: flex; \n  flex-direction: row; \n  justify-content: space-between;\n  margin-top: 7px;\n  margin-left: 4px;\n  margin-right: 4px;\n  margin-bottom: 15px;\n}\n.bottom-items[data-v-c7aa8a70]{\n  position: absolute;\n  bottom: 0;\n  right: 0;\n  margin: 20px;\n}\n.customButton[data-v-c7aa8a70]{\n  display: none;\n}\n.ReadStatus[data-v-c7aa8a70]{\n  font-weight: 500; \n  font-size: 11px; \n  text-align: center; \n  border: solid 1px;\n}\n[data-v-c7aa8a70]::-webkit-scrollbar {\n  width: 10px;\n}\n\n/* Track */\n[data-v-c7aa8a70]::-webkit-scrollbar-track {\n  background: #f1f1f1;\n}\n\n/* Handle */\n[data-v-c7aa8a70]::-webkit-scrollbar-thumb {\n  background: #888;\n}\n\n/* Handle on hover */\n[data-v-c7aa8a70]::-webkit-scrollbar-thumb:hover {\n  background: #555;\n}\n@media only screen and (max-width: 1024px) {\n.feedback-body[data-v-c7aa8a70] {\n    width: 90%;\n}\n}\n@media only screen and (max-width: 823px) {\n.logo-img[data-v-c7aa8a70]{\n      height: 45px;\n      margin-right: 1px;\n      margin-top: -15px;\n}\n.feedback-body[data-v-c7aa8a70] {\n    width: 100%;\n}\n.feedback-full[data-v-c7aa8a70] {\n    padding: 8px 30px;\n}\n.mail-right-body[data-v-c7aa8a70]{\n    margin: 20px 0px;\n}\n.mail-right-side[data-v-c7aa8a70] {\n    margin-left: 0px;\n    width: 100%;\n    display: none;\n    margin-top: 0px;\n}\n.mail-left-side[data-v-c7aa8a70] {\n    width: 100%;\n    display: none;\n}\n.mail-left-side-m[data-v-c7aa8a70] {\n    width: 100%;\n    display: inline;\n}\n.customButton[data-v-c7aa8a70] {\n    color: #fff;\n    background-color: #17a2b8;\n    border-color: #17a2b8;\n    display: inline;\n}\n.PageTitle[data-v-c7aa8a70]{\n    font-size: 20px;\n    padding: 18px 0px 5px 0px;\n}\n.mail-info[data-v-c7aa8a70] {\n    margin: 2px 65px;\n    margin-left: 0px;\n    font-weight: 500;\n    font-size: 11px;\n    color: grey;\n}\n.mail-info p[data-v-c7aa8a70] {\n   margin-top: -2.5px;\n   margin-bottom: 6px;\n   font-size: 12px;\n   font-weight: 600;\n}\n.mail-names[data-v-c7aa8a70] {\n    color: #000000b8;\n    font-size: 13px;\n    font-weight: 500;\n}\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n*[data-v-c7aa8a70] {\r\n  box-sizing: border-box;\r\n  outline: none;\r\n  background: white;\n}\nbody[data-v-c7aa8a70] {\r\n  margin: 0;\r\n  font-family: Sans-serif;\n}\n.logo-img[data-v-c7aa8a70]{\r\n      height: 70px;\r\n      margin-right: 2%;\r\n      width: auto\n}\n.PageTitle[data-v-c7aa8a70]{\r\n  text-align: center;\r\n  font-size: 25px;\r\n  padding: 30px 0px 5px 0px;\r\n  font-weight: 550;\n}\n.feedback-full[data-v-c7aa8a70] {\r\n  background-color: white;\r\n  width: 100%;\r\n  padding: 8px 30px;\r\n  display: flex;\r\n  flex-direction: column;\n}\n.feedback-body[data-v-c7aa8a70] {\r\n  flex: 1;\r\n  display: flex;\r\n  margin: 0 auto;\r\n  width: 80%;\n}\n.message-top[data-v-c7aa8a70]{\r\n  flex: 1;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: space-between;\n}\n.feedback-container[data-v-c7aa8a70] {\r\n  height: 100%;\r\n  display: flex;\n}\n.mail-left-side[data-v-c7aa8a70] {\r\n  width: 40%;\r\n  height: 100%;\r\n  overflow: auto;\r\n  padding: 20px 0px 5px 0px;\n}\n.mail-left-side-m[data-v-c7aa8a70]{\r\n  width: 40%;\r\n  height: 100%;\r\n  overflow: auto;\r\n  padding: 5px 0px 5px 0px;\r\n  display: none;\n}\n.mail-card[data-v-c7aa8a70] {\r\n  background-color: white;\r\n  margin-top: 5px;\r\n  margin-bottom: 15px;\r\n  padding: 15px 15px 15px 15px;\r\n  transition: 0.3s;\r\n  border: 1px solid;\r\n  border-left: 5px solid;\r\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 7px 0 rgba(0, 0, 0, 0.19);\n}\n.mail-card[data-v-c7aa8a70]:hover {\r\n  box-shadow: none;\n}\n.mail-names[data-v-c7aa8a70] {\r\n  color: #000000b8;\r\n  font-size: 16px;\r\n  font-weight: 500;\n}\n.mails[data-v-c7aa8a70] {\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: space-between;\n}\n.mail-info[data-v-c7aa8a70] {\r\n  margin: 2px 65px;\r\n  margin-left: 0px;\r\n  font-weight: 500;\r\n  font-size: 12.5px;\r\n  color: grey;\n}\n.mail-info p[data-v-c7aa8a70] {\r\n margin-top: -2.5px;\r\n margin-bottom: 6px;\r\n font-size: 15px;\r\n font-weight: 600;\n}\n.date[data-v-c7aa8a70] {\r\n  color: grey;\r\n  float: right;\r\n  font-size: 12px;\r\n  font-weight: 500;\n}\n.mail-right-side[data-v-c7aa8a70] {\r\n  margin-top: 35px;\r\n  margin-left: 35px;\r\n  flex: 1;\n}\n.mail-right-body[data-v-c7aa8a70]{\r\n  background-color: white;\r\n  position: relative;\r\n  padding: 22px 20px 20px 20px;\r\n  font-size: 16px;\r\n  padding-bottom: 15px;\r\n  margin: 20px 10px;\r\n  color: #000000b8;\r\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 7px 0 rgba(0, 0, 0, 0.19);\n}\n.message-body[data-v-c7aa8a70] {\r\n  overflow: auto;\r\n  height: auto;\r\n  width: 100%;\r\n  margin-top: 18px;\r\n  color: black;\n}\n.message-title[data-v-c7aa8a70] {\r\n  display: flex;\r\n  font-size: 14px;\r\n  font-weight: 500;\r\n  color: grey;\n}\n.message-title b[data-v-c7aa8a70]{\r\n  font-size: 14px;\r\n  padding-left: 5px;\r\n  color: #000000b8;\r\n  font-weight: 700;\n}\n.message-tour-info[data-v-c7aa8a70]{\r\n  font-size: 16px;\r\n  font-weight: 500;\r\n  color: #1f1c1c;\r\n  margin-bottom: 21px;\n}\n.mail-right-top[data-v-c7aa8a70]{\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: flex-end;\r\n  margin-left: 10px;\n}\n.cButton[data-v-c7aa8a70] {\r\n  border-radius: 3px;\r\n  border: 1px;\r\n  border-radius: 100px;\r\n  outline: none;\n}\n.replyButton[data-v-c7aa8a70] {\r\n  padding: 12px 38px;\r\n  margin-top: 20px;\r\n  color: white;\r\n  font-size: 19px !important;\r\n  font-weight: 600;\r\n  font-family: Hawaii 5-0, sans-serif;\r\n  background-color: #3ebee4;\n}\n.sendLinkButton[data-v-c7aa8a70]{\r\n  padding: 7px 38px;\r\n  margin-top: 12px;\r\n  color: #3ebee4;\r\n  font-size: 17px !important;\r\n  font-weight: 600;\r\n  font-family: Hawaii 5-0, sans-serif;\r\n  background-color: #f4f6f9;\r\n  border: solid 2px #3ebee4;\n}\n.attachIcon[data-v-c7aa8a70]{\r\n  font-size: 32px; \r\n  padding-right: 10px; \r\n  font-weight: 300; \r\n  color: grey;\n}\n.filter-dd[data-v-c7aa8a70]{\r\n  border-radius: 10px; \r\n  margin-left: 30px;\n}\n.filter-dd2[data-v-c7aa8a70]{\r\n  border-radius: 10px;\n}\n.arrow-buttons[data-v-c7aa8a70]{\r\n  padding: 5px 20px;\r\n  border: none;\r\n  background-color: white;\r\n  margin-left: 10px;\n}\n.mail-left-top[data-v-c7aa8a70]{\r\n  display: flex; \r\n  flex-direction: row; \r\n  justify-content: space-between;\r\n  margin-top: 7px;\r\n  margin-left: 4px;\r\n  margin-right: 4px;\r\n  margin-bottom: 15px;\n}\n.bottom-items[data-v-c7aa8a70]{\r\n  position: absolute;\r\n  bottom: 0;\r\n  right: 0;\r\n  margin: 20px;\n}\n.customButton[data-v-c7aa8a70]{\r\n  display: none;\n}\n.ReadStatus[data-v-c7aa8a70]{\r\n  font-weight: 500; \r\n  font-size: 11px; \r\n  text-align: center; \r\n  border: solid 1px;\n}\n[data-v-c7aa8a70]::-webkit-scrollbar {\r\n  width: 10px;\n}\r\n\r\n/* Track */\n[data-v-c7aa8a70]::-webkit-scrollbar-track {\r\n  background: #f1f1f1;\n}\r\n\r\n/* Handle */\n[data-v-c7aa8a70]::-webkit-scrollbar-thumb {\r\n  background: #888;\n}\r\n\r\n/* Handle on hover */\n[data-v-c7aa8a70]::-webkit-scrollbar-thumb:hover {\r\n  background: #555;\n}\n@media only screen and (max-width: 1024px) {\n.feedback-body[data-v-c7aa8a70] {\r\n    width: 90%;\n}\n}\n@media only screen and (max-width: 823px) {\n.logo-img[data-v-c7aa8a70]{\r\n      height: 45px;\r\n      margin-right: 1px;\r\n      margin-top: -15px;\n}\n.feedback-body[data-v-c7aa8a70] {\r\n    width: 100%;\n}\n.feedback-full[data-v-c7aa8a70] {\r\n    padding: 8px 30px;\n}\n.mail-right-body[data-v-c7aa8a70]{\r\n    margin: 20px 0px;\n}\n.mail-right-side[data-v-c7aa8a70] {\r\n    margin-left: 0px;\r\n    width: 100%;\r\n    display: none;\r\n    margin-top: 0px;\n}\n.mail-left-side[data-v-c7aa8a70] {\r\n    width: 100%;\r\n    display: none;\n}\n.mail-left-side-m[data-v-c7aa8a70] {\r\n    width: 100%;\r\n    display: inline;\n}\n.customButton[data-v-c7aa8a70] {\r\n    color: #fff;\r\n    background-color: #17a2b8;\r\n    border-color: #17a2b8;\r\n    display: inline;\n}\n.PageTitle[data-v-c7aa8a70]{\r\n    font-size: 20px;\r\n    padding: 18px 0px 5px 0px;\n}\n.mail-info[data-v-c7aa8a70] {\r\n    margin: 2px 65px;\r\n    margin-left: 0px;\r\n    font-weight: 500;\r\n    font-size: 11px;\r\n    color: grey;\n}\n.mail-info p[data-v-c7aa8a70] {\r\n   margin-top: -2.5px;\r\n   margin-bottom: 6px;\r\n   font-size: 12px;\r\n   font-weight: 600;\n}\n.mail-names[data-v-c7aa8a70] {\r\n    color: #000000b8;\r\n    font-size: 13px;\r\n    font-weight: 500;\n}\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -456,8 +454,8 @@ __webpack_require__.r(__webpack_exports__);
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_panel_vue_vue_type_template_id_c7aa8a70_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_panel_vue_vue_type_template_id_c7aa8a70_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   render: () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_panel_vue_vue_type_template_id_c7aa8a70_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   staticRenderFns: () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_panel_vue_vue_type_template_id_c7aa8a70_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_panel_vue_vue_type_template_id_c7aa8a70_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./panel.vue?vue&type=template&id=c7aa8a70&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/front/pages/user/Notifications/panel.vue?vue&type=template&id=c7aa8a70&scoped=true&");
 
@@ -472,8 +470,8 @@ __webpack_require__.r(__webpack_exports__);
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render),
-/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */   render: () => (/* binding */ render),
+/* harmony export */   staticRenderFns: () => (/* binding */ staticRenderFns)
 /* harmony export */ });
 var render = function () {
   var _vm = this
@@ -1022,7 +1020,7 @@ var render = function () {
                             { staticClass: "font-size: 15px; color: black;" },
                             [
                               _vm._v(
-                                "\n             Dear " +
+                                "\r\n             Dear " +
                                   _vm._s(_vm.userData.name) +
                                   ", please check out " +
                                   _vm._s(
@@ -1030,20 +1028,20 @@ var render = function () {
                                       _vm.currentItem.category
                                     )
                                   ) +
-                                  ", more details mentioned below.\n            "
+                                  ", more details mentioned below.\r\n            "
                               ),
                             ]
                           ),
                           _vm._v(" "),
                           _c("p", { staticStyle: { "margin-top": "25px" } }, [
                             _vm._v(
-                              "\n               " +
+                              "\r\n               " +
                                 _vm._s(
                                   _vm._f("htmlFilter")(
                                     _vm.currentItem.data.body
                                   )
                                 ) +
-                                "\n            "
+                                "\r\n            "
                             ),
                           ]),
                         ]),
@@ -1066,9 +1064,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("p", [
-      _vm._v("\n                From: \n                "),
+      _vm._v("\r\n                From: \r\n                "),
       _c("br"),
-      _vm._v("Date:\n                "),
+      _vm._v("Date:\r\n                "),
     ])
   },
 ]

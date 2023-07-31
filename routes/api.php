@@ -114,6 +114,7 @@ Route::namespace('Front')->group(function(){
 	Route::get('/forcast-weather/{city}','WebsiteController@getForcastWeather');
 	// Otp
 	Route::post('/sendotp','OtpController@send_otp');
+	Route::post('/sendotp2','OtpController@send_otp2');
 	Route::post('/otpverify','OtpController@otp_verify');
 	Route::post('/sendlink','EmailController@send_link_email');
 
