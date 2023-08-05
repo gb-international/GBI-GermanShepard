@@ -22,9 +22,9 @@
             </div>
             <div class="col-sm-2">
               <p class="text-white m-0 p-0 pb-1 text-bold">Resources</p>
-              <router-link :to="'/news-letter'" class="text-white d-block pb-1"><span class="white-important">News Letter...</span></router-link> 
+              <router-link :to="'/news-letter'" class="text-white d-block pb-1"><span class="white-important">News Letter</span></router-link> 
               <router-link :to="'/resources/faq'" class="text-white d-block pb-1"><span class="white-important">FAQ</span></router-link> 
-              <router-link :to="'/blog'" class="text-white d-block pb-1"><span class="white-important">Blogs &amp; Magazines</span></router-link> 
+              <router-link :to="'/blog'" class="text-white d-block pb-1"><span class="white-important">Blogs</span></router-link> 
               <router-link :to="'/resources/travel-education'" class="text-white d-block pb-1"><span class="white-important">Travel &amp; Education</span></router-link> 
               <router-link :to="'/resources/safety-security'" class="text-white d-block pb-1"><span class="white-important">Safety &amp; Security</span></router-link> 
               <a href="https://s3.amazonaws.com/www.pands.gowithgbi.com/GBI+Privacy+and+Security+Policy.pdf" class="text-white d-block pb-1"><span class="white-important">Privacy Policy</span></a> 

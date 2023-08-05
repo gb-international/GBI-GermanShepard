@@ -314,10 +314,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   metaInfo: function metaInfo() {
     return {
-      title: "GBI Blog",
+      title: "Blogs | Around The World",
       meta: [{
         name: "description",
-        content: "@GoWithGBI takes you on a tour behind the scenes where you will get to learn about the process and hard work GBI team puts to make your educational travel program a successful one"
+        content: "Dream, read, and go. Before going on a trip it is good to take reviews and experiences of the ones who have been there once. Find out about the places before you go there."
       }, {
         name: "keywords",
         content: this.posts.meta_keyword
@@ -332,8 +332,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   beforeCreate: function beforeCreate() {
     var metaInfo = {
-      title: 'GBI Blog',
-      description: '@GoWithGBI takes you on a tour behind the scenes where you will get to learn about the process and hard work GBI team puts to make your educational travel program a successful one',
+      title: 'Blogs | Around The World',
+      description: 'Dream, read, and go. Before going on a trip it is good to take reviews and experiences of the ones who have been there once. Find out about the places before you go there.',
       keywords: '@GoWithGBI,GBI Process,Program Engineering Process ,GBI How we work,learn,explore,discover,dream travel journeys,behind the scenes,dream,educational programs,corporate events,team building programs,international programs,domestic programs',
       url: 'https://www.gowithgbi.com/blog',
       type: 'website'

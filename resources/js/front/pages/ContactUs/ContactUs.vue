@@ -179,9 +179,9 @@ import counter from "@/front/pages/ContactUs/counter.js";
 export default {
   name: "ContactUs",
    metaInfo: {
-    title: 'GBI Contact Us',
+    title: 'Contact Us | We Are Just A Call Away',
     meta:[
-      { name: 'description', content: 'Connect With GB International for organizing your educational travel plans any where any time' },
+      { name: 'description', content: 'Address: Triveni complex, G-32, Sheikh Sarai Phase 1, Sheikh Sarai, New Delhi, Delhi 110017 | Contact No.: +91 9717922240 | E-Mail: csrikhi@gbinternational.in' },
       { name: 'keywords', content: '@GoWithGBI,GB International,Connect With GB International,Email Us,Talk To Us,Need a travel solution' },
       { name: 'url', content: 'https://www.gowithgbi.com/contact-us' },
     ]

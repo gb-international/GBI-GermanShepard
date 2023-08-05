@@ -125,6 +125,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "States",
+  metaInfo: {
+    title: 'Encyclopedia | Know Before You Go ',
+    meta: [{
+      name: 'description',
+      content: 'All the information you need to know about the countries or states you are visiting will be found here.'
+    }, {
+      name: 'keywords',
+      content: '@GoWithGBI,explore desired destinations,tailored made itineraries ,custom built itineraries,itineraries of your choice and preferences,explore itineraries,explore educational programs'
+    }, {
+      name: 'url',
+      content: 'https://www.gowithgbi.com/contact-us'
+    }]
+  },
   components: {
     ModelSelect: vue_search_select__WEBPACK_IMPORTED_MODULE_0__.ModelSelect,
     cardLoader: _front_components_loaders_CardLoaderEncy__WEBPACK_IMPORTED_MODULE_1__["default"]
@@ -139,8 +152,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   beforeCreate: function beforeCreate() {
     var metaInfo = {
-      title: 'GBI Travel Encyclopedia | Domestic States',
-      description: 'GBI is a travel educationist rooted in experiential learning. It has tailored made itineraries reflect the classroom curricula and support academic objective.',
+      title: 'Encyclopedia | Know Before You Go',
+      description: 'All the information you need to know about the countries or states you are visiting will be found here.',
       keywords: '@GoWithGBI,explore desired destinations,tailored made itineraries ,custom built itineraries,itineraries of your choice and preferences,explore itineraries,explore educational programs',
       url: 'https://www.gowithgbi.com/resources/travel-encyclopedia',
       type: 'website'

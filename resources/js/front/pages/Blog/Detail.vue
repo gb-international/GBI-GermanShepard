@@ -19,7 +19,7 @@
             class="text-underscore"
             ><b>{{ posts.category.title }}</b></router-link
           >
-          >{{ posts.slug }}
+          >{{ posts.title }}
         </p>
 
         <div class="text-left mb-2 author-blog">
@@ -195,7 +195,7 @@ export default {
         {
           name: "description",
           content:
-            "@GoWithGBI takes you on a tour behind the scenes where you will get to learn about the process and hard work GBI team puts to make your educational travel program a successful one",
+            this.posts.summery,
         },
         {
           name: "keywords",

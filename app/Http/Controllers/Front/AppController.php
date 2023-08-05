@@ -14,8 +14,8 @@ class AppController extends Controller
   	$page = request()->segment(1);
   	$subPage = request()->segment(2);
   	$meta = new \stdClass();
-  	$meta->title = "G.B International is a travel educational specialist for young minds.";
-  	$meta->description = "GBI is a travel educationist rooted in experiential learning. It has tailored made itineraries reflect the classroom curricula and support academic objective.";
+  	$meta->title = "GB International - Your Travel Partner";
+  	$meta->description = "GB International provides the best practical learning experience to not only students but to the travellers as well.";
   	$meta->keyword = "";
   	$meta->image = "https://www.gowithgbi.com/assets/front/images/banner2.jpg";
   	//Blog
@@ -29,14 +29,14 @@ class AppController extends Controller
 			  	$meta->image = $mData->image;
   			}
   			else {
-	  			$meta->title = "GBI Blog";
-			  	$meta->description = "@GoWithGBI takes you on a tour behind the scenes where you will get to learn about the process and hard work GBI team puts to make your educational travel program a successful one.";
+	  			$meta->title = "Blogs | Around The World";
+			  	$meta->description = "Dream, read, and go. Before going on a trip it is good to take reviews and experiences of the ones who have been there once. Find out about the places before you go there.";
 			  	$meta->keyword = "@GoWithGBI,GBI Process,Program Engineering Process ,GBI How we work,learn,explore,discover,dream travel journeys,behind the scenes,dream,educational programs,corporate events,team building programs,international programs,domestic programs";
 			  	$meta->image = "https://www.gowithgbi.com/assets/front/images/banner2.jpg";
 	  		}
   		} else {
-  			$meta->title = "GBI Blog";
-		  	$meta->description = "@GoWithGBI takes you on a tour behind the scenes where you will get to learn about the process and hard work GBI team puts to make your educational travel program a successful one.";
+  			$meta->title = "Blogs | Around The World";
+		  	$meta->description = "Dream, read, and go. Before going on a trip it is good to take reviews and experiences of the ones who have been there once. Find out about the places before you go there.";
 		  	$meta->keyword = "@GoWithGBI,GBI Process,Program Engineering Process ,GBI How we work,learn,explore,discover,dream travel journeys,behind the scenes,dream,educational programs,corporate events,team building programs,international programs,domestic programs";
 		  	$meta->image = "https://www.gowithgbi.com/assets/front/images/banner2.jpg";
   		}
@@ -55,14 +55,14 @@ class AppController extends Controller
 			  	$meta->keyword = $mData->meta_keyword;
 			  	$meta->image = $mData->banner_image;
   			} else {
-	  			$meta->title = "GBI Travel Encyclopedia";
-			  	$meta->description = "GBI is a travel educationist rooted in experiential learning. It has tailored made itineraries reflect the classroom curricula and support academic objective.";
+	  			$meta->title = "Encyclopedia | Know Before You Go";
+			  	$meta->description = "All the information you need to know about the countries or states you are visiting will be found here.";
 			  	$meta->keyword = "@GoWithGBI,explore desired destinations,tailored made itineraries ,custom built itineraries,itineraries of your choice and preferences,explore itineraries,explore educational programs";
 			  	$meta->image = "https://www.gowithgbi.com/assets/front/images/banner2.jpg";
   			}
   		} else {
-  			$meta->title = "GBI Travel Encyclopedia";
-		  	$meta->description = "GBI is a travel educationist rooted in experiential learning. It has tailored made itineraries reflect the classroom curricula and support academic objective.";
+  			$meta->title = "Encyclopedia | Know Before You Go";
+		  	$meta->description = "All the information you need to know about the countries or states you are visiting will be found here.";
 		  	$meta->keyword = "@GoWithGBI,explore desired destinations,tailored made itineraries ,custom built itineraries,itineraries of your choice and preferences,explore itineraries,explore educational programs";
 		  	$meta->image = "https://www.gowithgbi.com/assets/front/images/banner2.jpg";
   		}
@@ -70,8 +70,8 @@ class AppController extends Controller
 	//Explore destination
 	elseif($page == 'explore-destination' || $page == 'explore-list'){
   		
-  			$meta->title = "GBI Explore Destination";
-		  	$meta->description = "@GoWithGBI a state of art platform which allows user to satiate all its travel needs at one click of a button.";
+  			$meta->title = "Explore Destinations | GB International - Travel With GBI";
+		  	$meta->description = "If you are looking for a place for the upcoming long weekend or an extended tour, these are the popular locations in your budget to go to.";
 		  	$meta->keyword = "@GoWithGBI,explore desired destinations,tailored made itineraries ,custom built itineraries,itineraries of your choice and preferences,explore itineraries,explore educational programs";
 		  	$meta->image = "https://www.gowithgbi.com/assets/front/images/banner2.jpg";
 	}
@@ -90,8 +90,8 @@ class AppController extends Controller
 			  	$meta->image = $mData->photo;
   			}	
   		} else {
-  			$meta->title = "GBI Explore Destination";
-		  	$meta->description = "@GoWithGBI a state of art platform which allows user to satiate all its travel needs at one click of a button.";
+  			$meta->title = "Explore Destinations | GB International - Travel With GBI";
+		  	$meta->description = "If you are looking for a place for the upcoming long weekend or an extended tour, these are the popular locations in your budget to go to.";
 		  	$meta->keyword = "@GoWithGBI,explore desired destinations,tailored made itineraries ,custom built itineraries,itineraries of your choice and preferences,explore itineraries,explore educational programs";
 		  	$meta->image = "https://www.gowithgbi.com/assets/front/images/banner2.jpg";
   		}
@@ -106,8 +106,8 @@ class AppController extends Controller
 			  	$meta->image = "https://www.gowithgbi.com/assets/front/images/banner2.jpg";
 	   		}
 	   		elseif($subPage == 'faq'){
-	   			$meta->title = "GBI Frequently Asked Question";
-			  	$meta->description = "@GoWithGBI helps you answer all your queries  regarding your travel program by just one click of a button.";
+	   			$meta->title = "FAQs | Clear Your Doubts Here";
+			  	$meta->description = "All the queries you have, all the answers you want regarding the tour, packages, guides, flights, accommodations, food, and whatnot? You’ll find it on this page.";
 			  	$meta->keyword = "@GoWithGBI,have a question,search for your answer,FAQ,Travel bookings queries,customer service,support helpdesk";
 			  	$meta->image = "https://www.gowithgbi.com/assets/front/images/banner2.jpg";
 	   		}
@@ -118,13 +118,13 @@ class AppController extends Controller
 			  	$meta->image = "https://www.gowithgbi.com/assets/front/images/banner2.jpg";
 	   		}
 	   		elseif($subPage == 'travel-encyclopedia'){
-	   			$meta->title = "GBI Travel Encyclopedia | Domestic States";
+	   			$meta->title = "Encyclopedia | Know Before You Go";
 			  	$meta->description = "GBI is a travel educationist rooted in experiential learning. It has tailored made itineraries reflect the classroom curricula and support academic objective.";
 			  	$meta->keyword = "@GoWithGBI,explore desired destinations,tailored made itineraries ,custom built itineraries,itineraries of your choice and preferences,explore itineraries,explore educational programs";
 			  	$meta->image = "https://www.gowithgbi.com/assets/front/images/banner2.jpg";
 	   		}
 	   		elseif($subPage == 'travel-encyclopedia-international'){
-	   			$meta->title = "GBI Travel Encyclopedia | International States";
+	   			$meta->title = "Encyclopedia | Know Before You Go";
 			  	$meta->description = "GBI is a travel educationist rooted in experiential learning. It has tailored made itineraries reflect the classroom curricula and support academic objective.";
 			  	$meta->keyword = "@GoWithGBI,explore desired destinations,tailored made itineraries ,custom built itineraries,itineraries of your choice and preferences,explore itineraries,explore educational programs";
 			  	$meta->image = "https://www.gowithgbi.com/assets/front/images/banner2.jpg";
@@ -137,8 +137,8 @@ class AppController extends Controller
 	}
 	//Contact Us
 	elseif($page == 'contact-us'){
-		$meta->title = "GBI Contact Us";
-		$meta->description = "Connect With GB International for organizing your educational travel plans any where any time.";
+		$meta->title = "Contact Us | We Are Just A Call Away";
+		$meta->description = "Address: Triveni complex, G-32, Sheikh Sarai Phase 1, Sheikh Sarai, New Delhi, Delhi 110017 | Contact No.: +91 9717922240 | E-Mail: csrikhi@gbinternational.in";
 		$meta->keyword = "@GoWithGBI,GB International,Connect With GB International,Email Us,Talk To Us,Need a travel solution";
 		$meta->image = "https://www.gowithgbi.com/assets/front/images/banner2.jpg";
 	}
@@ -147,8 +147,8 @@ class AppController extends Controller
 	elseif($page == 'about-us'){
 		if($subPage){
 			if($subPage == 'our-story'){
-				$meta->title = "Our Story";
-				$meta->description = "@GoWithGBI Story On How GBI believes in its core values and implement the same  to make your educational travel program a successful one";
+				$meta->title = "About Us | Get To Know About Us";
+				$meta->description = "We, GB International deal in providing customized itineraries to educational institutions, corporates, and to family travellers.";
 				$meta->keyword = "@GoWithGBI,Our Story,about us,GBI Process,Program Engineering Process ,GBI How we work,learn,explore,discover,dream travel journeys,behind the scenes,dream,educational programs,corporate events,team building programs,international programs,domestic programs";
 				$meta->image = "https://www.gowithgbi.com/assets/front/images/banner2.jpg";
 			}
@@ -160,8 +160,8 @@ class AppController extends Controller
 				
 			}
 			elseif($subPage == 'join-our-team'){
-				$meta->title = "Join Our Team";
-				$meta->description = "@GoWithGBI Lets travel together and make the world a better place .Join our brilliant minds";
+				$meta->title = "Careers | Join Our Team";
+				$meta->description = "Explore the world with us. Be a part of our team.";
 				$meta->keyword = "@GoWithGBI,join our team,explore Your career with GBI,exciting journey,research oriented process,challenges,explore your travel instinct,discover ,travel passion,learn,explore,discover";
 				$meta->image = "https://www.gowithgbi.com/assets/front/images/banner2.jpg";
 			}

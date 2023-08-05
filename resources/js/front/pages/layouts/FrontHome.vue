@@ -215,6 +215,7 @@ import Heading from '@/front/components/layout/Heading.vue';
 import SubHeading from '@/front/components/layout/SubHeading.vue';
 import cardLoader from '@/front/components/loaders/cardHome.vue';
 import Review from "@/front/components/Reviews.vue"
+import { sitemap } from "@/admin/helpers/sitemap.js";
 
 export default {
   name: "FrontHome",
@@ -233,10 +234,10 @@ export default {
     };
   },
   metaInfo: {
-    title: 'GB-International',
+    title: 'Homepage | GB International - Your Travel Partner ',
     meta:[
-      { property: 'og:description', content: 'GBI is a travel educationist rooted in experiential learning. It has tailored made itineraries reflect the classroom curricula and support academic objective.' },
-      { property: 'og:title', content: 'G.B International is a travel educational specialist for young minds.' },
+      { property: 'og:description', content: 'GB International provides the best practical learning experience to not only students but to the travellers as well.' },
+      { property: 'og:title', content: 'GB International - Your Travel Partner' },
       { property: 'og:image', content: 'https://www.gowithgbi.com/assets/front/images/banner2.jpg' },
       { property: 'og:type', content: 'website' },
       { property: 'og:site_name', content: 'gowithgbi.com' },
@@ -246,6 +247,7 @@ export default {
   
   created() {
     this.TravelPorgrams();
+    //sitemap();
   },
   methods: {
     TravelPorgrams() {

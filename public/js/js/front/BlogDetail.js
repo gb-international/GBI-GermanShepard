@@ -249,7 +249,7 @@ __webpack_require__.r(__webpack_exports__);
       title: this.posts.title,
       meta: [{
         name: "description",
-        content: "@GoWithGBI takes you on a tour behind the scenes where you will get to learn about the process and hard work GBI team puts to make your educational travel program a successful one"
+        content: this.posts.summery
       }, {
         name: "keywords",
         content: this.posts.meta_keyword
@@ -591,7 +591,7 @@ var render = function () {
                   },
                   [_c("b", [_vm._v(_vm._s(_vm.posts.category.title))])]
                 ),
-                _vm._v("\n        >" + _vm._s(_vm.posts.slug) + "\n      "),
+                _vm._v("\n        >" + _vm._s(_vm.posts.title) + "\n      "),
               ],
               1
             )

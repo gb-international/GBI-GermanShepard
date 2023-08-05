@@ -139,12 +139,12 @@ import cardLoader from '@/front/components/loaders/cardLoaderJobs.vue';
 export default {
   name: "JoinOurTeam",
   metaInfo: {
-    title: "Join Our Team",
+    title: "Careers | Join Our Team",
     meta: [
       {
         name: "description",
         content:
-          "@GoWithGBI Lets travel together and make the world a better place .Join our brilliant minds",
+          "Explore the world with us. Be a part of our team.",
       },
       {
         name: "keywords",
@@ -190,8 +190,8 @@ export default {
   },
   beforeCreate(){
     let metaInfo = {
-      title: 'Join Our Team',
-      description: '@GoWithGBI Lets travel together and make the world a better place .Join our brilliant minds',
+      title: 'Careers | Join Our Team',
+      description: 'Explore the world with us. Be a part of our team.',
       keywords: '@GoWithGBI,join our team,explore Your career with GBI,exciting journey,research oriented process,challenges,explore your travel instinct,discover ,travel passion,learn,explore,discover',
       url: 'https://www.gowithgbi.com/about-us/join-our-team',
       type: 'website'

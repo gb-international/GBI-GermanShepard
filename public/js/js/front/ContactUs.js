@@ -339,10 +339,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ContactUs",
   metaInfo: {
-    title: 'GBI Contact Us',
+    title: 'Contact Us | We Are Just A Call Away',
     meta: [{
       name: 'description',
-      content: 'Connect With GB International for organizing your educational travel plans any where any time'
+      content: 'Address: Triveni complex, G-32, Sheikh Sarai Phase 1, Sheikh Sarai, New Delhi, Delhi 110017 | Contact No.: +91 9717922240 | E-Mail: csrikhi@gbinternational.in'
     }, {
       name: 'keywords',
       content: '@GoWithGBI,GB International,Connect With GB International,Email Us,Talk To Us,Need a travel solution'

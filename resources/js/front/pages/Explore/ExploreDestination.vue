@@ -690,12 +690,12 @@ export default {
   name: "exploreDestination",
   mixins: [ExploreSearchMixin],
   metaInfo: {
-    title: "GBI Explore Destination",
+    title: "Explore Destinations | GB International - Travel With GBI ",
     meta: [
       {
         name: "description",
         content:
-          "@GoWithGBI a state of art platform which allows user to satiate all its travel needs at one click of a button",
+          "If you are looking for a place for the upcoming long weekend or an extended tour, these are the popular locations in your budget to go to.",
       },
       {
         name: "keywords",

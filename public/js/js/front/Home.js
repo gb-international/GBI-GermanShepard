@@ -240,6 +240,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _front_components_layout_SubHeading_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/front/components/layout/SubHeading.vue */ "./resources/js/front/components/layout/SubHeading.vue");
 /* harmony import */ var _front_components_loaders_cardHome_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/front/components/loaders/cardHome.vue */ "./resources/js/front/components/loaders/cardHome.vue");
 /* harmony import */ var _front_components_Reviews_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/front/components/Reviews.vue */ "./resources/js/front/components/Reviews.vue");
+/* harmony import */ var _admin_helpers_sitemap_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/admin/helpers/sitemap.js */ "./resources/js/admin/helpers/sitemap.js");
 //
 //
 //
@@ -452,6 +453,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 
@@ -474,13 +476,13 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   metaInfo: {
-    title: 'GB-International',
+    title: 'Homepage | GB International - Your Travel Partner ',
     meta: [{
       property: 'og:description',
-      content: 'GBI is a travel educationist rooted in experiential learning. It has tailored made itineraries reflect the classroom curricula and support academic objective.'
+      content: 'GB International provides the best practical learning experience to not only students but to the travellers as well.'
     }, {
       property: 'og:title',
-      content: 'G.B International is a travel educational specialist for young minds.'
+      content: 'GB International - Your Travel Partner'
     }, {
       property: 'og:image',
       content: 'https://www.gowithgbi.com/assets/front/images/banner2.jpg'
@@ -497,7 +499,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     this.TravelPorgrams();
+    //sitemap();
   },
+
   methods: {
     TravelPorgrams: function TravelPorgrams() {
       var _this = this;
@@ -511,6 +515,41 @@ __webpack_require__.r(__webpack_exports__);
     }
   }
 });
+
+/***/ }),
+
+/***/ "./resources/js/admin/helpers/sitemap.js":
+/*!***********************************************!*\
+  !*** ./resources/js/admin/helpers/sitemap.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   sitemap: () => (/* binding */ sitemap)
+/* harmony export */ });
+/* harmony import */ var _front_routes_Index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/front/routes/Index.js */ "./resources/js/front/routes/Index.js");
+
+var router = (0,_front_routes_Index_js__WEBPACK_IMPORTED_MODULE_0__.createRouter)();
+var items = [];
+router.options.routes.forEach(function (route) {
+  items.push({
+    name: route.name,
+    path: route.path
+  });
+});
+var sitemap = function sitemap() {
+  var routes = items.map(function (r) {
+    return r.path;
+  }).filter(function (r) {
+    return !r.includes(':');
+  }) // removes routes with params
+  .map(function (r) {
+    return "<url><loc>https://gowithgbi.com".concat(r, "</loc></url>");
+  });
+  console.log("\n      <?xml version='1.0' encoding='UTF-8'?>\n      <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>\n          ".concat(routes.join('\n'), "\n      </urlset>\n    "));
+};
 
 /***/ }),
 

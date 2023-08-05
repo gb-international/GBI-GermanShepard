@@ -225,6 +225,19 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "State",
+  metaInfo: {
+    title: 'Encyclopedia | Know Before You Go ',
+    meta: [{
+      name: 'description',
+      content: 'All the information you need to know about the countries or states you are visiting will be found here.'
+    }, {
+      name: 'keywords',
+      content: '@GoWithGBI,explore desired destinations,tailored made itineraries ,custom built itineraries,itineraries of your choice and preferences,explore itineraries,explore educational programs'
+    }, {
+      name: 'url',
+      content: 'https://www.gowithgbi.com/contact-us'
+    }]
+  },
   components: {
     VueSlickCarousel: (vue_slick_carousel__WEBPACK_IMPORTED_MODULE_0___default()),
     Form: vform__WEBPACK_IMPORTED_MODULE_1__.Form,

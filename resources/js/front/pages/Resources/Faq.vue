@@ -63,17 +63,17 @@ export default {
     Heading
   },
    metaInfo: {
-    title: 'GBI Frequently Asked Question',
+    title: 'FAQs | Clear Your Doubts Here',
     meta:[
-      { name: 'description', content: '@GoWithGBI helps you answer all your queries  regarding your travel program by just one click of a button' },
+      { name: 'description', content: 'All the queries you have, all the answers you want regarding the tour, packages, guides, flights, accommodations, food, and whatnot? You’ll find it on this page.' },
       { name: 'keywords', content: '@GoWithGBI,have a question,search for your answer,FAQ,Travel bookings queries,customer service,support helpdesk' },
       { name: 'url', content: 'https://www.gowithgbi.com/resources/faq' },
     ]
   },
   beforeCreate(){
     let metaInfo = {
-        title: 'GBI Frequently Asked Question',
-        description: '@GoWithGBI helps you answer all your queries  regarding your travel program by just one click of a button',
+        title: 'FAQs | Clear Your Doubts Here',
+        description: 'All the queries you have, all the answers you want regarding the tour, packages, guides, flights, accommodations, food, and whatnot? You’ll find it on this page.',
         keywords: '@GoWithGBI,have a question,search for your answer,FAQ,Travel bookings queries,customer service,support helpdesk',
         url: 'https://www.gowithgbi.com/resources/faq',
         type: 'website'

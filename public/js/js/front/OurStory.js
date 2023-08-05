@@ -190,10 +190,10 @@ __webpack_require__.r(__webpack_exports__);
     "paragraph": _front_components_layout_Paragraph_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   metaInfo: {
-    title: 'About Us',
+    title: 'About Us | Get To Know About Us',
     meta: [{
       name: 'description',
-      content: '@GoWithGBI Story On How GBI believes in its core values and implement the same  to make your educational travel program a successful one'
+      content: 'We, GB International deal in providing customized itineraries to educational institutions, corporates, and to family travellers.'
     }, {
       name: 'keywords',
       content: '@GoWithGBI,Our Story,about us,GBI Process,Program Engineering Process ,GBI How we work,learn,explore,discover,dream travel journeys,behind the scenes,dream,educational programs,corporate events,team building programs,international programs,domestic programs'
@@ -204,8 +204,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   beforeCreate: function beforeCreate() {
     var metaInfo = {
-      title: 'Our Story',
-      description: '@GoWithGBI Story On How GBI believes in its core values and implement the same  to make your educational travel program a successful one',
+      title: 'About Us | Get To Know About Us',
+      description: 'We, GB International deal in providing customized itineraries to educational institutions, corporates, and to family travellers.',
       keywords: '@GoWithGBI,Our Story,about us,GBI Process,Program Engineering Process ,GBI How we work,learn,explore,discover,dream travel journeys,behind the scenes,dream,educational programs,corporate events,team building programs,international programs,domestic programs',
       url: 'https://www.gowithgbi.com/about-us/our-story',
       type: 'website'

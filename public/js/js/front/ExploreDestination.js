@@ -1171,10 +1171,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   name: "exploreDestination",
   mixins: [_front_mixins_user_ExploreSearchMixin__WEBPACK_IMPORTED_MODULE_2__["default"]],
   metaInfo: {
-    title: "GBI Explore Destination",
+    title: "Explore Destinations | GB International - Travel With GBI ",
     meta: [{
       name: "description",
-      content: "@GoWithGBI a state of art platform which allows user to satiate all its travel needs at one click of a button"
+      content: "If you are looking for a place for the upcoming long weekend or an extended tour, these are the popular locations in your budget to go to."
     }, {
       name: "keywords",
       content: "@GoWithGBI,explore desired destinations,tailored made itineraries ,custom built itineraries,itineraries of your choice and preferences,explore itineraries,explore educational programs"

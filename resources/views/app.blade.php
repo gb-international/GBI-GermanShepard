@@ -3,13 +3,40 @@
 <head base href="/">
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-138734768-1"></script>
-  <script>
+<script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
     gtag('config', 'UA-138734768-1');
   </script>  
+  <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "TravelAgency",
+    "name": "GB International",
+    "image": "https://gbi-assets.s3.ap-south-1.amazonaws.com/assets/front/images/logo.png",
+    "logo": "https://gbi-assets.s3.ap-south-1.amazonaws.com/assets/front/images/logo.png",
+    "@id": "7164817599973027325",
+    "url": "https://gowithgbi.com",
+    "telephone": "+91 9717922240",
+    "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Triveni complex, G-32, Sheikh Sarai Phase 1",
+    "addressLocality": "Sheikh Sarai, New Delhi",
+    "postalCode": "110017",
+    "addressCountry": "India"
+    } ,
+    "sameAs": [
+    "https://www.instagram.com/gowithgbi",
+    "https://twitter.com/gowithgbi",
+    "https://www.youtube.com/channel/UCYaTBxhqqXaMOUNZiAqvI_A",
+    "https://www.linkedin.com/company/gowithgbi",
+    "https://www.facebook.com/gowithgbi",
+    "https://gowithgbi.com"
+    ] 
+    }
+  </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Pragma" content="no-cache">
@@ -35,8 +62,8 @@
   <meta property="og:keywords" content="{{$meta->keyword}}">
   <meta property="og:image" content="{{$meta->image}}">
   @else
-  <meta property="og:title" content="G.B International is a travel educational specialist for young minds.">
-  <meta property="og:description" content="GBI is a travel educationist rooted in experiential learning. It has tailored made itineraries reflect the classroom curricula and support academic objective.">
+  <meta property="og:title" content="Homepage | GB International - Your Travel Partner">
+  <meta property="og:description" content="GB International provides the best practical learning experience to not only students but to the travellers as well.">
   <meta property="og:image" content="https://www.gowithgbi.com/assets/front/images/banner2.jpg">
   @endif
 <meta property="og:site_name" content="gowithgbi.com">

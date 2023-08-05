@@ -62,7 +62,7 @@
       <div class="float-right d-none d-sm-block">
           <b>Term & Condition</b>
       </div>
-      <strong> &copy; 2021 <a href="#">admin</a>.</strong> All rights
+      <strong> &copy; 2023 <a href="#">admin</a>.</strong> All rights
       reserved.
     </footer>
 </div>

@@ -254,10 +254,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "JoinOurTeam",
   metaInfo: {
-    title: "Join Our Team",
+    title: "Careers | Join Our Team",
     meta: [{
       name: "description",
-      content: "@GoWithGBI Lets travel together and make the world a better place .Join our brilliant minds"
+      content: "Explore the world with us. Be a part of our team."
     }, {
       name: "keywords",
       content: "@GoWithGBI,join our team,explore Your career with GBI,exciting journey,research oriented process,challenges,explore your travel instinct,discover ,travel passion,learn,explore,discover"
@@ -299,8 +299,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   beforeCreate: function beforeCreate() {
     var metaInfo = {
-      title: 'Join Our Team',
-      description: '@GoWithGBI Lets travel together and make the world a better place .Join our brilliant minds',
+      title: 'Careers | Join Our Team',
+      description: 'Explore the world with us. Be a part of our team.',
       keywords: '@GoWithGBI,join our team,explore Your career with GBI,exciting journey,research oriented process,challenges,explore your travel instinct,discover ,travel passion,learn,explore,discover',
       url: 'https://www.gowithgbi.com/about-us/join-our-team',
       type: 'website'
