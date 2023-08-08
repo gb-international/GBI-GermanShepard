@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
-
+	
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -172,7 +172,6 @@ Route::namespace('Admin')->group(function (){
 		Route::get('permissions/{userRoleId}/{size}','UserRolePermissionController@showUserPermissions'); //Check user permissions
 		Route::get('user-permissions/{userId}','UserRolePermissionController@showPermission');
 		Route::get('check/permission/{permId}/{userRoleId}','UserRolePermissionController@UserPerm');
-
 	});
 
 	Route::namespace('Reservation')->group(function(){
@@ -324,8 +323,12 @@ Route::namespace('Admin')->group(function (){
 	Route::namespace('FinalProgram')->group(function(){
 		Route::post('finalprogram/send-sms','SmsController@sendSms');
 	});
+	
+	
+
 
 });
+
 
 
 
