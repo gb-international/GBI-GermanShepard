@@ -124,7 +124,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "FeedbackLink",
   components: {},
@@ -183,12 +182,14 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     getTour: function getTour() {
       var _this = this;
+
       this.$axios.get("/api/get-tour/" + this.$route.params.tourID).then(function (response) {
         _this.itinerary = response.data;
       });
     },
     submitFeedback: function submitFeedback() {
       var _this2 = this;
+
       if (this.feedback.name == "" || this.feedback.ph_no == "" || this.feedback.email == "" || this.feedback.tour_id == "" || this.feedback.trip_itenerary == 0 || this.feedback.place_of_stay == 0 || this.feedback.food_quality == 0 || this.feedback.transport_arrangements == 0 || this.feedback.recommend_to_others == 0 || this.feedback.travel_again == 0 || this.feedback.escort_hospitality == 0) {
         this.$swal.fire({
           icon: 'warning',

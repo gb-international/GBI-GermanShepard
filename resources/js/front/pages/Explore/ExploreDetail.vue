@@ -657,7 +657,7 @@ export default {
 .icons-flex-e{
   display: flex;
   align-content: center;
-  justify-content: start;
+  justify-content: flex-start;
   flex-direction: row;
   font-size: 18px;
   font-weight: 400;

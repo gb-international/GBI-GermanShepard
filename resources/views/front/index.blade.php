@@ -34,7 +34,6 @@
     {{-- <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> --}}
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-138734768-1"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-138734768-1"></script>
 
     <meta property="og:title" content="G.B International is a travel educational specialist for young minds.">
     <meta property="og:site_name" content="gowithgbi.com">

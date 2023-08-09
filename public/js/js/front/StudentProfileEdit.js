@@ -96,7 +96,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "LoginDetailsForm",
   mixins: [_front_mixins_user_ProfileEditMixin__WEBPACK_IMPORTED_MODULE_0__["default"]],
@@ -311,7 +310,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ProfileForm",
   mixins: [_front_mixins_user_ProfileEditMixin__WEBPACK_IMPORTED_MODULE_0__["default"]],
@@ -406,7 +404,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "SocialForm",
   mixins: [_front_mixins_user_ProfileEditMixin__WEBPACK_IMPORTED_MODULE_0__["default"]],
@@ -432,16 +429,20 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     useAuthProvider: function useAuthProvider(provider, proData) {
       var _this = this;
+
       var pro = proData;
       var ProData = pro || Providers[provider];
       this.$Oauth.authenticate(provider, ProData).then(function (response) {
         console.log(response);
         var rsp = response;
+
         var userData = _this.$cookies.get("user");
+
         if (rsp) {
           _this.responseData.code = rsp.code;
           _this.responseData.provider = provider;
           _this.responseData.userId = userData.id;
+
           _this.SocialLogin(_this.responseData);
         }
       })["catch"](function (err) {
@@ -450,6 +451,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     SocialLogin: function SocialLogin(data) {
       var _this2 = this;
+
       this.$axios.post("/api/user/save-social", data, {
         headers: {
           Authorization: "Bearer ".concat(localStorage.token)
@@ -472,6 +474,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     checkSocial: function checkSocial() {
       var _this3 = this;
+
       var userData = this.$cookies.get("user");
       this.$axios.post("/api/user/social/" + userData.id, {
         headers: {
@@ -514,12 +517,13 @@ __webpack_require__.r(__webpack_exports__);
       console.log(this.docs.docFront);
     },
     onFileBottom: function onFileBottom(e) {
-      this.docs.docBottom = e.target.files[0];
-      //console.log(this.docFront.name)
+      this.docs.docBottom = e.target.files[0]; //console.log(this.docFront.name)
+
       console.log(this.docs.docBottom);
     },
     updateDocs: function updateDocs() {
       var _this4 = this;
+
       if (!this.docs.docFront || !this.docs.docBottom || !this.docs.docType) {
         this.$swal.fire({
           icon: "warning",
@@ -528,6 +532,7 @@ __webpack_require__.r(__webpack_exports__);
         });
         return false;
       }
+
       var data = new FormData();
       data.append("docFront", this.docs.docFront);
       data.append("docBottom", this.docs.docBottom);
@@ -628,7 +633,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "UpdatePassForm",
   mixins: [_front_mixins_user_UpdatePasswordMixin__WEBPACK_IMPORTED_MODULE_0__["default"]]
@@ -721,7 +725,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "UploadDocsForm",
   mixins: [_front_mixins_user_ProfileEditMixin__WEBPACK_IMPORTED_MODULE_0__["default"]],
@@ -747,12 +750,13 @@ __webpack_require__.r(__webpack_exports__);
       console.log(this.docs.docFront);
     },
     onFileBottom: function onFileBottom(e) {
-      this.docs.docBottom = e.target.files[0];
-      //console.log(this.docFront.name)
+      this.docs.docBottom = e.target.files[0]; //console.log(this.docFront.name)
+
       console.log(this.docs.docBottom);
     },
     updateDocs: function updateDocs() {
       var _this = this;
+
       if (!this.docs.docFront || !this.docs.docBottom || !this.docs.docType) {
         this.$swal.fire({
           icon: "warning",
@@ -761,6 +765,7 @@ __webpack_require__.r(__webpack_exports__);
         });
         return false;
       }
+
       var data = new FormData();
       data.append("docFront", this.docs.docFront);
       data.append("docBottom", this.docs.docBottom);
@@ -900,7 +905,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ProfileEdit",
   mixins: [_front_mixins_user_ProfileEditMixin__WEBPACK_IMPORTED_MODULE_0__["default"]],
@@ -929,6 +933,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     var _this = this;
+
     this.$nextTick(function () {
       window.addEventListener('resize', _this.onResize);
     });
@@ -1016,9 +1021,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     var _this = this;
+
     if (localStorage.token == "") {
       this.$router.push("/");
     }
+
     this.$axios.get("/api/school-list").then(function (response) {
       _this.school_list = response.data;
     });
@@ -1050,6 +1057,7 @@ __webpack_require__.r(__webpack_exports__);
       _this.form.institution_code = list.information["institution_code"];
       _this.form.image = list.information["photo"];
       _this.image = _this.form.image;
+
       if (list.subscribe) {
         if (list.subscribe["status"] == 1) {
           _this.form.subscribe = true;
@@ -1057,7 +1065,9 @@ __webpack_require__.r(__webpack_exports__);
           _this.form.subscribe = false;
         }
       }
+
       var type = _this.form.user_profession;
+
       if (type == "student" || type == "teacher") {
         _this.client_input_box = "1";
         _this.form.school_id = list.information.school_id;
@@ -1085,6 +1095,7 @@ __webpack_require__.r(__webpack_exports__);
       this.namefield = false;
       this.addressfield = false;
       this.school_field = false;
+
       if (this.form.user_profession == "corporate") {
         this.namefield = true;
         this.addressfield = true;
@@ -1112,6 +1123,7 @@ __webpack_require__.r(__webpack_exports__);
         alert("Select an image");
         return;
       }
+
       var vm = this;
       var data = new FormData();
       data.append("photo", file);
@@ -1138,11 +1150,13 @@ __webpack_require__.r(__webpack_exports__);
     /// Update the user information
     updateUserData: function updateUserData() {
       var _this2 = this;
+
       if (this.form.subscribe == true) {
         this.form.subscribe = 1;
       } else {
         this.form.subscribe = 0;
       }
+
       this.form.post("/api/user-update", {
         headers: {
           Authorization: "Bearer ".concat(localStorage.token)
@@ -1192,6 +1206,7 @@ var UpdatePasswordMixin = {
   methods: {
     UpdatePassword: function UpdatePassword() {
       var _this = this;
+
       var data = {
         current_password: this.form.current_password,
         new_password: this.form.new_password,
@@ -1199,6 +1214,7 @@ var UpdatePasswordMixin = {
       };
       this.$api.POST("/api/update-password", data).then(function (response) {
         _this.form.reset();
+
         _this.message = 'Your password has been updated';
       })["catch"](function (error) {
         _this.handleError(error);

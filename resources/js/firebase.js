@@ -1,4 +1,4 @@
-import firebase from "firebase";
+/*import firebase from "firebase";
 import "firebase/firestore";
 
 var firebaseConfig = {
@@ -18,4 +18,4 @@ const notifsCollection = db.collection('notifs');
 export {
   db,
   notifsCollection,
-}
+}*/

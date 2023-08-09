@@ -16,7 +16,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['text'],
   data: function data() {
@@ -94,7 +93,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Faq",
@@ -175,6 +173,7 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     resultQuery: function resultQuery() {
       var _this = this;
+
       if (this.searchQuery) {
         return this.questions_list.filter(function (item) {
           return _this.searchQuery.toLowerCase().split(" ").every(function (v) {
@@ -381,7 +380,7 @@ var render = function () {
                 _vm._v("Frequently Asked Questions (FAQ)"),
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "input-group p-2 bg-skyblue" }, [
+              _c("div", { staticClass: "input-group p-2 bg-light-card" }, [
                 _c("input", {
                   directives: [
                     {

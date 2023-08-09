@@ -32,7 +32,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "BlogCard",
   props: ['post']
@@ -184,7 +183,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "BlogDetail",
   components: {
@@ -292,27 +290,33 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     getBlogDetail: function getBlogDetail() {
       var _this = this;
+
       this.$axios.get("/api/getpost/".concat(this.$route.params.slug)).then(function (response) {
         _this.posts = response.data;
         console.log(_this.posts);
+
         _this.getRelatedBlogs();
       });
     },
     getRelatedBlogs: function getRelatedBlogs() {
       var _this2 = this;
+
       this.$axios.get("/api/related-blog/".concat(this.posts.category_id)).then(function (response) {
         _this2.RelatedPosts = response.data;
       });
     },
     addComment: function addComment() {
       var _this3 = this;
+
       if (this.form.name == "" || this.form.description == "") {
         this.error_message = "Please fill the fields";
         return false;
       }
+
       this.form.post_id = this.posts.id;
       this.$axios.post("/api/add-post-comment", this.form).then(function (response) {
         _this3.posts.comments.unshift(response.data);
+
         _this3.form.name = "";
         _this3.form.description = "";
       });
@@ -521,12 +525,14 @@ var render = function () {
           _c(
             "div",
             { staticClass: "card-tags" },
-            _vm._l(_vm.post.tags, function (tag) {
-              return _c(
-                "span",
-                { key: tag.id, staticClass: "text-dark card-tag mr-2" },
-                [_vm._v(_vm._s(tag.title))]
-              )
+            _vm._l(_vm.post.tags, function (tag, index) {
+              return index <= 5
+                ? _c(
+                    "span",
+                    { key: tag.id, staticClass: "text-dark card-tag mr-2" },
+                    [_vm._v(_vm._s(tag.title))]
+                  )
+                : _vm._e()
             }),
             0
           ),

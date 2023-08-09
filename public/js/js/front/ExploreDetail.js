@@ -266,7 +266,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Booking",
   components: {
@@ -336,11 +335,13 @@ __webpack_require__.r(__webpack_exports__);
     },
     savePersons: function savePersons() {
       this.form.person = parseInt(this.form.children) + parseInt(this.form.adults);
+
       if (this.form.infants > 0) {
         this.people = this.form.person + ' + ' + this.form.infants + ' Infant(s)';
       } else {
         this.people = this.form.person;
       }
+
       this.showPersonModal = false;
       this.checkGroup();
     },
@@ -367,6 +368,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     sightseeingData: function sightseeingData(city) {
       var _this = this;
+
       this.$axios.post("/api/city-sightseeing", {
         list: city
       }).then(function (response) {
@@ -396,6 +398,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     cityList: function cityList() {
       var _this2 = this;
+
       this.$axios.get("/api/city").then(function (response) {
         for (var i = 0; i < response.data.data.length; i++) {
           _this2.options.push({
@@ -406,6 +409,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     BookingSubmit: function BookingSubmit() {
       var _this3 = this;
+
       if (this.$cookies.get('access_token') == null) {
         window.$(".close").click();
         this.$swal.fire({
@@ -415,6 +419,7 @@ __webpack_require__.r(__webpack_exports__);
         });
         return false;
       }
+
       this.form.itinerary_id = this.$route.params.id;
       this.form.post("/api/booking", {
         headers: {
@@ -422,7 +427,9 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).then(function (response) {
         _this3.form.reset();
+
         window.$(".close").click();
+
         _this3.$swal.fire({
           icon: "success",
           title: "Booking Inquiry Sent",
@@ -433,6 +440,7 @@ __webpack_require__.r(__webpack_exports__);
           icon: "error",
           title: "Please provide valid details"
         });
+
         _this3.handleError(error);
       });
     }
@@ -456,360 +464,365 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_slick_carousel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-slick-carousel */ "./node_modules/vue-slick-carousel/dist/vue-slick-carousel.umd.js");
 /* harmony import */ var vue_slick_carousel__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_slick_carousel__WEBPACK_IMPORTED_MODULE_1__);
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -903,6 +916,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   methods: {
     generate: function generate() {
       var _this = this;
+
       var spread = Math.random() + 0.001;
       this.center = {
         lat: 1.38 + (Math.random() - 0.5) * spread,
@@ -931,8 +945,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       this.iconSelected = val;
     },
     changeCity: function changeCity(val) {
-      this.citySelected = val;
-      //this.encyData = '';
+      this.citySelected = val; //this.encyData = '';
       //if(this.itineraryData.Ency){
       //this.encyData = this.itineraryData.Ency.find(({ state_name }) => state_name === val);
       //}
@@ -949,14 +962,16 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     },
     getItinerary: function getItinerary() {
       var _this2 = this;
+
       this.$axios.get("/api/itinerary-view/".concat(this.$route.params.id)).then(function (res) {
-        _this2.itineraryData = res.data;
-        //Save search
+        _this2.itineraryData = res.data; //Save search
+
         var searches = JSON.parse(localStorage.getItem("itSearches"));
         searches.push(_this2.itineraryData);
         console.log(_this2.itineraryData);
         localStorage.setItem("itSearches", JSON.stringify(searches));
         console.log(_this2.itineraryData.itineraryimages.length);
+
         if (_this2.itineraryData.itineraryimages.length < 1) {
           for (var i = 0; i < 7; i++) {
             _this2.itineraryData.itineraryimages[i] = {
@@ -965,33 +980,40 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
             };
           }
         }
+
         _this2.selectedPhoto = _this2.itineraryData.itineraryimages[0].image;
+
         if (_this2.itineraryData.itinerarydays) {
           var data = _this2.itineraryData.itinerarydays;
           var selected = [];
           _this2.selected_cities = [];
+
           if (data) {
             _this2.selected_cities = [];
+
             for (var _i = 0; _i < data.length; _i++) {
               selected.push(data[_i].day_source);
               selected.push(data[_i].day_destination);
             }
           }
+
           _this2.selected_cities = _toConsumableArray(new Set(selected));
-          _this2.citySelected = _this2.selected_cities[0];
-          //if(this.itineraryData.Ency.length > 1){
+          _this2.citySelected = _this2.selected_cities[0]; //if(this.itineraryData.Ency.length > 1){
           //this.encyData = this.itineraryData.Ency.find(({ state_name }) => state_name === this.selected_cities[0]);
           //}
+
           console.log(_this2.selected_cities);
         }
+
         _this2.getRelatedCities(_this2.itineraryData.destination);
       });
     },
     getRelatedCities: function getRelatedCities(destination) {
       var _this3 = this;
+
       this.$axios.get("/api/related-cities/".concat(destination)).then(function (res) {
-        _this3.city_list = res.data;
-        //setTimeout(this.loading = false, 1000)
+        _this3.city_list = res.data; //setTimeout(this.loading = false, 1000)
+
         _this3.loading = false;
       });
     }
@@ -1041,7 +1063,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.row2-card[data-v-2bb87509]{\r\n  height: auto; \r\n  width: 100%; \r\n  padding: 16px 30px;\r\n  font-size: 18px;\r\n  box-shadow: 0 0 4px rgba(7, 7, 7, 0.2);\r\n  background: white;\n}\n.heading2[data-v-2bb87509]{\r\n font-size: 17px;\r\n font-weight: 500;\r\n color: black;\n}\n.mainRow1[data-v-2bb87509]{\r\n  margin-top: 20px;\r\n  margin-bottom: 21px;\n}\n.mainRow2[data-v-2bb87509]{\r\n  margin-bottom: 21px;\n}\n.mainRow3[data-v-2bb87509]{\r\n  margin-bottom: 21px;\n}\n.expDetailImg[data-v-2bb87509]{\r\n  width: 100%;\r\n  height: 260px;\r\n  margin-bottom: 10px;\r\n  margin-right: 15px;\r\n  background-size: cover;\r\n  background-position:50% 50%;\r\n  image-rendering: crisp-edges;\r\n  image-rendering: -moz-crisp-edges;          /* Firefox */\r\n  image-rendering: -o-crisp-edges;            /* Opera */\r\n  image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming)*/\r\n -ms-interpolation-mode: nearest-neighbor;   /* IE (non-standard property) */\r\n  -o-object-fit: cover;\r\n     object-fit: cover;\n}\n.expDetailImg2[data-v-2bb87509]{\r\n  width: 100%;\r\n  height: 200px;\r\n  margin-bottom: 10px;\r\n  margin-right: 15px;\r\n  background-size: cover;\r\n  background-position:50% 50%;\r\n  image-rendering: crisp-edges;\r\n  image-rendering: -moz-crisp-edges;          /* Firefox */\r\n  image-rendering: -o-crisp-edges;            /* Opera */\r\n  image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming)*/\r\n -ms-interpolation-mode: nearest-neighbor;   /* IE (non-standard property) */\r\n  -o-object-fit: cover;\r\n     object-fit: cover;\n}\n.expDetailImgSmall[data-v-2bb87509]{\r\n  width:  40px;\r\n  height: 40px;\r\n  box-shadow: 0 0 4px rgba(7, 7, 7, 0.2);\r\n  border-radius: 5px;\r\n  background-size: cover;\r\n  background-position:50% 50%;\r\n  image-rendering: crisp-edges;\r\n  image-rendering: -moz-crisp-edges;          /* Firefox */\r\n  image-rendering: -o-crisp-edges;            /* Opera */\r\n  image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming)*/\r\n -ms-interpolation-mode: nearest-neighbor;   /* IE (non-standard property) */\r\n  -o-object-fit: cover;\r\n     object-fit: cover;\r\n  cursor: pointer;\n}\n.expDetCol1[data-v-2bb87509]{\r\n  width: 100%;\n}\n.expDetCol2Main[data-v-2bb87509]{\r\n  height: 537px;\r\n  width: 360px;\r\n  display: none;\r\n  box-shadow: 0 0 4px rgba(7, 7, 7, 0.2);\r\n  margin-top: 115px !important;\n}\n.expDetCol2[data-v-2bb87509]{\r\n  display: none;\r\n  width: 30%; \r\n  height: 423px; \r\n  border-radius: 5px;\r\n  background: white;\n}\n.icons[data-v-2bb87509]{\r\n  cursor: pointer;\r\n  font-size: 17px;\r\n  font-weight: 500;\r\n  padding: 6px 10px;\r\n  font-family:'Nunito Sans';\n}\n.e-icons[data-v-2bb87509]{\r\n  cursor: pointer;\r\n  font-size: 18px;\r\n  font-weight: 600;\r\n  padding: 3px 10px;\r\n  margin-right: 15px;\r\n  font-family:'Nunito Sans';\n}\n.icons-flex[data-v-2bb87509] {\r\n  display: flex;\r\n  align-content: center;\r\n  justify-content: space-around;\r\n  flex-direction: row;\r\n  font-size: 18px;\r\n  font-weight: 400;\n}\n.icons-flex-e[data-v-2bb87509]{\r\n  display: flex;\r\n  align-content: center;\r\n  justify-content: start;\r\n  flex-direction: row;\r\n  font-size: 18px;\r\n  font-weight: 400;\n}\n.tabs[data-v-2bb87509]{\r\n  cursor: pointer;\r\n  font-size: 14px;\r\n  font-weight: 600;\r\n  margin-right: 15px;\n}\n.custom-div[data-v-2bb87509]{\r\n  display: inline;\r\n  margin-top: 26px !important;\r\n  padding-top: 0.2vh !important;\r\n  margin-right: 20px;\r\n  box-shadow: 0 0 4px rgba(7, 7, 7, 0.2);\n}\n.custom-flex[data-v-2bb87509] {\r\n  display: flex;\r\n  align-content: center;\r\n  justify-content: flex-start;\r\n  flex-direction: row;\r\n  font-size: 18px;\r\n  font-weight: 400;\n}\n@media (min-width: 500px) {\n.expDetailImgSmall[data-v-2bb87509]{\r\n  width:  30px;\r\n  height: 30px;\n}\n}\n@media (min-width: 600px) {\n.expDetailImgSmall[data-v-2bb87509]{\r\n    width:  70px;\r\n    height: 70px;\n}\n.tabs[data-v-2bb87509]{\r\n    font-size: 18px;\r\n    margin-right: 18px;\n}\n}\n@media (min-width: 768px) {\n.tabs[data-v-2bb87509]{\r\n    font-size: 20px;\r\n    margin-right: 22px;\n}\n.expDetailImgSmall[data-v-2bb87509]{\r\n    width:  80px;\r\n    height: 80px;\n}\n.expDetailImg[data-v-2bb87509]{\r\n    height: 412px;\r\n    margin-bottom: 16.5px;\n}\n.expDetailImg2[data-v-2bb87509]{\r\n    height: 300px;\r\n    margin-bottom: 16.5px;\n}\n.mainRow1[data-v-2bb87509]{\r\n    margin-top: 35px;\r\n    margin-bottom: 35px;\n}\n.mainRow2[data-v-2bb87509]{\r\n    margin-bottom: 35px;\n}\n.mainRow3[data-v-2bb87509]{\r\n    margin-bottom: 35px;\n}\n.rowheadings[data-v-2bb87509]{\r\n    font-size: 20px !important;\n}\n.rowheadingTop[data-v-2bb87509]{\r\n    font-size: 22px !important;\n}\n.iconClass p[data-v-2bb87509]{\r\n    font-size: 18px !important;\n}\n.grandTotalMob[data-v-2bb87509]{\r\n    margin-bottom: 2px !important;\n}\n.grandTotalMob p[data-v-2bb87509]{\r\n    font-size: 18px !important;\n}\n.grandTotalMob .smallP[data-v-2bb87509]{\r\n    font-size: 12.5px !important;\n}\n.grandTotalMob .p2[data-v-2bb87509]{\r\n    margin-top: 5px !important;\r\n    font-size: 20px !important;\n}\n.btnConfirm[data-v-2bb87509]{\r\n    font-size: 20px !important;\r\n    height: 55px !important;\r\n    width: 200px !important;\n}\n}\n@media (min-width: 1024px) {\n.tabs[data-v-2bb87509]{\r\n    font-size: 20px;\r\n    margin-right: 26px;\n}\n.expDetailImgSmall[data-v-2bb87509]{\r\n    width:  100px;\r\n    height: 100px;\n}\n.grandTotalMob[data-v-2bb87509]{\r\n    display: none !important;\n}\n.expDetCol2Main[data-v-2bb87509]{\r\n    display: inline;\n}\n.expDetCol2[data-v-2bb87509]{\r\n    display: inline;\n}\n.expDetCol1[data-v-2bb87509]{\r\n    width: 70%;\n}\n.iconClass[data-v-2bb87509]{\r\n    width: 18% !important;\n}\n.mainRow1[data-v-2bb87509]{\r\n    margin-top: 55px;\r\n    margin-bottom: 35px;\n}\n.mainRow2[data-v-2bb87509]{\r\n    margin-bottom: 35px;\n}\n.mainRow3[data-v-2bb87509]{\r\n    margin-bottom: 35px;\n}\n.label_[data-v-2bb87509]{\r\n  margin-bottom: 10px;\r\n  font-size: 14px;\r\n  margin-left: 25px;\n}\n}\n.iconMainDiv[data-v-2bb87509]{\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  flex-direction: row;\r\n  width: 100%;\r\n  justify-content: flex-start\n}\n.iconClass[data-v-2bb87509]{\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: flex-start;\r\n  align-content: center;\r\n  width: 45%;\r\n  margin-right: 15px;\r\n  margin-bottom: 25px;\n}\n.iconClass img[data-v-2bb87509]{\r\n  height: 35px;\r\n  width: 35px;\r\n  margin-right: 12px;\n}\n.iconClass p[data-v-2bb87509]{\r\n  font-size: 14.2px;\r\n  font-weight: 400;\r\n  color: #1d1b1b;\n}\n.rowheadingTop[data-v-2bb87509]{\r\n  font-size: 22Spx;\r\n  font-weight: 600;\r\n  margin-bottom: 10px;\r\n  color: #101010;\r\n  font-family: 'Nunito Sans';\n}\n.rowheadings[data-v-2bb87509]{\r\n  font-size: 20px;\r\n  font-weight: 600;\r\n  margin-bottom: 30px;\r\n  color: #101010;\r\n  font-family: 'Nunito Sans';\n}\n.days_head[data-v-2bb87509]{\r\n  font-size: 16px;\r\n  font-weight: 600;\r\n  margin-bottom: 2px;\r\n  color: #101010;\r\n  font-family: 'Nunito Sans';\n}\n.days_head2[data-v-2bb87509]{\r\n  font-size: 14px;\r\n  font-weight: 600;\r\n  margin-bottom: 12px;\r\n  color: #101010;\r\n  font-family: 'Nunito Sans';\n}\n.itineraryDiv[data-v-2bb87509]{\r\n  display: flex;\r\n  flex-direction: column;\r\n  width: 100%;\r\n  justify-content: center;\r\n  align-content: space-between;\n}\n.ItneraryHeadDiv[data-v-2bb87509]{\r\n  height: auto; \r\n  width: 100%; \r\n  padding: 16px 30px;\r\n  font-size: 18px;\r\n  font-weight: 400;\r\n  box-shadow: 0 0 4px rgba(7, 7, 7, 0.2);\r\n  background: white;\r\n  margin-top: 35px;\r\n  font-family: 'Nunito Sans';\n}\n.singleItneraryDivMain[data-v-2bb87509]{\n}\n.singleItneraryDiv[data-v-2bb87509]{\r\n  height: 55px; \r\n  width: 100%; \r\n  padding: 14px 30px;\r\n  font-size: 18px;\r\n  font-weight: 600;\r\n box-shadow: 0 0 4px rgba(7, 7, 7, 0.2);\r\n  background: white;\r\n  cursor: pointer;\n}\n.singleItneraryDiv2[data-v-2bb87509]{\r\n  height: auto; \r\n  width: 100%; \r\n  padding: 16px 30px;\r\n  font-size: 18px;\r\n  font-weight: 400;\r\n  box-shadow: 0 0 4px rgba(7, 7, 7, 0.2);\r\n  background: white;\r\n  font-family: 'Nunito Sans';\n}\n.priceSingleDiv[data-v-2bb87509]{\r\n  padding: 12px 18px !important;\r\n  margin: 20px 2px !important;\n}\n.priceBorder[data-v-2bb87509]{\r\n  border-bottom: 1px solid #8080806b;\n}\n.priceSingleDiv p[data-v-2bb87509]{\r\n  font-size: 15.5px;\r\n  font-weight: 500;\r\n  font-family: 'Nunito Sans';\r\n  color: #1d1b1b;\r\n  margin-right: 3px;\n}\n.priceSingleDiv .p2[data-v-2bb87509]{\r\n  font-size: 16.2px;\r\n  font-weight: 600;\r\n  font-family: 'Nunito Sans' ;\r\n  color: #1d1b1b;\n}\n.grandTotalDiv[data-v-2bb87509]{\r\n  padding: 13px 18px !important;\r\n  border-bottom: 1px solid #8080806b;\r\n  border-top: 1px solid #8080806b;\r\n  background: #007bff2b\n}\n.grandTotalMob[data-v-2bb87509]{\r\n  padding: 18px !important;\r\n  background: #007bff2b;\r\n  margin-bottom: 5px !important;\n}\n.grandTotalMob p[data-v-2bb87509]{\r\n  font-size: 15px;\r\n  font-weight: 600;\r\n  font-family: 'Nunito Sans';\r\n  color: #1d1b1b;\r\n  margin-bottom: 0rem !important;\n}\n.grandTotalMob .smallP[data-v-2bb87509]{\r\n  font-size: 10px;\r\n  font-weight: 500;\r\n  font-family: 'Nunito Sans';\r\n  color: #1d1b1b;\n}\n.grandTotalMob .p2[data-v-2bb87509]{\r\n  margin-top: 5px;\r\n  font-size: 15.7px;\r\n  font-weight: 600;\r\n  font-family: 'Nunito Sans';\r\n  color: black;\n}\n.grandTotalDiv p[data-v-2bb87509]{\r\n  font-size: 14px;\r\n  font-weight: 500;\r\n  font-family: 'Nunito Sans';\r\n  color: #1d1b1b;\n}\n.grandTotalDiv .smallP[data-v-2bb87509]{\r\n  font-size: 11px;\r\n  font-weight: 500;\r\n  font-family: 'Nunito Sans';\r\n  color: #1d1b1b;\n}\n.grandTotalDiv .p2[data-v-2bb87509]{\r\n  margin-top: 6px;\r\n  font-size: 16.7px;\r\n  font-weight: 600;\r\n  font-family: 'Nunito Sans';\r\n  color: #1d1b1b;\r\n  color: black;\n}\n.couponDivMain[data-v-2bb87509]{\r\n  padding: 12px 18px !important;\r\n  margin-top: 10px !important; \r\n  border-bottom: 1px solid #8080806b;\n}\n.couponDiv[data-v-2bb87509]{\n}\n.couponDiv p[data-v-2bb87509]{\r\n  font-size: 15.5px;\r\n  font-weight: 400;\r\n  font-family: 'Nunito Sans';\r\n  color: #3490dc;\r\n  margin-right: 3px;\n}\n.couponDiv .p2[data-v-2bb87509]{\r\n  font-size: 16.2px;\r\n  font-weight: 500;\r\n  font-family: 'Nunito Sans';\r\n  color: #3490dc;\n}\n.btnCpn[data-v-2bb87509]{\r\n  color: #fff;\r\n  background-color: #f77736;\r\n  border-color: #f77736;\r\n  border-radius: 0px;\n}\n.btnPay[data-v-2bb87509]{\r\n  color: #fff;\r\n  background-color: #f77736;\r\n  border-color: #f77736;\r\n  height: 52px;\r\n  width: 100%;\r\n  margin-top: 5px;\r\n  border-radius: 0px;\r\n  border-bottom-left-radius: 10px;\r\n  border-bottom-right-radius: 10px;\r\n  font-weight: 500;\n}\n.btnConfirm[data-v-2bb87509]{\r\n  color: #fff;\r\n  background-color: #f77736;\r\n  border-color: #f77736;\r\n  height: 45px;\r\n  width: 150px;\r\n  border-radius: 0px;\n}\n.verticalStep[data-v-2bb87509]{\r\n  height: 30px;\r\n  width: 1px;\r\n  margin-left: 45px;\r\n  border-left: 1px dashed #1C75BC;\n}\n.label_[data-v-2bb87509]{\r\n  padding: 5px 5px;\r\n  background-color: #f77736;\r\n  color: white;\r\n  font-size: 12px;\r\n  font-family: 'Nunito Sans';\r\n  font-weight: 600;\r\n  width: 100px;\r\n  text-align: center;\r\n  border-radius: 15px;\r\n  margin-bottom: 10px;\r\n  margin-left: 16px;\n}\n.overview[data-v-2bb87509]{\r\n   font-family: 'Nunito Sans';\r\n   font-weight: 600;\r\n   font-size: 20px;\r\n   color: #101010;\n}\n.ndt-s[data-v-2bb87509] {\r\n    font-family: 'Nunito Sans';\r\n    font-size: 16px;\r\n    font-weight: 600;\r\n    margin-left: 10px;\n}\n.icon-img[data-v-2bb87509] {\r\n    height: 30px;\r\n    margin-bottom: 2px;\r\n    margin-right: 12px;\r\n    width: 30px;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.row2-card[data-v-2bb87509]{\r\n  height: auto; \r\n  width: 100%; \r\n  padding: 16px 30px;\r\n  font-size: 18px;\r\n  box-shadow: 0 0 4px rgba(7, 7, 7, 0.2);\r\n  background: white;\n}\n.heading2[data-v-2bb87509]{\r\n font-size: 17px;\r\n font-weight: 500;\r\n color: black;\n}\n.mainRow1[data-v-2bb87509]{\r\n  margin-top: 20px;\r\n  margin-bottom: 21px;\n}\n.mainRow2[data-v-2bb87509]{\r\n  margin-bottom: 21px;\n}\n.mainRow3[data-v-2bb87509]{\r\n  margin-bottom: 21px;\n}\n.expDetailImg[data-v-2bb87509]{\r\n  width: 100%;\r\n  height: 260px;\r\n  margin-bottom: 10px;\r\n  margin-right: 15px;\r\n  background-size: cover;\r\n  background-position:50% 50%;\r\n  image-rendering: crisp-edges;\r\n  image-rendering: -moz-crisp-edges;          /* Firefox */\r\n  image-rendering: -o-crisp-edges;            /* Opera */\r\n  image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming)*/\r\n -ms-interpolation-mode: nearest-neighbor;   /* IE (non-standard property) */\r\n  -o-object-fit: cover;\r\n     object-fit: cover;\n}\n.expDetailImg2[data-v-2bb87509]{\r\n  width: 100%;\r\n  height: 200px;\r\n  margin-bottom: 10px;\r\n  margin-right: 15px;\r\n  background-size: cover;\r\n  background-position:50% 50%;\r\n  image-rendering: crisp-edges;\r\n  image-rendering: -moz-crisp-edges;          /* Firefox */\r\n  image-rendering: -o-crisp-edges;            /* Opera */\r\n  image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming)*/\r\n -ms-interpolation-mode: nearest-neighbor;   /* IE (non-standard property) */\r\n  -o-object-fit: cover;\r\n     object-fit: cover;\n}\n.expDetailImgSmall[data-v-2bb87509]{\r\n  width:  40px;\r\n  height: 40px;\r\n  box-shadow: 0 0 4px rgba(7, 7, 7, 0.2);\r\n  border-radius: 5px;\r\n  background-size: cover;\r\n  background-position:50% 50%;\r\n  image-rendering: crisp-edges;\r\n  image-rendering: -moz-crisp-edges;          /* Firefox */\r\n  image-rendering: -o-crisp-edges;            /* Opera */\r\n  image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming)*/\r\n -ms-interpolation-mode: nearest-neighbor;   /* IE (non-standard property) */\r\n  -o-object-fit: cover;\r\n     object-fit: cover;\r\n  cursor: pointer;\n}\n.expDetCol1[data-v-2bb87509]{\r\n  width: 100%;\n}\n.expDetCol2Main[data-v-2bb87509]{\r\n  height: 537px;\r\n  width: 360px;\r\n  display: none;\r\n  box-shadow: 0 0 4px rgba(7, 7, 7, 0.2);\r\n  margin-top: 115px !important;\n}\n.expDetCol2[data-v-2bb87509]{\r\n  display: none;\r\n  width: 30%; \r\n  height: 423px; \r\n  border-radius: 5px;\r\n  background: white;\n}\n.icons[data-v-2bb87509]{\r\n  cursor: pointer;\r\n  font-size: 17px;\r\n  font-weight: 500;\r\n  padding: 6px 10px;\r\n  font-family:'Nunito Sans';\n}\n.e-icons[data-v-2bb87509]{\r\n  cursor: pointer;\r\n  font-size: 18px;\r\n  font-weight: 600;\r\n  padding: 3px 10px;\r\n  margin-right: 15px;\r\n  font-family:'Nunito Sans';\n}\n.icons-flex[data-v-2bb87509] {\r\n  display: flex;\r\n  align-content: center;\r\n  justify-content: space-around;\r\n  flex-direction: row;\r\n  font-size: 18px;\r\n  font-weight: 400;\n}\n.icons-flex-e[data-v-2bb87509]{\r\n  display: flex;\r\n  align-content: center;\r\n  justify-content: flex-start;\r\n  flex-direction: row;\r\n  font-size: 18px;\r\n  font-weight: 400;\n}\n.tabs[data-v-2bb87509]{\r\n  cursor: pointer;\r\n  font-size: 14px;\r\n  font-weight: 600;\r\n  margin-right: 15px;\n}\n.custom-div[data-v-2bb87509]{\r\n  display: inline;\r\n  margin-top: 26px !important;\r\n  padding-top: 0.2vh !important;\r\n  margin-right: 20px;\r\n  box-shadow: 0 0 4px rgba(7, 7, 7, 0.2);\n}\n.custom-flex[data-v-2bb87509] {\r\n  display: flex;\r\n  align-content: center;\r\n  justify-content: flex-start;\r\n  flex-direction: row;\r\n  font-size: 18px;\r\n  font-weight: 400;\n}\n@media (min-width: 500px) {\n.expDetailImgSmall[data-v-2bb87509]{\r\n  width:  30px;\r\n  height: 30px;\n}\n}\n@media (min-width: 600px) {\n.expDetailImgSmall[data-v-2bb87509]{\r\n    width:  70px;\r\n    height: 70px;\n}\n.tabs[data-v-2bb87509]{\r\n    font-size: 18px;\r\n    margin-right: 18px;\n}\n}\n@media (min-width: 768px) {\n.tabs[data-v-2bb87509]{\r\n    font-size: 20px;\r\n    margin-right: 22px;\n}\n.expDetailImgSmall[data-v-2bb87509]{\r\n    width:  80px;\r\n    height: 80px;\n}\n.expDetailImg[data-v-2bb87509]{\r\n    height: 412px;\r\n    margin-bottom: 16.5px;\n}\n.expDetailImg2[data-v-2bb87509]{\r\n    height: 300px;\r\n    margin-bottom: 16.5px;\n}\n.mainRow1[data-v-2bb87509]{\r\n    margin-top: 35px;\r\n    margin-bottom: 35px;\n}\n.mainRow2[data-v-2bb87509]{\r\n    margin-bottom: 35px;\n}\n.mainRow3[data-v-2bb87509]{\r\n    margin-bottom: 35px;\n}\n.rowheadings[data-v-2bb87509]{\r\n    font-size: 20px !important;\n}\n.rowheadingTop[data-v-2bb87509]{\r\n    font-size: 22px !important;\n}\n.iconClass p[data-v-2bb87509]{\r\n    font-size: 18px !important;\n}\n.grandTotalMob[data-v-2bb87509]{\r\n    margin-bottom: 2px !important;\n}\n.grandTotalMob p[data-v-2bb87509]{\r\n    font-size: 18px !important;\n}\n.grandTotalMob .smallP[data-v-2bb87509]{\r\n    font-size: 12.5px !important;\n}\n.grandTotalMob .p2[data-v-2bb87509]{\r\n    margin-top: 5px !important;\r\n    font-size: 20px !important;\n}\n.btnConfirm[data-v-2bb87509]{\r\n    font-size: 20px !important;\r\n    height: 55px !important;\r\n    width: 200px !important;\n}\n}\n@media (min-width: 1024px) {\n.tabs[data-v-2bb87509]{\r\n    font-size: 20px;\r\n    margin-right: 26px;\n}\n.expDetailImgSmall[data-v-2bb87509]{\r\n    width:  100px;\r\n    height: 100px;\n}\n.grandTotalMob[data-v-2bb87509]{\r\n    display: none !important;\n}\n.expDetCol2Main[data-v-2bb87509]{\r\n    display: inline;\n}\n.expDetCol2[data-v-2bb87509]{\r\n    display: inline;\n}\n.expDetCol1[data-v-2bb87509]{\r\n    width: 70%;\n}\n.iconClass[data-v-2bb87509]{\r\n    width: 18% !important;\n}\n.mainRow1[data-v-2bb87509]{\r\n    margin-top: 55px;\r\n    margin-bottom: 35px;\n}\n.mainRow2[data-v-2bb87509]{\r\n    margin-bottom: 35px;\n}\n.mainRow3[data-v-2bb87509]{\r\n    margin-bottom: 35px;\n}\n.label_[data-v-2bb87509]{\r\n  margin-bottom: 10px;\r\n  font-size: 14px;\r\n  margin-left: 25px;\n}\n}\n.iconMainDiv[data-v-2bb87509]{\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  flex-direction: row;\r\n  width: 100%;\r\n  justify-content: flex-start\n}\n.iconClass[data-v-2bb87509]{\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: flex-start;\r\n  align-content: center;\r\n  width: 45%;\r\n  margin-right: 15px;\r\n  margin-bottom: 25px;\n}\n.iconClass img[data-v-2bb87509]{\r\n  height: 35px;\r\n  width: 35px;\r\n  margin-right: 12px;\n}\n.iconClass p[data-v-2bb87509]{\r\n  font-size: 14.2px;\r\n  font-weight: 400;\r\n  color: #1d1b1b;\n}\n.rowheadingTop[data-v-2bb87509]{\r\n  font-size: 22Spx;\r\n  font-weight: 600;\r\n  margin-bottom: 10px;\r\n  color: #101010;\r\n  font-family: 'Nunito Sans';\n}\n.rowheadings[data-v-2bb87509]{\r\n  font-size: 20px;\r\n  font-weight: 600;\r\n  margin-bottom: 30px;\r\n  color: #101010;\r\n  font-family: 'Nunito Sans';\n}\n.days_head[data-v-2bb87509]{\r\n  font-size: 16px;\r\n  font-weight: 600;\r\n  margin-bottom: 2px;\r\n  color: #101010;\r\n  font-family: 'Nunito Sans';\n}\n.days_head2[data-v-2bb87509]{\r\n  font-size: 14px;\r\n  font-weight: 600;\r\n  margin-bottom: 12px;\r\n  color: #101010;\r\n  font-family: 'Nunito Sans';\n}\n.itineraryDiv[data-v-2bb87509]{\r\n  display: flex;\r\n  flex-direction: column;\r\n  width: 100%;\r\n  justify-content: center;\r\n  align-content: space-between;\n}\n.ItneraryHeadDiv[data-v-2bb87509]{\r\n  height: auto; \r\n  width: 100%; \r\n  padding: 16px 30px;\r\n  font-size: 18px;\r\n  font-weight: 400;\r\n  box-shadow: 0 0 4px rgba(7, 7, 7, 0.2);\r\n  background: white;\r\n  margin-top: 35px;\r\n  font-family: 'Nunito Sans';\n}\n.singleItneraryDivMain[data-v-2bb87509]{\n}\n.singleItneraryDiv[data-v-2bb87509]{\r\n  height: 55px; \r\n  width: 100%; \r\n  padding: 14px 30px;\r\n  font-size: 18px;\r\n  font-weight: 600;\r\n box-shadow: 0 0 4px rgba(7, 7, 7, 0.2);\r\n  background: white;\r\n  cursor: pointer;\n}\n.singleItneraryDiv2[data-v-2bb87509]{\r\n  height: auto; \r\n  width: 100%; \r\n  padding: 16px 30px;\r\n  font-size: 18px;\r\n  font-weight: 400;\r\n  box-shadow: 0 0 4px rgba(7, 7, 7, 0.2);\r\n  background: white;\r\n  font-family: 'Nunito Sans';\n}\n.priceSingleDiv[data-v-2bb87509]{\r\n  padding: 12px 18px !important;\r\n  margin: 20px 2px !important;\n}\n.priceBorder[data-v-2bb87509]{\r\n  border-bottom: 1px solid #8080806b;\n}\n.priceSingleDiv p[data-v-2bb87509]{\r\n  font-size: 15.5px;\r\n  font-weight: 500;\r\n  font-family: 'Nunito Sans';\r\n  color: #1d1b1b;\r\n  margin-right: 3px;\n}\n.priceSingleDiv .p2[data-v-2bb87509]{\r\n  font-size: 16.2px;\r\n  font-weight: 600;\r\n  font-family: 'Nunito Sans' ;\r\n  color: #1d1b1b;\n}\n.grandTotalDiv[data-v-2bb87509]{\r\n  padding: 13px 18px !important;\r\n  border-bottom: 1px solid #8080806b;\r\n  border-top: 1px solid #8080806b;\r\n  background: #007bff2b\n}\n.grandTotalMob[data-v-2bb87509]{\r\n  padding: 18px !important;\r\n  background: #007bff2b;\r\n  margin-bottom: 5px !important;\n}\n.grandTotalMob p[data-v-2bb87509]{\r\n  font-size: 15px;\r\n  font-weight: 600;\r\n  font-family: 'Nunito Sans';\r\n  color: #1d1b1b;\r\n  margin-bottom: 0rem !important;\n}\n.grandTotalMob .smallP[data-v-2bb87509]{\r\n  font-size: 10px;\r\n  font-weight: 500;\r\n  font-family: 'Nunito Sans';\r\n  color: #1d1b1b;\n}\n.grandTotalMob .p2[data-v-2bb87509]{\r\n  margin-top: 5px;\r\n  font-size: 15.7px;\r\n  font-weight: 600;\r\n  font-family: 'Nunito Sans';\r\n  color: black;\n}\n.grandTotalDiv p[data-v-2bb87509]{\r\n  font-size: 14px;\r\n  font-weight: 500;\r\n  font-family: 'Nunito Sans';\r\n  color: #1d1b1b;\n}\n.grandTotalDiv .smallP[data-v-2bb87509]{\r\n  font-size: 11px;\r\n  font-weight: 500;\r\n  font-family: 'Nunito Sans';\r\n  color: #1d1b1b;\n}\n.grandTotalDiv .p2[data-v-2bb87509]{\r\n  margin-top: 6px;\r\n  font-size: 16.7px;\r\n  font-weight: 600;\r\n  font-family: 'Nunito Sans';\r\n  color: #1d1b1b;\r\n  color: black;\n}\n.couponDivMain[data-v-2bb87509]{\r\n  padding: 12px 18px !important;\r\n  margin-top: 10px !important; \r\n  border-bottom: 1px solid #8080806b;\n}\n.couponDiv[data-v-2bb87509]{\n}\n.couponDiv p[data-v-2bb87509]{\r\n  font-size: 15.5px;\r\n  font-weight: 400;\r\n  font-family: 'Nunito Sans';\r\n  color: #3490dc;\r\n  margin-right: 3px;\n}\n.couponDiv .p2[data-v-2bb87509]{\r\n  font-size: 16.2px;\r\n  font-weight: 500;\r\n  font-family: 'Nunito Sans';\r\n  color: #3490dc;\n}\n.btnCpn[data-v-2bb87509]{\r\n  color: #fff;\r\n  background-color: #f77736;\r\n  border-color: #f77736;\r\n  border-radius: 0px;\n}\n.btnPay[data-v-2bb87509]{\r\n  color: #fff;\r\n  background-color: #f77736;\r\n  border-color: #f77736;\r\n  height: 52px;\r\n  width: 100%;\r\n  margin-top: 5px;\r\n  border-radius: 0px;\r\n  border-bottom-left-radius: 10px;\r\n  border-bottom-right-radius: 10px;\r\n  font-weight: 500;\n}\n.btnConfirm[data-v-2bb87509]{\r\n  color: #fff;\r\n  background-color: #f77736;\r\n  border-color: #f77736;\r\n  height: 45px;\r\n  width: 150px;\r\n  border-radius: 0px;\n}\n.verticalStep[data-v-2bb87509]{\r\n  height: 30px;\r\n  width: 1px;\r\n  margin-left: 45px;\r\n  border-left: 1px dashed #1C75BC;\n}\n.label_[data-v-2bb87509]{\r\n  padding: 5px 5px;\r\n  background-color: #f77736;\r\n  color: white;\r\n  font-size: 12px;\r\n  font-family: 'Nunito Sans';\r\n  font-weight: 600;\r\n  width: 100px;\r\n  text-align: center;\r\n  border-radius: 15px;\r\n  margin-bottom: 10px;\r\n  margin-left: 16px;\n}\n.overview[data-v-2bb87509]{\r\n   font-family: 'Nunito Sans';\r\n   font-weight: 600;\r\n   font-size: 20px;\r\n   color: #101010;\n}\n.ndt-s[data-v-2bb87509] {\r\n    font-family: 'Nunito Sans';\r\n    font-size: 16px;\r\n    font-weight: 600;\r\n    margin-left: 10px;\n}\n.icon-img[data-v-2bb87509] {\r\n    height: 30px;\r\n    margin-bottom: 2px;\r\n    margin-right: 12px;\r\n    width: 30px;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

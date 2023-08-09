@@ -16,7 +16,6 @@ const PaymentSuccess = () => import(/* webpackChunkName: "js/front/PaymentSucces
 
 
 export default [
-    //Escort
     {
         path: '/user-information',
         component: UserInformation,

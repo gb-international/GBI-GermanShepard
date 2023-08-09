@@ -14,7 +14,7 @@
             <p class="card-text">{{ post.summery }}</p>
         </router-link>
         <div class="card-tags">
-            <span class="text-dark card-tag mr-2" v-for="tag in post.tags" :key="tag.id">{{ tag.title }}</span>
+            <span class="text-dark card-tag mr-2" v-for="(tag, index) in post.tags" :key="tag.id" v-if="index <= 5">{{ tag.title }}</span>
         </div>
         </div>
     </div>

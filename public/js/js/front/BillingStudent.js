@@ -52,7 +52,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     amount: {
@@ -692,7 +691,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     PaymentCard: _front_components_form_payment_StudentPaymentCard_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
@@ -769,8 +767,9 @@ __webpack_require__.r(__webpack_exports__);
     if (this.$cookies.get("payment-data") == null) {
       this.$router.push("/");
     }
-    var data = this.$cookies.get("payment-data");
-    //console.log(data);
+
+    var data = this.$cookies.get("payment-data"); //console.log(data);
+
     this.form.amount = parseInt(data.base_price);
     this.form.user_id = data.user_id;
     this.form.travel_code = data.travel_code;
@@ -817,6 +816,7 @@ __webpack_require__.r(__webpack_exports__);
       if (email != "") {
         var re = /^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,3}$/;
         var result = re.test(email);
+
         if (result == false) {
           this.errors.billing_email = "Please Enter Valid Email";
           return false;
@@ -824,12 +824,14 @@ __webpack_require__.r(__webpack_exports__);
           this.errors.billing_email = "";
         }
       }
+
       this.billingFormat();
     },
     validateTel: function validateTel(tel) {
       if (tel != "") {
         var re = /^[789]\d{9}$/;
         var result = re.test(tel);
+
         if (result == false) {
           this.errors.billing_tel = "Please Enter Valid Phone number";
           return false;
@@ -837,6 +839,7 @@ __webpack_require__.r(__webpack_exports__);
           this.errors.billing_tel = "";
         }
       }
+
       this.billingFormat();
     }
   }

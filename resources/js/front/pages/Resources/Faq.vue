@@ -9,7 +9,7 @@
         <div class="row">
           <div class="col-sm-8 mb-3">
             <h1 class="heading mb-3">Frequently Asked Questions (FAQ)</h1>
-            <div class="input-group p-2 bg-skyblue">
+            <div class="input-group p-2 bg-light-card">
               <input
                 type="text"
                 class="form-control"

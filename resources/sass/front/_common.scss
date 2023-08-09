@@ -60,6 +60,7 @@
 .bg-blue{ background-color: #1c1650;}
 .bg-skyblue{ background-color: rgba(43,188,255,.8);}
 .bg-light-orange{ background-color: #f77736bf;}
+.bg-light-card { background: #2f2a52b8!important; }
 .display-none { display: none;}
 .position-absoulte { position: absolute;}
 
@@ -111,17 +112,17 @@
 	color: #000000;
     font-size: 24px;
 	font-weight: 600;
-    font-family: Raleway;
+    font-family: 'Nunito Sans';
 }
 .gbi_sub-heading{
 	color: #333333;
     font-size: 20px;
-    font-family: Raleway;
+    font-family: 'Nunito Sans';
 }
 .gbi_paragraph{
 	color: #737373;
     font-size: 17px;
-    font-family: Raleway;
+    font-family: 'Nunito Sans';
 	line-height: 2rem;
 	-webkit-background-clip: text;
 		-moz-background-clip: text;

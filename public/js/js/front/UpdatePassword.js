@@ -72,7 +72,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "UpdatePassword",
   mixins: [_front_mixins_user_UpdatePasswordMixin__WEBPACK_IMPORTED_MODULE_0__["default"]]
@@ -111,6 +110,7 @@ var UpdatePasswordMixin = {
   methods: {
     UpdatePassword: function UpdatePassword() {
       var _this = this;
+
       var data = {
         current_password: this.form.current_password,
         new_password: this.form.new_password,
@@ -118,6 +118,7 @@ var UpdatePasswordMixin = {
       };
       this.$api.POST("/api/update-password", data).then(function (response) {
         _this.form.reset();
+
         _this.message = 'Your password has been updated';
       })["catch"](function (error) {
         _this.handleError(error);

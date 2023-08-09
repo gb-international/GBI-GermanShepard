@@ -19,7 +19,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "PdfView",
   data: function data() {
@@ -33,6 +32,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     getPdf: function getPdf() {
       var _this = this;
+
       var api = "/api/pdf/" + this.$route.params.slug;
       this.$axios.get(api).then(function (res) {
         _this.pdf = res.data;

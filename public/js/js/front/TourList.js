@@ -88,7 +88,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ["tour", "userinfo"],
   data: function data() {
@@ -193,7 +192,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ["tour", "userinfo"],
   data: function data() {
@@ -291,7 +289,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ["list"],
   data: function data() {
@@ -376,7 +373,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Tour-list",
   components: {
@@ -408,7 +404,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     tourListData: function tourListData() {
       var _this = this;
+
       console.log(this.userinfo);
+
       if (this.userinfo.client_type == 'teacher' || this.userinfo.client_type == 'student') {
         var data = {
           'school_id': this.userinfo.school_id,
@@ -441,6 +439,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     UserTourSave: function UserTourSave() {
       var _this2 = this;
+
       var data = {
         travel_code: this.travel_code
       };
@@ -453,6 +452,7 @@ __webpack_require__.r(__webpack_exports__);
           });
         } else {
           _this2.$swal.fire("Valid Code", "Check your tour details.", "success");
+
           _this2.tourListData();
         }
       })["catch"](function (error) {
@@ -461,6 +461,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     userData: function userData() {
       this.userinfo = this.$cookies.get("user");
+
       if (this.userinfo.status == 0) {
         this.$router.push("/user-information");
         return false;
@@ -472,6 +473,7 @@ __webpack_require__.r(__webpack_exports__);
           "warning"
         );
       }*/
+
     }
   }
 });

@@ -19,7 +19,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -41,6 +40,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     var user = this.$cookies.get('user');
+
     if (user.client_type == 'teacher') {
       this.isTeacher = true;
     } else if (user.client_type == 'student') {

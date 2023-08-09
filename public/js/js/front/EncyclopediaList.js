@@ -122,7 +122,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "States",
   metaInfo: {
@@ -166,24 +165,24 @@ __webpack_require__.r(__webpack_exports__);
   },
   watch: {
     resultQuery: function resultQuery() {
-      if (this.resultQuery.length <= 0) {
-        //return this.$swal.fire("No Results.", "Information about this State/Region is current not available!", "info");
+      if (this.resultQuery.length <= 0) {//return this.$swal.fire("No Results.", "Information about this State/Region is current not available!", "info");
       }
     }
   },
   methods: {
     checkResults: function checkResults() {
-      if (this.resultQuery.length <= 0) {
-        //return this.$swal.fire("No Results.", "Information about this State/Region is current not available!", "info");
+      if (this.resultQuery.length <= 0) {//return this.$swal.fire("No Results.", "Information about this State/Region is current not available!", "info");
       }
     },
     stateList: function stateList() {
       var _this = this;
+
       this.$axios.get("/api/encyclopedia-list").then(function (response) {
         if (!response.data) {
           _this.apiFailed = true;
-        }
-        //this.state_list = response.data;
+        } //this.state_list = response.data;
+
+
         for (var i = 0; i < response.data.length; i++) {
           if (response.data[i].country == 'India') {
             _this.state_list.push(response.data[i]);
@@ -193,6 +192,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     SelectBox: function SelectBox() {
       var _this2 = this;
+
       this.$axios.get("/api/state").then(function (response) {
         for (var i = 0; i < response.data.length; i++) {
           if (response.data[i].country_id === 2) {
@@ -208,12 +208,12 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     resultQuery: function resultQuery() {
       var _this3 = this;
+
       if (this.searchQuery) {
         return this.state_list.filter(function (item) {
           return _this3.searchQuery.toLowerCase().split(" ").every(function (v) {
             return item.state_name.toLowerCase().includes(v);
-          });
-          //console.log(v)
+          }); //console.log(v)
         });
       } else {
         return this.state_list;
@@ -453,7 +453,7 @@ var render = function () {
                     _c("div", { staticClass: "search-p-top" }, [
                       _c(
                         "div",
-                        { staticClass: "input-group p-2 bg-light-orange" },
+                        { staticClass: "input-group p-2 bg-light-card" },
                         [
                           _c("model-select", {
                             attrs: {

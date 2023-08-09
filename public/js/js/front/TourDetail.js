@@ -83,7 +83,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "FlightApp",
   props: ["list", "flightDate"],
@@ -106,6 +105,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     apiData: function apiData(code) {
       var _this = this;
+
       console.log(code);
       var api = "/api/flight-detail/" + code;
       fetch(api).then(function (response) {
@@ -127,6 +127,7 @@ __webpack_require__.r(__webpack_exports__);
       var ampm = hours >= 12 ? "pm" : "am";
       hours = hours % 12;
       hours = hours ? hours : 12; // the hour '0' should be '12'
+
       minutes = minutes < 10 ? "0" + minutes : minutes;
       var strTime = hours + ":" + minutes + " " + ampm;
       return d + " " + strTime;
@@ -159,18 +160,23 @@ __webpack_require__.r(__webpack_exports__);
       var Minutes = Math.floor(inputSeconds % (60 * 60 * 24) % (60 * 60) / 60);
       var Seconds = Math.floor(inputSeconds % (60 * 60 * 24) % (60 * 60) % 60);
       var ddhhmmss = "";
+
       if (Days > 0) {
         ddhhmmss += Days + " Day ";
       }
+
       if (Hour > 0) {
         ddhhmmss += Hour + " Hour ";
       }
+
       if (Minutes > 0) {
         ddhhmmss += Minutes + " Minutes ";
       }
+
       if (Seconds > 0) {
         ddhhmmss += Seconds + " Seconds ";
       }
+
       return ddhhmmss;
     }
   }
@@ -234,7 +240,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     hotel: {
@@ -297,7 +302,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     itinerary: {
@@ -376,7 +380,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ["cityList"],
   components: {
@@ -434,6 +437,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     currentWeather: function currentWeather(city) {
       var _this = this;
+
       var api = "/api/current-weather/" + city;
       fetch(api).then(function (response) {
         return response.text();
@@ -445,6 +449,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     forcastWeather: function forcastWeather(city) {
       var _this2 = this;
+
       var api = "/api/forcast-weather/" + city;
       fetch(api).then(function (response) {
         return response.text();
@@ -472,14 +477,18 @@ __webpack_require__.r(__webpack_exports__);
     },
     tConvert: function tConvert(time) {
       time = time.toString().match(/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
+
       if (time.length > 1) {
         // If time format correct
         time = time.slice(1); // Remove full string match value
+
         time[5] = +time[0] < 12 ? "AM" : "PM"; // Set AM/PM
+
         time[0] = +time[0] % 12 || 12; // Adjust hours
       }
 
       var time = time.join(""); // return adjusted time or original string
+
       return time.replace(":00:00", " ");
     }
   }
@@ -506,118 +515,123 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vform */ "./node_modules/vform/dist/vform.common.js");
 /* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(vform__WEBPACK_IMPORTED_MODULE_5__);
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -671,15 +685,17 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     },
     tourListData: function tourListData(id) {
       var _this = this;
+
       var data = {
         travel_id: id
       };
       this.$api.POST("/api/tour-detail", data).then(function (response) {
-        _this.alldata = response;
-        //console.log(response);
+        _this.alldata = response; //console.log(response);
+
         _this.itineraryData = response.itinerary;
         _this.flightData = response.bookedflights;
         _this.hotelData = response.bookedhotels;
+
         _this.DestinationCity(_this.itineraryData.itinerarydays);
       })["catch"](function (error) {
         _this.handleError(error);
@@ -687,9 +703,11 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     },
     DestinationCity: function DestinationCity(itineraryData) {
       var city = [];
+
       for (var i = 0; i < itineraryData.length; i++) {
         city.push(itineraryData[i].day_destination);
       }
+
       this.cityList = _toConsumableArray(new Set(city));
     }
   }
@@ -710,40 +728,45 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
-function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Maps",
@@ -768,13 +791,16 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     } else {
       this.cStart = _objectSpread({}, this.start);
     }
+
     if (this.aSights[0].onG) {
       this.cEnd = _objectSpread({}, this.aSights[0].onG);
     } else {
       this.cEnd = _objectSpread({}, this.end);
     }
+
     this.center = _objectSpread({}, this.cEnd.latLng);
     this.sights = _toConsumableArray(this.aSights);
+
     if (this.aSights[0].completed) {
       this.completed = true;
       this.mapZoom = 8;
@@ -824,6 +850,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
   computed: {
     curvedPath: function curvedPath() {
       var _this = this;
+
       /*
         FIXME: This formula will work for short distances away from
           the poles. It will not work once the curvature of the earth is
@@ -833,6 +860,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
         return (0,lodash__WEBPACK_IMPORTED_MODULE_0__.range)(100).map(function (i) {
           var tick = i / 99;
           /* Bezier curve -- set up the control points */
+
           var dlat = _this.cEnd.latLng.lat - _this.cStart.latLng.lat;
           var dlng = _this.cEnd.latLng.lng - _this.cStart.latLng.lng;
           /*const cp1 = {
@@ -853,10 +881,10 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
             lng: _this.cEnd.latLng.lng
           };
           /* Bezier curve formula */
+
           return {
             lat: tick * tick * tick * _this.cStart.latLng.lat + 3 * ((1 - tick) * tick * tick) * cp1.lat + 3 * ((1 - tick) * (1 - tick) * tick) * cp2.lat + (1 - tick) * (1 - tick) * (1 - tick) * _this.cEnd.latLng.lat,
             lng: tick * tick * tick * _this.cStart.latLng.lng + 3 * ((1 - tick) * tick * tick) * cp1.lng + 3 * ((1 - tick) * (1 - tick) * tick) * cp2.lng + (1 - tick) * (1 - tick) * (1 - tick) * _this.cEnd.latLng.lng
-
             /*lat:
               this.start.latLng.lat +
               3 * ((1 - tick) * tick * tick) +
@@ -867,6 +895,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
               3 * ((1 - tick) * tick * tick) +
               3 * ((1 - tick) * (1 - tick) * tick)  +
               ((1 - tick) * (1 - tick) * (1 - tick)) * this.end.latLng.lng,*/
+
           };
         });
       }

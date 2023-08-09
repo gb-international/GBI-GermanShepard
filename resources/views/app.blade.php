@@ -13,11 +13,11 @@
   <script type="application/ld+json">
     {
     "@context": "https://schema.org",
-    "@type": "TravelAgency",
+    "@type": "Educational Travel Agency",
     "name": "GB International",
     "image": "https://gbi-assets.s3.ap-south-1.amazonaws.com/assets/front/images/logo.png",
     "logo": "https://gbi-assets.s3.ap-south-1.amazonaws.com/assets/front/images/logo.png",
-    "@id": "7164817599973027325",
+    "@id": "",
     "url": "https://gowithgbi.com",
     "telephone": "+91 9717922240",
     "address": {
@@ -28,15 +28,18 @@
     "addressCountry": "India"
     } ,
     "sameAs": [
-    "https://www.instagram.com/gowithgbi",
+    "https://instagram.com/gowithgbi",
     "https://twitter.com/gowithgbi",
-    "https://www.youtube.com/channel/UCYaTBxhqqXaMOUNZiAqvI_A",
-    "https://www.linkedin.com/company/gowithgbi",
-    "https://www.facebook.com/gowithgbi",
+    "https://youtube.com/channel/UCYaTBxhqqXaMOUNZiAqvI_A",
+    "https://linkedin.com/company/gowithgbi",
+    "https://facebook.com/gowithgbi",
     "https://gowithgbi.com"
     ] 
     }
   </script>
+  <meta name="author" content="@GBI" /> 
+  <meta name="copyright" content="GB International" />
+  <meta name="robots" content="follow"/>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Pragma" content="no-cache">
@@ -228,16 +231,13 @@
       }
     } */
 
-    *{
+    *:not(i){
       font-family: 'Nunito Sans' !important;
     }
 
     .fa, .far, .fas {
         font-family: "Font Awesome 5 Free" !important;
     }
-
-    
-      
 
     </style>
 </body>

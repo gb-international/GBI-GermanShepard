@@ -14,10 +14,11 @@ import ContactUs from '@/front/routes/ContactUs.js';
 import ExploreDestination from '@/front/routes/ExploreDestination.js';
 import ErrorPage from '@/front/routes/Error.js';
 import Hotel from '@/front/routes/Hotel.js';
-import NameList from '@/front/routes/NameList.js';
+//import NameList from '@/front/routes/NameList.js';
 import Notification from '@/front/routes/Notification.js';
 import PaymentLink from '@/front/routes/PaymentLink.js';
 import Static from '@/front/routes/Static.js';
+import TourPage from '@/front/routes/TourPage.js';
 import User from '@/front/routes/User.js';
 
 export function createRouter() {
@@ -35,10 +36,11 @@ export function createRouter() {
             ...ErrorPage,
             ...Hotel,
             ...Feedback,
-            ...NameList,
+            //...NameList,
             ...Notification,
             ...PaymentLink,
             ...Static,
+            ...TourPage,
             ...User,
         ]
     })

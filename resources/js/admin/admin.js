@@ -14,7 +14,7 @@ import { Form, HasError, AlertError } from 'vform'
 import DisableAutocomplete from 'vue-disable-autocomplete';
 import { BootstrapVue,TablePlugin } from 'bootstrap-vue';
 import vuecookies from 'vue-cookies';
-import  'firebase'
+//import  'firebase'
 
 Vue.use(VueSession);
 Vue.mixin(Permissions);
@@ -68,8 +68,8 @@ const toast = swal.mixin({
 });
 Vue.prototype.$toast = toast;
 Vue.prototype.$gbiAssets = 'https://gbi-assets.s3.ap-south-1.amazonaws.com';
-//Vue.prototype.$hostName = 'https://gowithgbi.com:3000'
-Vue.prototype.$hostName = 'localhost:3000'
+Vue.prototype.$hostName = 'https://gowithgbi.com:3000'
+//Vue.prototype.$hostName = 'localhost:3000'
 
 const router = new VueRouter({
     // mode : 'history',

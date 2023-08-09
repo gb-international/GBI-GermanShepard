@@ -33,7 +33,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "BlogCard",
   props: ['post']
@@ -98,7 +97,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "UpcomingTourCarousel",
@@ -196,7 +194,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "UpcomingTourCarousel",
   components: {
@@ -291,7 +288,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "UpcomingTourCarousel",
@@ -412,7 +408,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     userinfo: {
@@ -422,15 +417,19 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     logout: function logout() {
       var _this = this;
+
       this.$api.POST('/api/logout-user', []).then(function (response) {
         _this.$cookies.remove('access_token');
+
         _this.$store.dispatch("logout").then(function () {
           _this.$bus.$emit("logged", "User loogedout");
+
           _this.$router.push("/");
         });
       })["catch"](function (error) {
         _this.$store.dispatch("logout").then(function () {
           _this.$bus.$emit("logged", "User loogedout");
+
           _this.$router.push("/");
         });
       });
@@ -541,7 +540,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "DashboardTeacher",
   components: {
@@ -568,6 +566,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     blogList: function blogList() {
       var _this = this;
+
       this.$axios.get("/api/blog-recents").then(function (response) {
         _this.posts = response.data;
         _this.posts_list = _this.posts.data;
@@ -603,6 +602,7 @@ var Dashboard = {
   },
   beforeMount: function beforeMount() {
     var userdata = this.$cookies.get('user');
+
     if (userdata.status == 0) {
       this.$router.push("/user-information");
     }
@@ -624,30 +624,35 @@ var Dashboard = {
         this.$router.push("/user-information");
         return false;
       }
+
       if (this.userinfo.change_password == 0) {
         this.$swal.fire("warning", "Please change your password for security purpose !!! <br>", "warning");
       }
     },
     upComingData: function upComingData() {
       var _this = this;
+
       this.$axios.get("/api/travel-program/upcoming-tour").then(function (response) {
         _this.upcoming_list = response.data;
       });
     },
     upComingEvents: function upComingEvents() {
       var _this2 = this;
+
       this.$axios.get("/api/upcoming-events").then(function (response) {
         _this2.events_list = response.data;
       });
     },
     eventsList: function eventsList() {
       var _this3 = this;
+
       this.$axios.get("/api/travel-program/upcoming-tour").then(function (response) {
         _this3.upcoming_list = response.data;
       });
     },
     popularList: function popularList() {
       var _this4 = this;
+
       this.$axios.get("/api/popular-tours").then(function (response) {
         _this4.popular_list = response.data;
       });

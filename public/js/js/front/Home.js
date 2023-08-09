@@ -63,7 +63,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ReviewCarousel",
   components: {
@@ -111,6 +110,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     getList: function getList() {
       var _this = this;
+
       this.$axios.get("/api/feedback-list").then(function (response) {
         _this.review_list = response.data.data;
       });
@@ -145,7 +145,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['text'],
   data: function data() {
@@ -171,7 +170,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['text'],
   data: function data() {
@@ -458,7 +456,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "FrontHome",
   components: {
@@ -498,13 +495,12 @@ __webpack_require__.r(__webpack_exports__);
     }]
   },
   created: function created() {
-    this.TravelPorgrams();
-    //sitemap();
+    this.TravelPorgrams(); //sitemap();
   },
-
   methods: {
     TravelPorgrams: function TravelPorgrams() {
       var _this = this;
+
       this.$axios.get("/api/travel-programs").then(function (response) {
         _this.travel_programs = response.data;
         _this.travel_Loaded = true;

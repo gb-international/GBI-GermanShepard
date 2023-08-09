@@ -22,7 +22,7 @@
             <div class="col-sm-8 search_filter">
               <!--  serach itinerary list in serach bar-->
               <div class="search-p-top">
-                <div class="input-group p-2 bg-light-orange">
+                <div class="input-group p-2 bg-light-card">
                   <model-select
                     :options="options"
                     v-model="searchQuery"
