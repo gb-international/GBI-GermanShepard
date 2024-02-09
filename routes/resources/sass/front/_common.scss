@@ -1,0 +1,371 @@
+.link{ cursor: pointer; }
+.mt-5{ margin-top: 5px; }
+.mt-10{	margin-top:10px; }
+.mt-15{	margin-top:15px; }
+.mt-20{	margin-top:20px; }
+.mt-35{	margin-top:35px; }
+.mt-85{ margin-top:85px; }
+
+.mb-5{ margin-bottom: 5px; }
+.mb-10{	margin-bottom:10px; }
+.mb-15{	margin-bottom:15px; }
+.mb-20{	margin-bottom:20px; }
+.mb-35{	margin-bottom:35px; }
+
+.ml-10{ margin-left: 10px; }
+.ml-20{ margin-left: 20px; }
+
+
+.mr-5{ margin-right: 5px; }
+.mr-10{ margin-right: 10px; }
+.mr-20{ margin-right: 20px;}
+.m-60{ margin-top:60px; }
+
+.pt-5{ padding-left: 5px;}
+.fw-500{ font-weight: 500;}
+
+.p-0{ padding: 0px;}
+.pl-3{ padding-left: 3px;}
+.ml-1{ margin-left: 1px;}
+
+.p-20{ padding: 20px; }
+.p-t-15{ padding-top: 15px; }
+.pt-20{ padding-top: 20px; }
+.pb-50{ padding-bottom: 50px;}
+.pb-30{ padding-bottom: 30px;}
+.pb-15{ padding-bottom: 15px;}
+.pl-10{ padding-left: 10px;}
+
+.h-45{ height: 45px !important; }
+.h-400{ height: 400px !important; }
+.h-40{ height: 40px !important; }
+.h-16{ height: 16px !important;}
+
+.w-100{ width: 100% !important; }
+.w-140{ width: 140px !important; }
+.w-165{ width: 165px !important; }
+.w-220{ width: 220px !important; }
+.w-95{ width: 95px !important; }
+.w-75{ width: 75px !important; }
+.w-70{ width: 70px !important; }
+.w-60{ width: 60px; }
+.w-50{ width: 50px;}
+.w-45{ width: 45px; }
+.w-40{ width: 40px; }
+.w-35{ width: 35px !important; }
+.w-20{ width: 20px; }
+.w-16{ width: 16px; }
+.icon-width{ width: 15px !important; height: 15px !important;}
+.footer-icon-width{ width: 18px;}
+.bg-blue{ background-color: #1c1650;}
+.bg-skyblue{ background-color: rgba(43,188,255,.8);}
+.bg-light-orange{ background-color: #f77736bf;}
+.bg-light-card { background: #2f2a52b8!important; }
+.display-none { display: none;}
+.position-absoulte { position: absolute;}
+
+.zoom1{ -webkit-transform: scale(1.40); transform: scale(1.40);}
+.zoom2{ -webkit-transform: scale(1.75); transform: scale(1.75);}
+.zoom3{ -webkit-transform: scale(1.95);transform: scale(1.95);}
+
+.font-13{ font-size: 13px;}
+.font-14{ font-size: 14px;}
+.font-15{ font-size: 15px;}
+.font-20{ font-size: 20px;}
+.min-height-90{ min-height: 90px;}
+.text-gray{ color: #464444;}
+
+.swal-close-button{ 
+	border-radius: 0px !important;
+    padding: 5px 40px !important;
+    background: #3490dc !important;
+    font-size: 16px;
+    color: white;
+    font-weight: 400;
+	&:hover{
+		color: white;
+	}
+}
+.modal-padding{
+	padding: 18px 113px 0px;
+}
+.modal-footer-link-custom{
+	display: inline-block;
+    width: 100%;
+    margin-top: 28px;
+    margin-left: 11px;
+	span{
+		cursor: pointer;
+		color: #3490dc !important;
+		text-decoration: underline;
+	}
+}
+.modal-border-radius{
+	.modal-content{ border-radius: 10px; }
+	.modal-dialog{ border-radius: 10px; }
+}
+.d-contents{ display: contents;}
+.break-word{ word-wrap: break-word;}
+
+/* **************************************** */
+.gbi_main-heading {
+	color: #000000;
+    font-size: 24px;
+	font-weight: 600;
+    font-family: 'Nunito Sans';
+}
+.gbi_sub-heading{
+	color: #333333;
+    font-size: 20px;
+    font-family: 'Nunito Sans';
+}
+.gbi_paragraph{
+	color: #737373;
+    font-size: 17px;
+    font-family: 'Nunito Sans';
+	line-height: 2rem;
+	-webkit-background-clip: text;
+		-moz-background-clip: text;
+			background-clip: text;
+}
+.largeFirstLetter::first-letter {
+	float: left;
+	font-size: 2rem;
+	background: #111;
+		-webkit-background-clip: text;
+		-moz-background-clip: text;
+			background-clip: text;
+}
+
+/* ********************************************************** */
+
+.search-radio{
+	.custom-control-label::before {
+		background-color: transparent;
+		border: 1px solid white;
+	}
+	.custom-control-input:checked~.custom-control-label::before {
+		color: #fff;
+		border-color: #ffffff;
+		background-color: transparent;
+	}
+	.custom-radio .custom-control-input:checked~.custom-control-label::after {
+		background-color: white;
+		border-radius: 50%;
+		width: 10px;
+		height: 10px;
+		margin: 3px;
+	}
+}
+.custom-control-label{
+	cursor: pointer !important;
+}
+
+
+
+.border-radius-0{ border-radius: 0px;}
+.border-radius-travel{ border-radius: 0.25rem 0.25rem 0rem 0rem;}
+.border-1-grey { border: 1px solid #ccc !important;}
+.btn-square{
+	padding: 7px 35px;
+    border-radius: 0px;
+    background: transparent;
+    font-weight: 500;
+}
+
+.avatar-author{
+	width: 40px;
+}
+.banner-image-parent{ 
+	position: relative;
+	text-align: center;
+	  color: white;
+	  height: 480px;
+	  img{ height: 480px;}
+	  .container{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+}
+
+@media (max-width: 767px){
+	.banner-image-parent{ 
+		height: 280px;
+		img{ height: 280px;}
+		.container{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+	}
+}
+
+.underline{ text-decoration: underline; }
+.text-upper{  text-transform: uppercase; }
+
+.img-circle { border-radius: 50%;}
+
+.bg-transparent-card{ background: #3c383891 !important}
+
+
+#itinerary_detail_list{	min-height: 140px; }
+.input-border{ border:1px solid lightgrey !important; height: 45px; }
+.banner_img{ background-size: cover; }
+
+
+.text_on_image{
+	position: relative;
+	.content{
+		position: absolute;
+		top: 40%;
+		left: 6%;
+		color: white;
+		width: 88%;
+		background: transparent;
+		.heading{
+			font-size: 30px;
+			margin-bottom: 0px;
+			text-transform: capitalize !important;
+		}
+	}
+}
+
+
+.ui.selection.dropdown{
+	min-width: 100% !important;
+}
+img{
+	width: 100%;
+	height: auto;
+}
+a{
+	text-decoration: none;
+	color: black;
+	&:hover{
+	  text-decoration:none;
+	  color: black;
+	}
+}
+.card_image_ency{ height: 154px; }
+.loadingspinner {
+	pointer-events: none;
+	width: 2.5em;
+	height: 2.5em;
+	border: 0.4em solid transparent;
+	border-color: #eee;
+	border-top-color: #3E67EC;
+	border-radius: 50%;
+	animation: loadingspin 1s linear infinite;
+	margin-left: 50%;
+	margin-top: 5px;
+}
+.loading-img-parent{
+	position: relative;
+}
+.loading-img {
+	width: 120px;
+	margin-top: 5px;
+    width: 120px;
+}
+@keyframes loadingspin {
+	100% {
+			transform: rotate(360deg)
+	}
+}
+
+.modal {
+  text-align: center;
+  padding: 0!important;
+}
+.modal:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -4px;
+}
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+.modal-color{
+	background-color: #fbfbfb;
+	border-radius: 0px;
+    border: 0px;
+}
+.profile_button{
+	background: $primary;
+	color: white;
+    border: none;
+    padding: 11px 70px;
+	font-weight: 600;
+	font-size: 14px;
+	border-radius: 0px;
+    margin: 25px 0px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+        &:hover{
+			background-color: #959595 !important;
+			color: white;
+        }
+}
+.multiselect__tag{
+	background-color: #6d6b6bc7;
+}
+.multiselect__tags{
+	background: #e1e1e1;
+}
+.multiselect__tag-icon:after{
+	color: #676767;
+}
+.multiselect__tag-icon:focus, .multiselect__tag-icon:hover{
+	background: #6f6f6f;
+}
+.multiselect__option--highlight{
+	background:grey;
+}
+.circle-btn{ 
+	border-radius: 42px;
+	padding: 7px 11px 8px;
+	background: #e9e9e9;
+}
+.circle-btn:hover{
+	background: #e9e9e9;
+    border: #e9e9e9;;
+    color: skyblue;
+}
+.f-12{ font-size: 12px;}
+.circle{
+	border-radius: 20px;
+}
+
+.svg-orange {
+    filter: invert(59%) sepia(70%) saturate(2541%) hue-rotate(337deg) brightness(99%) contrast(95%);
+}
+.svg-d-green {
+    filter: invert(64%) sepia(15%) saturate(1888%) hue-rotate(99deg) brightness(89%) contrast(88%);
+}
+.svg-r-blue {
+    filter: invert(14%) sepia(13%) saturate(6563%) hue-rotate(196deg) brightness(94%) contrast(97%);
+}
+.svg-blue {
+    filter: invert(34%) sepia(95%) saturate(652%) hue-rotate(171deg) brightness(95%) contrast(94%);
+}
+.svg-pink {
+    filter: invert(53%) sepia(21%) saturate(5483%) hue-rotate(319deg) brightness(98%) contrast(91%);
+}
+.svg-teal {
+    filter: invert(58%) sepia(99%) saturate(1459%) hue-rotate(134deg) brightness(93%) contrast(99%);
+}
+.svg-d-blue {
+    filter: invert(71%) sepia(61%) saturate(384%) hue-rotate(158deg) brightness(81%) contrast(94%);
+}
+.svg-green {
+    filter: invert(79%) sepia(12%) saturate(1603%) hue-rotate(81deg) brightness(92%) contrast(94%);
+}
+.svg-l-purple {
+    filter: invert(82%) sepia(5%) saturate(3706%) hue-rotate(215deg) brightness(95%) contrast(81%);
+}
