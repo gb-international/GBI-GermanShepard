@@ -13,11 +13,11 @@
   <script type="application/ld+json">
     {
     "@context": "https://schema.org",
-    "@type": "TravelAgency",
+    "@type": "Educational Travel Agency",
     "name": "GB International",
     "image": "https://gbi-assets.s3.ap-south-1.amazonaws.com/assets/front/images/logo.png",
     "logo": "https://gbi-assets.s3.ap-south-1.amazonaws.com/assets/front/images/logo.png",
-    "@id": "7164817599973027325",
+    "@id": "",
     "url": "https://gowithgbi.com",
     "telephone": "+91 9717922240",
     "address": {
@@ -28,15 +28,18 @@
     "addressCountry": "India"
     } ,
     "sameAs": [
-    "https://www.instagram.com/gowithgbi",
+    "https://instagram.com/gowithgbi",
     "https://twitter.com/gowithgbi",
-    "https://www.youtube.com/channel/UCYaTBxhqqXaMOUNZiAqvI_A",
-    "https://www.linkedin.com/company/gowithgbi",
-    "https://www.facebook.com/gowithgbi",
+    "https://youtube.com/channel/UCYaTBxhqqXaMOUNZiAqvI_A",
+    "https://linkedin.com/company/gowithgbi",
+    "https://facebook.com/gowithgbi",
     "https://gowithgbi.com"
     ] 
     }
   </script>
+  <meta name="author" content="@GBI" /> 
+  <meta name="copyright" content="GB International" />
+  <meta name="robots" content="follow"/>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Pragma" content="no-cache">
@@ -62,8 +65,8 @@
   <meta property="og:keywords" content="{{$meta->keyword}}">
   <meta property="og:image" content="{{$meta->image}}">
   @else
-  <meta property="og:title" content="Homepage | GB International - Your Travel Partner">
-  <meta property="og:description" content="GB International provides the best practical learning experience to not only students but to the travellers as well.">
+  <meta property="og:title" content="India Tourism| Tour packages and travel guide| GOwithGBI">
+  <meta property="og:description" content="Best travel guides on India tourism| Explore the best of India at affordable India tour packages only with GOwithGBI.">
   <meta property="og:image" content="https://www.gowithgbi.com/assets/front/images/banner2.jpg">
   @endif
 <meta property="og:site_name" content="gowithgbi.com">
@@ -228,16 +231,13 @@
       }
     } */
 
-    *{
+    *:not(i){
       font-family: 'Nunito Sans' !important;
     }
 
     .fa, .far, .fas {
         font-family: "Font Awesome 5 Free" !important;
     }
-
-    
-      
 
     </style>
 </body>

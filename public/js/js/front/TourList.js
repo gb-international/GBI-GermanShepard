@@ -88,7 +88,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ["tour", "userinfo"],
   data: function data() {
@@ -193,7 +192,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ["tour", "userinfo"],
   data: function data() {
@@ -291,9 +289,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ["list"],
+  props: ["list", "paymentType", "tourType"],
   data: function data() {
     return {};
   },
@@ -372,7 +369,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
+//
+//
+//
+//
 
 
 
@@ -391,8 +391,8 @@ __webpack_require__.r(__webpack_exports__);
       formShow: false,
       userinfo: "",
       travel_code: "",
-      iconSelected: 'all',
-      sltBtn: 'All'
+      tourType: 'all',
+      pType: 'Any'
     };
   },
   mounted: function mounted() {
@@ -401,15 +401,17 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     btnChange: function btnChange(val) {
-      this.sltBtn = val;
+      this.pType = val;
     },
     changeIcon: function changeIcon(val) {
-      this.iconSelected = val;
+      this.tourType = val;
     },
     tourListData: function tourListData() {
       var _this = this;
+
       console.log(this.userinfo);
-      if (this.userinfo.client_type == 'teacher' || this.userinfo.client_type == 'student') {
+
+      if (this.userinfo.school_id) {
         var data = {
           'school_id': this.userinfo.school_id,
           'travel_code': this.travel_code
@@ -419,7 +421,7 @@ __webpack_require__.r(__webpack_exports__);
           _this.tours = res;
           console.log(_this.tours.itinerary);
         });
-      } else if (this.userinfo.client_type == 'corporate') {
+      } else if (this.userinfo.company_id) {
         var data = {
           'company_id': this.userinfo.company_id,
           'travel_code': this.travel_code
@@ -441,6 +443,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     UserTourSave: function UserTourSave() {
       var _this2 = this;
+
       var data = {
         travel_code: this.travel_code
       };
@@ -453,6 +456,7 @@ __webpack_require__.r(__webpack_exports__);
           });
         } else {
           _this2.$swal.fire("Valid Code", "Check your tour details.", "success");
+
           _this2.tourListData();
         }
       })["catch"](function (error) {
@@ -461,6 +465,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     userData: function userData() {
       this.userinfo = this.$cookies.get("user");
+
       if (this.userinfo.status == 0) {
         this.$router.push("/user-information");
         return false;
@@ -472,6 +477,7 @@ __webpack_require__.r(__webpack_exports__);
           "warning"
         );
       }*/
+
     }
   }
 });
@@ -1310,240 +1316,280 @@ var render = function () {
         "div",
         { key: index, staticClass: "col-lg-4 col-md-6 col-12 newCardList" },
         [
-          _c(
-            "div",
-            {
-              staticClass: "card-1",
-              staticStyle: { cursor: "pointer" },
-              on: {
-                click: function ($event) {
-                  return _vm.showTourDetail(data.tour_id)
-                },
-              },
-            },
-            [
-              _c("div", { staticClass: "image-col" }, [
-                _c(
-                  "figure",
-                  {
-                    directives: [{ name: "lazyload", rawName: "v-lazyload" }],
-                    staticClass: "image__wrapper",
-                  },
-                  [
-                    _c("ImageSpinner", { staticClass: "image__spinner" }),
-                    _vm._v(" "),
-                    _c("img", {
-                      staticClass: "image__item",
-                      attrs: {
-                        src: data.itinerary.photo,
-                        "data-url": data.itinerary.photo,
-                        alt: data.itinerary.title,
-                      },
-                    }),
+          _vm.paymentType == "Any" || _vm.paymentType == data.payment
+            ? _c(
+                "div",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value:
+                        _vm.tourType == "all" || _vm.tourType == data.tourType,
+                      expression:
+                        "tourType == 'all' || tourType == data.tourType",
+                    },
                   ],
-                  1
-                ),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "cardtext-col text-left pl-1 pr-1" }, [
-                _c(
-                  "p",
-                  {
-                    staticClass: "m-0 pl-10 font-weight-bold text-capitalize",
-                    class:
-                      data.itinerary.title.length <= 34 ? "cardPadding" : "",
-                    staticStyle: { "font-size": "18px" },
+                  staticClass: "card-1",
+                  staticStyle: { cursor: "pointer" },
+                  on: {
+                    click: function ($event) {
+                      return _vm.showTourDetail(data.tour_id)
+                    },
                   },
-                  [
-                    _vm._v(
-                      _vm._s(
-                        _vm._f("CapitalizeString")(
-                          _vm._f("sortlength")(data.itinerary.title, 50, "")
-                        )
-                      )
+                },
+                [
+                  _c("div", { staticClass: "image-col" }, [
+                    _c(
+                      "figure",
+                      {
+                        directives: [
+                          { name: "lazyload", rawName: "v-lazyload" },
+                        ],
+                        staticClass: "image__wrapper",
+                      },
+                      [
+                        _c("ImageSpinner", { staticClass: "image__spinner" }),
+                        _vm._v(" "),
+                        _c("img", {
+                          staticClass: "image__item",
+                          attrs: {
+                            src: data.itinerary.photo,
+                            "data-url": data.itinerary.photo,
+                            alt: data.itinerary.title,
+                          },
+                        }),
+                      ],
+                      1
                     ),
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "p",
-                  {
-                    staticClass: "pl-10 mb-1",
-                    class: data.itinerary.title.length <= 34 ? "-mt-2" : "",
-                    staticStyle: { "font-size": "16px" },
-                  },
-                  [_vm._v(_vm._s(data.itinerary.noofdays) + " Days Tour")]
-                ),
-                _vm._v(" "),
-                _vm._m(0, true),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "d-flex flex-row justify-content-between pb-2 mt-1",
-                  },
-                  [
-                    _c("div", { staticClass: "pl-10" }, [
-                      data.itinerary.hotel_type != "0"
-                        ? _c(
-                            "div",
-                            { staticClass: "card-icon float-left p-0" },
-                            [
-                              _c("img", {
-                                staticClass: "explore-icon-width",
-                                attrs: {
-                                  src:
-                                    _vm.$gbiAssets +
-                                    "/images/icons/Itinerary_hotel_icon.png",
-                                },
-                              }),
-                              _vm._v(" "),
-                              _c("br"),
-                            ]
-                          )
-                        : _vm._e(),
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "cardtext-col text-left pl-1 pr-1" },
+                    [
+                      _c(
+                        "p",
+                        {
+                          staticClass: "m-0 pl-10 fw-b text-capitalize mt-2",
+                          staticStyle: { "font-size": "18px" },
+                        },
+                        [
+                          _vm._v(
+                            _vm._s(
+                              _vm._f("CapitalizeString")(
+                                _vm._f("sortlength")(
+                                  data.itinerary.title,
+                                  30,
+                                  ""
+                                )
+                              )
+                            ) +
+                              _vm._s(
+                                data.itinerary.title.length > 30 ? "..." : ""
+                              )
+                          ),
+                        ]
+                      ),
                       _vm._v(" "),
-                      data.itinerary.train == 1
-                        ? _c(
-                            "div",
-                            { staticClass: "card-icon float-left p-0" },
-                            [
-                              _c("img", {
-                                staticClass: "explore-icon-width",
-                                attrs: {
-                                  src:
-                                    _vm.$gbiAssets +
-                                    "/images/icons/Itinerary_bus_icon.png",
-                                },
-                              }),
-                              _vm._v(" "),
-                              _c("br"),
-                            ]
-                          )
-                        : _vm._e(),
+                      _c(
+                        "p",
+                        {
+                          staticClass: "pl-10 mb-2",
+                          staticStyle: { "font-size": "16px" },
+                        },
+                        [_vm._v(_vm._s(data.itinerary.noofdays) + " Days Tour")]
+                      ),
                       _vm._v(" "),
-                      data.itinerary.bus == "1"
-                        ? _c(
-                            "div",
-                            { staticClass: "card-icon float-left p-0" },
-                            [
-                              _c("img", {
-                                staticClass: "explore-icon-width",
-                                attrs: {
-                                  src:
-                                    _vm.$gbiAssets +
-                                    "/images/icons/Itinerary_bus_icon.png",
-                                },
-                              }),
-                              _vm._v(" "),
-                              _c("br"),
-                            ]
-                          )
-                        : _vm._e(),
-                      _vm._v(" "),
-                      data.itinerary.flight == "1"
-                        ? _c(
-                            "div",
-                            { staticClass: "card-icon float-left p-0" },
-                            [
-                              _c("img", {
-                                staticClass: "explore-icon-width",
-                                attrs: {
-                                  src:
-                                    _vm.$gbiAssets +
-                                    "/images/icons/Itinerary_flight_icon.png",
-                                },
-                              }),
-                              _vm._v(" "),
-                              _c("br"),
-                            ]
-                          )
-                        : _vm._e(),
-                      _vm._v(" "),
-                      data.itinerary.food != "0"
-                        ? _c(
-                            "div",
-                            { staticClass: "card-icon float-left p-0" },
-                            [
-                              _c("img", {
-                                staticClass: "explore-icon-width",
-                                attrs: {
-                                  src:
-                                    _vm.$gbiAssets +
-                                    "/images/icons/Itinerary_lunch_icon.png",
-                                },
-                              }),
-                              _vm._v(" "),
-                              _c("br"),
-                            ]
-                          )
-                        : _vm._e(),
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "mr-10" }, [
-                      data.payment == "success"
-                        ? _c("img", {
-                            staticClass: "img-custom",
-                            attrs: {
-                              src: _vm.$gbiAssets + "/TripIcons/paid_icon.png",
+                      _c("div", { staticClass: "d-flex flex-column pl-10" }, [
+                        _c(
+                          "p",
+                          {
+                            staticClass: "priceText",
+                            staticStyle: {
+                              "font-size": "19.5px",
+                              "font-weight": "600",
+                              "margin-bottom": "0px !important",
+                              color: "#4a4343",
                             },
-                          })
-                        : _c("img", {
-                            staticClass: "img-custom",
-                            attrs: {
-                              src:
-                                _vm.$gbiAssets + "/TripIcons/unpaid_icon.png",
+                          },
+                          [
+                            _vm._v(
+                              "₹" +
+                                _vm._s(data.itinerary.price.toLocaleString())
+                            ),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "p",
+                          {
+                            staticClass: "personText",
+                            staticStyle: {
+                              "font-size": "15px",
+                              "font-weight": "400",
+                              color: "grey",
+                              "margin-top": "-6px",
                             },
-                          }),
-                    ]),
-                  ]
-                ),
-              ]),
-            ]
-          ),
+                          },
+                          [_vm._v("per person")]
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "d-flex flex-row justify-content-between pb-2 mt-2",
+                        },
+                        [
+                          _c("div", { staticClass: "pl-10 pt-1" }, [
+                            data.itinerary.hotel_type != "0"
+                              ? _c(
+                                  "div",
+                                  {
+                                    staticClass:
+                                      "card-icon float-left p-0 mr-1",
+                                  },
+                                  [
+                                    _c("img", {
+                                      staticClass:
+                                        "explore-icon-width filter-gray",
+                                      attrs: {
+                                        src:
+                                          _vm.$gbiAssets +
+                                          "/images/icons/Itinerary_hotel_icon.svg",
+                                      },
+                                    }),
+                                    _vm._v(" "),
+                                    _c("br"),
+                                  ]
+                                )
+                              : _vm._e(),
+                            _vm._v(" "),
+                            data.itinerary.train == 1
+                              ? _c(
+                                  "div",
+                                  {
+                                    staticClass:
+                                      "card-icon float-left p-0 mr-1",
+                                  },
+                                  [
+                                    _c("img", {
+                                      staticClass:
+                                        "explore-icon-width filter-gray",
+                                      attrs: {
+                                        src:
+                                          _vm.$gbiAssets +
+                                          "/images/icons/Itinerary_train_icon.svg",
+                                      },
+                                    }),
+                                    _vm._v(" "),
+                                    _c("br"),
+                                  ]
+                                )
+                              : _vm._e(),
+                            _vm._v(" "),
+                            data.itinerary.bus == "1"
+                              ? _c(
+                                  "div",
+                                  {
+                                    staticClass:
+                                      "card-icon float-left p-0 mr-1",
+                                  },
+                                  [
+                                    _c("img", {
+                                      staticClass:
+                                        "explore-icon-width filter-gray",
+                                      attrs: {
+                                        src:
+                                          _vm.$gbiAssets +
+                                          "/images/icons/Itinerary_bus_icon.svg",
+                                      },
+                                    }),
+                                    _vm._v(" "),
+                                    _c("br"),
+                                  ]
+                                )
+                              : _vm._e(),
+                            _vm._v(" "),
+                            data.itinerary.flight == "1"
+                              ? _c(
+                                  "div",
+                                  { staticClass: "card-icon float-left p-0" },
+                                  [
+                                    _c("img", {
+                                      staticClass:
+                                        "explore-icon-width filter-gray",
+                                      attrs: {
+                                        src:
+                                          _vm.$gbiAssets +
+                                          "/images/icons/Itinerary_flight_icon.svg",
+                                      },
+                                    }),
+                                    _vm._v(" "),
+                                    _c("br"),
+                                  ]
+                                )
+                              : _vm._e(),
+                            _vm._v(" "),
+                            data.itinerary.food != "0"
+                              ? _c(
+                                  "div",
+                                  {
+                                    staticClass:
+                                      "card-icon float-left p-0 mr-1",
+                                  },
+                                  [
+                                    _c("img", {
+                                      staticClass:
+                                        "explore-icon-width filter-gray",
+                                      attrs: {
+                                        src:
+                                          _vm.$gbiAssets +
+                                          "/images/icons/Itinerary_lunch_icon.svg",
+                                      },
+                                    }),
+                                    _vm._v(" "),
+                                    _c("br"),
+                                  ]
+                                )
+                              : _vm._e(),
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "mr-10 mt-2" }, [
+                            data.payment == "success"
+                              ? _c("img", {
+                                  staticClass: "img-custom",
+                                  attrs: {
+                                    src:
+                                      _vm.$gbiAssets +
+                                      "/TripIcons/paid_icon.png",
+                                  },
+                                })
+                              : _c("img", {
+                                  staticClass: "img-custom",
+                                  attrs: {
+                                    src:
+                                      _vm.$gbiAssets +
+                                      "/TripIcons/unpaid_icon.png",
+                                  },
+                                }),
+                          ]),
+                        ]
+                      ),
+                    ]
+                  ),
+                ]
+              )
+            : _vm._e(),
         ]
       )
     }),
     0
   )
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "d-flex flex-column pl-10" }, [
-      _c(
-        "p",
-        {
-          staticClass: "priceText",
-          staticStyle: {
-            "font-size": "19.5px",
-            "font-weight": "550",
-            "margin-bottom": "0px !important",
-            color: "#4a4343",
-          },
-        },
-        [_vm._v("Rs. 10,000/-")]
-      ),
-      _vm._v(" "),
-      _c(
-        "p",
-        {
-          staticClass: "personText",
-          staticStyle: {
-            "font-size": "15px",
-            "font-weight": "400",
-            color: "grey",
-            "margin-top": "-6px",
-          },
-        },
-        [_vm._v("per person")]
-      ),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -1578,9 +1624,7 @@ var render = function () {
           {
             staticClass: "mr-5 icons",
             style:
-              _vm.iconSelected == "all"
-                ? "border-bottom: 2px solid #00c4c4"
-                : "",
+              _vm.tourType == "all" ? "border-bottom: 2px solid #00c4c4" : "",
             on: {
               click: function ($event) {
                 return _vm.changeIcon("all")
@@ -1601,7 +1645,7 @@ var render = function () {
           {
             staticClass: "mr-5 icons",
             style:
-              _vm.iconSelected == "upcoming"
+              _vm.tourType == "upcoming"
                 ? "border-bottom: 2px solid #00c4c4"
                 : "",
             on: {
@@ -1626,12 +1670,12 @@ var render = function () {
           {
             staticClass: "mr-5 icons",
             style:
-              _vm.iconSelected == "pending"
+              _vm.tourType == "current"
                 ? "border-bottom: 2px solid #00c4c4"
                 : "",
             on: {
               click: function ($event) {
-                return _vm.changeIcon("pending")
+                return _vm.changeIcon("current")
               },
             },
           },
@@ -1642,7 +1686,7 @@ var render = function () {
                 src: _vm.$gbiAssets + "/TripIcons/pending_trip_mobile.png",
               },
             }),
-            _vm._v("\n      Pending Trips\n    "),
+            _vm._v("\n      Current Trips\n    "),
           ]
         ),
         _vm._v(" "),
@@ -1651,7 +1695,7 @@ var render = function () {
           {
             staticClass: "mr-5 icons",
             style:
-              _vm.iconSelected == "completed"
+              _vm.tourType == "completed"
                 ? "border-bottom: 2px solid #00c4c4"
                 : "",
             on: {
@@ -1670,31 +1714,6 @@ var render = function () {
             _vm._v("\n      Completed Trips\n    "),
           ]
         ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "mr-5 icons",
-            style:
-              _vm.iconSelected == "cancelled"
-                ? "border-bottom: 2px solid #00c4c4;"
-                : "",
-            on: {
-              click: function ($event) {
-                return _vm.changeIcon("cancelled")
-              },
-            },
-          },
-          [
-            _c("img", {
-              staticClass: "trip-icon",
-              attrs: {
-                src: _vm.$gbiAssets + "/TripIcons/canceld_trip_mobile.png",
-              },
-            }),
-            _vm._v("\n      Cancelled Trips\n    "),
-          ]
-        ),
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "custom-flex mt-3" }, [
@@ -1702,10 +1721,10 @@ var render = function () {
           "button",
           {
             staticClass: "cusButton",
-            class: _vm.sltBtn == "All" ? "btnSelect" : "",
+            class: _vm.pType == "Any" ? "btnSelect" : "",
             on: {
               click: function ($event) {
-                return _vm.btnChange("All")
+                return _vm.btnChange("Any")
               },
             },
           },
@@ -1716,10 +1735,10 @@ var render = function () {
           "button",
           {
             staticClass: "cusButton",
-            class: _vm.sltBtn == "Paid" ? "btnSelect" : "",
+            class: _vm.pType == "success" ? "btnSelect" : "",
             on: {
               click: function ($event) {
-                return _vm.btnChange("Paid")
+                return _vm.btnChange("success")
               },
             },
           },
@@ -1730,33 +1749,25 @@ var render = function () {
           "button",
           {
             staticClass: "cusButton",
-            class: _vm.sltBtn == "Unpaid" ? "btnSelect" : "",
+            class: _vm.pType == "pending" ? "btnSelect" : "",
             on: {
               click: function ($event) {
-                return _vm.btnChange("Unpaid")
+                return _vm.btnChange("pending")
               },
             },
           },
           [_vm._v("Unpaid")]
         ),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "cusButton",
-            class: _vm.sltBtn == "Partial" ? "btnSelect" : "",
-            on: {
-              click: function ($event) {
-                return _vm.btnChange("Partial")
-              },
-            },
-          },
-          [_vm._v("Partial")]
-        ),
       ]),
       _vm._v(" "),
       _vm.tours
-        ? _c("tourList", { attrs: { list: _vm.tours } })
+        ? _c("tourList", {
+            attrs: {
+              list: _vm.tours,
+              paymentType: _vm.pType,
+              tourType: _vm.tourType,
+            },
+          })
         : _c(
             "div",
             { staticClass: "row card-titles" },

@@ -165,13 +165,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 //import pagination  from 'laravel-vue-pagination';
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "FeedbackList",
-  components: {
-    //'pagination':pagination,
+  components: {//'pagination':pagination,
   },
   data: function data() {
     return {
@@ -200,9 +197,10 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     var _this = this;
+
     this.userData = this.$cookies.get("user");
-    this.getList(this.currentPage);
-    //console.log(this.userData)
+    this.getList(this.currentPage); //console.log(this.userData)
+
     this.$nextTick(function () {
       window.addEventListener('resize', _this.onResize);
     });
@@ -223,9 +221,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     getList: function getList(page) {
       var _this2 = this;
+
       this.$axios.get("/api/user-notifs/" + this.userData.id + "/" + this.sortType.toLowerCase() + "/" + this.listType + "?page=" + page).then(function (response) {
-        _this2.notif_list = response.data;
-        //this.selectNotif(this.notif_list.data[0])
+        _this2.notif_list = response.data; //this.selectNotif(this.notif_list.data[0])
       });
     },
     selectNotif: function selectNotif(item) {
@@ -235,6 +233,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     markRead: function markRead(item) {
       var _this3 = this;
+
       if (item.read == 0) {
         this.$axios.post("/api/notification/mark-read", {
           'id': item.id
@@ -253,6 +252,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     redirNotif: function redirNotif(item) {
       var _this4 = this;
+
       if (item.read == 0) {
         this.$axios.post("/api/notification/mark-read", {
           'id': item.id
@@ -263,10 +263,12 @@ __webpack_require__.r(__webpack_exports__);
         }).then(function (response) {
           //console.log(response.data);
           _this4.userData.notifCount = response.data;
+
           _this4.$cookies.set('user', _this4.userData);
         });
         item.read = 1;
       }
+
       this.rightDisplay = 'inline';
       this.leftDisplay = 'none';
       this.currentItem = item;

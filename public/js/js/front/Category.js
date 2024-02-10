@@ -32,7 +32,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "BlogCard",
   props: ['post']
@@ -75,7 +74,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "BlogList",
@@ -120,13 +118,16 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     blogList: function blogList() {
       var _this = this;
+
       this.$axios.get("/api/category/".concat(this.$route.params.slug)).then(function (response) {
         _this.category = response.data;
+
         _this.getRelatedBlogs();
       });
     },
     getRelatedBlogs: function getRelatedBlogs() {
       var _this2 = this;
+
       this.$axios.get("/api/related-blog/".concat(this.category.id)).then(function (response) {
         _this2.RelatedPosts = response.data;
       });
@@ -328,12 +329,14 @@ var render = function () {
           _c(
             "div",
             { staticClass: "card-tags" },
-            _vm._l(_vm.post.tags, function (tag) {
-              return _c(
-                "span",
-                { key: tag.id, staticClass: "text-dark card-tag mr-2" },
-                [_vm._v(_vm._s(tag.title))]
-              )
+            _vm._l(_vm.post.tags, function (tag, index) {
+              return index <= 5
+                ? _c(
+                    "span",
+                    { key: tag.id, staticClass: "text-dark card-tag mr-2" },
+                    [_vm._v(_vm._s(tag.title))]
+                  )
+                : _vm._e()
             }),
             0
           ),

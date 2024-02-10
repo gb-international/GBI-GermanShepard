@@ -14,54 +14,51 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_recaptcha__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-recaptcha */ "./node_modules/vue-recaptcha/dist/vue-recaptcha.es.js");
 /* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vform */ "./node_modules/vform/dist/vform.common.js");
 /* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vform__WEBPACK_IMPORTED_MODULE_1__);
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
-function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -93,6 +90,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     if (this.$cookies.get("access_token") == null) {
       this.$router.push("/");
     }
+
     this.bankNameList();
     this.tourBank();
     this.userData();
@@ -106,6 +104,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     },
     tourBank: function tourBank() {
       var _this = this;
+
       var data = [];
       this.$axios.post("/api/tour-bankdetail", data, {
         headers: {
@@ -115,11 +114,13 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
         _this.bankdetail = response.data;
       })["catch"](function (error) {
         _this.formShow = true;
+
         _this.handleError(error);
       });
     },
     userData: function userData() {
       var _this2 = this;
+
       var data = {
         travel_code: this.$route.params.id
       };
@@ -135,6 +136,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     },
     ModalForm: function ModalForm() {
       var _this3 = this;
+
       this.$axios.post("/api/tour-bankdetail-store", this.form, {
         headers: {
           Authorization: "Bearer ".concat(localStorage.token)
@@ -142,6 +144,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
       }).then(function (response) {
         // this.form.reset();
         console.log(response);
+
         _this3.$swal.fire({
           icon: "success",
           title: "Beneficary Added !!"
@@ -158,13 +161,16 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
         });
         return false;
       }
+
       if (this.payment_mode == "self") {
         this.$route.push("/payment-mode");
       } else {}
+
       return false;
     },
     bankNameList: function bankNameList() {
       var _this4 = this;
+
       this.$axios.get("/api/banknames").then(function (response) {
         _this4.banknames = response.data;
       });

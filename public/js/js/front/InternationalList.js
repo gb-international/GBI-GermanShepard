@@ -119,7 +119,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "InternationalStates",
   components: {
@@ -151,29 +150,32 @@ __webpack_require__.r(__webpack_exports__);
   watch: {
     resultQuery: function resultQuery() {
       //console.log(this.searchQuery);
-      if (this.resultQuery.length <= 0) {
-        // return this.$swal.fire("No Results!", "Information about this State/Region is current not available.", "info"); 
+      if (this.resultQuery.length <= 0) {// return this.$swal.fire("No Results!", "Information about this State/Region is current not available.", "info"); 
       }
     }
   },
   methods: {
     stateList: function stateList() {
       var _this = this;
+
       this.$axios.get("/api/encyclopedia-list").then(function (response) {
         //this.state_list = response.data;
         if (!response.data) {
           _this.apiFailed = true;
         }
+
         for (var i = 0; i < response.data.length; i++) {
           if (response.data[i].country !== 'India') {
             _this.state_list.push(response.data[i]);
           }
         }
+
         console.log(_this.state_list);
       });
     },
     SelectBox: function SelectBox() {
       var _this2 = this;
+
       this.$axios.get("/api/country").then(function (response) {
         for (var i = 0; i < response.data.length; i++) {
           if (response.data[i].id !== 2) {
@@ -189,6 +191,7 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     resultQuery: function resultQuery() {
       var _this3 = this;
+
       if (this.searchQuery) {
         return this.state_list.filter(function (item) {
           return _this3.searchQuery.toLowerCase().split(" ").every(function (v) {
@@ -433,7 +436,7 @@ var render = function () {
                     _c("div", { staticClass: "search-p-top" }, [
                       _c(
                         "div",
-                        { staticClass: "input-group p-2 bg-light-orange" },
+                        { staticClass: "input-group p-2 bg-light-card" },
                         [
                           _c("model-select", {
                             attrs: {

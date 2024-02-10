@@ -14,354 +14,351 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_recaptcha__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-recaptcha */ "./node_modules/vue-recaptcha/dist/vue-recaptcha.es.js");
 /* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vform */ "./node_modules/vform/dist/vform.common.js");
 /* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vform__WEBPACK_IMPORTED_MODULE_1__);
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
-function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -372,6 +369,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
   },
   data: function data() {
     var _ref;
+
     return _ref = {
       chequePage: false,
       response: "",
@@ -416,8 +414,8 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     if (this.$store.state.paymentData != "") {
       this.tour_id = this.$store.state.paymentData.tour_id;
       this.userinfo = this.$cookies.get("user");
-      this.teacherform.company_id = this.userinfo.company_id;
-      //console.log(this.userinfo);
+      this.teacherform.company_id = this.userinfo.company_id; //console.log(this.userinfo);
+
       this.tourBank();
       this.userData();
     } else {
@@ -433,6 +431,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     },
     tourBank: function tourBank() {
       var _this = this;
+
       var data = [];
       this.$axios.post("/api/tour-bankdetail", data, {
         headers: {
@@ -442,11 +441,13 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
         _this.bankdetail = response.data;
       })["catch"](function (error) {
         _this.formShow = true;
+
         _this.handleError(error);
       });
     },
     userData: function userData() {
       var _this2 = this;
+
       var data = {
         travel_code: this.tour_id
       };
@@ -460,6 +461,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
         _this2.teacherform.user_id = response.data.user_id;
         _this2.teacherform.amount = response.data.price;
         _this2.price = _this2.teacherform.amount;
+
         if (_this2.userinfo.client_type == "corporate") {
           _this2.bankNameList();
         }
@@ -469,13 +471,16 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     },
     ModalForm: function ModalForm() {
       var _this3 = this;
+
       this.$axios.post("/api/tour-bankdetail-store", this.form, {
         headers: {
           Authorization: "Bearer ".concat(this.$cookies.get("access_token"))
         }
       }).then(function (response) {
         _this3.form.reset();
+
         _this3.tourBank();
+
         _this3.$swal.fire({
           icon: "success",
           title: "Beneficary Added !!"
@@ -486,12 +491,15 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     },
     submitPayment: function submitPayment() {
       this.teacherform.tour_code = this.tour_id;
+
       if (this.tour_info.client_type == "corporate") {
         this.teacherform.amount = this.tour_info.price * this.tour_info.no_of_person;
       } else {
         this.teacherform.amount = this.tour_info.price;
       }
+
       this.teacherform.user_id = this.tour_info.user_id;
+
       if (this.robot == false) {
         this.$swal.fire({
           icon: "error",
@@ -499,36 +507,39 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
         });
         return false;
       }
+
       if (this.teacherform.payment_mode == "self" && this.teacherform.payment_type == "cheque") {
         this.teacherform.corp_bankdetails_id = "";
-        this.chequePage = true;
-        // this.$router.push(`/payment-mode/${this.tour_id}`);
+        this.chequePage = true; // this.$router.push(`/payment-mode/${this.tour_id}`);
       }
 
       if (this.teacherform.payment_mode == "self" && this.teacherform.payment_type == "dd") {
         this.teacherform.corp_bankdetails_id = "";
-        this.chequePage = true;
-        // this.$router.push(`/payment-mode/${this.tour_id}`);
+        this.chequePage = true; // this.$router.push(`/payment-mode/${this.tour_id}`);
       }
 
       if (this.teacherform.payment_mode == "self" && this.teacherform.payment_type == "cash") {
         this.teacherform.corp_bankdetails_id = "";
         this.submitForm();
       }
+
       if (this.teacherform.payment_mode == "student" && this.teacherform.corp_bankdetails_id != "") {
         this.teacherform.payment_type = "";
         this.submitForm();
       }
+
       return false;
     },
     bankNameList: function bankNameList() {
       var _this4 = this;
+
       this.$axios.get("/api/banknames").then(function (response) {
         _this4.banknames = response.data;
       });
     },
     submitForm: function submitForm() {
       var _this5 = this;
+
       this.$axios.post("/api/tour-submit-payment", this.teacherform, {
         headers: {
           Authorization: "Bearer ".concat(this.$cookies.get("access_token"))
@@ -539,12 +550,15 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
             icon: "error",
             title: response.data.error
           });
+
           return false;
         }
+
         _this5.$swal.fire({
           icon: "success",
           title: "Successfully Added !!"
         });
+
         _this5.$router.push("/tour-list");
       })["catch"](function (error) {
         _this5.handleError(error);
@@ -558,6 +572,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
         });
         return false;
       }
+
       var data = _defineProperty({
         user_id: "",
         travel_code: "",
@@ -570,6 +585,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
         unpaid_person: 0,
         total_members: 0
       }, "price", 0);
+
       data.user_id = this.tour_info.user_id;
       data.paid_person = this.tour_info.paid_person;
       data.unpaid_person = this.tour_info.unpaid_person;
@@ -580,6 +596,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
       data.tour_id = this.tour_id;
       data.company_id = this.userinfo.company_id;
       this.$cookies.set("payment-data", data, 60 * 60 * 1); // expire in 1 hour
+
       this.$router.push("/payment-billing");
     },
     backReset: function backReset() {

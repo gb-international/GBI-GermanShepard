@@ -4,12 +4,12 @@ namespace App\Helpers;
 
 class SendSms{
     private $id = 'csrikhi@gbinternational.in';
-    private $pwd = 'BulandDarwaza26014@';
+    private $pwd = 'DesiDaru26015@';
     
     public static function send($mobile,$template_id,$message){
         $phone = '91'.$mobile;
         $id = 'csrikhi@gbinternational.in';
-        $pwd = 'BulandDarwaza26014@';
+        $pwd = 'DesiDaru26015@';
         $ApiUrl = "https://www.businesssms.co.in/smsaspx?Id=".$id."&Pwd=".urlencode($pwd)."&PhNo=".$phone."&TemplateID=".$template_id."&TEXT=".urldecode($message);
         $client = new \GuzzleHttp\Client(['verify' => false ]);
         $request = $client->get($ApiUrl);
@@ -74,8 +74,9 @@ class SendSms{
         
         /*"Dear ".$name.". Thank you for choosing GBI. Please provide us your valuable feedback on your journey with GB International .Please click the following feedback link <a href=".$link.">Give Feedback</a>";*/
 
-        $template_id = 1007330159345850888;
-        $ApiUrl = "https://www.businesssms.co.in/smsaspx?Id=".$this->id."&Pwd=".urlencode($this->pwd)."&PhNo=".$phone."&TemplateID=".$template_id."&TEXT=".urldecode($message);
+        $template_id = 1007028197496675594;
+        $sender_id="GBISMS";
+        $ApiUrl = "https://www.businesssms.co.in/smsaspx?Id=".$this->id."&Pwd=".urlencode($this->pwd)."&PhNo=".$phone."&TemplateID=".$template_id."&TEXT=".urldecode($message)."&SenderID=".$sender_id;
         $client = new \GuzzleHttp\Client(['verify' => false ]);
         $request = $client->get($ApiUrl);
     }
@@ -83,7 +84,8 @@ class SendSms{
         $phone = '91'.$ph_no;
         $message = "Dear ".$user->name." Thank you for sharing your valuable feedback with GBI. We really appreciate your time. We are constantly working towards making your journey better. Regards GBI Team.";
         $template_id = 1007563217285792615;
-        $ApiUrl = "https://www.businesssms.co.in/smsaspx?Id=".$this->id."&Pwd=".urlencode($this->pwd)."&PhNo=".$phone."&TemplateID=".$template_id."&TEXT=".urldecode($message);
+        $sender_id="GBISMS";
+        $ApiUrl = "https://www.businesssms.co.in/smsaspx?Id=".$this->id."&Pwd=".urlencode($this->pwd)."&PhNo=".$phone."&TemplateID=".$template_id."&TEXT=".urldecode($message)."&SenderID=".$sender_id;
         $client = new \GuzzleHttp\Client(['verify' => false ]);
         $request = $client->get($ApiUrl);
     }
@@ -109,6 +111,15 @@ class SendSms{
         $message = "Dear ".$name.", in order to assist your payment with GB International, we have created a customised link for you, please click on it to make your payment. ".$link;
         $template_id = 1007330159345850888; //change template
         $ApiUrl = "https://www.businesssms.co.in/smsaspx?Id=".$this->id."&Pwd=".urlencode($this->pwd)."&PhNo=".$phone."&TemplateID=".$template_id."&TEXT=".urldecode($message);
+        $client = new \GuzzleHttp\Client(['verify' => false ]);
+        $request = $client->get($ApiUrl);
+    }
+    public function  otpSMSNew($mobile,$otp){
+        $phone = '91'.$mobile;
+        $message = "Dear GBI Holidays Customer ,Web Application Login One Time Password is ".$otp;
+        $template_id = 1007088805013554651;
+        $sender_id = 'GBIHOL';
+        $ApiUrl = "https://www.businesssms.co.in/smsaspx?Id=".$this->id."&Pwd=".urlencode($this->pwd)."&PhNo=".$phone."&TemplateID=".$template_id."&TEXT=".urldecode($message)."&SenderID=".$sender_id;
         $client = new \GuzzleHttp\Client(['verify' => false ]);
         $request = $client->get($ApiUrl);
     }

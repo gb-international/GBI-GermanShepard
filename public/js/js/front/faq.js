@@ -16,7 +16,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['text'],
   data: function data() {
@@ -95,31 +94,30 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Faq",
   components: {
     Heading: _front_components_layout_Heading_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   metaInfo: {
-    title: 'FAQs | Clear Your Doubts Here',
+    title: 'Frequently asked question about tour and travels in India| GOwithGBI',
     meta: [{
       name: 'description',
-      content: 'All the queries you have, all the answers you want regarding the tour, packages, guides, flights, accommodations, food, and whatnot? You’ll find it on this page.'
+      content: 'If you have any questions regarding GOwithGBI do check our FAQ page| GOwithGBI keeps its policies transparent'
     }, {
       name: 'keywords',
       content: '@GoWithGBI,have a question,search for your answer,FAQ,Travel bookings queries,customer service,support helpdesk'
     }, {
       name: 'url',
-      content: 'https://www.gowithgbi.com/resources/faq'
+      content: 'https://www.gowithgbi.com/faq'
     }]
   },
   beforeCreate: function beforeCreate() {
     var metaInfo = {
-      title: 'FAQs | Clear Your Doubts Here',
-      description: 'All the queries you have, all the answers you want regarding the tour, packages, guides, flights, accommodations, food, and whatnot? You’ll find it on this page.',
+      title: 'Frequently asked question about tour and travels in India| GOwithGBI',
+      description: 'If you have any questions regarding GOwithGBI do check our FAQ page| GOwithGBI keeps its policies transparent',
       keywords: '@GoWithGBI,have a question,search for your answer,FAQ,Travel bookings queries,customer service,support helpdesk',
-      url: 'https://www.gowithgbi.com/resources/faq',
+      url: 'https://www.gowithgbi.com/faq',
       type: 'website'
     };
     document.cookie = "GBIMeta =" + JSON.stringify(metaInfo) + "; path=/";
@@ -175,6 +173,7 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     resultQuery: function resultQuery() {
       var _this = this;
+
       if (this.searchQuery) {
         return this.questions_list.filter(function (item) {
           return _this.searchQuery.toLowerCase().split(" ").every(function (v) {
@@ -381,7 +380,7 @@ var render = function () {
                 _vm._v("Frequently Asked Questions (FAQ)"),
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "input-group p-2 bg-skyblue" }, [
+              _c("div", { staticClass: "input-group p-2 bg-light-card" }, [
                 _c("input", {
                   directives: [
                     {

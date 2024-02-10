@@ -194,7 +194,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Booking",
   components: {
@@ -271,11 +270,13 @@ __webpack_require__.r(__webpack_exports__);
     },
     savePersons: function savePersons() {
       this.form.person = parseInt(this.form.children) + parseInt(this.form.adults);
+
       if (this.form.infants > 0) {
         this.people = this.form.person + ' + ' + this.form.infants + ' Infant(s)';
       } else {
         this.people = this.form.person;
       }
+
       this.showPersonModal = false;
       this.checkGroup();
     },
@@ -302,6 +303,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     sightseeingData: function sightseeingData(city) {
       var _this = this;
+
       this.$axios.post("/api/city-sightseeing", {
         list: city
       }).then(function (response) {
@@ -318,6 +320,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     BookingSubmit: function BookingSubmit() {
       var _this2 = this;
+
       if (this.$cookies.get('access_token') == null) {
         window.$(".close").click();
         this.$swal.fire({
@@ -327,6 +330,7 @@ __webpack_require__.r(__webpack_exports__);
         });
         return false;
       }
+
       var user = this.$cookies.get('user');
       console.log(user);
       this.form.user_id = user.id;
@@ -336,7 +340,9 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).then(function (response) {
         _this2.form.reset();
+
         window.$(".close").click();
+
         _this2.$swal.fire({
           icon: "success",
           title: "Booking Inquiry Sent",
@@ -347,6 +353,7 @@ __webpack_require__.r(__webpack_exports__);
           icon: "error",
           title: "Please provide valid details"
         });
+
         _this2.handleError(error);
       });
     }
@@ -506,7 +513,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "HotelSearch",
   components: {
@@ -559,19 +565,24 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     getHotels: function getHotels() {
       var _this = this;
+
       this.searchForm.location = this.$cookies.get("hotelSearch_Location");
       this.searchForm.rooms = this.$cookies.get("hotelSearch_rooms");
       this.searchForm.room_type = this.$cookies.get("hotelSearch_room_type");
       this.searchForm.guests = this.$cookies.get("hotelSearch_guests");
       this.searchForm.post("/api/hotel-search").then(function (response) {
         console.log(response);
+
         if (!response.data) {
           _this.apiFailed = true;
           return false;
         }
+
         _this.hotel_data = response.data;
+
         if (response.data.length <= 0) {
           _this.$swal.fire("Sorry", "No Hotels found.", "info");
+
           _this.$router.push('/explore-destination');
         }
       });

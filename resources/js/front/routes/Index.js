@@ -8,16 +8,18 @@ Vue.use(VueMeta);
 import Home from '@/front/routes/Home.js';
 import Resources from '@/front/routes/Resources.js';
 import GBIBlog from '@/front/routes/GBIBlog.js';
+import Article from '@/front/routes/Article.js';
 import AboutUs from '@/front/routes/AboutUs.js';
 import Feedback from '@/front/routes/Feedback.js';
 import ContactUs from '@/front/routes/ContactUs.js';
 import ExploreDestination from '@/front/routes/ExploreDestination.js';
 import ErrorPage from '@/front/routes/Error.js';
 import Hotel from '@/front/routes/Hotel.js';
-import NameList from '@/front/routes/NameList.js';
+//import NameList from '@/front/routes/NameList.js';
 import Notification from '@/front/routes/Notification.js';
 import PaymentLink from '@/front/routes/PaymentLink.js';
 import Static from '@/front/routes/Static.js';
+import TourPage from '@/front/routes/TourPage.js';
 import User from '@/front/routes/User.js';
 
 export function createRouter() {
@@ -30,15 +32,17 @@ export function createRouter() {
             ...Resources,
             ...GBIBlog,
             ...AboutUs,
+            ...Article,
             ...ContactUs,
             ...ExploreDestination,
             ...ErrorPage,
             ...Hotel,
             ...Feedback,
-            ...NameList,
+            //...NameList,
             ...Notification,
             ...PaymentLink,
             ...Static,
+            ...TourPage,
             ...User,
         ]
     })

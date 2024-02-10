@@ -266,7 +266,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Booking",
   components: {
@@ -281,7 +280,7 @@ __webpack_require__.r(__webpack_exports__);
       travel_type_list: ["Train", "AC Bus", "Flight", "Train", "Flight", "Train", "AC Bus"],
       occupancy_list: ["Single", "Double", "Triple", "Quad"],
       form: new vform__WEBPACK_IMPORTED_MODULE_1__.Form({
-        state_date: "",
+        start_date: "",
         end_date: "",
         person: 2,
         adults: 2,
@@ -336,11 +335,13 @@ __webpack_require__.r(__webpack_exports__);
     },
     savePersons: function savePersons() {
       this.form.person = parseInt(this.form.children) + parseInt(this.form.adults);
+
       if (this.form.infants > 0) {
         this.people = this.form.person + ' + ' + this.form.infants + ' Infant(s)';
       } else {
         this.people = this.form.person;
       }
+
       this.showPersonModal = false;
       this.checkGroup();
     },
@@ -367,6 +368,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     sightseeingData: function sightseeingData(city) {
       var _this = this;
+
       this.$axios.post("/api/city-sightseeing", {
         list: city
       }).then(function (response) {
@@ -396,6 +398,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     cityList: function cityList() {
       var _this2 = this;
+
       this.$axios.get("/api/city").then(function (response) {
         for (var i = 0; i < response.data.data.length; i++) {
           _this2.options.push({
@@ -406,6 +409,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     BookingSubmit: function BookingSubmit() {
       var _this3 = this;
+
       if (this.$cookies.get('access_token') == null) {
         window.$(".close").click();
         this.$swal.fire({
@@ -415,6 +419,7 @@ __webpack_require__.r(__webpack_exports__);
         });
         return false;
       }
+
       this.form.itinerary_id = this.$route.params.id;
       this.form.post("/api/booking", {
         headers: {
@@ -422,7 +427,9 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).then(function (response) {
         _this3.form.reset();
+
         window.$(".close").click();
+
         _this3.$swal.fire({
           icon: "success",
           title: "Booking Inquiry Sent",
@@ -433,6 +440,7 @@ __webpack_require__.r(__webpack_exports__);
           icon: "error",
           title: "Please provide valid details"
         });
+
         _this3.handleError(error);
       });
     }
@@ -541,7 +549,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "HotelRoom",
   components: {
@@ -588,166 +595,171 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_slick_carousel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-slick-carousel */ "./node_modules/vue-slick-carousel/dist/vue-slick-carousel.umd.js");
 /* harmony import */ var vue_slick_carousel__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_slick_carousel__WEBPACK_IMPORTED_MODULE_2__);
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -845,31 +857,38 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     },
     getItinerary: function getItinerary() {
       var _this = this;
+
       this.$axios.get("/api/itinerary-view/".concat(this.$route.params.id)).then(function (res) {
-        _this.itineraryData = res.data;
-        //Save search
+        _this.itineraryData = res.data; //Save search
+
         var searches = JSON.parse(localStorage.getItem("itSearches"));
         searches.push(_this.itineraryData);
         localStorage.setItem("itSearches", JSON.stringify(searches));
         _this.selectedPhoto = _this.itineraryData.photo;
+
         if (_this.itineraryData.itinerarydays) {
           var data = _this.itineraryData.itinerarydays;
           var selected = [];
           _this.selected_cities = [];
+
           if (data) {
             _this.selected_cities = [];
+
             for (var i = 0; i < data.length; i++) {
               selected.push(data[i].day_source);
               selected.push(data[i].day_destination);
             }
           }
+
           _this.selected_cities = _toConsumableArray(new Set(selected));
         }
+
         _this.getRelatedCities(_this.itineraryData.destination);
       });
     },
     getRelatedCities: function getRelatedCities(destination) {
       var _this2 = this;
+
       this.$axios.get("/api/related-cities/".concat(destination)).then(function (res) {
         _this2.city_list = res.data;
         _this2.loading = false;

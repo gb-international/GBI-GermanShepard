@@ -77,7 +77,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     Form: vform__WEBPACK_IMPORTED_MODULE_0__.Form,
@@ -96,6 +95,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     sendmail: function sendmail() {
       var _this = this;
+
       if (this.form.name == '' || this.form.email == '' || this.form.mobile == '' || this.form.messagecon == '') {
         /*this.$swal.fire({
             text: "Please fillup all the fields!",
@@ -103,12 +103,14 @@ __webpack_require__.r(__webpack_exports__);
             animation: true,
           });*/
       }
+
       this.form.post("/api/contact-us/send").then(function (response) {
         _this.$swal.fire({
           text: "Thank you for contacting us !",
           icon: "success",
           animation: true
         });
+
         _this.form.reset();
       })["catch"](function () {});
     }
@@ -133,7 +135,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['text'],
   data: function data() {
@@ -335,14 +336,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ContactUs",
   metaInfo: {
-    title: 'Contact Us | We Are Just A Call Away',
+    title: 'Contact the best Travel and tourism agency and guide in the town| GOwithGBI',
     meta: [{
       name: 'description',
-      content: 'Address: Triveni complex, G-32, Sheikh Sarai Phase 1, Sheikh Sarai, New Delhi, Delhi 110017 | Contact No.: +91 9717922240 | E-Mail: csrikhi@gbinternational.in'
+      content: 'Contact GOwithGBI for any related queries regarding your upcoming tours or regarding booking tours. Best travel agency in India| GOwithGBI'
     }, {
       name: 'keywords',
       content: '@GoWithGBI,GB International,Connect With GB International,Email Us,Talk To Us,Need a travel solution'
@@ -363,8 +363,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   beforeCreate: function beforeCreate() {
     var metaInfo = {
-      title: 'GBI Contact Us',
-      description: 'Connect With GB International for organizing your educational travel plans any where any time',
+      title: 'Contact the best Travel and tourism agency and guide in the town| GOwithGBI',
+      description: 'Contact GOwithGBI for any related queries regarding your upcoming tours or regarding booking tours. Best travel agency in India| GOwithGBI',
       keywords: '@GoWithGBI,GB International,Connect With GB International,Email Us,Talk To Us,Need a travel solution',
       url: 'https://www.gowithgbi.com/contact-us',
       type: 'website'
@@ -382,23 +382,19 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (() => {
 
 // Set the date we're counting down to
-var countDownDate = new Date("Jan 15, 2023 15:00:00").getTime();
+var countDownDate = new Date("Jan 15, 2023 15:00:00").getTime(); // Update the count down every 1 second
 
-// Update the count down every 1 second
 var x = setInterval(function () {
   // Get today's date and time
-  var now = new Date().getTime();
+  var now = new Date().getTime(); // Find the distance between now and the count down date
 
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
+  var distance = countDownDate - now; // Time calculations for days, hours, minutes and seconds
 
-  // Time calculations for days, hours, minutes and seconds
   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
   var hours = Math.floor(distance % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
   var minutes = Math.floor(distance % (1000 * 60 * 60) / (1000 * 60));
-  var seconds = Math.floor(distance % (1000 * 60) / 1000);
+  var seconds = Math.floor(distance % (1000 * 60) / 1000); // Output the result in an element with id="countDown"
 
-  // Output the result in an element with id="countDown"
   document.getElementById("countDownD1").innerHTML = (' 0' + days).toString()[days.toString().length];
   document.getElementById("countDownD2").innerHTML = (' 0' + days).slice(-1);
   document.getElementById("countDownH1").innerHTML = (' 0' + hours).toString()[hours.toString().length];
@@ -406,9 +402,8 @@ var x = setInterval(function () {
   document.getElementById("countDownM1").innerHTML = (' 0' + minutes).toString()[minutes.toString().length];
   document.getElementById("countDownM2").innerHTML = (' 0' + minutes).slice(-1);
   document.getElementById("countDownS1").innerHTML = (' 0' + seconds).toString()[seconds.toString().length];
-  document.getElementById("countDownS2").innerHTML = (' 0' + seconds).slice(-1);
+  document.getElementById("countDownS2").innerHTML = (' 0' + seconds).slice(-1); // If the count down is over, write some text 
 
-  // If the count down is over, write some text 
   if (distance < 0) {
     clearInterval(x);
     document.getElementById("countDown").innerHTML = "Ready";

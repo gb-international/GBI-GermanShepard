@@ -226,7 +226,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Application form",
   components: {
@@ -258,10 +257,12 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     onFileChange: function onFileChange(e) {
       var files = e.target.files || e.dataTransfer.files;
+
       if (files[0].size > 2097152) {
         this.swal.fire("Alert!", "Resume size should not be more than 2 MB", "warning");
         return false;
       }
+
       if (!files.length) return;
       this.createImage(files[0]);
       var fileData = e.target.files[0];
@@ -269,22 +270,29 @@ __webpack_require__.r(__webpack_exports__);
     },
     createImage: function createImage(file) {
       var _this = this;
+
       var image = new Image();
       var reader = new FileReader();
+
       reader.onload = function (e) {
         _this.form.resume = e.target.result;
       };
+
       reader.readAsDataURL(file);
     },
     sendmailResume: function sendmailResume() {
       var _this2 = this;
+
       this.form.job_exp = this.form.job_exp + ' Years';
       this.form.post("/api/join-our-team/send").then(function (response) {
         _this2.form.reset();
+
         _this2.form.filename = "";
+
         _this2.$swal.fire("Successfully Submited!", "Your resume has been sent to HR Deparment..", "success");
       })["catch"](function () {});
     } // end sendmailResume
+
   }
 });
 
@@ -305,7 +313,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['text'],
   data: function data() {
@@ -330,7 +337,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['text']
 });
@@ -352,7 +358,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['text'],
   data: function data() {
@@ -430,7 +435,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "JobPage",
   components: {
@@ -463,6 +467,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     getJob: function getJob() {
       var _this = this;
+
       this.$axios.get("/api/join-our-team/job/" + this.$route.params.id).then(function (response) {
         _this.jobDetails = response.data;
         console.log(response);
@@ -470,10 +475,12 @@ __webpack_require__.r(__webpack_exports__);
     },
     onFileChange: function onFileChange(e) {
       var files = e.target.files || e.dataTransfer.files;
+
       if (files[0].size > 2097152) {
         swal.fire("Alert!", "Resume size should not be more than 2 MB", "warning");
         return false;
       }
+
       if (!files.length) return;
       this.createImage(files[0]);
       var fileData = e.target.files[0];
@@ -483,19 +490,25 @@ __webpack_require__.r(__webpack_exports__);
       var image = new Image();
       var reader = new FileReader();
       var vm = this;
+
       reader.onload = function (e) {
         vm.form.resume = e.target.result;
       };
+
       reader.readAsDataURL(file);
     },
     sendmailResume: function sendmailResume() {
       var _this2 = this;
+
       this.form.post("/api/join-our-team/send").then(function (response) {
         _this2.form.reset();
+
         _this2.form.filename = "";
+
         _this2.$swal.fire("Successfully Submited!", "Your resume has been sent to HR Deparment..", "success");
       })["catch"](function () {});
     } // end sendmailResume
+
   }
 });
 

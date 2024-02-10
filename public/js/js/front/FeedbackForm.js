@@ -123,7 +123,62 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "FeedbackLink",
@@ -158,37 +213,52 @@ __webpack_require__.r(__webpack_exports__);
     document.cookie = "GBIMeta =" + JSON.stringify(metaInfo) + "; path=/";
   },
   mounted: function mounted() {
-    $(".feedback-slider").mousemove(function (e) {
-      var val = ($(this).val() - $(this).attr('min')) / ($(this).attr('max') - $(this).attr('min'));
-      var percent = val * 100;
-      $(this).css('background-image', '-webkit-gradient(linear, left top, right top, ' + 'color-stop(' + percent + '%, #17a2b8), ' + 'color-stop(' + percent + '%, #d3d3d3)' + ')');
-      $(this).css('background-image', '-moz-linear-gradient(left center, #17a2b8 0%, #17a2b8 ' + percent + '%, #17a2b8 ' + percent + '%, #17a2b8 100%)');
-    });
-    $(".feedback-slider").on("touchmove", function (e) {
-      var val = ($(this).val() - $(this).attr('min')) / ($(this).attr('max') - $(this).attr('min'));
-      var percent = val * 100;
-      $(this).css('background-image', '-webkit-gradient(linear, left top, right top, ' + 'color-stop(' + percent + '%, #17a2b8), ' + 'color-stop(' + percent + '%, #d3d3d3)' + ')');
-      $(this).css('background-image', '-moz-linear-gradient(left center, #17a2b8 0%, #17a2b8 ' + percent + '%, #17a2b8 ' + percent + '%, #17a2b8 100%)');
-    });
-    $(".feedback-slider").on("tap", function (e) {
-      var val = ($(this).val() - $(this).attr('min')) / ($(this).attr('max') - $(this).attr('min'));
-      var percent = val * 100;
-      $(this).css('background-image', '-webkit-gradient(linear, left top, right top, ' + 'color-stop(' + percent + '%, #17a2b8), ' + 'color-stop(' + percent + '%, #d3d3d3)' + ')');
-      $(this).css('background-image', '-moz-linear-gradient(left center, #17a2b8 0%, #17a2b8 ' + percent + '%, #17a2b8 ' + percent + '%, #17a2b8 100%)');
-    });
     this.feedback.tour_id = this.$route.params.tourID;
     this.getTour();
   },
   computed: {},
   methods: {
+    selectRate: function selectRate(qs, val) {
+      console.log(qs, val);
+
+      if (qs == 'Q1') {
+        this.feedback.trip_itenerary = val;
+      }
+
+      if (qs == 'Q2') {
+        this.feedback.place_of_stay = val;
+      }
+
+      if (qs == 'Q3') {
+        this.feedback.food_quality = val;
+      }
+
+      if (qs == 'Q4') {
+        this.feedback.transport_arrangements = val;
+      }
+
+      if (qs == 'Q5') {
+        this.feedback.recommend_to_others = val;
+      }
+
+      if (qs == 'Q6') {
+        this.feedback.travel_again = val;
+      }
+
+      if (qs == 'Q7') {
+        this.feedback.escort_hospitality = val;
+      }
+    },
     getTour: function getTour() {
       var _this = this;
+
       this.$axios.get("/api/get-tour/" + this.$route.params.tourID).then(function (response) {
         _this.itinerary = response.data;
       });
     },
     submitFeedback: function submitFeedback() {
       var _this2 = this;
+
       if (this.feedback.name == "" || this.feedback.ph_no == "" || this.feedback.email == "" || this.feedback.tour_id == "" || this.feedback.trip_itenerary == 0 || this.feedback.place_of_stay == 0 || this.feedback.food_quality == 0 || this.feedback.transport_arrangements == 0 || this.feedback.recommend_to_others == 0 || this.feedback.travel_again == 0 || this.feedback.escort_hospitality == 0) {
         this.$swal.fire({
           icon: 'warning',
@@ -209,7 +279,7 @@ __webpack_require__.r(__webpack_exports__);
               text: "Error Occured, Please Try Again."
             });
           }
-        })["catch"](function (error) {});
+        });
         this.$swal.fire("Success", "Feedback Submitted", "success");
         window.location.href = '/';
       }
@@ -235,7 +305,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.feedback-container[data-v-7a5ce574] {\r\n  height: 100%;\r\n  width: 60%;\r\n  font-family: sans-serif;\r\n  margin: auto;\n}\n.FormTitle[data-v-7a5ce574]{\r\n  text-align: center;\r\n  font-size: 35px;\r\n  padding-top: 60px; \r\n  padding-bottom: 40px;\r\n  font-weight: 550;\r\n  margin-left: -10px\n}\n.TourDetails[data-v-7a5ce574]{\r\n  font-size: 25px;\r\n  font-weight: 550;\r\n  padding-bottom: 35px;\n}\n.FeedbackQ[data-v-7a5ce574]{\r\n  font-size: 18px;\r\n  font-weight: 500;\r\n  color: black;\r\n  margin-bottom: 45px;\n}\n.inputDiv[data-v-7a5ce574]{\r\n  display: flex;\n}\n.form-control[data-v-7a5ce574]{\r\n  border: solid gray 1px;\r\n  height: 50px;\r\n  border-radius: 0px;\r\n  width: 98%;\n}\n.feedback-slider[data-v-7a5ce574] {\r\n  -webkit-appearance: none;\r\n  width: 300px;\r\n  height: 12.5px;\r\n  background: #d3d3d3;\r\n  border-radius: 15px;\r\n  margin-right: 7px;\n}\n.feedback-slider[data-v-7a5ce574]::-webkit-slider-thumb {\r\n  -webkit-appearance: none;\r\n  appearance: none;\r\n  width: 25px;\r\n  height: 25px;\r\n  border-radius: 50%;\r\n  border: solid #17a2b8 6px;\r\n  background: white;\r\n  cursor: pointer;\n}\n.feedback-slider[data-v-7a5ce574]::-moz-range-thumb {\r\n  width: 25px;\r\n  height: 25px;\r\n  border-radius: 50%;\r\n  border: solid #17a2b8 6px;\r\n  background: white;\r\n  cursor: pointer;\n}\n.feedback-slide[data-v-7a5ce574]::-ms-thumb {\r\n  width: 25px;\r\n  height: 25px;\r\n  border-radius: 50%;\r\n  border: solid #17a2b8 6px;\r\n  background: white;\r\n  cursor: pointer;\n}\n.range-value[data-v-7a5ce574] {\r\n  display: inline-block;\r\n  position: relative;\r\n  width: 60px;\r\n  color: #fff;\r\n  font-size: 16px;\r\n  font-weight:bold;\r\n  line-height: 20px;\r\n  text-align: center;\r\n  border-radius: 3px;\r\n  background: #17a2b8;\r\n  padding: 5px 10px;\r\n  margin-left: 7px;\n}\n.range-value[data-v-7a5ce574]:after {\r\n  position: absolute;\r\n  top: 8px;\r\n  left: -7px;\r\n  width: 0;\r\n  height: 0;\r\n  border-top: 7px solid transparent;\r\n  border-right: 7px solid #17a2b8;\r\n  border-bottom: 7px solid transparent;\r\n  content: '';\n}\n.commentArea[data-v-7a5ce574]{\r\n  background: #d3d3d3;\r\n  border: none;\r\n  outline-color: #17a2b8;\r\n  width: 100%;\n}\n.submitButton[data-v-7a5ce574]{\r\n  border-radius: 3px;\r\n  border: 1px;\r\n  border-radius: 0px;\r\n  outline: none;\r\n  padding: 15px 70px;\r\n  margin-top: 10px;\r\n  color: white;\r\n  font-size: 20px !important;\r\n  font-weight: 500;\r\n  font-family: sans-serif;\r\n  background-color: #17a2b8;\n}\n.submitDiv[data-v-7a5ce574]{\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\n}\n.emailField[data-v-7a5ce574]{\r\n  width: 98.9%\n}\n.valDiv[data-v-7a5ce574]{\r\n  margin-top: -5px; \r\n  font-size: 15px; \r\n  font-weight: 500;\r\n  padding:  6px;\r\n  background: grey;\n}\ninput[type=range][data-v-7a5ce574] {\r\n  pointer-events: none;\n}\ninput[type=range][data-v-7a5ce574]::-webkit-slider-thumb {\r\n  pointer-events: auto;\n}\ninput[type=range][data-v-7a5ce574]::-moz-range-thumb {\r\n  pointer-events: auto;\n}\ninput[type=range][data-v-7a5ce574]::-ms-thumb {\r\n  pointer-events: auto;\n}\n@media only screen and (max-width: 1024px) {\n.feedback-container[data-v-7a5ce574] {\r\n    width: 90%;\n}\n.submitDiv[data-v-7a5ce574]{\r\n    width: 90%;\n}\n.FormTitle[data-v-7a5ce574]{\r\n    font-size: 25px;\n}\n.TourDetails[data-v-7a5ce574]{\r\n    font-size: 20px;\n}\n.feedback-slider[data-v-7a5ce574] {\r\n    width: 200px;\n}\n}\n@media only screen and (max-width: 720px) {\n.commentArea[data-v-7a5ce574] {\r\n     width: 100%;\n}\n.emailField[data-v-7a5ce574]{\r\n    width: 100%\n}\n.submitDiv[data-v-7a5ce574]{\r\n    width: 100%;\n}\n}\r\n\r\n\r\n/* Chrome, Safari, Edge, Opera */\ninput[data-v-7a5ce574]::-webkit-outer-spin-button,\r\ninput[data-v-7a5ce574]::-webkit-inner-spin-button {\r\n  -webkit-appearance: none;\r\n  margin: 0;\n}\r\n\r\n/* Firefox */\ninput[type=number][data-v-7a5ce574] {\r\n  -moz-appearance: textfield;\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.feedback-container[data-v-7a5ce574] {\r\n  height: 100%;\r\n  width: 60%;\r\n  font-family: sans-serif;\r\n  margin: auto;\n}\n.FormTitle[data-v-7a5ce574]{\r\n  text-align: center;\r\n  font-size: 35px;\r\n  padding-top: 60px; \r\n  padding-bottom: 40px;\r\n  font-weight: 550;\r\n  margin-left: -10px\n}\n.TourDetails[data-v-7a5ce574]{\r\n  font-size: 25px;\r\n  font-weight: 550;\r\n  padding-bottom: 35px;\n}\n.FeedbackQ[data-v-7a5ce574]{\r\n  font-size: 18px;\r\n  font-weight: 500;\r\n  color: black;\r\n  margin-bottom: 45px;\n}\n.inputDiv[data-v-7a5ce574]{\r\n  display: flex;\n}\n.form-control[data-v-7a5ce574]{\r\n  border: solid gray 1px;\r\n  height: 50px;\r\n  border-radius: 0px;\r\n  width: 98%;\n}\n.feedback-slider[data-v-7a5ce574] {\r\n  -webkit-appearance: none;\r\n  width: 300px;\r\n  height: 12.5px;\r\n  background: #d3d3d3;\r\n  border-radius: 15px;\r\n  margin-right: 7px;\n}\n.feedback-slider[data-v-7a5ce574]::-webkit-slider-thumb {\r\n  -webkit-appearance: none;\r\n  appearance: none;\r\n  width: 25px;\r\n  height: 25px;\r\n  border-radius: 50%;\r\n  border: solid #17a2b8 6px;\r\n  background: white;\r\n  cursor: pointer;\n}\n.feedback-slider[data-v-7a5ce574]::-moz-range-thumb {\r\n  width: 25px;\r\n  height: 25px;\r\n  border-radius: 50%;\r\n  border: solid #17a2b8 6px;\r\n  background: white;\r\n  cursor: pointer;\n}\n.feedback-slide[data-v-7a5ce574]::-ms-thumb {\r\n  width: 25px;\r\n  height: 25px;\r\n  border-radius: 50%;\r\n  border: solid #17a2b8 6px;\r\n  background: white;\r\n  cursor: pointer;\n}\n.range-value[data-v-7a5ce574] {\r\n  display: inline-block;\r\n  position: relative;\r\n  width: 60px;\r\n  color: #fff;\r\n  font-size: 16px;\r\n  font-weight:bold;\r\n  line-height: 20px;\r\n  text-align: center;\r\n  border-radius: 3px;\r\n  background: #17a2b8;\r\n  padding: 5px 10px;\r\n  margin-left: 7px;\n}\n.range-value[data-v-7a5ce574]:after {\r\n  position: absolute;\r\n  top: 8px;\r\n  left: -7px;\r\n  width: 0;\r\n  height: 0;\r\n  border-top: 7px solid transparent;\r\n  border-right: 7px solid #17a2b8;\r\n  border-bottom: 7px solid transparent;\r\n  content: '';\n}\n.commentArea[data-v-7a5ce574]{\r\n  /*background: #d3d3d3;\r\n  border: none;*/\r\n  outline-color: #17a2b8;\r\n  width: 100%;\n}\n.submitButton[data-v-7a5ce574]{\r\n  border-radius: 3px;\r\n  border: 1px;\r\n  border-radius: 0px;\r\n  outline: none;\r\n  padding: 15px 70px;\r\n  margin-top: 10px;\r\n  color: white;\r\n  font-size: 20px !important;\r\n  font-weight: 500;\r\n  font-family: sans-serif;\r\n  background-color: #17a2b8;\n}\n.submitDiv[data-v-7a5ce574]{\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\n}\n.emailField[data-v-7a5ce574]{\r\n  width: 98.9%\n}\n.valDiv[data-v-7a5ce574]{\r\n  margin-top: -5px; \r\n  font-size: 15px; \r\n  font-weight: 500;\r\n  padding:  6px;\r\n  background: grey;\n}\ninput[type=range][data-v-7a5ce574] {\r\n  pointer-events: none;\n}\ninput[type=range][data-v-7a5ce574]::-webkit-slider-thumb {\r\n  pointer-events: auto;\n}\ninput[type=range][data-v-7a5ce574]::-moz-range-thumb {\r\n  pointer-events: auto;\n}\ninput[type=range][data-v-7a5ce574]::-ms-thumb {\r\n  pointer-events: auto;\n}\n@media only screen and (max-width: 1024px) {\n.feedback-container[data-v-7a5ce574] {\r\n    width: 90%;\n}\n.submitDiv[data-v-7a5ce574]{\r\n    width: 90%;\n}\n.FormTitle[data-v-7a5ce574]{\r\n    font-size: 25px;\n}\n.TourDetails[data-v-7a5ce574]{\r\n    font-size: 20px;\n}\n.feedback-slider[data-v-7a5ce574] {\r\n    width: 200px;\n}\n}\n@media only screen and (max-width: 720px) {\n.commentArea[data-v-7a5ce574] {\r\n     width: 100%;\n}\n.emailField[data-v-7a5ce574]{\r\n    width: 100%\n}\n.submitDiv[data-v-7a5ce574]{\r\n    width: 100%;\n}\n}\r\n\r\n\r\n/* Chrome, Safari, Edge, Opera */\ninput[data-v-7a5ce574]::-webkit-outer-spin-button,\r\ninput[data-v-7a5ce574]::-webkit-inner-spin-button {\r\n  -webkit-appearance: none;\r\n  margin: 0;\n}\r\n\r\n/* Firefox */\ninput[type=number][data-v-7a5ce574] {\r\n  -moz-appearance: textfield;\n}\nul[data-v-7a5ce574], li[data-v-7a5ce574] { padding:0; margin:0; list-style: none;\n}\n.listblock li[data-v-7a5ce574] { float: left;  margin: 4px; padding: 0px 0px 0px 0px; cursor: pointer; position: relative;\r\n   transition: all 0.5s ease-in-out; -webkit-transition: all 0.5s ease-in-out;\r\n   -moz-transition: all 0.5s ease-in-out; border-radius: 50%;\n}\n.listblock li[data-v-7a5ce574]:hover, .listblock li.active[data-v-7a5ce574] { background:#2f2a52; border: 1px solid #2f2a52;\n}\n.listblock ul li img[data-v-7a5ce574]{ height: 44px; margin-top: 0px;\n}\n.listblock ul li img[data-v-7a5ce574]:hover, .listblock ul li.active img[data-v-7a5ce574]{ height: 50px; margin-top: 0px;}\r\n/*.fa-angry:hover, .r-act .fa-angry {color: red; font-size:2.5em !important;}\r\n.fa-tired:hover, .r-act .fa-tired {color: #FF4033; font-size:2.5em !important;}\r\n.fa-sad-tear:hover, .r-act .fa-sad-tear {color: #00b7eb; font-size:2.5em !important;}\r\n.fa-frown-open:hover, .r-act .fa-frown-open {color: #40e0d0; font-size:2.5em !important;}\r\n.fa-meh:hover, .r-act .fa-meh {color: #f8de7e; font-size:2.5em !important;}\r\n.fa-smile:hover, .r-act .fa-smile {color: #fcc200; font-size:2.5em !important;}\r\n.fa-smile-beam:hover, .r-act .fa-smile-beam {color: #ffd700; font-size:2.5em !important;}\r\n.fa-laugh:hover, .r-act .fa-laugh {color: #ff6700; font-size:2.5em !important;}\r\n.fa-laugh-beam:hover, .r-act .fa-laugh-beam {color: #fe5a1d; font-size:2.5em !important;}\r\n.fa-grin-stars:hover, .r-act .fa-grin-stars {color: #f94d00; font-size:2.5em !important;}*/\n.listblock[data-v-7a5ce574] {\r\npadding-bottom: 30px;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -377,247 +447,541 @@ var render = function () {
     _vm._v(" "),
     _vm.itinerary !== ""
       ? _c("h2", { staticClass: "TourDetails" }, [
-          _vm._v(
-            _vm._s(_vm.itinerary.noofdays) +
-              " DAYS TOUR TO " +
-              _vm._s(_vm.itinerary.title)
-          ),
+          _vm._v(_vm._s(_vm.itinerary.title)),
         ])
       : _vm._e(),
     _vm._v(" "),
     _c("form", [
       _c("div", { staticClass: "feedback-section " }, [
         _c("div", { staticClass: "FeedbackQ" }, [
-          _c("p", [_vm._v("Did you like the Itinerary of this trip?")]),
+          _c("p", [_vm._v("1. Did you like the Itinerary of this trip?")]),
           _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.feedback.trip_itenerary,
-                expression: "feedback.trip_itenerary",
-              },
-            ],
-            staticClass: "feedback-slider",
-            attrs: {
-              type: "range",
-              min: "1",
-              max: "10",
-              name: "trip_itenerary",
-            },
-            domProps: { value: _vm.feedback.trip_itenerary },
-            on: {
-              __r: function ($event) {
-                return _vm.$set(
-                  _vm.feedback,
-                  "trip_itenerary",
-                  $event.target.value
-                )
-              },
-            },
-          }),
-          _vm._v(" "),
-          _c("span", { staticClass: "range-value" }, [
-            _vm._v(_vm._s(_vm.feedback.trip_itenerary)),
+          _c("div", { staticClass: "listblock" }, [
+            _c("ul", [
+              _c(
+                "li",
+                {
+                  class: _vm.feedback.trip_itenerary == 2 ? "active" : "",
+                  on: {
+                    click: function ($event) {
+                      return _vm.selectRate("Q1", 2)
+                    },
+                  },
+                },
+                [_c("img", { attrs: { src: "/worst.svg", alt: "" } })]
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                {
+                  class: _vm.feedback.trip_itenerary == 4 ? "active" : "",
+                  on: {
+                    click: function ($event) {
+                      return _vm.selectRate("Q1", 4)
+                    },
+                  },
+                },
+                [_c("img", { attrs: { src: "/poor.svg", alt: "" } })]
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                {
+                  class: _vm.feedback.trip_itenerary == 6 ? "active" : "",
+                  on: {
+                    click: function ($event) {
+                      return _vm.selectRate("Q1", 6)
+                    },
+                  },
+                },
+                [_c("img", { attrs: { src: "/average.svg", alt: "" } })]
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                {
+                  class: _vm.feedback.trip_itenerary == 8 ? "active" : "",
+                  on: {
+                    click: function ($event) {
+                      return _vm.selectRate("Q1", 8)
+                    },
+                  },
+                },
+                [_c("img", { attrs: { src: "/good.svg", alt: "" } })]
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                {
+                  class: _vm.feedback.trip_itenerary == 10 ? "active" : "",
+                  on: {
+                    click: function ($event) {
+                      return _vm.selectRate("Q1", 10)
+                    },
+                  },
+                },
+                [_c("img", { attrs: { src: "/excellent.svg", alt: "" } })]
+              ),
+            ]),
           ]),
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "FeedbackQ" }, [
-          _c("p", [_vm._v("How Would You Rate Your Place Of Stay?")]),
+          _c("p", [_vm._v("2. How Would You Rate Your Place Of Stay?")]),
           _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.feedback.place_of_stay,
-                expression: "feedback.place_of_stay",
-              },
-            ],
-            staticClass: "feedback-slider",
-            attrs: { type: "range", min: "1", max: "10" },
-            domProps: { value: _vm.feedback.place_of_stay },
-            on: {
-              __r: function ($event) {
-                return _vm.$set(
-                  _vm.feedback,
-                  "place_of_stay",
-                  $event.target.value
-                )
-              },
-            },
-          }),
-          _vm._v(" "),
-          _c("span", { staticClass: "range-value" }, [
-            _vm._v(_vm._s(_vm.feedback.place_of_stay)),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "FeedbackQ" }, [
-          _c("p", [_vm._v("How Would You Rate the food quality and service?")]),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.feedback.food_quality,
-                expression: "feedback.food_quality",
-              },
-            ],
-            staticClass: "feedback-slider",
-            attrs: { type: "range", min: "1", max: "10" },
-            domProps: { value: _vm.feedback.food_quality },
-            on: {
-              __r: function ($event) {
-                return _vm.$set(
-                  _vm.feedback,
-                  "food_quality",
-                  $event.target.value
-                )
-              },
-            },
-          }),
-          _vm._v(" "),
-          _c("span", { staticClass: "range-value" }, [
-            _vm._v(_vm._s(_vm.feedback.food_quality)),
+          _c("div", { staticClass: "listblock" }, [
+            _c("ul", [
+              _c(
+                "li",
+                {
+                  class: _vm.feedback.place_of_stay == 2 ? "active" : "",
+                  on: {
+                    click: function ($event) {
+                      return _vm.selectRate("Q2", 2)
+                    },
+                  },
+                },
+                [_c("img", { attrs: { src: "/worst.svg", alt: "" } })]
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                {
+                  class: _vm.feedback.place_of_stay == 4 ? "active" : "",
+                  on: {
+                    click: function ($event) {
+                      return _vm.selectRate("Q2", 4)
+                    },
+                  },
+                },
+                [_c("img", { attrs: { src: "/poor.svg", alt: "" } })]
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                {
+                  class: _vm.feedback.place_of_stay == 6 ? "active" : "",
+                  on: {
+                    click: function ($event) {
+                      return _vm.selectRate("Q2", 6)
+                    },
+                  },
+                },
+                [_c("img", { attrs: { src: "/average.svg", alt: "" } })]
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                {
+                  class: _vm.feedback.place_of_stay == 8 ? "active" : "",
+                  on: {
+                    click: function ($event) {
+                      return _vm.selectRate("Q2", 8)
+                    },
+                  },
+                },
+                [_c("img", { attrs: { src: "/good.svg", alt: "" } })]
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                {
+                  class: _vm.feedback.place_of_stay == 10 ? "active" : "",
+                  on: {
+                    click: function ($event) {
+                      return _vm.selectRate("Q2", 10)
+                    },
+                  },
+                },
+                [_c("img", { attrs: { src: "/excellent.svg", alt: "" } })]
+              ),
+            ]),
           ]),
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "FeedbackQ" }, [
           _c("p", [
-            _vm._v("How were your Transportation and other arrangements?"),
+            _vm._v("3. How Would You Rate the food quality and service?"),
           ]),
           _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.feedback.transport_arrangements,
-                expression: "feedback.transport_arrangements",
-              },
-            ],
-            staticClass: "feedback-slider",
-            attrs: { type: "range", min: "1", max: "10" },
-            domProps: { value: _vm.feedback.transport_arrangements },
-            on: {
-              __r: function ($event) {
-                return _vm.$set(
-                  _vm.feedback,
-                  "transport_arrangements",
-                  $event.target.value
-                )
-              },
-            },
-          }),
+          _c("div", { staticClass: "listblock" }, [
+            _c("ul", [
+              _c(
+                "li",
+                {
+                  class: _vm.feedback.food_quality == 2 ? "active" : "",
+                  on: {
+                    click: function ($event) {
+                      return _vm.selectRate("Q3", 2)
+                    },
+                  },
+                },
+                [_c("img", { attrs: { src: "/worst.svg", alt: "" } })]
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                {
+                  class: _vm.feedback.food_quality == 4 ? "active" : "",
+                  on: {
+                    click: function ($event) {
+                      return _vm.selectRate("Q3", 4)
+                    },
+                  },
+                },
+                [_c("img", { attrs: { src: "/poor.svg", alt: "" } })]
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                {
+                  class: _vm.feedback.food_quality == 6 ? "active" : "",
+                  on: {
+                    click: function ($event) {
+                      return _vm.selectRate("Q3", 6)
+                    },
+                  },
+                },
+                [_c("img", { attrs: { src: "/average.svg", alt: "" } })]
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                {
+                  class: _vm.feedback.food_quality == 8 ? "active" : "",
+                  on: {
+                    click: function ($event) {
+                      return _vm.selectRate("Q3", 8)
+                    },
+                  },
+                },
+                [_c("img", { attrs: { src: "/good.svg", alt: "" } })]
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                {
+                  class: _vm.feedback.food_quality == 10 ? "active" : "",
+                  on: {
+                    click: function ($event) {
+                      return _vm.selectRate("Q3", 10)
+                    },
+                  },
+                },
+                [_c("img", { attrs: { src: "/excellent.svg", alt: "" } })]
+              ),
+            ]),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "FeedbackQ" }, [
+          _c("p", [
+            _vm._v("4. How were your Transportation and other arrangements?"),
+          ]),
           _vm._v(" "),
-          _c("span", { staticClass: "range-value" }, [
-            _vm._v(_vm._s(_vm.feedback.transport_arrangements)),
+          _c("div", { staticClass: "listblock" }, [
+            _c("ul", [
+              _c(
+                "li",
+                {
+                  class:
+                    _vm.feedback.transport_arrangements == 2 ? "active" : "",
+                  on: {
+                    click: function ($event) {
+                      return _vm.selectRate("Q4", 2)
+                    },
+                  },
+                },
+                [_c("img", { attrs: { src: "/worst.svg", alt: "" } })]
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                {
+                  class:
+                    _vm.feedback.transport_arrangements == 4 ? "active" : "",
+                  on: {
+                    click: function ($event) {
+                      return _vm.selectRate("Q4", 4)
+                    },
+                  },
+                },
+                [_c("img", { attrs: { src: "/poor.svg", alt: "" } })]
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                {
+                  class:
+                    _vm.feedback.transport_arrangements == 6 ? "active" : "",
+                  on: {
+                    click: function ($event) {
+                      return _vm.selectRate("Q4", 6)
+                    },
+                  },
+                },
+                [_c("img", { attrs: { src: "/average.svg", alt: "" } })]
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                {
+                  class:
+                    _vm.feedback.transport_arrangements == 8 ? "active" : "",
+                  on: {
+                    click: function ($event) {
+                      return _vm.selectRate("Q4", 8)
+                    },
+                  },
+                },
+                [_c("img", { attrs: { src: "/good.svg", alt: "" } })]
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                {
+                  class:
+                    _vm.feedback.transport_arrangements == 10 ? "active" : "",
+                  on: {
+                    click: function ($event) {
+                      return _vm.selectRate("Q4", 10)
+                    },
+                  },
+                },
+                [_c("img", { attrs: { src: "/excellent.svg", alt: "" } })]
+              ),
+            ]),
           ]),
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "FeedbackQ" }, [
           _c("p", [
             _vm._v(
-              "How likely would you Recommend GB International To Others?"
+              "5. How likely would you Recommend GB International To Others?"
             ),
           ]),
           _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.feedback.recommend_to_others,
-                expression: "feedback.recommend_to_others",
-              },
-            ],
-            staticClass: "feedback-slider",
-            attrs: { type: "range", min: "1", max: "10" },
-            domProps: { value: _vm.feedback.recommend_to_others },
-            on: {
-              __r: function ($event) {
-                return _vm.$set(
-                  _vm.feedback,
-                  "recommend_to_others",
-                  $event.target.value
-                )
-              },
-            },
-          }),
-          _vm._v(" "),
-          _c("span", { staticClass: "range-value" }, [
-            _vm._v(_vm._s(_vm.feedback.recommend_to_others)),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "FeedbackQ" }, [
-          _c("p", [
-            _vm._v("Would you like to Travel with GBI again on a new Journey?"),
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.feedback.travel_again,
-                expression: "feedback.travel_again",
-              },
-            ],
-            staticClass: "feedback-slider",
-            attrs: { type: "range", min: "1", max: "10" },
-            domProps: { value: _vm.feedback.travel_again },
-            on: {
-              __r: function ($event) {
-                return _vm.$set(
-                  _vm.feedback,
-                  "travel_again",
-                  $event.target.value
-                )
-              },
-            },
-          }),
-          _vm._v(" "),
-          _c("span", { staticClass: "range-value" }, [
-            _vm._v(_vm._s(_vm.feedback.travel_again)),
+          _c("div", { staticClass: "listblock" }, [
+            _c("ul", [
+              _c(
+                "li",
+                {
+                  class: _vm.feedback.recommend_to_others == 2 ? "active" : "",
+                  on: {
+                    click: function ($event) {
+                      return _vm.selectRate("Q5", 2)
+                    },
+                  },
+                },
+                [_c("img", { attrs: { src: "/worst.svg", alt: "" } })]
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                {
+                  class: _vm.feedback.recommend_to_others == 4 ? "active" : "",
+                  on: {
+                    click: function ($event) {
+                      return _vm.selectRate("Q5", 4)
+                    },
+                  },
+                },
+                [_c("img", { attrs: { src: "/poor.svg", alt: "" } })]
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                {
+                  class: _vm.feedback.recommend_to_others == 6 ? "active" : "",
+                  on: {
+                    click: function ($event) {
+                      return _vm.selectRate("Q5", 6)
+                    },
+                  },
+                },
+                [_c("img", { attrs: { src: "/average.svg", alt: "" } })]
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                {
+                  class: _vm.feedback.recommend_to_others == 8 ? "active" : "",
+                  on: {
+                    click: function ($event) {
+                      return _vm.selectRate("Q5", 8)
+                    },
+                  },
+                },
+                [_c("img", { attrs: { src: "/good.svg", alt: "" } })]
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                {
+                  class: _vm.feedback.recommend_to_others == 10 ? "active" : "",
+                  on: {
+                    click: function ($event) {
+                      return _vm.selectRate("Q5", 10)
+                    },
+                  },
+                },
+                [_c("img", { attrs: { src: "/excellent.svg", alt: "" } })]
+              ),
+            ]),
           ]),
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "FeedbackQ" }, [
           _c("p", [
             _vm._v(
-              "How hospitable was our GBI Escort who accompanied with you on this trip?"
+              "6. Would you like to Travel with GBI again on a new Journey?"
             ),
           ]),
           _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.feedback.escort_hospitality,
-                expression: "feedback.escort_hospitality",
-              },
-            ],
-            staticClass: "feedback-slider",
-            attrs: { type: "range", min: "1", max: "10" },
-            domProps: { value: _vm.feedback.escort_hospitality },
-            on: {
-              __r: function ($event) {
-                return _vm.$set(
-                  _vm.feedback,
-                  "escort_hospitality",
-                  $event.target.value
-                )
-              },
-            },
-          }),
+          _c("div", { staticClass: "listblock" }, [
+            _c("ul", [
+              _c(
+                "li",
+                {
+                  class: _vm.feedback.travel_again == 2 ? "active" : "",
+                  on: {
+                    click: function ($event) {
+                      return _vm.selectRate("Q6", 2)
+                    },
+                  },
+                },
+                [_c("img", { attrs: { src: "/worst.svg", alt: "" } })]
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                {
+                  class: _vm.feedback.travel_again == 4 ? "active" : "",
+                  on: {
+                    click: function ($event) {
+                      return _vm.selectRate("Q6", 4)
+                    },
+                  },
+                },
+                [_c("img", { attrs: { src: "/poor.svg", alt: "" } })]
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                {
+                  class: _vm.feedback.travel_again == 6 ? "active" : "",
+                  on: {
+                    click: function ($event) {
+                      return _vm.selectRate("Q6", 6)
+                    },
+                  },
+                },
+                [_c("img", { attrs: { src: "/average.svg", alt: "" } })]
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                {
+                  class: _vm.feedback.travel_again == 8 ? "active" : "",
+                  on: {
+                    click: function ($event) {
+                      return _vm.selectRate("Q6", 8)
+                    },
+                  },
+                },
+                [_c("img", { attrs: { src: "/good.svg", alt: "" } })]
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                {
+                  class: _vm.feedback.travel_again == 10 ? "active" : "",
+                  on: {
+                    click: function ($event) {
+                      return _vm.selectRate("Q6", 10)
+                    },
+                  },
+                },
+                [_c("img", { attrs: { src: "/excellent.svg", alt: "" } })]
+              ),
+            ]),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "FeedbackQ" }, [
+          _c("p", [
+            _vm._v(
+              "7. How hospitable was our GBI Escort who accompanied with you on this trip?"
+            ),
+          ]),
           _vm._v(" "),
-          _c("span", { staticClass: "range-value" }, [
-            _vm._v(_vm._s(_vm.feedback.escort_hospitality)),
+          _c("div", { staticClass: "listblock" }, [
+            _c("ul", [
+              _c(
+                "li",
+                {
+                  class: _vm.feedback.escort_hospitality == 2 ? "active" : "",
+                  on: {
+                    click: function ($event) {
+                      return _vm.selectRate("Q7", 2)
+                    },
+                  },
+                },
+                [_c("img", { attrs: { src: "/worst.svg", alt: "" } })]
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                {
+                  class: _vm.feedback.escort_hospitality == 4 ? "active" : "",
+                  on: {
+                    click: function ($event) {
+                      return _vm.selectRate("Q7", 4)
+                    },
+                  },
+                },
+                [_c("img", { attrs: { src: "/poor.svg", alt: "" } })]
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                {
+                  class: _vm.feedback.escort_hospitality == 6 ? "active" : "",
+                  on: {
+                    click: function ($event) {
+                      return _vm.selectRate("Q7", 6)
+                    },
+                  },
+                },
+                [_c("img", { attrs: { src: "/average.svg", alt: "" } })]
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                {
+                  class: _vm.feedback.escort_hospitality == 8 ? "active" : "",
+                  on: {
+                    click: function ($event) {
+                      return _vm.selectRate("Q7", 8)
+                    },
+                  },
+                },
+                [_c("img", { attrs: { src: "/good.svg", alt: "" } })]
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                {
+                  class: _vm.feedback.escort_hospitality == 10 ? "active" : "",
+                  on: {
+                    click: function ($event) {
+                      return _vm.selectRate("Q7", 10)
+                    },
+                  },
+                },
+                [_c("img", { attrs: { src: "/excellent.svg", alt: "" } })]
+              ),
+            ]),
           ]),
         ]),
         _vm._v(" "),
@@ -703,7 +1067,11 @@ var render = function () {
                       },
                     ],
                     staticClass: "form-control",
-                    attrs: { type: "number", placeholder: "Phone Number" },
+                    attrs: {
+                      type: "number",
+                      min: "0",
+                      placeholder: "Phone Number",
+                    },
                     domProps: { value: _vm.feedback.ph_no },
                     on: {
                       input: function ($event) {

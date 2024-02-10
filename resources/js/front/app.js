@@ -20,7 +20,7 @@ import VueGtag from "vue-gtag";
 import * as VueGoogleMaps from 'vue2-google-maps'
 //import errorState from '@/front/components/errorState.vue';
 import api from '@/front/helpers/api';
-import JsonExcel from 'vue-json-excel';
+//import JsonExcel from 'vue-json-excel';
 
 /*import "firebase/firestore";
 
@@ -49,7 +49,7 @@ Vue.use(VueGoogleMaps, {
     }
   })
 
-Vue.component('downloadExcel', JsonExcel)
+//Vue.component('downloadExcel', JsonExcel)
 
 Vue.use(VueMeta)
 Vue.use(VueSweetalert2);
@@ -103,7 +103,7 @@ const toast = swal.mixin({
 Vue.prototype.$toast = toast;
 Vue.prototype.$gbiAssets = 'https://gbi-assets.s3.ap-south-1.amazonaws.com';
 //Vue.prototype.$hostName = 'http://localhost:81'
-Vue.prototype.$hostName = 'localhost:3000'
+//Vue.prototype.$hostName = 'localhost:3000'
 
 sync(store, router);
 

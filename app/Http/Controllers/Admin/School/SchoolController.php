@@ -54,7 +54,7 @@ class SchoolController extends Controller
             'email'=>$user->email,
             'password'=>$user->email
         ];
-        SendLoginDetialJob::dispatch($emaildata);
+        SendLoginDetialJob::dispatchNow($emaildata);
 
         return response()->json('Successfully created');
     }
@@ -118,6 +118,12 @@ class SchoolController extends Controller
      */
     public function update(Request $request, School $school)
     {
+        if($request->principal_email_id == $school->principal_email_id){
+            $request->principal_email_id = null;
+        }
+        if($request->principal_mobile_number == $school->principal_mobile_number){
+            $request->principal_mobile_number = null;
+        }
         $school->update($this->validateSchool($request));
         return response()->json(['message'=>'Successfully Updated']);
     }
@@ -134,18 +140,17 @@ class SchoolController extends Controller
         return response()->json('successfully deleted');
     }
 
-    // Validate Escort
+    // Validate School
     public function validateSchool($request)
     {
       return $this->validate($request, [
             'school_name' => ['required',new AlphaSpace],
             'finance_email_id' => ['required','email',new EmailValidate],
-            'principal_email_id' => ['required','email',new EmailValidate],
+            'principal_email_id' => $request->principal_email_id != null ? ['required','email',new EmailValidate,'unique:users,email'] : '',
     		'mobile' => 'required|numeric|regex:/^[0-9\-\+]{9,11}$/ix',
-
             'street' => 'required',
             'principal_name'=>['required',new AlphaSpace],
-            'principal_mobile_number'=>'',
+            'principal_mobile_number'=> $request->principal_mobile_number != null ? 'required|numeric|regex:/^[0-9\-\+]{9,11}$/ix|unique:informations,phone_no' : '',
             'city_name' => 'required',
             'state_name' => 'required',
             'country_name' => 'required',

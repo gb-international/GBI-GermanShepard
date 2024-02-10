@@ -16,7 +16,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['text'],
   data: function data() {
@@ -41,7 +40,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['text']
 });
@@ -63,7 +61,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['text'],
   data: function data() {
@@ -128,7 +125,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "SafetySecurity",
   components: {
@@ -141,7 +137,7 @@ __webpack_require__.r(__webpack_exports__);
       title: 'Safety and Security',
       description: '@GoWithGBI aims to provide complete safety of its travellers during the education programs,GBI team members assuers the safety of passengers and is known for it',
       keywords: '@GoWithGBI,travel safety tips,our security policies,GBI strict policies,GBI terms and conditions,safe travel',
-      url: 'https://www.gowithgbi.com/about-us/safety-security',
+      url: 'https://www.gowithgbi.com/safety-security',
       type: 'website'
     };
     document.cookie = "GBIMeta =" + JSON.stringify(metaInfo) + "; path=/";
@@ -156,7 +152,7 @@ __webpack_require__.r(__webpack_exports__);
       content: '@GoWithGBI,travel safety tips,our security policies,GBI strict policies,GBI terms and conditions,safe travel'
     }, {
       name: 'url',
-      content: 'https://www.gowithgbi.com/about-us/safety-security'
+      content: 'https://www.gowithgbi.com/safety-security'
     }]
   }
 });
