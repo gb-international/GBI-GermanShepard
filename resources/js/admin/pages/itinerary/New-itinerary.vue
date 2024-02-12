@@ -351,7 +351,6 @@ to submit the data we are using a function.
               <div class="form-group">
                 <label for="season">Season</label>
                 <br />
-
                 <multiselect
                   v-model="form.seasons"
                   :options="season_list"
@@ -383,17 +382,74 @@ to submit the data we are using a function.
           </div>
           <div class="col-sm-4">
             <div class="form-group">
-              <label for="priceId">Package Price/Person</label>
+              <label for="single_sharing_base_price">Single sharing base price/Person</label>
               <input
                 type="number"
                 min="0"
                 class="form-control"
-                placeholder="Enter Price"
-                name="price"
-                v-model="form.price"
-                :class="{ 'is-invalid': form.errors.has('price') }"
+                placeholder="Enter single sharing base price"
+                name="single_sharing_base_price"
+                @keyup="onSinglePrice"
+                v-model="form.single_sharing_base_price"
+                :class="{ 'is-invalid': form.errors.has('single_sharing_base_price') }"
               />
-              <has-error :form="form" field="price"></has-error>
+              <has-error :form="form" field="single_sharing_base_price"></has-error>
+            </div>
+          </div>
+          <template v-if="single_gst_list.length > 0">
+            <div class="form-group">
+                <label for="countries">Country</label>
+                  <select v-model="form.single_sharing_gst_fee" class="form-control customSelect">
+                    <option v-for="(data) in single_gst_list" :value="data.id"  :key="data.id">{{data.name}}</option>
+                </select>
+            </div>
+          </template>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="double_sharing_base_price">Double sharing base price/Person</label>
+              <input
+                type="number"
+                min="0"
+                class="form-control"
+                placeholder="Enter double sharing base price"
+                name="double_sharing_base_price"
+                @keyup="onDoublePrice"
+                v-model="form.double_sharing_base_price"
+                :class="{ 'is-invalid': form.errors.has('double_sharing_base_price') }"
+              />
+              <has-error :form="form" field="double_sharing_base_price"></has-error>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="triple_sharing_base_price">Triple sharing base price/Person</label>
+              <input
+                type="number"
+                min="0"
+                class="form-control"
+                @keyup="onTriplePrice"
+                placeholder="Enter triple sharing base price"
+                name="triple_sharing_base_price"
+                v-model="form.triple_sharing_base_price"
+                :class="{ 'is-invalid': form.errors.has('triple_sharing_base_price') }"
+              />
+              <has-error :form="form" field="triple_sharing_base_price"></has-error>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="quad_sharing_base_price">Quad sharing base price/Person</label>
+              <input
+                type="number"
+                min="0"
+                class="form-control"
+                placeholder="Enter quad sharing base price"
+                name="quad_sharing_base_price"
+                @keyup="onQuadPrice"
+                v-model="form.quad_sharing_base_price"
+                :class="{ 'is-invalid': form.errors.has('quad_sharing_base_price') }"
+              />
+              <has-error :form="form" field="quad_sharing_base_price"></has-error>
             </div>
           </div>
           <div class="col-sm-4">
@@ -577,6 +633,18 @@ export default {
       selected: null,
       tags:[],
       meta_key: [],
+      single_tcs_list:[],
+      single_gst_list:[],
+      single_pg_internet:[],
+      double_tcs_list:[],
+      double__gst_list:[],
+      double_pg_internet:[],
+      triple_tcs_list:[],
+      triple__gst_list:[],
+      triple_pg_internet:[],
+      quad_tcs_list:[],
+      quad__gst_list:[],
+      quad_pg_internet:[],
       tagsWarn: false,
 
       form: new Form({
@@ -584,7 +652,22 @@ export default {
         destination:'',
         noofdays: 1,
         title: "",
-        price: "",
+        single_sharing_base_price:0,
+        single_sharing_tcs_fee:0,
+        single_sharing_gst_fee:0,
+        single_sharing_pg_convenience_and_internet_fee:0,
+        double_sharing_base_price:0,
+        double_sharing_tcs_fee:0,
+        double_sharing_gst_fee:0,
+        double_sharing_pg_convenience_and_internet_fee:0,
+        triple_sharing_base_price:0,
+        triple_sharing_tcs_fee:0,
+        triple_sharing_gst_fee:0,
+        triple_sharing_pg_convenience_and_internet_fee:0,
+        quad_sharing_base_price:0,
+        quad_sharing_tcs_fee:0,
+        quad_sharing_gst_fee:0,
+        quad_sharing_pg_convenience_and_internet_fee:0,
         description: "",
         tourtype: "",
         hotel_type: "0",
@@ -821,8 +904,27 @@ export default {
     },
     SourceUpdateDay(value){
       console.log(value);
-    }
+    },
+    onSinglePrice(){
+      const five_percentage = (this.form.single_sharing_base_price*5/100)
+      const twelve_percentage = (this.form.single_sharing_base_price*12/100)
+      const eighteen_percentage = this.form.single_sharing_base_price*5/100
+      const ten_percentage = this.form.single_sharing_base_price*10/100
+      const twenty_percentage = this.form.single_sharing_base_price*20/100
+      this.single_gst_list = [five_percentage=>"5%", twelve_percentage=>"12%", eighteen_percentage=>"18%"];
+      this.single_tcs_list = [five_percentage=>"5%", ten_percentage=>"10%", twenty_percentage=>"20%"];
+      this.single_pg_internet = this.form.single_sharing_base_price*2/100;
+  
+    },
+    onDoublePrice(){
+      
+    },
+    onTriplePrice(){
 
+    },
+    onQuadPrice(){
+
+    }
 
   },
 };

@@ -367,7 +367,7 @@ class ItineraryController extends Controller
     {
       return $this->validate($request, [
             'source' => 'required|min:2|max:100',
-            'destination' => 'required|min:3|max:100',
+            'destination' => 'required|different:source|min:3|max:100',
             'noofdays' => 'required|numeric|min:1|max:15',
             'title' => 'required|min:3|max:150',
             'description' => 'required|min:3',
@@ -379,7 +379,22 @@ class ItineraryController extends Controller
             'bus'=>'',
             'train'=>'',
             'flight'=>'',
-            'price'=>'',
+            'single_sharing_base_price'=>'required|numeric|min:0',
+            'single_sharing_tcs_fee'=>'required|numeric|min:0',
+            'single_sharing_gst_fee'=>'required|numeric|min:0',
+            'single_sharing_pg_convenience_and_internet_fee'=>'required|numeric|min:0',
+            'double_sharing_base_price'=>'required|numeric|min:0',
+            'double_sharing_tcs_fee'=>'required|numeric|min:0',
+            'double_sharing_gst_fee'=>'required|numeric|min:0',
+            'double_sharing_pg_convenience_and_internet_fee'=>'required|numeric|min:0',
+            'triple_sharing_base_price'=>'required|numeric|min:0',
+            'triple_sharing_tcs_fee'=>'required|numeric|min:0',
+            'triple_sharing_gst_fee'=>'required|numeric|min:0',
+            'triple_sharing_pg_convenience_and_internet_fee'=>'required|numeric|min:0',
+            'quad_sharing_base_price'=>'required|numeric|min:0',
+            'quad_sharing_tcs_fee'=>'required|numeric|min:0',
+            'quad_sharing_gst_fee'=>'required|numeric|min:0',
+            'quad_sharing_pg_convenience_and_internet_fee'=>'required|numeric|min:0',
             'client_type'=>'',
             'meta_title'=>'required',
             'meta_description' => 'required'     
@@ -396,3 +411,6 @@ class ItineraryController extends Controller
 
 
 }
+
+
+
