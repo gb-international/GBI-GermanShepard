@@ -150,9 +150,50 @@ to submit the data we are using a function.
                 >
                   <i class="fas fa-plus"></i>
                 </button>
+              </div>   
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="row">
+  
+              <div class="col-sm-2">
+                <label></label>
+                <button
+                  type="button"
+                  class="btn btn_plus text-white mt-35"
+                  @click="removeNightDay()"
+                >
+                  <i class="fas fa-minus"></i>
+                </button>
               </div>
-
               
+              <div class="col-sm-5 pl-2">
+                <div class="form-group">
+                  <label for="noofnightsId">No of nights</label>
+                  <input
+                    type="text"
+                    readonly="readonly"
+                    class="form-control text-center"
+                    v-model="form.no_of_nights"
+                    :class="{ 'is-invalid': form.errors.has('noofdays') }"
+                    placeholder="Enter Number Of Nights"
+                    name="no_of_nights"
+                    min="1"
+                  />
+                  <has-error :form="form" field="no_of_nights"></has-error>
+                </div>
+              </div>
+  
+              <div class="col-sm-2">
+                <label></label>
+                <button
+                  type="button"
+                  class="btn btn_plus text-white mt-35"
+                  @click="addNightRow()"
+                >
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>   
             </div>
           </div>
         </div>
@@ -389,21 +430,13 @@ to submit the data we are using a function.
                 class="form-control"
                 placeholder="Enter single sharing base price"
                 name="single_sharing_base_price"
-                @keyup="onSinglePrice"
                 v-model="form.single_sharing_base_price"
                 :class="{ 'is-invalid': form.errors.has('single_sharing_base_price') }"
               />
               <has-error :form="form" field="single_sharing_base_price"></has-error>
             </div>
           </div>
-          <template v-if="single_gst_list.length > 0">
-            <div class="form-group">
-                <label for="countries">Country</label>
-                  <select v-model="form.single_sharing_gst_fee" class="form-control customSelect">
-                    <option v-for="(data) in single_gst_list" :value="data.id"  :key="data.id">{{data.name}}</option>
-                </select>
-            </div>
-          </template>
+          
           <div class="col-sm-4">
             <div class="form-group">
               <label for="double_sharing_base_price">Double sharing base price/Person</label>
@@ -413,7 +446,6 @@ to submit the data we are using a function.
                 class="form-control"
                 placeholder="Enter double sharing base price"
                 name="double_sharing_base_price"
-                @keyup="onDoublePrice"
                 v-model="form.double_sharing_base_price"
                 :class="{ 'is-invalid': form.errors.has('double_sharing_base_price') }"
               />
@@ -427,7 +459,6 @@ to submit the data we are using a function.
                 type="number"
                 min="0"
                 class="form-control"
-                @keyup="onTriplePrice"
                 placeholder="Enter triple sharing base price"
                 name="triple_sharing_base_price"
                 v-model="form.triple_sharing_base_price"
@@ -436,7 +467,7 @@ to submit the data we are using a function.
               <has-error :form="form" field="triple_sharing_base_price"></has-error>
             </div>
           </div>
-          <div class="col-sm-4">
+          <div class="col-sm-4" v-if="form.client_type =='eduInstitute'">
             <div class="form-group">
               <label for="quad_sharing_base_price">Quad sharing base price/Person</label>
               <input
@@ -445,11 +476,26 @@ to submit the data we are using a function.
                 class="form-control"
                 placeholder="Enter quad sharing base price"
                 name="quad_sharing_base_price"
-                @keyup="onQuadPrice"
                 v-model="form.quad_sharing_base_price"
                 :class="{ 'is-invalid': form.errors.has('quad_sharing_base_price') }"
               />
               <has-error :form="form" field="quad_sharing_base_price"></has-error>
+            </div>
+          </div>
+          <div class="col-sm-4" v-if="gst_list.length ">
+            <div class="form-group">
+                <label for="gst_fee">Gst fee(%)</label>
+                <select v-model="form.gst_fee" class="form-control customSelect">
+                    <option v-for="{key,value} in gst_list" :value="key"  :key="key">{{value}}</option>
+                </select>
+            </div>
+          </div>
+          <div class="col-sm-4" v-if="tcs_list.length>0 && form.tourtype == 'International'">
+            <div class="form-group">
+                <label for="tcs_fee">Tcs fee(%)</label>
+                  <select v-model="form.tcs_fee" class="form-control customSelect">
+                    <option v-for="{key,value} in tcs_list" :value="key"  :key="key">{{value}}</option>
+                  </select>
             </div>
           </div>
           <div class="col-sm-4">
@@ -625,6 +671,11 @@ export default {
   mixins:[Vue2EditorMixin],
   data() {
     return {
+      twelve_percentage:0,
+      eighteen_percentage:0,
+      five_percentage:0,
+      ten_percentage:0,
+      twenty_percentage:0,
       img_images: [],
       options: [],
       cities:[],
@@ -633,41 +684,21 @@ export default {
       selected: null,
       tags:[],
       meta_key: [],
-      single_tcs_list:[],
-      single_gst_list:[],
-      single_pg_internet:[],
-      double_tcs_list:[],
-      double__gst_list:[],
-      double_pg_internet:[],
-      triple_tcs_list:[],
-      triple__gst_list:[],
-      triple_pg_internet:[],
-      quad_tcs_list:[],
-      quad__gst_list:[],
-      quad_pg_internet:[],
+      gst_list:[],
+      tcs_list:[],
       tagsWarn: false,
-
       form: new Form({
         source: '',
         destination:'',
         noofdays: 1,
+        no_of_nights: 1,
         title: "",
         single_sharing_base_price:0,
-        single_sharing_tcs_fee:0,
-        single_sharing_gst_fee:0,
-        single_sharing_pg_convenience_and_internet_fee:0,
         double_sharing_base_price:0,
-        double_sharing_tcs_fee:0,
-        double_sharing_gst_fee:0,
-        double_sharing_pg_convenience_and_internet_fee:0,
         triple_sharing_base_price:0,
-        triple_sharing_tcs_fee:0,
-        triple_sharing_gst_fee:0,
-        triple_sharing_pg_convenience_and_internet_fee:0,
         quad_sharing_base_price:0,
-        quad_sharing_tcs_fee:0,
-        quad_sharing_gst_fee:0,
-        quad_sharing_pg_convenience_and_internet_fee:0,
+        tcs_fee:0,
+        gst_fee:0,
         description: "",
         tourtype: "",
         hotel_type: "0",
@@ -704,6 +735,34 @@ export default {
     this.tourTypeData();
     this.getTags();
     this.seasonsData();
+    this.gst_list=[
+      {
+      "key":5,
+      "value":"5%"
+      },
+      {
+      "key":12,
+      "value":"12%"
+      },
+      {
+      "key":18,
+      "value":"18%"
+      }
+    ],
+    this.tcs_list=[
+      {
+        "key":5,
+        "value":"5%"
+        },
+        {
+        "key":10,
+        "value":"10%"
+        },
+        {
+        "key":20,
+        "value":"20%"
+        }
+    ]
   },
 
   methods: {
@@ -894,6 +953,15 @@ export default {
         day_description: "",
       });
     },
+    addNightRow() {
+      this.form.no_of_nights += 1;
+    },
+    removeNightDay() {
+      if (this.form.no_of_nights == 0) {
+        return false;
+      }
+      this.form.no_of_nights -= 1;
+    },
     removeRow() {
       if (this.form.noofdays == 0) {
         return false;
@@ -905,27 +973,6 @@ export default {
     SourceUpdateDay(value){
       console.log(value);
     },
-    onSinglePrice(){
-      const five_percentage = (this.form.single_sharing_base_price*5/100)
-      const twelve_percentage = (this.form.single_sharing_base_price*12/100)
-      const eighteen_percentage = this.form.single_sharing_base_price*5/100
-      const ten_percentage = this.form.single_sharing_base_price*10/100
-      const twenty_percentage = this.form.single_sharing_base_price*20/100
-      this.single_gst_list = [five_percentage=>"5%", twelve_percentage=>"12%", eighteen_percentage=>"18%"];
-      this.single_tcs_list = [five_percentage=>"5%", ten_percentage=>"10%", twenty_percentage=>"20%"];
-      this.single_pg_internet = this.form.single_sharing_base_price*2/100;
-  
-    },
-    onDoublePrice(){
-      
-    },
-    onTriplePrice(){
-
-    },
-    onQuadPrice(){
-
-    }
-
   },
 };
 </script>

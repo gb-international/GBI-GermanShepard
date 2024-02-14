@@ -131,6 +131,49 @@
               </div>
             </div>
             </div>
+            <div class="col-sm-4">
+              <div class="row">
+    
+                <div class="col-sm-2">
+                  <label></label>
+                  <button
+                    type="button"
+                    class="btn btn_plus text-white mt-35"
+                    @click="removeNightDay()"
+                  >
+                    <i class="fas fa-minus"></i>
+                  </button>
+                </div>
+                
+                <div class="col-sm-5 pl-2">
+                  <div class="form-group">
+                    <label for="noofnightsId">No of nights</label>
+                    <input
+                      type="text"
+                      readonly="readonly"
+                      class="form-control text-center"
+                      v-model="form.no_of_nights"
+                      :class="{ 'is-invalid': form.errors.has('noofdays') }"
+                      placeholder="Enter Number Of Nights"
+                      name="no_of_nights"
+                      min="1"
+                    />
+                    <has-error :form="form" field="no_of_nights"></has-error>
+                  </div>
+                </div>
+    
+                <div class="col-sm-2">
+                  <label></label>
+                  <button
+                    type="button"
+                    class="btn btn_plus text-white mt-35"
+                    @click="addNightRow()"
+                  >
+                    <i class="fas fa-plus"></i>
+                  </button>
+                </div>   
+              </div>
+            </div>
           </div>
           <div class="row mb-30">
             <div class="col-sm-4">
@@ -377,7 +420,83 @@
               <has-error :form="form" field="price"></has-error>
             </div>
           </div>
-
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="single_sharing_base_price">Single sharing base price/Person</label>
+              <input
+                type="number"
+                min="0"
+                class="form-control"
+                placeholder="Enter single sharing base price"
+                name="single_sharing_base_price"
+                v-model="form.single_sharing_base_price"
+                :class="{ 'is-invalid': form.errors.has('single_sharing_base_price') }"
+              />
+              <has-error :form="form" field="single_sharing_base_price"></has-error>
+            </div>
+          </div>
+          
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="double_sharing_base_price">Double sharing base price/Person</label>
+              <input
+                type="number"
+                min="0"
+                class="form-control"
+                placeholder="Enter double sharing base price"
+                name="double_sharing_base_price"
+                v-model="form.double_sharing_base_price"
+                :class="{ 'is-invalid': form.errors.has('double_sharing_base_price') }"
+              />
+              <has-error :form="form" field="double_sharing_base_price"></has-error>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="triple_sharing_base_price">Triple sharing base price/Person</label>
+              <input
+                type="number"
+                min="0"
+                class="form-control"
+                placeholder="Enter triple sharing base price"
+                name="triple_sharing_base_price"
+                v-model="form.triple_sharing_base_price"
+                :class="{ 'is-invalid': form.errors.has('triple_sharing_base_price') }"
+              />
+              <has-error :form="form" field="triple_sharing_base_price"></has-error>
+            </div>
+          </div>
+            <div class="col-sm-4" v-if="form.client_type =='eduInstitute'">
+              <div class="form-group">
+                <label for="quad_sharing_base_price">Quad sharing base price/Person</label>
+                <input
+                  type="number"
+                  min="0"
+                  class="form-control"
+                  placeholder="Enter quad sharing base price"
+                  name="quad_sharing_base_price"
+                  v-model="form.quad_sharing_base_price"
+                  :class="{ 'is-invalid': form.errors.has('quad_sharing_base_price') }"
+                />
+                <has-error :form="form" field="quad_sharing_base_price"></has-error>
+              </div>
+            </div>
+            <div class="col-sm-4" v-if="gst_list.length ">
+              <div class="form-group">
+                  <label for="gst_fee">Gst fee(%)</label>
+                  <select v-model="form.gst_fee" class="form-control customSelect">
+                      <option v-for="{key,value} in gst_list" :value="key"  :key="key">{{value}}</option>
+                  </select>
+              </div>
+            </div>
+            <div class="col-sm-4" v-if="tcs_list.length>0 && form.tourtype == 'International'">
+              <div class="form-group">
+                  <label for="tcs_fee">Tcs fee(%)</label>
+                    <select v-model="form.tcs_fee" class="form-control customSelect">
+                      <option v-for="{key,value} in tcs_list" :value="key"  :key="key">{{value}}</option>
+                    </select>
+              </div>
+            </div>
             <div class="col-sm-4">
               <div class="form-group">
                 <label for="tourtypeId">Food</label>
@@ -559,6 +678,8 @@ export default {
       tagsWarn: false,
       photo: [],
       detail_photo: [],
+      gst_list:[],
+      tcs_list:[],
       form: new Form({
         meta_description: "",
         meta_title: "",
@@ -568,7 +689,13 @@ export default {
         destination: "",
         noofdays: "",
         title: "",
-        price: "",
+        single_sharing_base_price:0,
+        double_sharing_base_price:0,
+        triple_sharing_base_price:0,
+        quad_sharing_base_price:0,
+        tcs_fee:0,
+        gst_fee:0,
+        price: 0,
         description: "",
         tourtype: "",
         hotel_type: "",
@@ -595,6 +722,34 @@ export default {
   },
 
   created() {
+    this.gst_list=[
+      {
+      "key":5,
+      "value":"5%"
+      },
+      {
+      "key":12,
+      "value":"12%"
+      },
+      {
+      "key":18,
+      "value":"18%"
+      }
+    ];
+    this.tcs_list=[
+      {
+        "key":5,
+        "value":"5%"
+        },
+        {
+        "key":10,
+        "value":"10%"
+        },
+        {
+        "key":20,
+        "value":"20%"
+        }
+    ]
     this.itineraryList();
     this.cityList();
     this.tourTypeData();
