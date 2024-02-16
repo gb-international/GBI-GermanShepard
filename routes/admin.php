@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
-
+use App\Http\Controllers\Admin\TravellerPolicy\TravellerPolicyCategoryController;
+use App\Http\Controllers\Admin\TravellerPolicy\TravellerPolicyController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -342,6 +343,19 @@ Route::namespace('Admin')->group(function (){
 	Route::namespace('SchoolTrip')->group(function(){
 		Route::get('schooltrip/all/{size}','SchoolTripController@all');
 		Route::resource('schooltrip','SchoolTripController');
+	});
+
+	//Traveller Policy
+	Route::group(['prefix' => '/traveller-policy', 'as' => 'traveller-policy.'], function () {
+		Route::post('store',[TravellerPolicyController::class, 'store']);
+		Route::put('update/{id}',[TravellerPolicyController::class, 'update']);
+		Route::delete('delete/{id}',[TravellerPolicyController::class, 'destroy']);
+		Route::get('{id}/edit',[TravellerPolicyController::class, 'edit']);
+		Route::get('{id}/show',[TravellerPolicyController::class, 'show']);
+		Route::get('all/{size?}',[TravellerPolicyController::class, 'all']);
+		Route::get('policy-per-category/{category_id}/{size?}',[TravellerPolicyController::class, 'all']);
+		Route::post('policy-per-category',[TravellerPolicyController::class, 'getAllPolicy']);
+		Route::post('status',[TravellerPolicyController::class, 'publish']);
 	});
 
 });

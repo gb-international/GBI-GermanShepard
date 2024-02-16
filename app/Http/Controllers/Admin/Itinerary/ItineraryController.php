@@ -386,6 +386,13 @@ class ItineraryController extends Controller
             'double_sharing_base_price'=>'required|numeric|min:0',
             'triple_sharing_base_price'=>'required|numeric|min:0',
             'quad_sharing_base_price'=>'required|numeric|min:0',
+            'child_with_mattress_price'=>'required|numeric|min:0',
+            'child_without_mattress_price'=>'required|numeric|min:0',
+            'infant_price'=>'required|numeric|min:0',
+            'apai_price'=>'required|numeric|min:0',
+            'mapai_price'=>'required|numeric|min:0',
+            'cpai_price'=>'required|numeric|min:0',
+            'ep_price'=>'required|numeric|min:0',
             'client_type'=>'',
             'meta_title'=>'required',
             'meta_description' => 'required'     
@@ -399,9 +406,8 @@ class ItineraryController extends Controller
         }
         return $slug;
     }
-
-
 }
+
 
 
 

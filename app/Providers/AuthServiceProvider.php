@@ -35,9 +35,18 @@ class AuthServiceProvider extends ServiceProvider
             Passport::tokensExpireIn()
         );*/
 
-        Passport::routes();
-        Passport::tokensExpireIn(Carbon::now()->addDays(5));
-        Passport::refreshTokensExpireIn(Carbon::now()->addDays(5));
+        if (! $this->app->routesAreCached()) {
+            Passport::routes();
+            Passport::tokensExpireIn(Carbon::now()->addDays(5));
+            Passport::refreshTokensExpireIn(Carbon::now()->addDays(5));
+       };
+        // Passport::routes();
+        Passport::tokensCan([
+        'school' => 'For education institute',
+        'user' => 'For users',
+        'company' => 'Company User',
+        'family' => 'Family',
+    ]);
 
         Gate::before(function ($user, $ability) {
             return $user->hasRole('Admin') ? true : null;

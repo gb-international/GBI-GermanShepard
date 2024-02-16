@@ -420,83 +420,6 @@
               <has-error :form="form" field="price"></has-error>
             </div>
           </div>
-          <div class="col-sm-4">
-            <div class="form-group">
-              <label for="single_sharing_base_price">Single sharing base price/Person</label>
-              <input
-                type="number"
-                min="0"
-                class="form-control"
-                placeholder="Enter single sharing base price"
-                name="single_sharing_base_price"
-                v-model="form.single_sharing_base_price"
-                :class="{ 'is-invalid': form.errors.has('single_sharing_base_price') }"
-              />
-              <has-error :form="form" field="single_sharing_base_price"></has-error>
-            </div>
-          </div>
-          
-          <div class="col-sm-4">
-            <div class="form-group">
-              <label for="double_sharing_base_price">Double sharing base price/Person</label>
-              <input
-                type="number"
-                min="0"
-                class="form-control"
-                placeholder="Enter double sharing base price"
-                name="double_sharing_base_price"
-                v-model="form.double_sharing_base_price"
-                :class="{ 'is-invalid': form.errors.has('double_sharing_base_price') }"
-              />
-              <has-error :form="form" field="double_sharing_base_price"></has-error>
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="form-group">
-              <label for="triple_sharing_base_price">Triple sharing base price/Person</label>
-              <input
-                type="number"
-                min="0"
-                class="form-control"
-                placeholder="Enter triple sharing base price"
-                name="triple_sharing_base_price"
-                v-model="form.triple_sharing_base_price"
-                :class="{ 'is-invalid': form.errors.has('triple_sharing_base_price') }"
-              />
-              <has-error :form="form" field="triple_sharing_base_price"></has-error>
-            </div>
-          </div>
-            <div class="col-sm-4" v-if="form.client_type =='eduInstitute'">
-              <div class="form-group">
-                <label for="quad_sharing_base_price">Quad sharing base price/Person</label>
-                <input
-                  type="number"
-                  min="0"
-                  class="form-control"
-                  placeholder="Enter quad sharing base price"
-                  name="quad_sharing_base_price"
-                  v-model="form.quad_sharing_base_price"
-                  :class="{ 'is-invalid': form.errors.has('quad_sharing_base_price') }"
-                />
-                <has-error :form="form" field="quad_sharing_base_price"></has-error>
-              </div>
-            </div>
-            <div class="col-sm-4" v-if="gst_list.length ">
-              <div class="form-group">
-                  <label for="gst_fee">Gst fee(%)</label>
-                  <select v-model="form.gst_fee" class="form-control customSelect">
-                      <option v-for="{key,value} in gst_list" :value="key"  :key="key">{{value}}</option>
-                  </select>
-              </div>
-            </div>
-            <div class="col-sm-4" v-if="tcs_list.length>0 && form.tourtype == 'International'">
-              <div class="form-group">
-                  <label for="tcs_fee">Tcs fee(%)</label>
-                    <select v-model="form.tcs_fee" class="form-control customSelect">
-                      <option v-for="{key,value} in tcs_list" :value="key"  :key="key">{{value}}</option>
-                    </select>
-              </div>
-            </div>
             <div class="col-sm-4">
               <div class="form-group">
                 <label for="tourtypeId">Food</label>
@@ -589,6 +512,200 @@
           </div>
 
           <hr />
+        <div class="row">
+          <div class="col-sm-12">
+            <h4>Package allocation per person price</h4>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label for="single_sharing_base_price">Single sharing base price</label>
+              <input
+                type="number"
+                min="0"
+                class="form-control"
+                placeholder="Enter single sharing base price"
+                name="single_sharing_base_price"
+                v-model="form.single_sharing_base_price"
+                :class="{ 'is-invalid': form.errors.has('single_sharing_base_price') }"
+              />
+              <has-error :form="form" field="single_sharing_base_price"></has-error>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label for="double_sharing_base_price">Double sharing base price</label>
+              <input
+                type="number"
+                min="0"
+                class="form-control"
+                placeholder="Enter double sharing base price"
+                name="double_sharing_base_price"
+                v-model="form.double_sharing_base_price"
+                :class="{ 'is-invalid': form.errors.has('double_sharing_base_price') }"
+              />
+              <has-error :form="form" field="double_sharing_base_price"></has-error>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label for="triple_sharing_base_price">Triple sharing base price per person</label>
+              <input
+                type="number"
+                min="0"
+                class="form-control"
+                placeholder="Enter triple sharing base price"
+                name="triple_sharing_base_price"
+                v-model="form.triple_sharing_base_price"
+                :class="{ 'is-invalid': form.errors.has('triple_sharing_base_price') }"
+              />
+              <has-error :form="form" field="triple_sharing_base_price"></has-error>
+            </div>
+          </div>
+          <div class="col-sm-3" v-if="form.client_type =='eduInstitute'">
+            <div class="form-group">
+              <label for="quad_sharing_base_price">Quad sharing base price/Person</label>
+              <input
+                type="number"
+                min="0"
+                class="form-control"
+                placeholder="Enter quad sharing base price"
+                name="quad_sharing_base_price"
+                v-model="form.quad_sharing_base_price"
+                :class="{ 'is-invalid': form.errors.has('quad_sharing_base_price') }"
+              />
+              <has-error :form="form" field="quad_sharing_base_price"></has-error>
+            </div>
+          </div>
+          <div class="col-sm-3" v-if="form.client_type =='general'">
+            <div class="form-group">
+              <label for="child_with_mattress_price">Child with mattress price</label>
+              <input
+                type="number"
+                min="0"
+                class="form-control"
+                placeholder="Enter triple sharing base price"
+                name="child_with_mattress_price"
+                v-model="form.child_with_mattress_price"
+                :class="{ 'is-invalid': form.errors.has('child_with_mattress_price') }"
+              />
+              <has-error :form="form" field="child_with_mattress_price"></has-error>
+            </div>
+          </div>
+          <div class="col-sm-3" v-if="form.client_type =='general'">
+            <div class="form-group">
+              <label for="child_without_mattress_price">Child without mattress price</label>
+              <input
+                type="number"
+                min="0"
+                class="form-control"
+                placeholder="Enter child without mattress price"
+                name="child_without_mattress_price"
+                v-model="form.child_without_mattress_price"
+                :class="{ 'is-invalid': form.errors.has('child_without_mattress_price') }"
+              />
+              <has-error :form="form" field="child_without_mattress_price"></has-error>
+            </div>
+          </div>
+          <div class="col-sm-3" v-if="form.client_type =='general'">
+            <div class="form-group">
+              <label for="infant_price">Infant_price</label>
+              <input
+                type="number"
+                min="0"
+                class="form-control"
+                placeholder="Enter infant price"
+                name="infant_price"
+                v-model="form.infant_price"
+                :class="{ 'is-invalid': form.errors.has('infant_price') }"
+              />
+              <has-error :form="form" field="infant_price"></has-error>
+            </div>
+          </div>
+          
+          <div class="col-sm-3" v-if="gst_list.length">
+            <div class="form-group">
+                <label for="gst_fee">Gst fee(%)</label>
+                <select v-model="form.gst_fee" class="form-control customSelect">
+                    <option v-for="{key,value} in gst_list" :value="key"  :key="key">{{value}}</option>
+                </select>
+            </div>
+          </div>
+          <div class="col-sm-3" v-if="tcs_list.length>0 && form.tourtype == 'International'">
+            <div class="form-group">
+                <label for="tcs_fee">Tcs fee(%)</label>
+                  <select v-model="form.tcs_fee" class="form-control customSelect">
+                    <option v-for="{key,value} in tcs_list" :value="key"  :key="key">{{value}}</option>
+                  </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <h4>Meal plan price</h4>
+          </div>
+
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label for="ep_price">Ep price</label>
+              <input
+                type="number"
+                min="0"
+                class="form-control"
+                placeholder="Enter ep price"
+                name="ep_price"
+                v-model="form.ep_price"
+                :class="{ 'is-invalid': form.errors.has('ep_price') }"
+              />
+              <has-error :form="form" field="ep_price"></has-error>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label for="mapai_price">Mapai price</label>
+              <input
+                type="number"
+                min="0"
+                class="form-control"
+                placeholder="Enter map plan price"
+                name="mapai_price"
+                v-model="form.mapai_price"
+                :class="{ 'is-invalid': form.errors.has('mapai_price') }"
+              />
+              <has-error :form="form" field="mapai_price"></has-error>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label for="cpai_price">Cpai price</label>
+              <input
+                type="number"
+                min="0"
+                class="form-control"
+                placeholder="Enter cpai price"
+                name="cpai_price"
+                v-model="form.cpai_price"
+                :class="{ 'is-invalid': form.errors.has('cpai_price') }"
+              />
+              <has-error :form="form" field="cpai_price"></has-error>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label for="apai_price">Apai price</label>
+              <input
+                type="number"
+                min="0"
+                class="form-control"
+                placeholder="Enter apai price"
+                name="apai_price"
+                v-model="form.apai_price"
+                :class="{ 'is-invalid': form.errors.has('apai_price') }"
+              />
+              <has-error :form="form" field="apai_price"></has-error>
+            </div>
+          </div>
+        </div>
+        <hr />
 
           <div class="card content" v-for="(data, index) in itinerarydays" :key="index">
             <h4>Day {{ data.day }}</h4>
@@ -688,13 +805,21 @@ export default {
         source: "",
         destination: "",
         noofdays: "",
+        no_of_nights: 1,
         title: "",
         single_sharing_base_price:0,
         double_sharing_base_price:0,
         triple_sharing_base_price:0,
         quad_sharing_base_price:0,
-        tcs_fee:0,
-        gst_fee:0,
+        child_with_mattress_price:0, 
+        child_without_mattress_price:0, 
+        infant_price:0,
+        ep_price:0,
+        cpai_price:0,
+        mapai_price:0,
+        apai_price:0,
+        tcs_fee:5,
+        gst_fee:5,
         price: 0,
         description: "",
         tourtype: "",
@@ -735,7 +860,7 @@ export default {
       "key":18,
       "value":"18%"
       }
-    ];
+    ],
     this.tcs_list=[
       {
         "key":5,

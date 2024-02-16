@@ -46,6 +46,49 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+        //School 
+        'school' => [
+            'driver' => 'session',
+            'provider' => 'school',
+        ],
+    
+        'school-api' => [
+            'driver' => 'passport',
+            'provider' => 'school',
+        ],
+
+        //User
+        'user' => [
+            'driver' => 'session',
+            'provider' => 'user',
+        ],
+    
+        'user-api' => [
+            'driver' => 'passport',
+            'provider' => 'user',
+        ],
+
+        //Family
+        'family' => [
+            'driver' => 'session',
+            'provider' => 'family',
+        ],
+    
+        'family-api' => [
+            'driver' => 'passport',
+            'provider' => 'family',
+        ],
+
+        //Company
+        'company' => [
+            'driver' => 'session',
+            'provider' => 'company',
+        ],
+    
+        'company-api' => [
+            'driver' => 'passport',
+            'provider' => 'company',
+        ],
     ],
 
     /*
@@ -70,7 +113,18 @@ return [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
-
+        'school' => [
+            'driver' => 'eloquent',
+            'model' => App\Model\School\EducationInstitute::class,
+        ],
+        'company' => [
+            'driver' => 'eloquent',
+            'model' => App\CompanyUser::class,
+        ],
+        'family' => [
+            'driver' => 'eloquent',
+            'model' => App\FamilyUser::class,
+        ],
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',

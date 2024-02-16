@@ -980,6 +980,123 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -1003,11 +1120,6 @@ __webpack_require__.r(__webpack_exports__);
   mixins: [_admin_mixins_Vue2EditorMixin__WEBPACK_IMPORTED_MODULE_4__["default"]],
   data: function data() {
     return {
-      twelve_percentage: 0,
-      eighteen_percentage: 0,
-      five_percentage: 0,
-      ten_percentage: 0,
-      twenty_percentage: 0,
       img_images: [],
       options: [],
       cities: [],
@@ -1029,8 +1141,15 @@ __webpack_require__.r(__webpack_exports__);
         double_sharing_base_price: 0,
         triple_sharing_base_price: 0,
         quad_sharing_base_price: 0,
-        tcs_fee: 0,
-        gst_fee: 0,
+        child_with_mattress_price: 0,
+        child_without_mattress_price: 0,
+        infant_price: 0,
+        ep_price: 0,
+        cpai_price: 0,
+        mapai_price: 0,
+        apai_price: 0,
+        tcs_fee: 5,
+        gst_fee: 5,
         description: "",
         tourtype: "",
         hotel_type: "0",
@@ -1243,6 +1362,54 @@ __webpack_require__.r(__webpack_exports__);
         this.$toast.fire({
           icon: "error",
           title: "Season field is required"
+        });
+        return false;
+      } else if (!this.form.single_sharing_base_price) {
+        this.$toast.fire({
+          icon: "error",
+          title: "Single sharing base price field is required"
+        });
+        return false;
+      } else if (!this.form.double_sharing_base_price) {
+        this.$toast.fire({
+          icon: "error",
+          title: "Double sharing base price field is required"
+        });
+        return false;
+      } else if (!this.form.triple_sharing_base_price) {
+        this.$toast.fire({
+          icon: "error",
+          title: "Triple sharing base price field is required"
+        });
+        return false;
+      } else if (!this.form.quad_sharing_base_price && $client_type == "eduInstitute") {
+        this.$toast.fire({
+          icon: "error",
+          title: "Triple sharing base price field is required"
+        });
+        return false;
+      } else if (!this.form.ep_price) {
+        this.$toast.fire({
+          icon: "error",
+          title: "Ep price field is required"
+        });
+        return false;
+      } else if (!this.form.cpai_price) {
+        this.$toast.fire({
+          icon: "error",
+          title: "Cpai price field is required"
+        });
+        return false;
+      } else if (!this.form.mapai_price) {
+        this.$toast.fire({
+          icon: "error",
+          title: "mapai price field is required"
+        });
+        return false;
+      } else if (!this.form.apai_price) {
+        this.$toast.fire({
+          icon: "error",
+          title: "Apai price field is required"
         });
         return false;
       }
@@ -18837,365 +19004,6 @@ var render = function () {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-sm-4" }, [
-                      _c(
-                        "div",
-                        { staticClass: "form-group" },
-                        [
-                          _c(
-                            "label",
-                            { attrs: { for: "single_sharing_base_price" } },
-                            [_vm._v("Single sharing base price/Person")]
-                          ),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.form.single_sharing_base_price,
-                                expression: "form.single_sharing_base_price",
-                              },
-                            ],
-                            staticClass: "form-control",
-                            class: {
-                              "is-invalid": _vm.form.errors.has(
-                                "single_sharing_base_price"
-                              ),
-                            },
-                            attrs: {
-                              type: "number",
-                              min: "0",
-                              placeholder: "Enter single sharing base price",
-                              name: "single_sharing_base_price",
-                            },
-                            domProps: {
-                              value: _vm.form.single_sharing_base_price,
-                            },
-                            on: {
-                              input: function ($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(
-                                  _vm.form,
-                                  "single_sharing_base_price",
-                                  $event.target.value
-                                )
-                              },
-                            },
-                          }),
-                          _vm._v(" "),
-                          _c("has-error", {
-                            attrs: {
-                              form: _vm.form,
-                              field: "single_sharing_base_price",
-                            },
-                          }),
-                        ],
-                        1
-                      ),
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-4" }, [
-                      _c(
-                        "div",
-                        { staticClass: "form-group" },
-                        [
-                          _c(
-                            "label",
-                            { attrs: { for: "double_sharing_base_price" } },
-                            [_vm._v("Double sharing base price/Person")]
-                          ),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.form.double_sharing_base_price,
-                                expression: "form.double_sharing_base_price",
-                              },
-                            ],
-                            staticClass: "form-control",
-                            class: {
-                              "is-invalid": _vm.form.errors.has(
-                                "double_sharing_base_price"
-                              ),
-                            },
-                            attrs: {
-                              type: "number",
-                              min: "0",
-                              placeholder: "Enter double sharing base price",
-                              name: "double_sharing_base_price",
-                            },
-                            domProps: {
-                              value: _vm.form.double_sharing_base_price,
-                            },
-                            on: {
-                              input: function ($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(
-                                  _vm.form,
-                                  "double_sharing_base_price",
-                                  $event.target.value
-                                )
-                              },
-                            },
-                          }),
-                          _vm._v(" "),
-                          _c("has-error", {
-                            attrs: {
-                              form: _vm.form,
-                              field: "double_sharing_base_price",
-                            },
-                          }),
-                        ],
-                        1
-                      ),
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-4" }, [
-                      _c(
-                        "div",
-                        { staticClass: "form-group" },
-                        [
-                          _c(
-                            "label",
-                            { attrs: { for: "triple_sharing_base_price" } },
-                            [_vm._v("Triple sharing base price/Person")]
-                          ),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.form.triple_sharing_base_price,
-                                expression: "form.triple_sharing_base_price",
-                              },
-                            ],
-                            staticClass: "form-control",
-                            class: {
-                              "is-invalid": _vm.form.errors.has(
-                                "triple_sharing_base_price"
-                              ),
-                            },
-                            attrs: {
-                              type: "number",
-                              min: "0",
-                              placeholder: "Enter triple sharing base price",
-                              name: "triple_sharing_base_price",
-                            },
-                            domProps: {
-                              value: _vm.form.triple_sharing_base_price,
-                            },
-                            on: {
-                              input: function ($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(
-                                  _vm.form,
-                                  "triple_sharing_base_price",
-                                  $event.target.value
-                                )
-                              },
-                            },
-                          }),
-                          _vm._v(" "),
-                          _c("has-error", {
-                            attrs: {
-                              form: _vm.form,
-                              field: "triple_sharing_base_price",
-                            },
-                          }),
-                        ],
-                        1
-                      ),
-                    ]),
-                    _vm._v(" "),
-                    _vm.form.client_type == "eduInstitute"
-                      ? _c("div", { staticClass: "col-sm-4" }, [
-                          _c(
-                            "div",
-                            { staticClass: "form-group" },
-                            [
-                              _c(
-                                "label",
-                                { attrs: { for: "quad_sharing_base_price" } },
-                                [_vm._v("Quad sharing base price/Person")]
-                              ),
-                              _vm._v(" "),
-                              _c("input", {
-                                directives: [
-                                  {
-                                    name: "model",
-                                    rawName: "v-model",
-                                    value: _vm.form.quad_sharing_base_price,
-                                    expression: "form.quad_sharing_base_price",
-                                  },
-                                ],
-                                staticClass: "form-control",
-                                class: {
-                                  "is-invalid": _vm.form.errors.has(
-                                    "quad_sharing_base_price"
-                                  ),
-                                },
-                                attrs: {
-                                  type: "number",
-                                  min: "0",
-                                  placeholder: "Enter quad sharing base price",
-                                  name: "quad_sharing_base_price",
-                                },
-                                domProps: {
-                                  value: _vm.form.quad_sharing_base_price,
-                                },
-                                on: {
-                                  input: function ($event) {
-                                    if ($event.target.composing) {
-                                      return
-                                    }
-                                    _vm.$set(
-                                      _vm.form,
-                                      "quad_sharing_base_price",
-                                      $event.target.value
-                                    )
-                                  },
-                                },
-                              }),
-                              _vm._v(" "),
-                              _c("has-error", {
-                                attrs: {
-                                  form: _vm.form,
-                                  field: "quad_sharing_base_price",
-                                },
-                              }),
-                            ],
-                            1
-                          ),
-                        ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _vm.gst_list.length
-                      ? _c("div", { staticClass: "col-sm-4" }, [
-                          _c("div", { staticClass: "form-group" }, [
-                            _c("label", { attrs: { for: "gst_fee" } }, [
-                              _vm._v("Gst fee(%)"),
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "select",
-                              {
-                                directives: [
-                                  {
-                                    name: "model",
-                                    rawName: "v-model",
-                                    value: _vm.form.gst_fee,
-                                    expression: "form.gst_fee",
-                                  },
-                                ],
-                                staticClass: "form-control customSelect",
-                                on: {
-                                  change: function ($event) {
-                                    var $$selectedVal = Array.prototype.filter
-                                      .call(
-                                        $event.target.options,
-                                        function (o) {
-                                          return o.selected
-                                        }
-                                      )
-                                      .map(function (o) {
-                                        var val =
-                                          "_value" in o ? o._value : o.value
-                                        return val
-                                      })
-                                    _vm.$set(
-                                      _vm.form,
-                                      "gst_fee",
-                                      $event.target.multiple
-                                        ? $$selectedVal
-                                        : $$selectedVal[0]
-                                    )
-                                  },
-                                },
-                              },
-                              _vm._l(_vm.gst_list, function (ref) {
-                                var key = ref.key
-                                var value = ref.value
-                                return _c(
-                                  "option",
-                                  { key: key, domProps: { value: key } },
-                                  [_vm._v(_vm._s(value))]
-                                )
-                              }),
-                              0
-                            ),
-                          ]),
-                        ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _vm.tcs_list.length > 0 &&
-                    _vm.form.tourtype == "International"
-                      ? _c("div", { staticClass: "col-sm-4" }, [
-                          _c("div", { staticClass: "form-group" }, [
-                            _c("label", { attrs: { for: "tcs_fee" } }, [
-                              _vm._v("Tcs fee(%)"),
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "select",
-                              {
-                                directives: [
-                                  {
-                                    name: "model",
-                                    rawName: "v-model",
-                                    value: _vm.form.tcs_fee,
-                                    expression: "form.tcs_fee",
-                                  },
-                                ],
-                                staticClass: "form-control customSelect",
-                                on: {
-                                  change: function ($event) {
-                                    var $$selectedVal = Array.prototype.filter
-                                      .call(
-                                        $event.target.options,
-                                        function (o) {
-                                          return o.selected
-                                        }
-                                      )
-                                      .map(function (o) {
-                                        var val =
-                                          "_value" in o ? o._value : o.value
-                                        return val
-                                      })
-                                    _vm.$set(
-                                      _vm.form,
-                                      "tcs_fee",
-                                      $event.target.multiple
-                                        ? $$selectedVal
-                                        : $$selectedVal[0]
-                                    )
-                                  },
-                                },
-                              },
-                              _vm._l(_vm.tcs_list, function (ref) {
-                                var key = ref.key
-                                var value = ref.value
-                                return _c(
-                                  "option",
-                                  { key: key, domProps: { value: key } },
-                                  [_vm._v(_vm._s(value))]
-                                )
-                              }),
-                              0
-                            ),
-                          ]),
-                        ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-4" }, [
                       _c("div", { staticClass: "form-group" }, [
                         _c("label", { attrs: { for: "tourtypeId" } }, [
                           _vm._v("Food"),
@@ -19473,6 +19281,773 @@ var render = function () {
                           2
                         ),
                       ]),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("hr"),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-sm-12" }, [
+                      _c("h4", [_vm._v("Package allocation per person price")]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-sm-3" }, [
+                      _c(
+                        "div",
+                        { staticClass: "form-group" },
+                        [
+                          _c(
+                            "label",
+                            { attrs: { for: "single_sharing_base_price" } },
+                            [_vm._v("Single sharing base price")]
+                          ),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.single_sharing_base_price,
+                                expression: "form.single_sharing_base_price",
+                              },
+                            ],
+                            staticClass: "form-control",
+                            class: {
+                              "is-invalid": _vm.form.errors.has(
+                                "single_sharing_base_price"
+                              ),
+                            },
+                            attrs: {
+                              type: "number",
+                              min: "0",
+                              placeholder: "Enter single sharing base price",
+                              name: "single_sharing_base_price",
+                            },
+                            domProps: {
+                              value: _vm.form.single_sharing_base_price,
+                            },
+                            on: {
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.form,
+                                  "single_sharing_base_price",
+                                  $event.target.value
+                                )
+                              },
+                            },
+                          }),
+                          _vm._v(" "),
+                          _c("has-error", {
+                            attrs: {
+                              form: _vm.form,
+                              field: "single_sharing_base_price",
+                            },
+                          }),
+                        ],
+                        1
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-sm-3" }, [
+                      _c(
+                        "div",
+                        { staticClass: "form-group" },
+                        [
+                          _c(
+                            "label",
+                            { attrs: { for: "double_sharing_base_price" } },
+                            [_vm._v("Double sharing base price")]
+                          ),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.double_sharing_base_price,
+                                expression: "form.double_sharing_base_price",
+                              },
+                            ],
+                            staticClass: "form-control",
+                            class: {
+                              "is-invalid": _vm.form.errors.has(
+                                "double_sharing_base_price"
+                              ),
+                            },
+                            attrs: {
+                              type: "number",
+                              min: "0",
+                              placeholder: "Enter double sharing base price",
+                              name: "double_sharing_base_price",
+                            },
+                            domProps: {
+                              value: _vm.form.double_sharing_base_price,
+                            },
+                            on: {
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.form,
+                                  "double_sharing_base_price",
+                                  $event.target.value
+                                )
+                              },
+                            },
+                          }),
+                          _vm._v(" "),
+                          _c("has-error", {
+                            attrs: {
+                              form: _vm.form,
+                              field: "double_sharing_base_price",
+                            },
+                          }),
+                        ],
+                        1
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-sm-3" }, [
+                      _c(
+                        "div",
+                        { staticClass: "form-group" },
+                        [
+                          _c(
+                            "label",
+                            { attrs: { for: "triple_sharing_base_price" } },
+                            [_vm._v("Triple sharing base price per person")]
+                          ),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.triple_sharing_base_price,
+                                expression: "form.triple_sharing_base_price",
+                              },
+                            ],
+                            staticClass: "form-control",
+                            class: {
+                              "is-invalid": _vm.form.errors.has(
+                                "triple_sharing_base_price"
+                              ),
+                            },
+                            attrs: {
+                              type: "number",
+                              min: "0",
+                              placeholder: "Enter triple sharing base price",
+                              name: "triple_sharing_base_price",
+                            },
+                            domProps: {
+                              value: _vm.form.triple_sharing_base_price,
+                            },
+                            on: {
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.form,
+                                  "triple_sharing_base_price",
+                                  $event.target.value
+                                )
+                              },
+                            },
+                          }),
+                          _vm._v(" "),
+                          _c("has-error", {
+                            attrs: {
+                              form: _vm.form,
+                              field: "triple_sharing_base_price",
+                            },
+                          }),
+                        ],
+                        1
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _vm.form.client_type == "eduInstitute"
+                      ? _c("div", { staticClass: "col-sm-3" }, [
+                          _c(
+                            "div",
+                            { staticClass: "form-group" },
+                            [
+                              _c(
+                                "label",
+                                { attrs: { for: "quad_sharing_base_price" } },
+                                [_vm._v("Quad sharing base price/Person")]
+                              ),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.form.quad_sharing_base_price,
+                                    expression: "form.quad_sharing_base_price",
+                                  },
+                                ],
+                                staticClass: "form-control",
+                                class: {
+                                  "is-invalid": _vm.form.errors.has(
+                                    "quad_sharing_base_price"
+                                  ),
+                                },
+                                attrs: {
+                                  type: "number",
+                                  min: "0",
+                                  placeholder: "Enter quad sharing base price",
+                                  name: "quad_sharing_base_price",
+                                },
+                                domProps: {
+                                  value: _vm.form.quad_sharing_base_price,
+                                },
+                                on: {
+                                  input: function ($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.form,
+                                      "quad_sharing_base_price",
+                                      $event.target.value
+                                    )
+                                  },
+                                },
+                              }),
+                              _vm._v(" "),
+                              _c("has-error", {
+                                attrs: {
+                                  form: _vm.form,
+                                  field: "quad_sharing_base_price",
+                                },
+                              }),
+                            ],
+                            1
+                          ),
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.form.client_type == "general"
+                      ? _c("div", { staticClass: "col-sm-3" }, [
+                          _c(
+                            "div",
+                            { staticClass: "form-group" },
+                            [
+                              _c(
+                                "label",
+                                { attrs: { for: "child_with_mattress_price" } },
+                                [_vm._v("Child with mattress price")]
+                              ),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.form.child_with_mattress_price,
+                                    expression:
+                                      "form.child_with_mattress_price",
+                                  },
+                                ],
+                                staticClass: "form-control",
+                                class: {
+                                  "is-invalid": _vm.form.errors.has(
+                                    "child_with_mattress_price"
+                                  ),
+                                },
+                                attrs: {
+                                  type: "number",
+                                  min: "0",
+                                  placeholder:
+                                    "Enter triple sharing base price",
+                                  name: "child_with_mattress_price",
+                                },
+                                domProps: {
+                                  value: _vm.form.child_with_mattress_price,
+                                },
+                                on: {
+                                  input: function ($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.form,
+                                      "child_with_mattress_price",
+                                      $event.target.value
+                                    )
+                                  },
+                                },
+                              }),
+                              _vm._v(" "),
+                              _c("has-error", {
+                                attrs: {
+                                  form: _vm.form,
+                                  field: "child_with_mattress_price",
+                                },
+                              }),
+                            ],
+                            1
+                          ),
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.form.client_type == "general"
+                      ? _c("div", { staticClass: "col-sm-3" }, [
+                          _c(
+                            "div",
+                            { staticClass: "form-group" },
+                            [
+                              _c(
+                                "label",
+                                {
+                                  attrs: {
+                                    for: "child_without_mattress_price",
+                                  },
+                                },
+                                [_vm._v("Child without mattress price")]
+                              ),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value:
+                                      _vm.form.child_without_mattress_price,
+                                    expression:
+                                      "form.child_without_mattress_price",
+                                  },
+                                ],
+                                staticClass: "form-control",
+                                class: {
+                                  "is-invalid": _vm.form.errors.has(
+                                    "child_without_mattress_price"
+                                  ),
+                                },
+                                attrs: {
+                                  type: "number",
+                                  min: "0",
+                                  placeholder:
+                                    "Enter child without mattress price",
+                                  name: "child_without_mattress_price",
+                                },
+                                domProps: {
+                                  value: _vm.form.child_without_mattress_price,
+                                },
+                                on: {
+                                  input: function ($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.form,
+                                      "child_without_mattress_price",
+                                      $event.target.value
+                                    )
+                                  },
+                                },
+                              }),
+                              _vm._v(" "),
+                              _c("has-error", {
+                                attrs: {
+                                  form: _vm.form,
+                                  field: "child_without_mattress_price",
+                                },
+                              }),
+                            ],
+                            1
+                          ),
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.form.client_type == "general"
+                      ? _c("div", { staticClass: "col-sm-3" }, [
+                          _c(
+                            "div",
+                            { staticClass: "form-group" },
+                            [
+                              _c("label", { attrs: { for: "infant_price" } }, [
+                                _vm._v("Infant_price"),
+                              ]),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.form.infant_price,
+                                    expression: "form.infant_price",
+                                  },
+                                ],
+                                staticClass: "form-control",
+                                class: {
+                                  "is-invalid":
+                                    _vm.form.errors.has("infant_price"),
+                                },
+                                attrs: {
+                                  type: "number",
+                                  min: "0",
+                                  placeholder: "Enter infant price",
+                                  name: "infant_price",
+                                },
+                                domProps: { value: _vm.form.infant_price },
+                                on: {
+                                  input: function ($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.form,
+                                      "infant_price",
+                                      $event.target.value
+                                    )
+                                  },
+                                },
+                              }),
+                              _vm._v(" "),
+                              _c("has-error", {
+                                attrs: {
+                                  form: _vm.form,
+                                  field: "infant_price",
+                                },
+                              }),
+                            ],
+                            1
+                          ),
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.gst_list.length
+                      ? _c("div", { staticClass: "col-sm-3" }, [
+                          _c("div", { staticClass: "form-group" }, [
+                            _c("label", { attrs: { for: "gst_fee" } }, [
+                              _vm._v("Gst fee(%)"),
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "select",
+                              {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.form.gst_fee,
+                                    expression: "form.gst_fee",
+                                  },
+                                ],
+                                staticClass: "form-control customSelect",
+                                on: {
+                                  change: function ($event) {
+                                    var $$selectedVal = Array.prototype.filter
+                                      .call(
+                                        $event.target.options,
+                                        function (o) {
+                                          return o.selected
+                                        }
+                                      )
+                                      .map(function (o) {
+                                        var val =
+                                          "_value" in o ? o._value : o.value
+                                        return val
+                                      })
+                                    _vm.$set(
+                                      _vm.form,
+                                      "gst_fee",
+                                      $event.target.multiple
+                                        ? $$selectedVal
+                                        : $$selectedVal[0]
+                                    )
+                                  },
+                                },
+                              },
+                              _vm._l(_vm.gst_list, function (ref) {
+                                var key = ref.key
+                                var value = ref.value
+                                return _c(
+                                  "option",
+                                  { key: key, domProps: { value: key } },
+                                  [_vm._v(_vm._s(value))]
+                                )
+                              }),
+                              0
+                            ),
+                          ]),
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.tcs_list.length > 0 &&
+                    _vm.form.tourtype == "International"
+                      ? _c("div", { staticClass: "col-sm-3" }, [
+                          _c("div", { staticClass: "form-group" }, [
+                            _c("label", { attrs: { for: "tcs_fee" } }, [
+                              _vm._v("Tcs fee(%)"),
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "select",
+                              {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.form.tcs_fee,
+                                    expression: "form.tcs_fee",
+                                  },
+                                ],
+                                staticClass: "form-control customSelect",
+                                on: {
+                                  change: function ($event) {
+                                    var $$selectedVal = Array.prototype.filter
+                                      .call(
+                                        $event.target.options,
+                                        function (o) {
+                                          return o.selected
+                                        }
+                                      )
+                                      .map(function (o) {
+                                        var val =
+                                          "_value" in o ? o._value : o.value
+                                        return val
+                                      })
+                                    _vm.$set(
+                                      _vm.form,
+                                      "tcs_fee",
+                                      $event.target.multiple
+                                        ? $$selectedVal
+                                        : $$selectedVal[0]
+                                    )
+                                  },
+                                },
+                              },
+                              _vm._l(_vm.tcs_list, function (ref) {
+                                var key = ref.key
+                                var value = ref.value
+                                return _c(
+                                  "option",
+                                  { key: key, domProps: { value: key } },
+                                  [_vm._v(_vm._s(value))]
+                                )
+                              }),
+                              0
+                            ),
+                          ]),
+                        ])
+                      : _vm._e(),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-sm-12" }, [
+                      _c("h4", [_vm._v("Meal plan price")]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-sm-3" }, [
+                      _c(
+                        "div",
+                        { staticClass: "form-group" },
+                        [
+                          _c("label", { attrs: { for: "ep_price" } }, [
+                            _vm._v("Ep price"),
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.ep_price,
+                                expression: "form.ep_price",
+                              },
+                            ],
+                            staticClass: "form-control",
+                            class: {
+                              "is-invalid": _vm.form.errors.has("ep_price"),
+                            },
+                            attrs: {
+                              type: "number",
+                              min: "0",
+                              placeholder: "Enter ep price",
+                              name: "ep_price",
+                            },
+                            domProps: { value: _vm.form.ep_price },
+                            on: {
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.form,
+                                  "ep_price",
+                                  $event.target.value
+                                )
+                              },
+                            },
+                          }),
+                          _vm._v(" "),
+                          _c("has-error", {
+                            attrs: { form: _vm.form, field: "ep_price" },
+                          }),
+                        ],
+                        1
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-sm-3" }, [
+                      _c(
+                        "div",
+                        { staticClass: "form-group" },
+                        [
+                          _c("label", { attrs: { for: "mapai_price" } }, [
+                            _vm._v("Mapai price"),
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.mapai_price,
+                                expression: "form.mapai_price",
+                              },
+                            ],
+                            staticClass: "form-control",
+                            class: {
+                              "is-invalid": _vm.form.errors.has("mapai_price"),
+                            },
+                            attrs: {
+                              type: "number",
+                              min: "0",
+                              placeholder: "Enter map plan price",
+                              name: "mapai_price",
+                            },
+                            domProps: { value: _vm.form.mapai_price },
+                            on: {
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.form,
+                                  "mapai_price",
+                                  $event.target.value
+                                )
+                              },
+                            },
+                          }),
+                          _vm._v(" "),
+                          _c("has-error", {
+                            attrs: { form: _vm.form, field: "mapai_price" },
+                          }),
+                        ],
+                        1
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-sm-3" }, [
+                      _c(
+                        "div",
+                        { staticClass: "form-group" },
+                        [
+                          _c("label", { attrs: { for: "cpai_price" } }, [
+                            _vm._v("Cpai price"),
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.cpai_price,
+                                expression: "form.cpai_price",
+                              },
+                            ],
+                            staticClass: "form-control",
+                            class: {
+                              "is-invalid": _vm.form.errors.has("cpai_price"),
+                            },
+                            attrs: {
+                              type: "number",
+                              min: "0",
+                              placeholder: "Enter cpai price",
+                              name: "cpai_price",
+                            },
+                            domProps: { value: _vm.form.cpai_price },
+                            on: {
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.form,
+                                  "cpai_price",
+                                  $event.target.value
+                                )
+                              },
+                            },
+                          }),
+                          _vm._v(" "),
+                          _c("has-error", {
+                            attrs: { form: _vm.form, field: "cpai_price" },
+                          }),
+                        ],
+                        1
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-sm-3" }, [
+                      _c(
+                        "div",
+                        { staticClass: "form-group" },
+                        [
+                          _c("label", { attrs: { for: "apai_price" } }, [
+                            _vm._v("Apai price"),
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.apai_price,
+                                expression: "form.apai_price",
+                              },
+                            ],
+                            staticClass: "form-control",
+                            class: {
+                              "is-invalid": _vm.form.errors.has("apai_price"),
+                            },
+                            attrs: {
+                              type: "number",
+                              min: "0",
+                              placeholder: "Enter apai price",
+                              name: "apai_price",
+                            },
+                            domProps: { value: _vm.form.apai_price },
+                            on: {
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.form,
+                                  "apai_price",
+                                  $event.target.value
+                                )
+                              },
+                            },
+                          }),
+                          _vm._v(" "),
+                          _c("has-error", {
+                            attrs: { form: _vm.form, field: "apai_price" },
+                          }),
+                        ],
+                        1
+                      ),
                     ]),
                   ]),
                   _vm._v(" "),

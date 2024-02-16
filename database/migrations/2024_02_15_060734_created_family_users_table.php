@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatedEduInstitutesTable extends Migration
+class CreatedFamilyUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,18 @@ class CreatedEduInstitutesTable extends Migration
      */
     public function up()
     {
-        
-        Schema::create('edu_institutes', function (Blueprint $table) {
+        Schema::create('family_users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->unsignedBigInteger('school_id')->nullable();
-            $table->string('customer_id')->nullable();
-            $table->string('gstin')->nullable();
-            $table->string('country_code')->nullable();
-            $table->tinyInteger('role_type')->default(2)->comment("0=>student, 1=>teacher, 2=>principal");
             $table->string('email',100)->unique();
+            $table->string('passport_number')->nullable();
+            $table->date('passport_expiry_date')->nullable();
+            $table->string('passport_issuing_country')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
             $table->string('reset_link')->nullable();
             $table->string('link_time')->nullable();
+            $table->string('customer_id')->nullable();
             $table->tinyInteger('status')->default(0)->comment("0=>deactivate, 1=>active");
             $table->tinyInteger('change_password')->default(0)->comment("0=>No, 1=>Yes");
             $table->string('gbi_link')->nullable();
@@ -36,32 +34,25 @@ class CreatedEduInstitutesTable extends Migration
             $table->string('father_name')->nullable();
             $table->string('mother_name')->nullable();
             $table->string('dob')->nullable();
-            $table->string('address')->nullable();
+            $table->string('address1')->nullable();
+            $table->string('address2')->nullable();
             $table->string('city')->nullable();
             $table->string('state')->nullable();
             $table->string('country')->nullable();
             $table->string('zip_code')->nullable();
-            $table->string('user_class')->nullable();
-            $table->string('admission_year')->nullable();
             $table->tinyInteger('varified')->default(1)->comment("0=>No, 1=>Yes");
             $table->string('photo')->nullable();
             $table->string('gender')->nullable()->comment("male, female");
             $table->string('doc_front')->nullable();
             $table->string('doc_back')->nullable();
             $table->string('doc_type')->nullable();
-            $table->string('profession_name')->nullable();
-            $table->string('profession_address')->nullable();
-            $table->string('institution_code')->nullable();
-            $table->string('passport_number')->nullable();
-            $table->date('passport_expiry_date')->nullable();
-            $table->string('passport_issuing_country')->nullable();
             $table->tinyInteger('register_by')->default(0)->comment("0=>Normal, 1=>Admin");
             $table->tinyInteger('is_incharge')->default(0)->comment("0=>No, 1=>Yes");
+            $table->string('gstin')->nullable();
             $table->dateTime('created_at')->useCurrent();
             $table->dateTime('updated_at')->nullable();
             $table->rememberToken();
             $table->softDeletes();
-            $table->foreign('school_id')->references('id')->on('schools')->onDelete('cascade');
         });
     }
 
@@ -72,7 +63,6 @@ class CreatedEduInstitutesTable extends Migration
      */
     public function down()
     {
-        //Drops tables
-        Schema::dropIfExists('edu_institutes');
+        Schema::dropIfExists('family_users');
     }
 }
