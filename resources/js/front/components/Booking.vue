@@ -293,7 +293,6 @@ export default {
       customize_btn: true,
       back_btn: false,
       book_btn: true,
-
       first_form: true,
       second_form: false,
       groupAlert: false,

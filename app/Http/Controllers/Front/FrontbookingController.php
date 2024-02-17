@@ -13,6 +13,7 @@ class FrontbookingController extends Controller
 {
     public function booking(Request $request){
         $user = Auth::user();
+
         $validate = $this->validateBooking($request);
         $citylist = '';
         $transport = '';
@@ -103,9 +104,13 @@ class FrontbookingController extends Controller
     public function validateBooking($request)
     {
       return $this->validate($request, [
+            'tour_type' => 'required|date',
+            'itinerary_id' => 'required|date',
             'start_date' => 'required|date',
             'end_date' => 'required|date|after_or_equal:start_date',
-            'person' => 'required',
+            'no_of_boys' =>'required',
+            'no_of_girls' => 'required',
+            'price' => 'required',
             'adults'=>'required',
             'children'=>'required',
             'infants'=>'required',

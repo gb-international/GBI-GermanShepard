@@ -22,4 +22,12 @@ class FamilyUser extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function validateForPassportPasswordGrant($password)
+    {
+        if($this->where('password', $password)->exists())
+        {
+            return true; 
+        }
+    }
 }

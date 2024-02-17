@@ -37,15 +37,15 @@
           </VueSlickCarousel>
         </div>
     </div>
-    <div class="expDetCol2Main ml-2" v-if="itineraryData.price">
+    <div class="expDetCol2Main ml-2" v-if="(itineraryData.single_sharing_base_price) || (itineraryData.double_sharing_base_price) || (itineraryData.triple_sharing_base_price) || (itineraryData.quad_sharing_base_price)">
       <div class="expDetCol2">
         <div class="d-flex justify-content-start align-items-center priceSingleDiv priceBorder">
-          <p><b>₹{{itineraryData.price}} x 1 Pax</b></p>
-          <p class="ml-auto p2">₹{{(itineraryData.price).toLocaleString()}}</p>
+          <p><b>₹{{itineraryData.single_sharing_base_price}} x 1 Pax</b></p>
+          <p class="ml-auto p2">₹{{(itineraryData.single_sharing_base_price).toLocaleString()}}</p>
         </div>
         <div class="d-flex justify-content-start align-items-center priceSingleDiv priceBorder">
           <p>Total Basic Cost</p>
-          <p class="ml-auto p2">₹{{(itineraryData.price).toLocaleString()}}</p>
+          <p class="ml-auto p2">₹{{(itineraryData.single_sharing_base_price).toLocaleString()}}</p>
         </div>
 
         <!-- Coupon Div -->
@@ -63,7 +63,7 @@
 
         <div class="d-flex justify-content-start align-items-center priceSingleDiv">
           <p>Taxes</p>
-          <p class="ml-auto p2">₹{{(itineraryData.price * 5/100).toLocaleString()}}</p>
+          <p class="ml-auto p2">₹{{(itineraryData.single_sharing_base_price * 5/100).toLocaleString()}}</p>
         </div>
         <!-- <div class="d-flex justify-content-start align-items-center priceSingleDiv">
           <p>TCS(0%)</p>

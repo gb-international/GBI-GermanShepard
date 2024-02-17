@@ -111,6 +111,20 @@ class ItineraryController extends Controller
                 $data['food'] = $itinerary->food;
                 $data['photo'] = $itinerary->photo;
                 $data['price'] = $itinerary->price;
+                $data['single_sharing_base_price'] = $itinerary->single_sharing_base_price??0;
+                $data['double_sharing_base_price'] = $itinerary->double_sharing_base_price??0;
+                $data['triple_sharing_base_price'] = $itinerary->triple_sharing_base_price??0;
+                $data['quad_sharing_base_price'] = $itinerary->quad_sharing_base_price??0;
+                $data['child_with_mattress_price'] = $itinerary->child_with_mattress_price??0;
+                $data['child_without_mattress_price'] = $itinerary->child_without_mattress_price??0;
+                $data['infant_price'] = $itinerary->infant_price??0;
+                $data['apai_price'] = $itinerary->apai_price??0;
+                $data['mapai_price'] = $itinerary->mapai_price??0;
+                $data['cpai_price'] = $itinerary->cpai_price??0;
+                $data['ep_price'] = $itinerary->ep_price??0;
+                $data['no_of_nights'] = $itinerary->no_of_nights??0;
+                $data['tcs_fee'] = $itinerary->tcs_fee??0;
+                $data['gst_fee'] = $itinerary->gst_fee??0;
                 array_push($tour_data,$data);
             }
         }
@@ -135,6 +149,20 @@ class ItineraryController extends Controller
             $data['food'] = $itinerary->food;
             $data['photo'] = $evt->photo;
             $data['price'] = $itinerary->price;
+            $data['single_sharing_base_price'] = $itinerary->single_sharing_base_price??0;
+            $data['double_sharing_base_price'] = $itinerary->double_sharing_base_price??0;
+            $data['triple_sharing_base_price'] = $itinerary->triple_sharing_base_price??0;
+            $data['quad_sharing_base_price'] = $itinerary->quad_sharing_base_price??0;
+            $data['child_with_mattress_price'] = $itinerary->child_with_mattress_price??0;
+            $data['child_without_mattress_price'] = $itinerary->child_without_mattress_price??0;
+            $data['infant_price'] = $itinerary->infant_price??0;
+            $data['apai_price'] = $itinerary->apai_price??0;
+            $data['mapai_price'] = $itinerary->mapai_price??0;
+            $data['cpai_price'] = $itinerary->cpai_price??0;
+            $data['ep_price'] = $itinerary->ep_price??0;
+            $data['no_of_nights'] = $itinerary->no_of_nights??0;
+            $data['tcs_fee'] = $itinerary->tcs_fee??0;
+            $data['gst_fee'] = $itinerary->gst_fee??0;
             array_push($tour_data, $data);
         }
         foreach($tours as $tour){
@@ -150,6 +178,20 @@ class ItineraryController extends Controller
             $data['food'] = $itinerary->food;
             $data['photo'] = $itinerary->photo;
             $data['price'] = $itinerary->price;
+            $data['single_sharing_base_price'] = $itinerary->single_sharing_base_price??0;
+            $data['double_sharing_base_price'] = $itinerary->double_sharing_base_price??0;
+            $data['triple_sharing_base_price'] = $itinerary->triple_sharing_base_price??0;
+            $data['quad_sharing_base_price'] = $itinerary->quad_sharing_base_price??0;
+            $data['child_with_mattress_price'] = $itinerary->child_with_mattress_price??0;
+            $data['child_without_mattress_price'] = $itinerary->child_without_mattress_price??0;
+            $data['infant_price'] = $itinerary->infant_price??0;
+            $data['apai_price'] = $itinerary->apai_price??0;
+            $data['mapai_price'] = $itinerary->mapai_price??0;
+            $data['cpai_price'] = $itinerary->cpai_price??0;
+            $data['ep_price'] = $itinerary->ep_price??0;
+            $data['no_of_nights'] = $itinerary->no_of_nights??0;
+            $data['tcs_fee'] = $itinerary->tcs_fee??0;
+            $data['gst_fee'] = $itinerary->gst_fee??0;
             array_push($tour_data, $data);
         }
         return response()->json($tour_data);
@@ -176,6 +218,20 @@ class ItineraryController extends Controller
             $data['food'] = $itinerary->food;
             $data['photo'] = $itinerary->photo;
             $data['price'] = $itinerary->price;
+            $data['single_sharing_base_price'] = $itinerary->single_sharing_base_price??0;
+            $data['double_sharing_base_price'] = $itinerary->double_sharing_base_price??0;
+            $data['triple_sharing_base_price'] = $itinerary->triple_sharing_base_price??0;
+            $data['quad_sharing_base_price'] = $itinerary->quad_sharing_base_price??0;
+            $data['child_with_mattress_price'] = $itinerary->child_with_mattress_price??0;
+            $data['child_without_mattress_price'] = $itinerary->child_without_mattress_price??0;
+            $data['infant_price'] = $itinerary->infant_price??0;
+            $data['apai_price'] = $itinerary->apai_price??0;
+            $data['mapai_price'] = $itinerary->mapai_price??0;
+            $data['cpai_price'] = $itinerary->cpai_price??0;
+            $data['ep_price'] = $itinerary->ep_price??0;
+            $data['no_of_nights'] = $itinerary->no_of_nights??0;
+            $data['tcs_fee'] = $itinerary->tcs_fee??0;
+            $data['gst_fee'] = $itinerary->gst_fee??0;
             array_push($tour_data, $data);
         }
         foreach($itineraries as $itinerary){
@@ -192,6 +248,20 @@ class ItineraryController extends Controller
                 $data['food'] = $itinerary->food;
                 $data['photo'] = $itinerary->photo;
                 $data['price'] = $itinerary->price;
+                $data['single_sharing_base_price'] = $itinerary->single_sharing_base_price??0;
+                $data['double_sharing_base_price'] = $itinerary->double_sharing_base_price??0;
+                $data['triple_sharing_base_price'] = $itinerary->triple_sharing_base_price??0;
+                $data['quad_sharing_base_price'] = $itinerary->quad_sharing_base_price??0;
+                $data['child_with_mattress_price'] = $itinerary->child_with_mattress_price??0;
+                $data['child_without_mattress_price'] = $itinerary->child_without_mattress_price??0;
+                $data['infant_price'] = $itinerary->infant_price??0;
+                $data['apai_price'] = $itinerary->apai_price??0;
+                $data['mapai_price'] = $itinerary->mapai_price??0;
+                $data['cpai_price'] = $itinerary->cpai_price??0;
+                $data['ep_price'] = $itinerary->ep_price??0;
+                $data['no_of_nights'] = $itinerary->no_of_nights??0;
+                $data['tcs_fee'] = $itinerary->tcs_fee??0;
+                $data['gst_fee'] = $itinerary->gst_fee??0;
                 array_push($tour_data, $data);
             }
         }
@@ -200,7 +270,8 @@ class ItineraryController extends Controller
     
     public function list($count=6)
     {
-        return response()->json(Itinerary::simplePaginate($count));
+        // latest('id')->
+        return response()->json(Itinerary::paginate($count));
     }
 
     public function requestItinerary(Request $request){

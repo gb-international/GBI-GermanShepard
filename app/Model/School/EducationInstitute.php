@@ -22,19 +22,18 @@ class EducationInstitute extends Authenticatable
      *
      * @var array
      */
-    // protected $hidden = [
-    //     'password', 'remember_token',
-    // ];
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
 
 
-    // public function validateForPassportPasswordGrant($password)
-    // {
-    //     return true;
-    //     if($this->where('otp', $password)->exists())
-    //     {
-    //         return true; 
-    //     }
-    // }
+    public function validateForPassportPasswordGrant($password)
+    {
+        if($this->where('password', $password)->exists())
+        {
+            return true; 
+        }
+    }
 
     public function setEmailAttribute($value){
         return $this->attributes['email'] = strtolower($value);

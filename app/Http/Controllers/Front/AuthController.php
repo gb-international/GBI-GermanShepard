@@ -10,6 +10,9 @@ use App\Model\Tour\Tour;
 use App\Model\School\School;
 use Illuminate\Support\Facades\Auth;
 use Validator;
+use App\Model\School\EducationInstitute as EduInstitute;
+use App\CompanyUser;
+use App\FamilyUser;
 use DB;
 use Image;
 use GuzzleHttp\Client;
@@ -20,42 +23,63 @@ use App\Jobs\ChangePasswordJob;
 use App\Rules\EmailValidate;
 use App\Model\User\Subscriber;
 use App\Model\Notification\Notifier;
+use App\Rules\PhoneNubmerValidate;
 
 class AuthController extends Controller{
-
     public function login(Request $request){ 
-
-
-        // Check if a user with the specified number exists
-        $userinfo = Information::where('phone_no', $request->phone_no)->first();
-        if (!$userinfo) {
-            return response()->json([
-                'message' => 'Invalid phone number',
-                'status' => 422
-            ], 422);
+        $validator = Validator::make($request->all(), [ 
+            'phone_no' => ['required','numeric',new PhoneNubmerValidate],
+            'login_type'=>'required|in:user,school,company,family'
+        ]);
+        if ($validator->fails()) { 
+            return response()->json(['error'=>$validator->errors()], 422);            
         }
+        $userinfo;
+        if($request->login_type == "user"){
+            $userinfo = User::where('phone_no', $request->phone_no)->first();
+            if (!$userinfo) {
+                return response()->json([
+                    'message' => 'Invalid phone number',
+                    'status' => 422
+                ], 422);
+            }
+        }
+        else if($request->login_type == "school"){
+            $userinfo = EduInstitute::where('phone_no', $request->phone_no)->first();
+            if (!$userinfo) {
+                return response()->json([
+                    'message' => 'Invalid phone number',
+                    'status' => 422
+                ], 422);
+            }
+        }
+        else if($request->login_type == "company"){
+            // Check if a user with the specified number exists
+            $userinfo = CompanyUser::where('phone_no', $request->phone_no)->first();
+            if (!$userinfo) {
+                return response()->json([
+                    'message' => 'Invalid phone number',
+                    'status' => 422
+                ], 422);
+            }
+        }
+        else if($request->login_type == "family"){
+            // Check if a user with the specified number exists
+            $userinfo = FamilyUser::where('phone_no', $request->phone_no)->first();
+            if (!$userinfo) {
+                return response()->json([
+                    'message' => 'Invalid phone number',
+                    'status' => 422
+                ], 422);
+            }
+        }
+
 
         // Check if otp is valid
         $otpVerify = Otp::where('otp_send', $request->otp)->where('phone_no', $request->phone_no)->first();
         if (!$otpVerify) {
             return response()->json([
                 'message' => 'Invalid OTP',
-                'status' => 422
-            ], 422);
-        }
-        
-        // Retrieve user data
-        $user = User::findOrFail($userinfo->user_id);
-        if (!$user) {
-            return response()->json([
-                'message' => 'Invalid user',
-                'status' => 422
-            ], 422);
-        }
-
-        if ($user->user_type == 'GBI Member') {
-            return response()->json([
-                'message' => 'You are not allowed to login!!',
                 'status' => 422
             ], 422);
         }
@@ -80,11 +104,10 @@ class AuthController extends Controller{
         } */
         
         
-        // Send an internal API request to get an access token
         $client = DB::table('oauth_clients')
-            ->where('password_client', true)
-            ->first();
-        
+        ->where(['password_client'=> true, 'provider'=>$request->login_type])
+        ->first();
+        // return $client;
         // Make sure a Password Client exists in the DB
         if (!$client) {
             return response()->json([
@@ -92,17 +115,18 @@ class AuthController extends Controller{
                 'status' => 500
             ], 500);
         }
-        
+
         $data = [
             'grant_type' => 'password',
             'client_id' => $client->id,
             'client_secret' => $client->secret,
-            'username' => $user->email,
-            'password' => $user->password,
+            'username' => $userinfo->email,
+            'password' => $userinfo->password,
+            'scope' => $request->login_type,
+            'provider' => $request->login_type,
         ];
-
         $request = Request::create('/oauth/token', 'POST', $data);
-        
+    
         $response = app()->handle($request);
         // Check if the request was successful
         if ($response->getStatusCode() != 200) {
@@ -111,42 +135,24 @@ class AuthController extends Controller{
                 //'response' => $response,
                 'status' => 422
             ], 422);
-        }
+        } 
 
-        $sub_id = null;
-        $sub = Subscriber::where('user_id', $user->id)->first();
-        if($sub){
-            $sub_id = $sub->id;
-        }
-
-        // Get the data from the response
         $data = json_decode($response->getContent());
-        $userData = [
-            'id' => $user->id,
-            'name'=>$user->name,
-            'email'=>$user->email,
-            'photo'=>$user->information->photo,
-            'phone_no'=>$user->information->phone_no,
-            'father_name'=>$user->information->father_name,
-            'user_profession'=>$user->information->user_profession,
-            'city'=>$user->information->city,
-            'state'=>$user->information->state,
-            'country'=>$user->information->country,
-            'status'=>$user->status,
-            'is_incharge'=>$user->is_incharge,
-            'school_id'=>$user->information->school_id,
-            'company_id'=>$user->information->company_id,
-            'client_type'=>$user->information->client_type,
-            'change_password' => $user->information->change_password,
-            'subscription_id' => $sub_id
-        ];
+
         // Format the final response in a desirable format
         return response()->json([
+            "token_type" => $data->token_type,
+            "expires_in" => $data->expires_in,
             'token' => $data->access_token,
             'refresh_token' => $data->refresh_token,
-            'user' => $userData,
             'status' => 200
-        ]);
+        ], 200);
+
+        // $sub_id = null;
+        // $sub = Subscriber::where('user_id', $user->id)->first();
+        // if($sub){
+        //     $sub_id = $sub->id;
+        // }
     }
     /** 
      * Register api 
