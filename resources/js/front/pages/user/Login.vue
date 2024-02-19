@@ -343,6 +343,7 @@ export default {
     },
 
     loginUser(event) {
+      console.log(this.loginform.otp);
       //let email = this.loginform.email;
       let otp = this.loginform.otp;
       let phone_no = this.loginform.phone_no;
