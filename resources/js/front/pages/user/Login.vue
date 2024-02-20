@@ -347,11 +347,12 @@ export default {
       //let email = this.loginform.email;
       let otp = this.loginform.otp;
       let phone_no = this.loginform.phone_no;
+      let login_type = "school";
 
       //let password = this.loginform.password;
       this.isLoading = true;
       this.$store
-        .dispatch("login", { otp, phone_no })
+        .dispatch("login", { otp, phone_no, login_type })
         .then((response) => {
           this.loginform.reset();
           window.$(".login_close").click();

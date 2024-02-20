@@ -23,6 +23,7 @@ use App\Model\Notification\Notifier;
 use App\Model\School\EducationInstitute as EduInstitute;
 use App\CompanyUser;
 use App\FamilyUser;
+use App\Rules\PhoneNubmerValidate;
 use App\User;
 use App\Http\Controllers\API\BaseController;
 use Laravel\Passport\RefreshToken;
@@ -144,7 +145,7 @@ class AuthController extends Controller{
      * 
      * @return \Illuminate\Http\Response 
      */ 
-    public function register(Request $request) 
+    public function register($client_type, Request $request) 
     { 
         $validator = Validator::make($request->all(), [ 
             'client_type' =>  'required|in:family,company,school',

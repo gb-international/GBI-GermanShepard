@@ -164,9 +164,6 @@ Route::namespace('Front')->group(function(){
 	// Subscriber
 	Route::post('subscribe','SubscriberController@store');
 
-	// request itinerary
-	Route::post('/request-itinerary','ItineraryController@requestItinerary');
-
 	// Feedback Submit
 	Route::post('/feedback-submit','FeedbackController@store');
 	Route::get('/feedback-list','FeedbackController@list');
@@ -213,7 +210,9 @@ Route::group(['prefix' => '/school_trip_payment', 'as' => 'school_trip_payment.'
 
 //Company
 Route::group(['prefix' => '{company}', 'middleware' => 'company.authentication'], function () {
-	
+		
+		// request itinerary
+		Route::post('/request-itinerary','ItineraryController@requestItinerary');
 	//Incharge payment status update on tour
 	Route::post('tour-payment-through-status',[TourController::class, 'paymentThrough'])->where('company', 'company');
 	

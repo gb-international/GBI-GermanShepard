@@ -274,7 +274,18 @@ class ItineraryController extends Controller
         return response()->json(Itinerary::paginate($count));
     }
 
-    public function requestItinerary(Request $request){
+    public function requestItinerary($guard, Request $request){
+        passenger_below_eighteen
+        no_of_boys
+        no_of_girls
+        amounts
+        itinerary_id
+        start_date
+        end_date
+        occupany_type
+        
+
+
         $validated = $this->validate($request, [
             'tourtype' => 'required',
             'noofday' => 'required',
@@ -331,4 +342,65 @@ class ItineraryController extends Controller
         $data->Ency = $iTencyclopedia;
         return response()->json($data);
     }
+}
+
+
+{
+
+
+
+
+    "adults": 2,
+    "children": 0,
+    "infants": 0,
+    "room": 1,
+    "occupancy_type": "Single",
+    "city_id": [
+        {
+            "id": 1,
+            "country_id": 2,
+            "state_id": 1,
+            "name": "New Delhi",
+            "created_at": "2023-02-18T11:51:39.000000Z",
+            "updated_at": "2023-02-18T11:51:39.000000Z"
+        },
+        {
+            "id": 137,
+            "country_id": 2,
+            "state_id": 26,
+            "name": "Jaipur",
+            "created_at": "2023-02-24T07:19:33.000000Z",
+            "updated_at": "2023-02-24T07:19:33.000000Z"
+        },
+        {
+            "id": 138,
+            "country_id": 2,
+            "state_id": 17,
+            "name": "Kochi",
+            "created_at": "2023-02-24T07:20:52.000000Z",
+            "updated_at": "2023-02-24T07:20:52.000000Z"
+        },
+        {
+            "id": 140,
+            "country_id": 2,
+            "state_id": 28,
+            "name": "Kanyakumari",
+            "created_at": "2023-02-24T07:22:05.000000Z",
+            "updated_at": "2023-02-24T07:22:05.000000Z"
+        },
+        {
+            "id": 417,
+            "country_id": 2,
+            "state_id": 17,
+            "name": "Trivandrum",
+            "created_at": "2023-10-04T12:04:53.000000Z",
+            "updated_at": "2023-10-04T12:04:53.000000Z"
+        }
+    ],
+    "transport": [
+        "Train",
+        "Air"
+    ],
+    "noofday": 1,
+    "accommodation": 3
 }
