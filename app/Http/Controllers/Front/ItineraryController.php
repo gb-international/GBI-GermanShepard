@@ -275,26 +275,39 @@ class ItineraryController extends Controller
     }
 
     public function requestItinerary($guard, Request $request){
-        passenger_below_eighteen
-        no_of_boys
-        no_of_girls
-        amounts
-        itinerary_id
-        start_date
-        end_date
-        occupany_type
         
-
-
         $validated = $this->validate($request, [
-            'tourtype' => 'required',
-            'noofday' => 'required',
-            'source' => 'required',
-            'destination' => 'required',
-            'phoneno' => 'required',
-            'email' => ['required',new EmailValidate],
+            'itinerary_id' => 'required|exists:itineraries,id',
+            'start_date' => 'required|date|after:today',
+            'end_date' => 'required|date|after_or_equal:start_date',
+            'price' => 'required|numeric',
+            'no_of_boys' =>$guard == 'school' ? 'required|numeric': '',
+            'no_of_girls' =>$guard == 'school' ? 'required|numeric':'',
+            'passenger' => 'required|numeric',
+            'occupancy_type' => 'required|in:single,double,triple,quad',
+            'meal_plan' => 'required|in:ep,cp,map,ap',
+            'no_of_days' => 'required|numeric',
+            'no_of_rooms' => 'required|numeric',
+            'accommodation_preference' => 'required|numeric',
+            'passenger_details' => ($guard == 'family'||$guard == 'company') ? 'required|array': '',
+            'passenger_details.*.adults' => ($guard == 'family'||$guard == 'company') ? 'required|numeric': '',
+            'mode_of_transport.*' => 'in:bus,train,flight',
         ]);
+        $data = array('itinerary_id'=>$request->itinerary_id??null,
+        'start_date'=>$request->start_date??null,
+        'end_date'=>$request->start_date??null,
+        'price'=>$request->price??null,
+        'no_of_boys'=>$request->no_of_boys??0,
+        'no_of_girls'=>$request->no_of_girls??0,
+        'passenger'=>$request->passenger??0,
+        'occupancy_type'=>$request->occupancy_type??0,
+        'meal_plan'=>$request->meal_plan??0,
+        'no_of_days' => $request->no_of_days??0,
+        'no_of_rooms' => $request->no_of_rooms??0,
+        'accommodation_preference' => $request->accommodation_preference??0);
         
+        // passenger_details
+        // mode_of_transport
         Itineraryrequest::create($validated);
 
         SendItineraryRequestToGbiMailJob::dispatch($validated);
@@ -342,65 +355,4 @@ class ItineraryController extends Controller
         $data->Ency = $iTencyclopedia;
         return response()->json($data);
     }
-}
-
-
-{
-
-
-
-
-    "adults": 2,
-    "children": 0,
-    "infants": 0,
-    "room": 1,
-    "occupancy_type": "Single",
-    "city_id": [
-        {
-            "id": 1,
-            "country_id": 2,
-            "state_id": 1,
-            "name": "New Delhi",
-            "created_at": "2023-02-18T11:51:39.000000Z",
-            "updated_at": "2023-02-18T11:51:39.000000Z"
-        },
-        {
-            "id": 137,
-            "country_id": 2,
-            "state_id": 26,
-            "name": "Jaipur",
-            "created_at": "2023-02-24T07:19:33.000000Z",
-            "updated_at": "2023-02-24T07:19:33.000000Z"
-        },
-        {
-            "id": 138,
-            "country_id": 2,
-            "state_id": 17,
-            "name": "Kochi",
-            "created_at": "2023-02-24T07:20:52.000000Z",
-            "updated_at": "2023-02-24T07:20:52.000000Z"
-        },
-        {
-            "id": 140,
-            "country_id": 2,
-            "state_id": 28,
-            "name": "Kanyakumari",
-            "created_at": "2023-02-24T07:22:05.000000Z",
-            "updated_at": "2023-02-24T07:22:05.000000Z"
-        },
-        {
-            "id": 417,
-            "country_id": 2,
-            "state_id": 17,
-            "name": "Trivandrum",
-            "created_at": "2023-10-04T12:04:53.000000Z",
-            "updated_at": "2023-10-04T12:04:53.000000Z"
-        }
-    ],
-    "transport": [
-        "Train",
-        "Air"
-    ],
-    "noofday": 1,
-    "accommodation": 3
 }

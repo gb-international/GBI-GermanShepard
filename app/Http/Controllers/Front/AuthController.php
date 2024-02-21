@@ -30,17 +30,16 @@ use Laravel\Passport\RefreshToken;
 use Laravel\Passport\Token;
 
 class AuthController extends Controller{
-    public function login(Request $request){ 
+    public function login($client_type, Request $request){ 
         $validator = Validator::make($request->all(), [ 
-            'phone_no' => ['required','numeric',new PhoneNubmerValidate],
-            'login_type'=>'required|in:user,school,company,family'
+            'phone_no' => ['required','numeric',new PhoneNubmerValidate]
         ]);
         if ($validator->fails()) { 
             return response()->json(['error'=>$validator->errors()], 422);            
         }
         $userinfo;
         $sub_id = null;
-        if($request->login_type == "user"){
+        if($client_type == "user"){
             $userinfo = User::where('phone_no', $request->phone_no)->first();
             if (!$userinfo) {
                 return response()->json([
@@ -49,7 +48,7 @@ class AuthController extends Controller{
                 ], 422);
             }
         }
-        else if($request->login_type == "school"){
+        else if($client_type == "school"){
             $userinfo = EduInstitute::where('phone_no', $request->phone_no)->first();
             if (!$userinfo) {
                 return response()->json([
@@ -60,7 +59,7 @@ class AuthController extends Controller{
             $sub = Subscriber::where('edu_institute_id', $userinfo->id)->first();
             $userinfo->subscription_id = $sub->id??null;
         }
-        else if($request->login_type == "company"){
+        else if($client_type == "company"){
             // Check if a user with the specified number exists
             $userinfo = CompanyUser::where('phone_no', $request->phone_no)->first();
             if (!$userinfo) {
@@ -72,7 +71,7 @@ class AuthController extends Controller{
             $sub = Subscriber::where('company_user_id', $userinfo->id)->first();
             $userinfo->subscription_id = $sub->id??null;
         }
-        else if($request->login_type == "family"){
+        else if($client_type == "family"){
             // Check if a user with the specified number exists
             $userinfo = FamilyUser::where('phone_no', $request->phone_no)->first();
             if (!$userinfo) {
@@ -96,7 +95,7 @@ class AuthController extends Controller{
         }
   
         $client = DB::table('oauth_clients')
-        ->where(['password_client'=> true, 'provider'=>$request->login_type])
+        ->where(['password_client'=> true, 'provider'=>$client_type])
         ->first();
         // return $client;
         // Make sure a Password Client exists in the DB
@@ -113,8 +112,8 @@ class AuthController extends Controller{
             'client_secret' => $client->secret,
             'username' => $userinfo->email,
             'password' => $userinfo->password,
-            'scope' => $request->login_type,
-            'provider' => $request->login_type,
+            'scope' => $client_type,
+            'provider' => $client_type,
         ];
         $request = Request::create('/oauth/token', 'POST', $data);
     
@@ -146,13 +145,25 @@ class AuthController extends Controller{
      * @return \Illuminate\Http\Response 
      */ 
     public function register($client_type, Request $request) 
-    { 
+    {
+        $table = "";
+        if($client_type == "school"){
+            $table = "edu_institutes";
+        }
+        else if($client_type == "company"){
+            $table = "company_users";
+        }
+        else if($client_type == "family"){
+            $table = "family_users";
+        }
+        else{
+            $table = "users";
+        }
+        
         $validator = Validator::make($request->all(), [ 
-            'client_type' =>  'required|in:family,company,school',
             'name' => 'required',  
-            'email' => ['required_if:client_type,school', 'email',new EmailValidate, 'unique:edu_institutes,email'],
-            'company_email' => ['required_if:client_type,company', 'email',new EmailValidate, 'unique:company_users,email'],
-            'family_email' => ['required_if:client_type,family', 'email',new EmailValidate, 'unique:family_users,email'],
+            'email' => ['required', 'email',new EmailValidate, 'unique:'.$table.',email'],
+            'phone_no' => ['required','numeric',new PhoneNubmerValidate,'unique:'.$table.',phone_no'],
             'password' => 'required', 
             'c_password' => 'required|same:password', 
         ]);
@@ -160,9 +171,8 @@ class AuthController extends Controller{
         if ($validator->fails()) { 
             return response()->json(['error'=>$validator->errors()], 422);            
         }
-        $client = DB::table('oauth_clients')
-        ->where(['password_client'=> true, 'provider'=>$request->client_type])
-        ->first();
+        $client = DB::table('oauth_clients')->where(['password_client'=> true, 'provider'=>$client_type])->first();
+        $userinfo;
         // return $client;
         // Make sure a Password Client exists in the DB
         if (!$client) {
@@ -177,20 +187,22 @@ class AuthController extends Controller{
             'client_id' => $client->id,
             'client_secret' => $client->secret,
             'password' => $password,
-            'scope' => $request->client_type,
-            'provider' => $request->client_type,
+            'scope' => $client_type,
+            'provider' => $client_type,
         ];
         
         if($request->client_type == "family"){
             $family_user = new FamilyUser();
             $family_user->name = $request->name??null;
-            $family_user->email = $request->family_email??null;
+            $family_user->email = $request->email??null;
+            $family_user->phone_no = $request->phone_no??null;
             $family_user->password = $password;
             $family_user->varified = '1';
             $family_user->photo = 'user.png';
             $family_user->gender = '';
             $family_user->save();
-            $data['username'] = $request->family_email??null;
+            $data['username'] = $request->email??null;
+            $userinfo = FamilyUser::latest('id')->first();
             // $sendsms = new SendSms; // send welcome sms
             // $sendsms->signUpSMS($request->phone_no, $family_user);
         }
@@ -198,29 +210,33 @@ class AuthController extends Controller{
             $eduInstitute = new EduInstitute();
             $eduInstitute->name = $request->name??null;
             $eduInstitute->email = $request->email??null;
+            $eduInstitute->phone_no = $request->phone_no??null;
             $eduInstitute->password = $password;
             $eduInstitute->varified = '1';
             $eduInstitute->photo = 'user.png';
             $eduInstitute->gender = '';
             $eduInstitute->save();
             $data['username'] = $request->email??null;
+            $userinfo = EduInstitute::latest('id')->first();
             // $sendsms = new SendSms; // send welcome sms
             // $sendsms->signUpSMS($request->phone_no,$eduInstitute);
         }
         else if($request->client_type == "company"){
             $company_user = new CompanyUser();
             $company_user->name = $request->name??null;
-            $company_user->email = $request->company_email??null;
+            $company_user->email = $request->email??null;
             $company_user->password = $password;
+            $company_user->phone_no = $request->phone_no??null;
             $company_user->varified = '1';
             $company_user->photo = 'user.png';
             $company_user->gender = '';
             $company_user->save();
-            $data['username'] = $request->company_email??null;
+            $data['username'] = $request->email??null;
+            $userinfo = CompanyUser::latest('id')->first();
             // $sendsms = new SendSms; // send welcome sms
             // $sendsms->signUpSMS($request->phone_no,$company_user);
         }
-        $guard_name = $request->client_type."-api";
+        
         $request = Request::create('/oauth/token', 'POST', $data);        
         $response = app()->handle($request);
         // Check if the request was successful
@@ -239,6 +255,7 @@ class AuthController extends Controller{
             "expires_in" => $data->expires_in,
             'token' => $data->access_token,
             'refresh_token' => $data->refresh_token,
+            'user' => $userinfo,
             'status' => 200
         ], 200);
     }

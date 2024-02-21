@@ -31,6 +31,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 // front	
+Route::group(['prefix' => '{client_type}'], function () {
+	Route::post('login-user', [AuthController::class,'login'])->where('client_type', 'school|company|family|user');
+	Route::post('register-user', [AuthController::class,'register'])->where('client_type', 'school|company|family|user');
+});  
 
 Route::namespace('Front')->group(function(){
 
@@ -78,9 +82,6 @@ Route::namespace('Front')->group(function(){
 	Route::post('/add-article-comment','ArticleController@addComment');
 
 	// Front user controller 
-	Route::post('login-user', 'AuthController@login');
-	Route::post('register-user', 'AuthController@register');
-	Route::post('refreshtoken','AuthController@refresh');
 
 	// Related Cities
 	Route::get('/related-cities/{id}','LocationController@relatedCities');
@@ -103,7 +104,7 @@ Route::namespace('Front')->group(function(){
 	Route::group(['middleware' => 'auth:api'], function(){
 		Route::post('details', 'UserController@details');
 		Route::post('/user-show', 'UserController@show');
-		Route::post('/logout-user','AuthController@logout');
+		Route::post('/logout-user',[AuthController::class, 'logout']);
 		Route::post('/user-info-update', 'UserController@infoUpdate');
 		Route::post('/user-update','UserController@update');
 		Route::post('/update-password','UserController@UpdatePassword');
@@ -241,7 +242,7 @@ Route::group(['prefix' => '{company}', 'middleware' => 'company.authentication']
 			Route::get('payment-history/{size?}', 'allHistory')->where('company', 'company');
 		});
 	});
-
+	Route::post('refreshtoken',[AuthController::class, 'refresh'])->where('company', 'company');
 	Route::post('logout-user',[AuthController::class, 'logout'])->where('company', 'company');
 	Route::post('refreshtoken',[AuthController::class, 'refresh'])->where('company', 'company');
 	
@@ -310,7 +311,7 @@ Route::group(['prefix' => '{school}', 'middleware' => 'school.authentication'], 
 			Route::get('payment-history/{size?}', 'allHistory')->where('school', 'school');
 		});
 	});
-
+	Route::post('refreshtoken',[AuthController::class, 'refresh'])->where('school', 'school');
 	Route::post('logout-user',[AuthController::class, 'logout'])->where('school', 'school');
 	Route::post('refreshtoken',[AuthController::class, 'refresh'])->where('school', 'school');
 	
@@ -366,12 +367,12 @@ Route::group(['prefix' => '{school}', 'middleware' => 'school.authentication'], 
 Route::group(['prefix' => '{family}', 'middleware' => 'family.authentication'], function () {
 	//Incharge payment status update on tour
 	Route::post('tour-payment-through-status',[TourController::class, 'paymentThrough'])->where('family', 'family');
-
+	
 	//Discount Coupon 
 	Route::group(['prefix' => '/advertising', 'as' => 'advertising.'], function () {
 		Route::post('check-discount-coupon',[DiscountCouponController::class, 'checkCouponValidation'])->where('family', 'family');
 	});
-
+	
 	Route::group(['prefix' => 'payment', 'as' => 'payment.'], function () {
 		Route::group(['prefix' => '/cash', 'as' => 'cash.'], function () {
 			Route::post('record',[UserpaymentController::class, 'cashRecord'])->where('family', 'family');
@@ -380,7 +381,7 @@ Route::group(['prefix' => '{family}', 'middleware' => 'family.authentication'], 
 		Route::group(['prefix' => '/cheque', 'as' => 'cheque.'], function () {
 			Route::post('cheque-draft-record',[UserpaymentController::class, 'chequeOrdraftRecord'])->where('family', 'family');
 		});
-
+		
 		Route::group(['prefix' => '/payment-gateway', 'as' => 'payment-gateway.'], function() {
 			Route::controller(\Front\UserpaymentController::class)->group(function() {
 				Route::post('make-order', 'makeOrder')->where('family', 'family');
@@ -428,3 +429,8 @@ Route::group(['prefix' => '{family}', 'middleware' => 'family.authentication'], 
 	});
 });
 
+
+Route::group(['prefix' => '{user}', 'middleware' => 'user.authentication'], function () {
+	Route::post('logout-user',[AuthController::class, 'logout'])->where('user', 'user');
+	Route::post('refreshtoken',[AuthController::class, 'refresh'])->where('user', 'user');
+});
