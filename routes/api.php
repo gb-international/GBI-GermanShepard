@@ -5,6 +5,7 @@ use App\Http\Controllers\Front\AuthController;
 use App\Http\Controllers\Front\ItinerarySightseeingController;
 use App\Http\Controllers\Front\DiscountCoupon\DiscountCouponController;
 use App\Http\Controllers\Front\UserController;
+use App\Http\Controllers\Front\ItineraryController;
 use App\Http\Controllers\Front\TourController;
 use App\Http\Controllers\Front\EncyclopediaController;
 use App\Http\Controllers\Front\FrontbookingController;
@@ -212,8 +213,8 @@ Route::group(['prefix' => '/school_trip_payment', 'as' => 'school_trip_payment.'
 //Company
 Route::group(['prefix' => '{company}', 'middleware' => 'company.authentication'], function () {
 		
-		// request itinerary
-		Route::post('/request-itinerary','ItineraryController@requestItinerary');
+	// request itinerary
+	Route::post('/request-itinerary',[ItineraryController::class, 'requestItinerary'])->where('company', 'company');
 	//Incharge payment status update on tour
 	Route::post('tour-payment-through-status',[TourController::class, 'paymentThrough'])->where('company', 'company');
 	
@@ -284,6 +285,7 @@ Route::group(['prefix' => '{company}', 'middleware' => 'company.authentication']
 
 // School
 Route::group(['prefix' => '{school}', 'middleware' => 'school.authentication'], function () {
+	Route::post('/request-itinerary',[ItineraryController::class, 'requestItinerary'])->where('school', 'school');
 
 	//Incharge payment status update on tour
 	Route::post('tour-payment-through-status',[TourController::class, 'paymentThrough'])->where('school', 'school');
@@ -365,6 +367,8 @@ Route::group(['prefix' => '{school}', 'middleware' => 'school.authentication'], 
 
 // Family
 Route::group(['prefix' => '{family}', 'middleware' => 'family.authentication'], function () {
+	
+	Route::post('/request-itinerary',[ItineraryController::class,'requestItinerary'])->where('family', 'family');
 	//Incharge payment status update on tour
 	Route::post('tour-payment-through-status',[TourController::class, 'paymentThrough'])->where('family', 'family');
 	

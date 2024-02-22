@@ -13,13 +13,11 @@ class ItineraryrequestController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function all($size)
+    public function all($guard_name, $size)
     {
-        return response()->json(Itineraryrequest::select([
-                'id','source','destination','phoneno','email'
-            ])
-            ->latest('updated_at')
-            ->paginate($size));
+        return response()->json(Itineraryrequest::where('client_type',$guard_name)->select([
+            'id', 'source', 'destination','edu_institute_id', 'company_user_id', 'family_user_id', 'itinerary_id','client_type', 'start_date', 'end_date', 'no_of_boys', 'no_of_girls', 'passenger', 'passenger_below_eighteen', 'price', 'occupancy_type','meal_plan', 'no_of_days', 'no_of_rooms', 'accommodation_preference', 'passenger_details', 'mode_of_transport'
+            ])->with('education_institude', 'company_user', 'family_user','itinerary','cities')->latest('created_at')->paginate($size));
     }
     public function index()
     {
@@ -53,9 +51,9 @@ class ItineraryrequestController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($guard_name, $id)
     {
-        return response()->json(Itineraryrequest::where('id',$id)->first());
+        return response()->json(Itineraryrequest::where(['id'=>$id,'client_type',$guard_name])->first());
     }
 
     /**
@@ -87,9 +85,9 @@ class ItineraryrequestController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($guard_name, $id)
     {
-        $data = Itineraryrequest::where('id',$id)->first();
+        $data = Itineraryrequest::where(['id'=>$id,'client_type',$guard_name])->first();
         $data->delete();
         return response()->json('successfully deleted !!!');
     }

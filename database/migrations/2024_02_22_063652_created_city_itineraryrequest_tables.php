@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatedItineraryrequestCitiesTable extends Migration
+class CreatedCityItineraryrequestTables extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreatedItineraryrequestCitiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('itineraryrequest_cities', function (Blueprint $table) {
+        Schema::create('city_itineraryrequest', function (Blueprint $table) {
             $table->bigInteger('itineraryrequest_id')->unsigned();
             $table->Integer('city_id')->unsigned();
             $table->foreign('itineraryrequest_id')->references('id')->on('itineraryrequests')->onDelete('cascade');
@@ -28,7 +28,6 @@ class CreatedItineraryrequestCitiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('itineraryrequest_id');
-        Schema::dropIfExists('city_id');
+        Schema::dropIfExists('city_itineraryrequest');
     }
 }

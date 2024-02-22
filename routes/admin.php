@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use App\Http\Controllers\Admin\TravellerPolicy\TravellerPolicyCategoryController;
 use App\Http\Controllers\Admin\TravellerPolicy\TravellerPolicyController;
+use App\Http\Controllers\Admin\Itinerary\ItineraryrequestController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -22,7 +23,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 // Route::post('/payment','Front\PaymentController@payment');
 // Route::group(['middleware' => ['auth:api'],'namespace'=>'Front'],function(){
 Route::namespace('Admin')->group(function (){
-
+	Route::group(['prefix' => '/{client_type}'], function () {
+		Route::get('request-itinerary/all/{size}',[ItineraryrequestController::class,'all'])->where('client_type', 'school|company|family');
+		Route::get('request-itinerary/{id}',[ItineraryrequestController::class,'show'])->where('client_type', 'school|company|family');
+		Route::delete('request-itinerary/{id}',[ItineraryrequestController::class, 'Destroy'])->where('client_type', 'school|company|family');
+	});
 	Route::namespace('Transport')->group(function(){
 		Route::get('bus/all/{size}','BusController@all');
 		Route::resource('bus', 'BusController');
@@ -52,7 +57,6 @@ Route::namespace('Admin')->group(function (){
 		Route::get('itinerary/all/{size}','ItineraryController@all');
 		Route::resource('itinerary','ItineraryController');
 		Route::get('itinerarydayget/{id}','ItinerarydayController@index');
-
 		Route::get('itineraryrequst/all/{size}','ItineraryrequestController@all');
 		Route::get('itineraryrequst/{id}','ItineraryrequestController@show');
 		Route::delete('itineraryrequst/{id}','ItineraryrequestController@Destroy');
@@ -357,7 +361,6 @@ Route::namespace('Admin')->group(function (){
 		Route::post('policy-per-category',[TravellerPolicyController::class, 'getAllPolicy']);
 		Route::post('status',[TravellerPolicyController::class, 'publish']);
 	});
-
 });
 
 

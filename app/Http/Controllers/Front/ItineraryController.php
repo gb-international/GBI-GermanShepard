@@ -13,10 +13,14 @@ use App\Model\Itinerary\Popular;
 use App\Model\Season\Season;
 use App\Model\DefaultSet\DefaultSet;
 use DB;
+use Auth;
 use Carbon\Carbon;
 use GoogleMaps as Map;
 use App\Jobs\SendItineraryRequestToGbiMailJob;
-class ItineraryController extends Controller
+use Validator;
+use App\Http\Controllers\Admin\BaseController;
+
+class ItineraryController extends BaseController
 {
     public function search_post(){
 
@@ -275,43 +279,83 @@ class ItineraryController extends Controller
     }
 
     public function requestItinerary($guard, Request $request){
-        
-        $validated = $this->validate($request, [
-            'itinerary_id' => 'required|exists:itineraries,id',
-            'start_date' => 'required|date|after:today',
-            'end_date' => 'required|date|after_or_equal:start_date',
-            'price' => 'required|numeric',
-            'no_of_boys' =>$guard == 'school' ? 'required|numeric': '',
-            'no_of_girls' =>$guard == 'school' ? 'required|numeric':'',
-            'passenger' => 'required|numeric',
-            'occupancy_type' => 'required|in:single,double,triple,quad',
-            'meal_plan' => 'required|in:ep,cp,map,ap',
-            'no_of_days' => 'required|numeric',
-            'no_of_rooms' => 'required|numeric',
-            'accommodation_preference' => 'required|numeric',
-            'passenger_details' => ($guard == 'family'||$guard == 'company') ? 'required|array': '',
-            'passenger_details.*.adults' => ($guard == 'family'||$guard == 'company') ? 'required|numeric': '',
-            'mode_of_transport.*' => 'in:bus,train,flight',
-        ]);
-        $data = array('itinerary_id'=>$request->itinerary_id??null,
-        'start_date'=>$request->start_date??null,
-        'end_date'=>$request->start_date??null,
-        'price'=>$request->price??null,
-        'no_of_boys'=>$request->no_of_boys??0,
-        'no_of_girls'=>$request->no_of_girls??0,
-        'passenger'=>$request->passenger??0,
-        'occupancy_type'=>$request->occupancy_type??0,
-        'meal_plan'=>$request->meal_plan??0,
-        'no_of_days' => $request->no_of_days??0,
-        'no_of_rooms' => $request->no_of_rooms??0,
-        'accommodation_preference' => $request->accommodation_preference??0);
-        
-        // passenger_details
-        // mode_of_transport
-        Itineraryrequest::create($validated);
+        try{
+            $validator = Validator::make($request->all(), [
+                'itinerary_id' => 'required|exists:itineraries,id',
+                'source' => 'required|min:2|max:100',
+                'destination' => 'required|different:source|min:3|max:100',
+                'start_date' => 'required|date|after:today',
+                'end_date' => 'required|date|after_or_equal:start_date',
+                'price' => 'required|numeric',
+                'no_of_boys' =>$guard == 'school' ? 'required|numeric': '',
+                'no_of_girls' =>$guard == 'school' ? 'required|numeric':'',
+                'passenger' => 'required|numeric',
+                'meal_plan' => 'in:ep,cp,map,ap',
+                'no_of_days' => 'required|numeric',
+                'no_of_rooms' => 'required|numeric',
+                'accommodation_preference' => 'required|numeric',
+                'passenger_details' => ($guard == 'family'||$guard == 'company') ? 'required|array': '',
+                'passenger_details.*.adults' => ($guard == 'family'||$guard == 'company') ? 'required|numeric': '',
+                'mode_of_transport.*' => 'in:bus,train,flight',
+                'cities_id.*' => 'exists:cities,id',
+            ]);
+            if ($validator->fails()) {
+                return response()->json(['message' => "The given data was invalid.", 'errors' =>$validator->errors()]);
+            }
 
-        SendItineraryRequestToGbiMailJob::dispatch($validated);
-
+            $data = array('itinerary_id'=>$request->itinerary_id??null,
+            'source'=>$request->source??null,
+            'destination'=>$request->destination??null,
+            'start_date'=>$request->start_date??null,
+            'end_date'=>$request->start_date??null,
+            'price'=>$request->price??null,
+            'occupancy_type'=>$request->occupancy_type??($guard == 'school'?'quad':'triple'),
+            'meal_plan'=>$request->meal_plan??'ep',
+            'no_of_days' => $request->no_of_days??0,
+            'no_of_rooms' => $request->no_of_rooms??0,
+            'client_type' => $guard,
+            'accommodation_preference' => $request->accommodation_preference??0,
+            'mode_of_transport' => $request->mode_of_transport??null);
+            $data['client_type']= $guard;
+            if($guard == "school"){
+                $data['no_of_boys'] = $request->no_of_boys??0;
+                $data['no_of_girls']= $request->no_of_girls??0;
+                $data['passenger']= $request->passenger??0;
+                $data['edu_institute_id']= Auth::guard($guard."-api")->user()->id??null;
+            }
+            else if($guard == "company"){
+                $data['passenger'] = $request->passenger??0;
+                $data['company_user_id']= Auth::guard($guard."-api")->user()->id??null;
+            }
+            else{
+                $data['passenger_details'] = $request->passenger_details??null;
+                $data['family_user_id']= Auth::guard($guard."-api")->user()->id??null;
+            }
+            
+            $data = Itineraryrequest::create($data);
+            if($request->cities_id){
+                $data->cities()->sync($request->cities_id??null);
+            }
+            $data['email'] = Auth::guard($guard."-api")->user()->email??null;
+            $data['phone_no'] = Auth::guard($guard."-api")->user()->phone_no??null;
+            if($guard == "family"){
+                $data['childs'] = 0;
+                $data['infants'] = 0;
+                if($request->passenger_details){
+                    foreach($request->passenger_details as $details){
+                        $data['childs'] += $details['childs'];
+                        $data['infants'] += $details['infants'];
+                    }
+                }
+            }
+            // return $data;
+            // CONTACT_US_MAIL
+            SendItineraryRequestToGbiMailJob::dispatchNow($data);
+            return response()->json("Successful created");
+        }
+        catch(Exception $e){
+            return $this->sendError($e->getMessage(), 500);
+        }
     }
 
     public function view($slug){

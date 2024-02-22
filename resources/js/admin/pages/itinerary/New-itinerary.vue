@@ -1043,7 +1043,7 @@ export default {
         });
         return false;
       }
-      else if (!this.form.quad_sharing_base_price && $client_type == "eduInstitute") {
+      else if (!this.form.quad_sharing_base_price && this.form.client_type == "eduInstitute") {
         this.$toast.fire({
             icon: "error",
             title: "Triple sharing base price field is required",
