@@ -25,9 +25,11 @@ class FamilyUser extends Authenticatable
 
     public function validateForPassportPasswordGrant($password)
     {
-        if($this->where('password', $password)->exists())
-        {
-            return true; 
+        if (!(request()->route()->parameter('use') == "pass")) {
+            if($this->where('password', $password)->exists())
+            {
+                return true; 
+            }
         }
     }
 }

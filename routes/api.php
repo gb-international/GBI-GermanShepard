@@ -33,6 +33,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 // front	
 Route::group(['prefix' => '{client_type}'], function () {
+	Route::post('login-password/{use}', [AuthController::class,'loginUsePassword'])->where('client_type', 'school|company|family|user')->where('use','pass');
 	Route::post('login-user', [AuthController::class,'login'])->where('client_type', 'school|company|family|user');
 	Route::post('register-user', [AuthController::class,'register'])->where('client_type', 'school|company|family|user');
 });  

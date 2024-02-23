@@ -26,7 +26,6 @@ class EducationInstitute extends Authenticatable
         'password', 'remember_token',
     ];
 
-
     public function validateForPassportPasswordGrant($password)
     {
         if($this->where('password', $password)->exists())

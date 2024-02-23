@@ -4,15 +4,16 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller; 
 use App\Otp;
 use App\Model\User\Information;
+use GuzzleHttp\Client;
 use App\Model\Tour\TourUser;
 use App\Model\Tour\Tour;
+use Illuminate\Support\Facades\Http;
 use App\Model\School\School;
 // use Illuminate\Support\Facades\Auth;
 use Auth;
 use Validator;
 use DB;
 use Image;
-use GuzzleHttp\Client;
 use App\Rules\MatchOldPassword;
 use Illuminate\Support\Facades\Hash;
 use App\Helpers\SendSms;
@@ -30,6 +31,114 @@ use Laravel\Passport\RefreshToken;
 use Laravel\Passport\Token;
 
 class AuthController extends Controller{
+    //Login with normal password 
+
+    public function loginUsePassword($client_type, $use, Request $request){ 
+        $validator = Validator::make($request->all(), [ 
+            'email' => ['required','email',new EmailValidate],
+            'password' => 'required',
+        ]);
+        if ($validator->fails()) { 
+            return response()->json(['error'=>$validator->errors()], 422);            
+        }
+        $credentials = [
+            'email' => $request->email,
+            'password' => $request->password
+        ];
+
+        $client = DB::table('oauth_clients')
+            ->where(['password_client'=> true, 'provider'=>$client_type])
+            ->first();
+        $userinfo;
+        $sub_id = null;
+        if($client_type == "user"){
+            $userinfo = User::where('email', $request->email)->first();
+            if (!$userinfo) {
+                return response()->json([
+                    'message' => 'Invalid email',
+                    'status' => 422
+                ], 422);
+            }
+        }
+        else if($client_type == "school"){
+            $userinfo = EduInstitute::where('email', $request->email)->first();
+            if (!$userinfo) {
+                return response()->json([
+                    'message' => 'Invalid email',
+                    'status' => 422
+                ], 422);
+            }
+            $sub = Subscriber::where('edu_institute_id', $userinfo->id)->first();
+            $userinfo->subscription_id = $sub->id??null;
+        }
+        else if($client_type == "company"){
+            // Check if a user with the specified number exists
+            $userinfo = CompanyUser::where('email', $request->email)->first();
+            if (!$userinfo) {
+                return response()->json([
+                    'message' => 'Invalid email',
+                    'status' => 422
+                ], 422);
+            }
+            $sub = Subscriber::where('company_user_id', $userinfo->id)->first();
+            $userinfo->subscription_id = $sub->id??null;
+        }
+        else if($client_type == "family"){
+            // Check if a user with the specified number exists
+            $userinfo = FamilyUser::where('email', $request->email)->first();
+            if (!$userinfo) {
+                return response()->json([
+                    'message' => 'Invalid email',
+                    'status' => 422
+                ], 422);
+            }
+            $sub = Subscriber::where('family_user_id', $userinfo->id)->first();
+            $userinfo->subscription_id = $sub->id??null;
+        }
+            
+        // return $client;
+        // Make sure a Password Client exists in the DB
+        if (!$client) {
+            return response()->json([
+                'message' => 'Laravel Passport is not setup properly.',
+                'status' => 500
+            ], 500);
+        }
+
+         $data = [
+            'grant_type' => 'password',
+            'client_id' => $client->id,
+            'client_secret' => $client->secret,
+            'username' => $request->email,
+            'password' => $request->password,
+            'scope' => $client_type,
+            'provider' => $client_type,
+        ];
+        $request = Request::create('/oauth/token', 'POST', $data);
+        
+        $response = app()->handle($request);
+        $useInfo = null;
+        // Check if the request was successful
+        if ($response->getStatusCode() != 200) {
+            return response()->json([
+                'message' => 'Wrong details, please try again',
+                //'response' => $response,
+                'status' => 422
+            ], 422);
+        } 
+
+        $data = json_decode($response->getContent());
+        
+        // Format the final response in a desirable format
+        return response()->json([
+            "token_type" => $data->token_type,
+            "expires_in" => $data->expires_in,
+            'token' => $data->access_token,
+            'refresh_token' => $data->refresh_token,
+            'user' => $userinfo,
+            'status' => 200
+        ], 200);
+    }
     public function login($client_type, Request $request){ 
         $validator = Validator::make($request->all(), [ 
             'phone_no' => ['required','numeric',new PhoneNubmerValidate]
@@ -128,7 +237,7 @@ class AuthController extends Controller{
         } 
 
         $data = json_decode($response->getContent());
-
+        
         // Format the final response in a desirable format
         return response()->json([
             "token_type" => $data->token_type,
