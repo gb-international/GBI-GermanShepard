@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
+use Illuminate\Support\Facades\Hash;
 
 class CompanyUser extends Authenticatable
 {
@@ -25,10 +26,21 @@ class CompanyUser extends Authenticatable
 
     public function validateForPassportPasswordGrant($password)
     {
-        if (!(request()->route()->parameter('use') == "pass")) {
+        if(($_GET['use']??NULL) != "password"){
             if($this->where('password', $password)->exists())
             {
                 return true; 
+            }
+            else{
+                return false; 
+            }
+        }
+        else{
+            if(Hash::check($password, $this->password)) {
+                return true;
+            }
+            else{
+                return false;
             }
         }
     }

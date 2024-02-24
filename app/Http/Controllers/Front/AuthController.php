@@ -33,7 +33,7 @@ use Laravel\Passport\Token;
 class AuthController extends Controller{
     //Login with normal password 
 
-    public function loginUsePassword($client_type, $use, Request $request){ 
+    public function loginUsePassword($client_type, Request $request){ 
         $validator = Validator::make($request->all(), [ 
             'email' => ['required','email',new EmailValidate],
             'password' => 'required',
@@ -195,7 +195,8 @@ class AuthController extends Controller{
         
         
         // Check if otp is valid
-        $otpVerify = Otp::where('otp_send', $request->otp)->where('phone_no', $request->phone_no)->first();
+        $today = date("Y-m-d");
+        $otpVerify = Otp::where(['otp_send'=>$request->otp, 'phone_no'=>$request->phone_no,'otp_date'=>$today])->first();
         if (!$otpVerify) {
             return response()->json([
                 'message' => 'Invalid OTP',

@@ -10,6 +10,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class EducationInstitute extends Authenticatable
 {
@@ -28,9 +30,22 @@ class EducationInstitute extends Authenticatable
 
     public function validateForPassportPasswordGrant($password)
     {
-        if($this->where('password', $password)->exists())
-        {
-            return true; 
+        if(($_GET['use']??NULL) != "password"){
+            if($this->where('password', $password)->exists())
+            {
+                return true; 
+            }
+            else{
+                return false; 
+            }
+        }
+        else{
+            if(Hash::check($password, $this->password)) {
+                return true;
+            }
+            else{
+                return false;
+            }
         }
     }
 
@@ -69,6 +84,7 @@ class EducationInstitute extends Authenticatable
     {
         return $query->where('is_incharge', 1);
     }
+
 }
 
 
