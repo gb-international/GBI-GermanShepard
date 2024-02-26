@@ -272,6 +272,7 @@ class ItineraryController extends BaseController
         return response()->json($tour_data);
     }
     
+
     public function list($count=6)
     {
         // latest('id')->
@@ -398,5 +399,11 @@ class ItineraryController extends BaseController
         //$data->iTcities = $iTcities
         $data->Ency = $iTencyclopedia;
         return response()->json($data);
+    }
+    public function stateWiseItinerary($state, int $limit=10){
+        return response()->json(Itinerary::where('source', $state)->paginate($limit));
+    }
+    public function stateList(){
+        return response()->json(Itinerary::distinct()->pluck('source'));
     }
 }

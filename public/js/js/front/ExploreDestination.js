@@ -1186,6 +1186,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -1220,6 +1227,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   data: function data() {
     return {
+      state_count: 0,
+      current_state: "Jaipur",
+      state_list: [],
       upcoming_data: null,
       popular_data: null,
       allTour_data: null,
@@ -1249,7 +1259,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     };
     document.cookie = "GBIMeta =" + JSON.stringify(metaInfo) + "; path=/";
   },
-  created: function created() {//this.UpcomingData();
+  create: function create() {//this.UpcomingData();
     //this.popularTour();
     //this.AllTours();
   },
@@ -1263,13 +1273,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                if (!(_this.loading == false)) {
-                  _context.next = 13;
-                  break;
-                }
+                navigator.geolocation.getCurrentPosition(function (position) {
+                  console.log(position.coords.latitude, position.coords.longitude);
+                }, function (error) {// console.log(error.message)
+                }); // this.current_state = "";
 
                 _this.loading = true;
-                url = "/api/itinerary-list?page=" + _this.page;
+                url = "/api/itinerary-list-state-wise/" + _this.current_state + "?page=" + _this.page;
                 _context.next = 5;
                 return fetch(url);
 
@@ -1281,21 +1291,79 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 9:
                 items = _context.sent;
+                console.log(res);
 
                 if (items.data.length > 0) {
+                  console.log(items.data);
                   _this.items_list = [].concat(_toConsumableArray(_this.items_list), _toConsumableArray(items.data));
                 }
 
                 items = [];
-                _this.loading = false;
+                _this.loading = false; // console.log(this.current_state)
+                // if (this.loading == false) {
+                //   this.loading = true;
+                //   var url = `/api/itinerary-list?page=` + this.page;
+                //   const res = await fetch(url);
+                //   this.page++;
+                //   var items = await res.json();
+                //   if (items.data.length > 0) {
+                //     this.items_list = [...this.items_list, ...items.data];
+                //   }
+                //   items = [];
+                //   this.loading = false;
+                // }
 
-              case 13:
+              case 14:
               case "end":
                 return _context.stop();
             }
           }
         }, _callee);
       }))();
+    },
+    itineraryListStateWise: function itineraryListStateWise(state) {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+        var url, res, items;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _this2.loading = true;
+                url = "/api/itinerary-list-state-wise/" + state + "?page=" + _this2.page;
+                _context2.next = 4;
+                return fetch(url);
+
+              case 4:
+                res = _context2.sent;
+                _this2.page++;
+                _context2.next = 8;
+                return res.json();
+
+              case 8:
+                items = _context2.sent;
+                console.log(res);
+
+                if (items.data.length > 0) {
+                  console.log(items.data);
+                  _this2.items_list = [].concat(_toConsumableArray(_this2.items_list), _toConsumableArray(items.data));
+                }
+
+                items = [];
+                _this2.loading = false;
+
+              case 13:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
+    },
+    onChangeState: function onChangeState() {
+      this.page = 1;
+      this.intersected();
     },
     incrVal: function incrVal(data) {
       if (data == 'adults') {
@@ -1341,29 +1409,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.showRoomModal = false;
     },
     popularTour: function popularTour() {
-      var _this2 = this;
-
-      this.$axios.get("/api/travel-program/popular-tour").then(function (response) {
-        if (!response.data) {
-          _this2.apiFailed = true;
-        }
-
-        _this2.popular_data = response.data;
-      });
-    },
-    UpcomingData: function UpcomingData() {
       var _this3 = this;
 
-      this.$axios.get("/api/travel-program/upcoming-tour").then(function (response) {
+      this.$axios.get("/api/travel-program/popular-tour").then(function (response) {
         if (!response.data) {
           _this3.apiFailed = true;
         }
 
-        _this3.upcoming_data = response.data;
-        console.log(response.data);
+        _this3.popular_data = response.data;
       });
     },
-    AllTours: function AllTours() {
+    UpcomingData: function UpcomingData() {
       var _this4 = this;
 
       this.$axios.get("/api/travel-program/upcoming-tour").then(function (response) {
@@ -1371,8 +1427,27 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           _this4.apiFailed = true;
         }
 
-        _this4.allTour_data = response.data;
-        console.log(response.data);
+        _this4.upcoming_data = response.data;
+      });
+    },
+    AllTours: function AllTours() {
+      var _this5 = this;
+
+      this.$axios.get("/api/travel-program/upcoming-tour").then(function (response) {
+        if (!response.data) {
+          _this5.apiFailed = true;
+        }
+
+        _this5.allTour_data = response.data;
+      });
+    },
+    stateList: function stateList() {
+      var _this6 = this;
+
+      axios.get("/api/state-list").then(function (res) {
+        if (res.data) {
+          _this6.state_list = res.data;
+        }
       });
     },
     searchHotels: function searchHotels() {
@@ -1383,10 +1458,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.$router.push('/hotel-search');
     },
     searchAll: function searchAll() {
-      var _this5 = this;
+      var _this7 = this;
 
       // Submit form
-      console.log(this.tourtype_option);
       var vm = this;
 
       if (vm.noofday == '' || vm.tourtype == '' || vm.noofday == 'No. of days' || vm.tourtype == 'In mood for' || vm.clientType == 'Client Type') {
@@ -1429,17 +1503,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           vm.allSearchdata = res.data.data;
 
           if (vm.allSearchdata.length == 0) {
-            _this5.modoals_show = true;
+            _this7.modoals_show = true;
             $("#AlertModalForExplore").modal('show');
           }
         })["catch"](function (error) {
           //console.log(error)
-          _this5.$swal.fire("Sorry", "No results found.", "info");
+          _this7.$swal.fire("Sorry", "No results found.", "info");
         });
       } else {
         this.$swal.fire("Alert", "please select locations", "error");
       }
     }
+  },
+  mounted: function mounted() {
+    this.stateList();
   }
 });
 
@@ -2025,7 +2102,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.explor-content input[type=\"text\"][data-v-002da906], .explor-content select[data-v-002da906], .explor-content textarea[data-v-002da906],\r\n.explor-Corporate input[type=\"text\"][data-v-002da906], .explor-Corporate select[data-v-002da906], .explor-Corporate textarea[data-v-002da906],\r\n.explor-General input[type=\"text\"][data-v-002da906], .explor-General select[data-v-002da906], .explor-General textarea[data-v-002da906]\r\n {\r\n    border: 0px solid #ccc !important;\r\n    width: 100%;\r\n    height: 46.2px;\r\n    border-radius: 4px;\r\n    padding-left: 15px;\r\n    font-size: 15px;\n}\n.marginT[data-v-002da906] {\r\n  margin-top: 10px !important;\n}\nlegend[data-v-002da906] {\r\n    padding-bottom: 14px;\r\n    text-align: left;\n}\nfieldset[data-v-002da906] {\r\n    margin-bottom: 14px;\r\n    padding-bottom: 14px;\n}\nfieldset[data-v-002da906], input[type=\"button\"][data-v-002da906] {\r\n    border: 0;\n}\ninput[type=\"button\"][data-v-002da906] {\r\n    background-color: #3490dc;\r\n    color: #fff;\r\n    cursor: pointer;\r\n    width: 35px;\r\n    height: 35px;\r\n    font-size: 17px;\r\n    border-radius: 20px;\r\n    padding-bottom: 5px;\n}\ninput[type=\"passengers\"][data-v-002da906] {\r\n    border: 1px solid #F4F3F3;\r\n    height: 40px;\r\n    width: 60%;\r\n    text-align: center;\r\n    outline: 2px solid transparent;\r\n    outline-offset: 2px;\n}\n.personLables[data-v-002da906]{\r\n  color: grey;\r\n  text-align: center;\r\n  font-weight: 600;\n}\n.btn-primary[data-v-002da906]{\r\n  background-color: #3490dc !important;\r\n  outline: 2px solid transparent;\r\n  outline-offset: 2px;\n}\n.filter-cl[data-v-002da906]{\r\n    /*filter: invert(54%) sepia(71%) saturate(1853%) hue-rotate(338deg) brightness(101%) contrast(94%);*/\r\n    background: #f77736;\r\n    border-color: #f77736 !important;\n}\n.exp-icon[data-v-002da906]{\r\n    align-items: center;\r\n    border: 1px solid #fff;\r\n    border-radius: 25px;\r\n    cursor: pointer;\r\n    display: flex;\r\n    flex-direction: row;\r\n    font-family: Nunito Sans;\r\n    font-size: 14px;\r\n    justify-content: center;\r\n    justify-items: center;\r\n    margin-right: 35px;\r\n    padding: 10px 12px;\r\n    text-align: center;\n}\n.exp-icon-wd[data-v-002da906]{\r\n  width: 25px !important;\n}\n.select-style[data-v-002da906]{\r\n  margin-top: 5px;\n}\n@media (min-width: 576px){\n.select-style[data-v-002da906]{\r\n    margin-top: 36px;\n}\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.explor-content input[type=\"text\"][data-v-002da906], .explor-content select[data-v-002da906], .explor-content textarea[data-v-002da906],\r\n.explor-Corporate input[type=\"text\"][data-v-002da906], .explor-Corporate select[data-v-002da906], .explor-Corporate textarea[data-v-002da906],\r\n.explor-General input[type=\"text\"][data-v-002da906], .explor-General select[data-v-002da906], .explor-General textarea[data-v-002da906]\r\n {\r\n    border: 0px solid #ccc !important;\r\n    width: 100%;\r\n    height: 46.2px;\r\n    border-radius: 4px;\r\n    padding-left: 15px;\r\n    font-size: 15px;\n}\n.select[data-v-002da906]{\r\n  border: 1px !important;\n}\n.marginT[data-v-002da906] {\r\n  margin-top: 10px !important;\n}\nlegend[data-v-002da906] {\r\n    padding-bottom: 14px;\r\n    text-align: left;\n}\nfieldset[data-v-002da906] {\r\n    margin-bottom: 14px;\r\n    padding-bottom: 14px;\n}\nfieldset[data-v-002da906], input[type=\"button\"][data-v-002da906] {\r\n    border: 0;\n}\ninput[type=\"button\"][data-v-002da906] {\r\n    background-color: #3490dc;\r\n    color: #fff;\r\n    cursor: pointer;\r\n    width: 35px;\r\n    height: 35px;\r\n    font-size: 17px;\r\n    border-radius: 20px;\r\n    padding-bottom: 5px;\n}\ninput[type=\"passengers\"][data-v-002da906] {\r\n    border: 1px solid #F4F3F3;\r\n    height: 40px;\r\n    width: 60%;\r\n    text-align: center;\r\n    outline: 2px solid transparent;\r\n    outline-offset: 2px;\n}\n.personLables[data-v-002da906]{\r\n  color: grey;\r\n  text-align: center;\r\n  font-weight: 600;\n}\n.btn-primary[data-v-002da906]{\r\n  background-color: #3490dc !important;\r\n  outline: 2px solid transparent;\r\n  outline-offset: 2px;\n}\n.filter-cl[data-v-002da906]{\r\n    /*filter: invert(54%) sepia(71%) saturate(1853%) hue-rotate(338deg) brightness(101%) contrast(94%);*/\r\n    background: #f77736;\r\n    border-color: #f77736 !important;\n}\n.exp-icon[data-v-002da906]{\r\n    align-items: center;\r\n    border: 1px solid #fff;\r\n    border-radius: 25px;\r\n    cursor: pointer;\r\n    display: flex;\r\n    flex-direction: row;\r\n    font-family: Nunito Sans;\r\n    font-size: 14px;\r\n    justify-content: center;\r\n    justify-items: center;\r\n    margin-right: 35px;\r\n    padding: 10px 12px;\r\n    text-align: center;\n}\n.exp-icon-wd[data-v-002da906]{\r\n  width: 25px !important;\n}\n.select-style[data-v-002da906]{\r\n  margin-top: 5px;\n}\n@media (min-width: 576px){\n.select-style[data-v-002da906]{\r\n    margin-top: 36px;\n}\n}\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -15268,6 +15345,53 @@ var render = function () {
                         staticClass: "text-center mt-2",
                         attrs: { text: "All Tours" },
                       }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "mt-4 text-right" }, [
+                        _c("h4", [_vm._v("State")]),
+                        _vm._v(" "),
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.current_state,
+                                expression: "current_state",
+                              },
+                            ],
+                            on: {
+                              change: [
+                                function ($event) {
+                                  var $$selectedVal = Array.prototype.filter
+                                    .call($event.target.options, function (o) {
+                                      return o.selected
+                                    })
+                                    .map(function (o) {
+                                      var val =
+                                        "_value" in o ? o._value : o.value
+                                      return val
+                                    })
+                                  _vm.current_state = $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                },
+                                function ($event) {
+                                  return _vm.onChangeState()
+                                },
+                              ],
+                            },
+                          },
+                          _vm._l(_vm.state_list, function (data, index) {
+                            return _c(
+                              "option",
+                              { key: index, domProps: { value: data } },
+                              [_vm._v(_vm._s(data))]
+                            )
+                          }),
+                          0
+                        ),
+                      ]),
                       _vm._v(" "),
                       _c("itinerary-list", { attrs: { list: _vm.items_list } }),
                       _vm._v(" "),

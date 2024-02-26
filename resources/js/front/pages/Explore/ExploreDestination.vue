@@ -621,6 +621,7 @@
 
     <main class="pl-2 pr-2">
       <div class="container">
+
         <!-- <div v-if="!upcoming_data && !popular_data">
 
           <heading class="text-center mt-5" text="Upcoming Tour" />
@@ -641,6 +642,12 @@
 
         <div class="p-0" v-if="allSearchdata == ''">
           <heading class="text-center mt-2" text="All Tours" />
+          <div class="mt-4 text-right">
+            <h4>State</h4>
+              <select v-model="current_state" @change="onChangeState()" class="">
+                  <option v-for="(data,index) in state_list" :value="data"  :key="index">{{data}}</option>
+              </select>
+          </div>
           <itinerary-list :list="items_list"></itinerary-list>
           <Observer @intersect="intersected" />
           <div class="loading-img-parent text-center mt-5 w-100 mb-4" v-if="loading">
@@ -721,6 +728,9 @@ export default {
   },
   data() {
     return {
+      state_count: 0,
+      current_state:"Jaipur",
+      state_list:[],
       upcoming_data: null,
       popular_data: null,
       allTour_data: null,
@@ -752,27 +762,72 @@ export default {
       document.cookie = "GBIMeta =" + JSON.stringify(metaInfo) +"; path=/";
   },
 
-  created() {
+  create() {
     //this.UpcomingData();
     //this.popularTour();
     //this.AllTours();
   },
+
   methods: {
     async intersected() {
-      if (this.loading == false) {
-        this.loading = true;
-
-        var url = `/api/itinerary-list?page=` + this.page;
-        const res = await fetch(url);
-
-        this.page++;
-        var items = await res.json();
-        if (items.data.length > 0) {
-          this.items_list = [...this.items_list, ...items.data];
-        }
-        items = [];
-        this.loading = false;
+      navigator.geolocation.getCurrentPosition((position)=>{
+        console.log(position.coords.latitude,position.coords.longitude)
+    }, (error)=>{
+        // console.log(error.message)
+      });
+  
+      // this.current_state = "";
+      this.loading = true;
+      
+      var url = `/api/itinerary-list-state-wise/` + this.current_state+`?page=`+this.page;
+      const res = await fetch(url);
+      
+      this.page++;
+      var items = await res.json();
+      console.log(res)
+      if (items.data.length > 0) {
+        console.log(items.data)
+        this.items_list = [...this.items_list, ...items.data];
       }
+      items = [];
+      this.loading = false;
+      // console.log(this.current_state)
+      // if (this.loading == false) {
+      //   this.loading = true;
+
+      //   var url = `/api/itinerary-list?page=` + this.page;
+      //   const res = await fetch(url);
+
+      //   this.page++;
+      //   var items = await res.json();
+      //   if (items.data.length > 0) {
+      //     this.items_list = [...this.items_list, ...items.data];
+      //   }
+      //   items = [];
+      //   this.loading = false;
+      // }
+      
+    },
+    
+    async itineraryListStateWise(state){
+      this.loading = true;
+      
+      var url = `/api/itinerary-list-state-wise/` + state+`?page=`+this.page;
+      const res = await fetch(url);
+      
+      this.page++;
+      var items = await res.json();
+      console.log(res)
+      if (items.data.length > 0) {
+        console.log(items.data)
+        this.items_list = [...this.items_list, ...items.data];
+      }
+      items = [];
+      this.loading = false;
+      },
+    onChangeState() {
+      this.page = 1;
+      this.intersected()
     },
     incrVal(data){
         if(data == 'adults'){
@@ -829,7 +884,6 @@ export default {
           this.apiFailed = true
         }
         this.upcoming_data = response.data;
-        console.log(response.data)
       });
     },
     AllTours() {
@@ -838,8 +892,15 @@ export default {
           this.apiFailed = true
         }
         this.allTour_data = response.data;
-        console.log(response.data)
       });
+    },
+    stateList(){
+      axios.get("/api/state-list").then((res) => {
+        if (res.data) {
+          this.state_list = res.data;
+        }
+      });
+  
     },
 
     searchHotels(){
@@ -852,7 +913,6 @@ export default {
 
     searchAll() {
       // Submit form
-      console.log(this.tourtype_option)
       let vm = this;
       if(vm.noofday == '' || vm.tourtype == '' || vm.noofday == 'No. of days' || vm.tourtype == 'In mood for' || vm.clientType == 'Client Type'){
         return this.$swal.fire("Error", "Please select all the fields", "warning");
@@ -906,12 +966,19 @@ export default {
         this.$swal.fire("Alert", "please select locations", "error");
       }
     },
+
+  },
+  mounted(){
+      this.stateList();
+
+
   },
 };
 
 </script>
 
 <style scoped>
+
 .explor-content input[type="text"], .explor-content select, .explor-content textarea,
 .explor-Corporate input[type="text"], .explor-Corporate select, .explor-Corporate textarea,
 .explor-General input[type="text"], .explor-General select, .explor-General textarea
@@ -923,6 +990,9 @@ export default {
     padding-left: 15px;
     font-size: 15px;
 
+}
+.select{
+  border: 1px !important;
 }
 .marginT {
   margin-top: 10px !important;
