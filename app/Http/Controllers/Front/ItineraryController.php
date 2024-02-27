@@ -406,4 +406,12 @@ class ItineraryController extends BaseController
     public function stateList(){
         return response()->json(Itinerary::distinct()->pluck('source'));
     }
+    public function checkStateInItinerary($state){
+        if(Itinerary::where('source', $state)->first()){
+            return response()->json(["status"=>1]);
+        }
+        else{
+            return response()->json(["status"=>0]);
+        }
+    }
 }

@@ -79,11 +79,24 @@ class MapsController extends Controller
             return $data2;
     }
 
-    public function getPlaces(Request $request) {
+    public function getState(float $langitute, float $longitude){
+        $state = '';
+        $response = \GoogleMaps::load('geocoding')->setParamByKey('latlng', "$langitute,$longitude")->get('results');
+        if($response['results'][0]['address_components']){
+            $results = array_filter($response['results'][0]['address_components'], function($stateVal) {
+            return $stateVal['types'][0] == "administrative_area_level_1" && $stateVal['types'][1] == "political";
+            });
+            if($results){
+                foreach($results as $value){
+                $state = $value['long_name'];
+                }
+            }
+        }
+        return response()->json($state);
+    }
 
- 
+    public function getPlaces(Request $request) {
             /*$data = \GoogleMaps::load('nearbysearch')
-                    
                     ->setParam([
                     'location'  => '-33.8670522,151.1957362',
                     'radius'    => '500',

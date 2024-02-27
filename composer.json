@@ -10,7 +10,7 @@
     "require": {
         "php": "^7.3",
         "ext-exif": "*",
-        "alexpechkarev/google-maps": "^8.0",
+        "alexpechkarev/google-maps": "^10.0",
         "beyondcode/laravel-websockets": "^1.12",
         "botman/botman": "^2.6",
         "calebporzio/sushi": "^2.4",

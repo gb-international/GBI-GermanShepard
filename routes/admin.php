@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Admin\TravellerPolicy\TravellerPolicyCategoryController;
 use App\Http\Controllers\Admin\TravellerPolicy\TravellerPolicyController;
 use App\Http\Controllers\Admin\Itinerary\ItineraryrequestController;
+use App\Http\Controllers\Admin\Location\MapsController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -51,6 +52,7 @@ Route::namespace('Admin')->group(function (){
 		Route::post('maps/get-direction','MapsController@getDirection');
 		Route::post('maps/get-matrix','MapsController@getDistMatrix');
 		Route::post('maps/get-places','MapsController@getPlaces');
+		Route::get('maps/get-state/{lat}/{lng}','MapsController@getState');
 	});
 
 	Route::namespace('Itinerary')->group(function(){

@@ -40,6 +40,7 @@ Route::group(['prefix' => '{client_type}'], function () {
 
 Route::namespace('Front')->group(function(){
 	Route::get('/itinerary-list-state-wise/{state}',[ItineraryController::class,'stateWiseItinerary']);
+	Route::get('/check-state-itinerary/{state}',[ItineraryController::class,'checkStateInItinerary']);
 	Route::get('/state-list',[ItineraryController::class,'stateList']);
 	Route::get('/travel-program/{slug}','ItineraryController@travelProgram');
 	Route::get('/upcoming-events','ItineraryController@upcomingEvents');

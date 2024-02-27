@@ -687,6 +687,7 @@
 
 <script>
 import Heading from "@/front/components/layout/Heading.vue";
+import GoogleMapApiKey from "@/front/store/google_map_key.js";
 import SubHeading from "@/front/components/layout/SubHeading.vue";
 import ExploreSearchMixin from "@/front/mixins/user/ExploreSearchMixin";
 import AlertModals from '@/front/components/Explore/AlertModals.vue';
@@ -729,7 +730,9 @@ export default {
   data() {
     return {
       state_count: 0,
-      current_state:"Jaipur",
+      latitude:0,
+      longitude:0,
+      current_state:"",
       state_list:[],
       upcoming_data: null,
       popular_data: null,
@@ -770,43 +773,38 @@ export default {
 
   methods: {
     async intersected() {
+    if(this.state_count == 0){
       navigator.geolocation.getCurrentPosition((position)=>{
-        console.log(position.coords.latitude,position.coords.longitude)
-    }, (error)=>{
-        // console.log(error.message)
+        this.latitude = position.coords.latitude;
+        this.longitude = position.coords.longitude;
+        axios.get(`api/maps/get-state/${this.latitude}/${this.longitude}`).then((response) => {
+          this.current_state = response.data;
+          axios.get("api/check-state-itinerary/"+response.data).then((resp) => {
+             if(resp.data['status'] == 0){
+                this.current_state = "New Delhi";
+             }
+           })
+        });
+      }, (error)=>{
+        console.log(error.message)
       });
+      
+
+      this.state_count =1;
+    }
   
       // this.current_state = "";
       this.loading = true;
       
       var url = `/api/itinerary-list-state-wise/` + this.current_state+`?page=`+this.page;
       const res = await fetch(url);
-      
-      this.page++;
       var items = await res.json();
-      console.log(res)
       if (items.data.length > 0) {
-        console.log(items.data)
         this.items_list = [...this.items_list, ...items.data];
       }
+      this.page++;
       items = [];
-      this.loading = false;
-      // console.log(this.current_state)
-      // if (this.loading == false) {
-      //   this.loading = true;
-
-      //   var url = `/api/itinerary-list?page=` + this.page;
-      //   const res = await fetch(url);
-
-      //   this.page++;
-      //   var items = await res.json();
-      //   if (items.data.length > 0) {
-      //     this.items_list = [...this.items_list, ...items.data];
-      //   }
-      //   items = [];
-      //   this.loading = false;
-      // }
-      
+      this.loading = false;      
     },
     
     async itineraryListStateWise(state){
@@ -814,14 +812,12 @@ export default {
       
       var url = `/api/itinerary-list-state-wise/` + state+`?page=`+this.page;
       const res = await fetch(url);
-      
-      this.page++;
       var items = await res.json();
-      console.log(res)
       if (items.data.length > 0) {
         console.log(items.data)
         this.items_list = [...this.items_list, ...items.data];
       }
+      this.page++;
       items = [];
       this.loading = false;
       },

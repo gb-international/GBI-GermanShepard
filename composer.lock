@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f7dad6e30a690b7c9e00052ab58da0a1",
+    "content-hash": "7f68b85cfae4435bb0670cf2cefc3ff2",
     "packages": [
         {
             "name": "alexpechkarev/geometry-library",
@@ -58,33 +58,33 @@
         },
         {
             "name": "alexpechkarev/google-maps",
-            "version": "8.0",
+            "version": "v10.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/alexpechkarev/google-maps.git",
-                "reference": "cf10b7a5cbe18d4e0f845acf05d6979647f7b279"
+                "reference": "7b0443b873449d21ca903d7a5aa075be795dec47"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/alexpechkarev/google-maps/zipball/cf10b7a5cbe18d4e0f845acf05d6979647f7b279",
-                "reference": "cf10b7a5cbe18d4e0f845acf05d6979647f7b279",
+                "url": "https://api.github.com/repos/alexpechkarev/google-maps/zipball/7b0443b873449d21ca903d7a5aa075be795dec47",
+                "reference": "7b0443b873449d21ca903d7a5aa075be795dec47",
                 "shasum": ""
             },
             "require": {
-                "alexpechkarev/geometry-library": "^1.0.2",
+                "alexpechkarev/geometry-library": "^1.0.2|^1.0",
                 "ext-curl": "*",
                 "ext-json": "*",
-                "illuminate/config": "^8.0",
-                "illuminate/support": "^8.0",
-                "jbroadway/urlify": "^1.1"
+                "illuminate/config": "^8.0|^9.0|^10.0",
+                "illuminate/support": "^8.0|^9.0|^10.0",
+                "jbroadway/urlify": "^1.1|^1.2|dev-voku-portable-ascii-2.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "4.7.*"
+                "phpunit/phpunit": "4.7.*|^9.6.3"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "8.0-dev"
+                    "dev-master": "10.0.x-dev"
                 },
                 "laravel": {
                     "providers": [
@@ -128,9 +128,9 @@
             ],
             "support": {
                 "issues": "https://github.com/alexpechkarev/google-maps/issues",
-                "source": "https://github.com/alexpechkarev/google-maps/tree/8.0"
+                "source": "https://github.com/alexpechkarev/google-maps/tree/v10.0.2"
             },
-            "time": "2020-09-13T09:00:11+00:00"
+            "time": "2023-02-19T10:48:09+00:00"
         },
         {
             "name": "aws/aws-crt-php",

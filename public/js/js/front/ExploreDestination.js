@@ -480,14 +480,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _front_components_layout_Heading_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/front/components/layout/Heading.vue */ "./resources/js/front/components/layout/Heading.vue");
-/* harmony import */ var _front_components_layout_SubHeading_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/front/components/layout/SubHeading.vue */ "./resources/js/front/components/layout/SubHeading.vue");
-/* harmony import */ var _front_mixins_user_ExploreSearchMixin__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/front/mixins/user/ExploreSearchMixin */ "./resources/js/front/mixins/user/ExploreSearchMixin.js");
-/* harmony import */ var _front_components_Explore_AlertModals_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/front/components/Explore/AlertModals.vue */ "./resources/js/front/components/Explore/AlertModals.vue");
-/* harmony import */ var vue_hotel_datepicker__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-hotel-datepicker */ "./node_modules/vue-hotel-datepicker/dist/vueHotelDatepicker.common.js");
-/* harmony import */ var vue_hotel_datepicker__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(vue_hotel_datepicker__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var vue_hotel_datepicker_dist_vueHotelDatepicker_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue-hotel-datepicker/dist/vueHotelDatepicker.css */ "./node_modules/vue-hotel-datepicker/dist/vueHotelDatepicker.css");
-/* harmony import */ var _front_components_loaders_cardLoaderExplore_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/front/components/loaders/cardLoaderExplore.vue */ "./resources/js/front/components/loaders/cardLoaderExplore.vue");
-/* harmony import */ var _front_components_Observer__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/front/components/Observer */ "./resources/js/front/components/Observer.vue");
+/* harmony import */ var _front_store_google_map_key_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/front/store/google_map_key.js */ "./resources/js/front/store/google_map_key.js");
+/* harmony import */ var _front_components_layout_SubHeading_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/front/components/layout/SubHeading.vue */ "./resources/js/front/components/layout/SubHeading.vue");
+/* harmony import */ var _front_mixins_user_ExploreSearchMixin__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/front/mixins/user/ExploreSearchMixin */ "./resources/js/front/mixins/user/ExploreSearchMixin.js");
+/* harmony import */ var _front_components_Explore_AlertModals_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/front/components/Explore/AlertModals.vue */ "./resources/js/front/components/Explore/AlertModals.vue");
+/* harmony import */ var vue_hotel_datepicker__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue-hotel-datepicker */ "./node_modules/vue-hotel-datepicker/dist/vueHotelDatepicker.common.js");
+/* harmony import */ var vue_hotel_datepicker__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(vue_hotel_datepicker__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var vue_hotel_datepicker_dist_vueHotelDatepicker_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vue-hotel-datepicker/dist/vueHotelDatepicker.css */ "./node_modules/vue-hotel-datepicker/dist/vueHotelDatepicker.css");
+/* harmony import */ var _front_components_loaders_cardLoaderExplore_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/front/components/loaders/cardLoaderExplore.vue */ "./resources/js/front/components/loaders/cardLoaderExplore.vue");
+/* harmony import */ var _front_components_Observer__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @/front/components/Observer */ "./resources/js/front/components/Observer.vue");
 
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
@@ -1201,9 +1202,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "exploreDestination",
-  mixins: [_front_mixins_user_ExploreSearchMixin__WEBPACK_IMPORTED_MODULE_3__["default"]],
+  mixins: [_front_mixins_user_ExploreSearchMixin__WEBPACK_IMPORTED_MODULE_4__["default"]],
   metaInfo: {
     title: "Get best tour packages and deals only at GOwithGBI",
     meta: [{
@@ -1218,17 +1220,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }]
   },
   components: {
-    Observer: _front_components_Observer__WEBPACK_IMPORTED_MODULE_8__["default"],
+    Observer: _front_components_Observer__WEBPACK_IMPORTED_MODULE_9__["default"],
     Heading: _front_components_layout_Heading_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    SubHeading: _front_components_layout_SubHeading_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    HotelDatePicker: (vue_hotel_datepicker__WEBPACK_IMPORTED_MODULE_5___default()),
-    cardLoader: _front_components_loaders_cardLoaderExplore_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
-    'alert-modals': _front_components_Explore_AlertModals_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
+    SubHeading: _front_components_layout_SubHeading_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    HotelDatePicker: (vue_hotel_datepicker__WEBPACK_IMPORTED_MODULE_6___default()),
+    cardLoader: _front_components_loaders_cardLoaderExplore_vue__WEBPACK_IMPORTED_MODULE_8__["default"],
+    'alert-modals': _front_components_Explore_AlertModals_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
   data: function data() {
     return {
       state_count: 0,
-      current_state: "Jaipur",
+      latitude: 0,
+      longitude: 0,
+      current_state: "",
       state_list: [],
       upcoming_data: null,
       popular_data: null,
@@ -1273,10 +1277,24 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                navigator.geolocation.getCurrentPosition(function (position) {
-                  console.log(position.coords.latitude, position.coords.longitude);
-                }, function (error) {// console.log(error.message)
-                }); // this.current_state = "";
+                if (_this.state_count == 0) {
+                  navigator.geolocation.getCurrentPosition(function (position) {
+                    _this.latitude = position.coords.latitude;
+                    _this.longitude = position.coords.longitude;
+                    axios.get("api/maps/get-state/".concat(_this.latitude, "/").concat(_this.longitude)).then(function (response) {
+                      _this.current_state = response.data;
+                      axios.get("api/check-state-itinerary/" + response.data).then(function (resp) {
+                        if (resp.data['status'] == 0) {
+                          _this.current_state = "New Delhi";
+                        }
+                      });
+                    });
+                  }, function (error) {
+                    console.log(error.message);
+                  });
+                  _this.state_count = 1;
+                } // this.current_state = "";
+
 
                 _this.loading = true;
                 url = "/api/itinerary-list-state-wise/" + _this.current_state + "?page=" + _this.page;
@@ -1285,35 +1303,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 5:
                 res = _context.sent;
-                _this.page++;
-                _context.next = 9;
+                _context.next = 8;
                 return res.json();
 
-              case 9:
+              case 8:
                 items = _context.sent;
-                console.log(res);
 
                 if (items.data.length > 0) {
-                  console.log(items.data);
                   _this.items_list = [].concat(_toConsumableArray(_this.items_list), _toConsumableArray(items.data));
                 }
 
+                _this.page++;
                 items = [];
-                _this.loading = false; // console.log(this.current_state)
-                // if (this.loading == false) {
-                //   this.loading = true;
-                //   var url = `/api/itinerary-list?page=` + this.page;
-                //   const res = await fetch(url);
-                //   this.page++;
-                //   var items = await res.json();
-                //   if (items.data.length > 0) {
-                //     this.items_list = [...this.items_list, ...items.data];
-                //   }
-                //   items = [];
-                //   this.loading = false;
-                // }
+                _this.loading = false;
 
-              case 14:
+              case 13:
               case "end":
                 return _context.stop();
             }
@@ -1337,23 +1341,22 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 4:
                 res = _context2.sent;
-                _this2.page++;
-                _context2.next = 8;
+                _context2.next = 7;
                 return res.json();
 
-              case 8:
+              case 7:
                 items = _context2.sent;
-                console.log(res);
 
                 if (items.data.length > 0) {
                   console.log(items.data);
                   _this2.items_list = [].concat(_toConsumableArray(_this2.items_list), _toConsumableArray(items.data));
                 }
 
+                _this2.page++;
                 items = [];
                 _this2.loading = false;
 
-              case 13:
+              case 12:
               case "end":
                 return _context2.stop();
             }
@@ -1989,6 +1992,22 @@ var ExploreSearchMixin = {
   }
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ExploreSearchMixin);
+
+/***/ }),
+
+/***/ "./resources/js/front/store/google_map_key.js":
+/*!****************************************************!*\
+  !*** ./resources/js/front/store/google_map_key.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var API_KEY = "AIzaSyAmaMnqu4EjFsEpF4hAlWr8kLx9B8JnOpU";
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (API_KEY); // export constant to be able to use them in components
 
 /***/ }),
 
