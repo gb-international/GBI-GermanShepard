@@ -1286,6 +1286,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                       axios.get("api/check-state-itinerary/" + response.data).then(function (resp) {
                         if (resp.data['status'] == 0) {
                           _this.current_state = "New Delhi";
+                        } else {
+                          _this.current_state = resp.data['state'] ? resp.data['state'] : '';
                         }
                       });
                     });

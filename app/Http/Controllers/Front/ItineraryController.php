@@ -401,14 +401,14 @@ class ItineraryController extends BaseController
         return response()->json($data);
     }
     public function stateWiseItinerary($state, int $limit=10){
-        return response()->json(Itinerary::where('source', $state)->paginate($limit));
+        return response()->json(Itinerary::where('source', 'like', "%{$state}")->paginate($limit));
     }
     public function stateList(){
         return response()->json(Itinerary::distinct()->pluck('source'));
     }
     public function checkStateInItinerary($state){
-        if(Itinerary::where('source', $state)->first()){
-            return response()->json(["status"=>1]);
+        if(Itinerary::where('source', 'like', "%{$state}")->first()){
+            return response()->json(["status"=>1,"state"=>Itinerary::where('source', 'like', "%{$state}")->first()->source??'']);
         }
         else{
             return response()->json(["status"=>0]);

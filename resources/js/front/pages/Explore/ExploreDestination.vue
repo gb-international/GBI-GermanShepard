@@ -782,6 +782,10 @@ export default {
           axios.get("api/check-state-itinerary/"+response.data).then((resp) => {
              if(resp.data['status'] == 0){
                 this.current_state = "New Delhi";
+              }
+              else{
+               this.current_state = resp.data['state']?resp.data['state']:'';
+
              }
            })
         });
