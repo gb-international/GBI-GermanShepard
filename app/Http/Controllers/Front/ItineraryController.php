@@ -304,7 +304,7 @@ class ItineraryController extends BaseController
                 return response()->json(['message' => "The given data was invalid.", 'errors' =>$validator->errors()]);
             }
 
-            $data = array('itinerary_id'=>$request->itinerary_id??null,
+            $data = array('it inerary_id'=>$request->itinerary_id??null,
             'source'=>$request->source??null,
             'destination'=>$request->destination??null,
             'start_date'=>$request->start_date??null,

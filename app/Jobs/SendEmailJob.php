@@ -25,4 +25,4 @@ class SendEmailJob implements ShouldQueue
     {
         Mail::to($this->details['email'])->send( new PasswordResetMail($this->details));
     }
-}
+}  

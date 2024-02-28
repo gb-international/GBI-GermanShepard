@@ -15,7 +15,7 @@ use App\Http\Controllers\Front\FamilybankdetailController;
 use App\Http\Controllers\Front\GroupmemberController;
 use App\Http\Controllers\Front\Payment\BankDetailController;
 use App\Http\Controllers\Front\UserpaymentController;
-
+use App\Http\Controllers\Front\PasswordResetController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -33,6 +33,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 // front	
 Route::group(['prefix' => '{client_type}'], function () {
+	// submitForgetPasswordForm
+	Route::post('forget-password-mail', [PasswordResetController::class,'submitForgetPasswordForm'])->where('client_type', 'school|company|family|user');
 	Route::post('login-password', [AuthController::class,'loginUsePassword'])->where('client_type', 'school|company|family|user');
 	Route::post('login-user', [AuthController::class,'login'])->where('client_type', 'school|company|family|user');
 	Route::post('register-user', [AuthController::class,'register'])->where('client_type', 'school|company|family|user');
