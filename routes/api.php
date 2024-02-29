@@ -34,7 +34,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 // front	
 Route::group(['prefix' => '{client_type}'], function () {
 	// submitForgetPasswordForm
-	Route::post('forget-password-mail', [PasswordResetController::class,'submitForgetPasswordForm'])->where('client_type', 'school|company|family|user');
+	Route::post('forget-password', [PasswordResetController::class,'forgetPassword'])->where('client_type', 'school|company|family|user');
+	Route::post('reset-password', [PasswordResetController::class,'resetPassword'])->where('client_type', 'school|company|family|user');
 	Route::post('login-password', [AuthController::class,'loginUsePassword'])->where('client_type', 'school|company|family|user');
 	Route::post('login-user', [AuthController::class,'login'])->where('client_type', 'school|company|family|user');
 	Route::post('register-user', [AuthController::class,'register'])->where('client_type', 'school|company|family|user');

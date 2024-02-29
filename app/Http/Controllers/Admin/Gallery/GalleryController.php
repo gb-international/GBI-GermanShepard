@@ -61,8 +61,6 @@ class GalleryController extends Controller
             $data = ['gallery_id'=>$gallery->id,'path'=>$path,'alt'=>$imagename];
             Galleryimage::create($data);
         }
-            
-        $gallery = $gallery->update(['slug'=>$gallery->slug.'-'.$gallery->id]);
         return response()->json('succesfull created');
         
     }
@@ -113,7 +111,6 @@ class GalleryController extends Controller
             $data = ['gallery_id'=>$gallery->id,'path'=>$path,'alt'=>$imagename];
             Galleryimage::create($data);
         }
-        $gallery = $gallery->update(['slug'=>$gallery->slug.'-'.$gallery->id]);
         return response()->json('succesfull updated');
     }
 
