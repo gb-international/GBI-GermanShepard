@@ -120,7 +120,7 @@ class PasswordResetController extends Controller
 
             }
             if($guard_name == "user"){
-                $data = User::where('email', $request->email)-first();
+                $data = User::where('email', $request->email)->first();
             }
             else if($guard_name == "company"){
                 $data = CompanyUser::where('email', $request->email)->first();

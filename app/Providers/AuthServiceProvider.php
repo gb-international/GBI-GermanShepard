@@ -43,7 +43,7 @@ class AuthServiceProvider extends ServiceProvider
         // Passport::routes();
         Passport::tokensCan([
         'school' => 'For education institute',
-        'user' => 'For users',
+        'users' => 'For users',
         'company' => 'Company User',
         'family' => 'Family',
     ]);

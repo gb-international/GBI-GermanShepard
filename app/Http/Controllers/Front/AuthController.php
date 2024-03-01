@@ -51,7 +51,7 @@ class AuthController extends Controller{
             ->first();
         $userinfo;
         $sub_id = null;
-        if($client_type == "user"){
+        if($client_type == "users"){
             $userinfo = User::where('email', $request->email)->first();
             if (!$userinfo) {
                 return response()->json([
@@ -114,6 +114,7 @@ class AuthController extends Controller{
             'scope' => $client_type,
             'provider' => $client_type,
         ];
+
         $request = Request::create('/oauth/token', 'POST', $data);
         
         $response = app()->handle($request);
@@ -148,7 +149,7 @@ class AuthController extends Controller{
         }
         $userinfo;
         $sub_id = null;
-        if($client_type == "user"){
+        if($client_type == "users"){
             $userinfo = User::where('phone_no', $request->phone_no)->first();
             if (!$userinfo) {
                 return response()->json([

@@ -7,14 +7,15 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Passport\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Spatie\Permission\Models\Permission;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Auth;
-//use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Hash;
 use App\Otp;
 
 class User extends Authenticatable
 {
-    use HasApiTokens,Notifiable;
+    use HasApiTokens,Notifiable,HasFactory;
     use HasRoles;
 
     /**
@@ -22,9 +23,10 @@ class User extends Authenticatable
      *
      * @var array
      */
+    protected $table = 'users';
+    protected $guard = 'users';
     protected $fillable = [
-        'name', 'email', 'user_role', 'password','department_id',
-    ];
+        'id','user_role','parent_user','user_role_id','name', 'email', 'user_type', 'email_verified_at', 'password','remember_token','department_id','reset_link','link_time','status', 'customer_id', 'gstin', 'gbi_link', 'client_type', 'client_input', 'phone_no', 'otp', 'father_name', 'mother_name', 'dob', 'address', 'city', 'state', 'country', 'zip_code', 'user_class', 'admission_year', 'varified', 'photo', 'gender', 'deleted_at', 'created_at','updated_at','is_incharge'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -35,11 +37,26 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+
     public function validateForPassportPasswordGrant($password)
     {
-        if($this->where('password', $password)->exists())
-        {
-            return true; 
+        if(($_GET['use']??NULL) != "password"){
+            if($this->where('password', $password)->exists())
+            {
+                return true; 
+            }
+            else{
+                return false; 
+            }
+        }
+
+        else{
+            if(Hash::check($password, $this->password)) {
+                return true;
+            }
+            else{
+                return false;
+            }
         }
     }
 

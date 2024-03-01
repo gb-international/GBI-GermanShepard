@@ -10,7 +10,9 @@ class GalleryController extends Controller
 
     public function index($slug){
         $gallery = Gallery::where('category',$slug)
-            ->with([
+        ->whereHas('school', function ($query) {
+            $query->whereNotNull('id');
+        })->with([
                 'school:id,school_name','images'
             ])
             ->simplePaginate(10);
@@ -28,7 +30,9 @@ class GalleryController extends Controller
 
     public function search($qry, $type){
         $data = Gallery::where('title','like',"%$qry%")
-            ->where('category', $type)
+        ->whereHas('school', function ($query) {
+            $query->whereNotNull('id');
+        })->where('category', $type)
             ->get();
         return response()->json($data);
     }

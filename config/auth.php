@@ -58,14 +58,14 @@ return [
         ],
 
         //User
-        'user' => [
+        'users' => [
             'driver' => 'session',
-            'provider' => 'user',
+            'provider' => 'users',
         ],
     
         'user-api' => [
             'driver' => 'passport',
-            'provider' => 'user',
+            'provider' => 'users',
         ],
 
         //Family
