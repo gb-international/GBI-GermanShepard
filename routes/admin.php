@@ -1,10 +1,14 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Admin\Itinerary\SightseeingRequestController as SightseeingRequest;
+use App\Http\Controllers\Admin\Advertising_And_Discount\MarketingCampaignController;
+use App\Http\Controllers\Admin\Advertising_And_Discount\DiscountCouponController;
+use App\Http\Controllers\Admin\Payment\BankDetailController;
+use App\Http\Controllers\Admin\Tour\UserpaymentController;
 use App\Http\Controllers\Admin\TravellerPolicy\TravellerPolicyCategoryController;
 use App\Http\Controllers\Admin\TravellerPolicy\TravellerPolicyController;
-use App\Http\Controllers\Admin\Itinerary\ItineraryrequestController;
-use App\Http\Controllers\Admin\Location\MapsController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -167,7 +171,6 @@ Route::namespace('Admin')->group(function (){
 		Route::get('gallery/all/{size}','GalleryController@all');
 		Route::resource('gallery','GalleryController');
 	});
-
 
 	Route::namespace('RoleAndPermission')->group(function(){
 		Route::get('role/all/{size}','RoleController@all');
@@ -362,6 +365,33 @@ Route::namespace('Admin')->group(function (){
 		Route::get('policy-per-category/{category_id}/{size?}',[TravellerPolicyController::class, 'all']);
 		Route::post('policy-per-category',[TravellerPolicyController::class, 'getAllPolicy']);
 		Route::post('status',[TravellerPolicyController::class, 'publish']);
+	});
+
+	Route::group(['prefix' => '/advertising', 'as' => 'advertising.'], function () {
+		Route::resource('marketing-campaign',Advertising_And_Discount\MarketingCampaignController::class);
+		Route::get('all-marketing-campaign/{size?}',[MarketingCampaignController::class, 'all']);
+		Route::group(['prefix' => '/{client_type}/discount-coupon/', 'as'=>'discount-coupon.'], function () {
+			Route::post('store',[DiscountCouponController::class, 'store'])->where('client_type', 'school|company|family');
+			Route::put('update/{id}',[DiscountCouponController::class, 'update'])->where('client_type', 'school|company|family');
+			Route::delete('delete/{id}',[DiscountCouponController::class, 'destroy'])->where('client_type', 'school|company|family');
+		 	Route::get('{id}/edit',[DiscountCouponController::class, 'edit'])->where('client_type', 'school|company|family');
+			Route::get('{id}/show',[DiscountCouponController::class, 'show'])->where('client_type', 'school|company|family');
+			// Route::resource('discount-coupon',Advertising_And_Discount\DiscountCouponController::class);
+			Route::get('all-discount-coupon/{size?}',[DiscountCouponController::class, 'all'])->where('client_type', 'school|company|family');
+			Route::get('attempt-discount-coupon/{size?}',[DiscountCouponController::class, 'attemptDiscountCoupon'])->where('client_type', 'school|company|family');
+		});
+	});
+
+	Route::group(['prefix' => '{user}/{tour_type}/payment', 'as' => 'payment.'], function () {
+		Route::group(['prefix' => '/cash', 'as' => 'cash.'], function () {
+			Route::post('record',[UserpaymentController::class, 'cashRecord'])->where('user', 'user')->where('tour_type','school|company|family');
+		});
+		Route::get('payment-history/{tour_id}/{size?}',[UserpaymentController::class, 'allHistory'])->where('user', 'user')->where('tour_type','school|company|family');
+		
+		Route::group(['prefix' => '/cheque', 'as' => 'cheque.'], function () {
+			Route::post('cheque-draft-record',[UserpaymentController::class, 'chequeOrdraftRecord'])->where('user', 'user')->where('tour_type','school|company|family');
+			Route::post('cheque-status',[UserpaymentController::class, 'chequeStatus'])->where('user', 'user')->where('tour_type','school|company|family');
+		});	
 	});
 });
 

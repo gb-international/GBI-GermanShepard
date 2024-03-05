@@ -155,7 +155,9 @@ class MarketingCampaignController extends BaseController
                 $data->save();
     
                 //Connected marketing_campaign to meta_keywords table
-                $data->meta_keywords()->sync(array_unique($request->meta_keywords??''));
+                if($request->meta_keywords){
+                    $data->meta_keywords()->sync(array_unique($request->meta_keywords??''));
+                }
             }
             else{
                 return $this->sendError("Id does not exist", 404);
