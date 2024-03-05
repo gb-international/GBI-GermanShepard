@@ -50,7 +50,6 @@ class GalleryController extends Controller
             'title'=>'required',
             'school_id'=>'required',
             'category'=>'required',
-            'slug'=>''
         ]);
 
         $gallery = Gallery::create($data);
@@ -101,7 +100,6 @@ class GalleryController extends Controller
             'title'=>'required',
             'school_id'=>'required',
             'category'=>'required',
-            'slug'=>''
         ]);
 
         $gallery->update($data);

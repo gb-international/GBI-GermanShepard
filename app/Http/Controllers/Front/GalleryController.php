@@ -9,8 +9,7 @@ class GalleryController extends Controller
 {
 
     public function index($slug){
-        $gallery = Gallery::where('category',$slug)
-        ->whereHas('school', function ($query) {
+        $gallery = Gallery::where('category',$slug)->whereHas('school', function ($query) {
             $query->whereNotNull('id');
         })->with([
                 'school:id,school_name','images'
