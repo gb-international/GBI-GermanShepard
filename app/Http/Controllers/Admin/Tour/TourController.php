@@ -4,8 +4,8 @@ Purpose : Manage tour of gbi  */
 namespace App\Http\Controllers\Admin\Tour;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
 use App\Model\Tour\Tour;
+use App\Model\Tour\Payment as PaymentModel;
 use App\Http\Resources\TourCollection;
 use App\Model\Reservation\Bookedbus;
 use App\Model\Reservation\Bookedescort;
@@ -14,14 +14,42 @@ use App\Model\Reservation\Bookedhotel;
 use App\Model\Reservation\Bookedrestaurant;
 use App\Model\Reservation\Bookedtrain;
 use App\Model\Reservation\Bookedsightseeing;
+use App\Http\Controllers\Admin\BaseController;
+use App\Http\Requests\Admin\TourRequest;
+use Validator;
 
-class TourController extends Controller
+class TourController extends BaseController
 {
+    public function paymentThrough(Request $request){
+       try{
+           $validator = Validator::make($request->all(), [ 
+               'tour_id'=>'required|exists:tours,id',
+               'payment_through_status'=>'required|in:0,1',
+           ]);
+           
+           if ($validator->fails()) {
+               return response()->json(['message' => "The given data was invalid.", 'errors' =>$validator->errors()]);
+           }
+           $payment_count = PaymentModel::where('tour_id', $request->tour_id)->count();
+           if($payment_count > 0){
+               return $this->sendError("Payment done or processing");
+           }
+           $tour = Tour::where('id', $request->tour_id)->first();
+           $tour->payment_through_status = $request->payment_through_status??0;
+           $tour->save();
+           return response()->json('successfully updated!');
+       }
+       catch(Exception $e){
+           return $this->sendError($e->getMessage());
+       }
+    }
+    
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
 
     public function all($size)
     {
@@ -32,41 +60,23 @@ class TourController extends Controller
 
     public function school($size)
     {
-        if($size == 'all'){
-            return response()->json(Tour::where('customer_type', 'school')->with('school:id,school_name')
-            ->latest('updated_at')
-        );
-        }else {
-            return response()->json(Tour::where('customer_type', 'school')->with('school:id,school_name')
+        return response()->json(Tour::where('customer_type', 'school')->with('school:id,school_name')
             ->latest('updated_at')
             ->paginate($size));
-        }
     }
 
     public function corporate($size)
     {
-        if($size == 'all'){
-            return response()->json(Tour::where('customer_type', 'corporate')->with('company:id,company_name')
-            ->latest('updated_at')
-        );
-        }else {
         return response()->json(Tour::where('customer_type', 'corporate')->with('company:id,company_name')
             ->latest('updated_at')
             ->paginate($size));
-        }
     }
 
     public function general($size)
     {
-        if($size == 'all'){
-            return response()->json(Tour::where('customer_type', 'general')->with('family:id,family_name')
-            ->latest('updated_at')
-        );
-        }else {
         return response()->json(Tour::where('customer_type', 'general')->with('family:id,family_name')
             ->latest('updated_at')
             ->paginate($size));
-        }
     }
 
     public function index()
@@ -90,10 +100,29 @@ class TourController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TourRequest $request)
     {
-        $tour = Tour::create($this->validateTour($request));
-        return response()->json(['Message'=> 'Successfully Added...']);
+        try{
+            $data = array();
+            $data['customer_type'] = $request->customer_type??0; 
+            $data['school_id'] = $request->school_id??0; 
+            $data['company_id'] = $request->company_id??0; 
+            // $data['family_id'] = $request->family_id??0; 
+            $data['itinerary_id'] = $request->itinerary_id??0; 
+            $data['tour_id'] = $request->tour_id??0; 
+            $data['travel_code'] = $request->travel_code??''; 
+            $data['tour_start_date'] = $request->tour_start_date??''; 
+            $data['tour_end_date'] = $request->tour_end_date??''; 
+            $data['tour_price'] = $request->tour_price??0;
+            $data['tcs_fee'] = $request->tcs_fee??0;
+            $data['gst_fee'] = $request->gst_fee??0;
+            $data['pg_convenience_and_internet_fee'] = $request->pg_convenience_and_internet_fee??0;
+            $tour = Tour::create($data);
+            return response()->json(['Message'=> 'Successfully Added...']);
+        }
+        catch(Exception $e){
+            return $this->sendError($e->getMessage());
+        }
     }
 
     /**
@@ -114,7 +143,6 @@ class TourController extends Controller
         $buses = Bookedbus::with('bus')->where('tour_id',$tour->id)->get();
         $restaurant = Bookedrestaurant::with('restaurant')->where('tour_id',$tour->id)->get();
         $sightseeing = Bookedsightseeing::with('sightseeing')->where('tour_id',$tour->id)->get()->groupBy('itineraryday_id');
-        //$sightseeing = array_filter( $sightseeing);
         
         if($tour->customer_type == 'school'){
             $data = ['itinerary'=>$tour->itinerary,'entity'=>$tour->school,'tour'=>$tour,'escort'=>$escorts,'train'=>$trains,'flight'=>$flights,'hotel'=>$hotels,'restaurant'=>$restaurant,'bus'=>$buses,'sightseeing'=>$sightseeing];
@@ -148,10 +176,30 @@ class TourController extends Controller
      * @param  \App\Tour  $tour
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tour $tour)
+    public function update(TourRequest $request, Tour $tour)
     {
-        $tour->update($this->validateTour($request));
-        return response()->json(['message'=>'Successfully Updated']);
+        try{
+            $data = array();
+            $data['customer_type'] = $request->customer_type??$tour->customer_type; 
+            $data['school_id'] = $request->school_id??$tour->school_id; 
+            $data['company_id'] = $request->company_id??$tour->company_id; 
+            // $data['family_id'] = $request->family_id??$tour->family_id; 
+            $data['itinerary_id'] = $request->itinerary_id??$tour->itinerary_id; 
+            $data['tour_id'] = $request->tour_id??$tour->tour_id; 
+            $data['travel_code'] = $request->travel_code??$tour->travel_code; 
+            $data['tour_start_date'] = $request->tour_start_date??$tour->tour_start_date; 
+            $data['tour_end_date'] = $request->tour_end_date??$tour->tour_end_date; 
+            $data['tour_price'] = $request->tour_price??$tour->tour_price;
+            $data['tcs_fee'] = $request->tcs_fee??$tour->tcs_fee;
+            $data['gst_fee'] = $request->gst_fee??$tour->gst_fee;
+            $data['pg_convenience_and_internet_fee'] = $request->pg_convenience_and_internet_fee??$tour->pg_convenience_and_internet_fee;
+            $tourUpdate = $tour->update($data);
+            return response()->json(['message'=>'Successfully Updated']);
+        }
+        catch(Exception $e){
+            return $this->sendError($e->getMessage());
+        }
+        // $tour->update($this->validateTour($request));
     }
 
     /**
@@ -172,7 +220,7 @@ class TourController extends Controller
       return $this->validate($request, [
             'school_id' => '',
             'company_id' => '',
-            'family_id' => '',
+            // 'family_id' => '',
             'customer_type' => 'required',
             'itinerary_id' => 'required',
             'tour_id' => 'required',
@@ -182,5 +230,4 @@ class TourController extends Controller
             'tour_price' => 'required',
       ]);
     }
-
 }

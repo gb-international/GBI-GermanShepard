@@ -363,6 +363,11 @@ class ItineraryController extends Controller
         return response()->json('successfully deleted');
     }
 
+    //get Itinerary
+    public function getItinerary($client_type, $tour_type){
+        return response()->json(Itinerary::where(array('client_type'=>$client_type,'tourtype'=>$tour_type))->get(['id','title']));
+    }
+
     public function validateItinerary($request)
     {
       return $this->validate($request, [

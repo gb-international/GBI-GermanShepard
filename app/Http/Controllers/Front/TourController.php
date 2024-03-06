@@ -285,11 +285,11 @@ class TourController extends Controller{
             $data['students'] = Groupmember::where('tour_id', $request->travel_code)->where('user_type', 'student')->count();
             $data['teachers'] = Groupmember::where('tour_id', $request->travel_code)->where('user_type', 'teacher')->count();
 
-            $data['base_price'] = $tour->tour_price;
+            $data['tour_price'] = $tour->tour_price;
             $data['user_id'] = $user->id;
             $data['travel_code'] = $tour->travel_code;
         }else{
-            $data['base_price'] = $tour->tour_price;
+            $data['tour_price'] = $tour->tour_price;
             $data['user_id'] = $user->id;
             $data['travel_code'] = $tour->travel_code;
         }
