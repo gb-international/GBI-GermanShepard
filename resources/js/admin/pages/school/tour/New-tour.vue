@@ -12,7 +12,7 @@ This template helps us to create a new Tour.
         @submit.prevent="AddTour()"
       >
         <div class="row">
-          <div class="col-sm-6">
+          <div class="col-sm-4">
             <div class="form-group">
               <label for="tour_id">Tour Code</label>
               <input
@@ -41,7 +41,7 @@ This template helps us to create a new Tour.
             </div>
           </div> -->
 
-          <div class="col-sm-6">
+          <div class="col-sm-4">
             <div class="form-group">
               <label for="travel_code">Travel Code</label>
               <input
@@ -52,6 +52,56 @@ This template helps us to create a new Tour.
                 placeholder="Enter Travel Code"
               />
               <has-error :form="form" field="travel_code"></has-error>
+            </div>
+          </div>
+
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="tour_type">Tour Type</label>
+              <select class="form-control customSelect" @change="onTourTypeChange" v-model="form.tour_type">
+                <option value="National">National</option>
+                <option value="International">International</option>
+              </select>
+              <has-error :form="form" field="tour_type"></has-error>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="room_sharing">Room Sharing</label>
+              <select class="form-control customSelect" v-model="form.room_sharing">
+                <!-- <option value="Single">Single</option>
+                <option value="Double">Double</option> -->
+                <option value="Triple">Triple</option>
+                <option value="Quad">Quad</option>
+              </select>
+              <has-error :form="form" field="room_sharing"></has-error>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="meal_plan_type">Meal plan type</label>
+              <select class="form-control customSelect" v-model="form.meal_plan_type">
+                <option value="ep">ep</option>
+                <option value="cpai">cpai</option>
+                <option value="mapai">mapai</option>
+                <option value="apai">apai</option>
+              </select>
+              <has-error :form="form" field="meal_plan_type"></has-error>
+            </div>
+          </div>
+
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="no_of_adults">No of adults</label>
+              <input
+                type="number"
+                min="0"
+                class="form-control"
+                placeholder="Enter No of adults"
+                v-model="form.no_of_adults"
+                :class="{ 'is-invalid': form.errors.has('no_of_adults') }"
+              />
+              <has-error :form="form" field="no_of_adults"></has-error>
             </div>
           </div>
 
@@ -141,6 +191,37 @@ This template helps us to create a new Tour.
               <has-error :form="form" field="tour_price"></has-error>
             </div>
           </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="meal_plan_price">Meal plan price</label>
+              <input
+                type="number"
+                min="0"
+                class="form-control"
+                placeholder="Enter meal plan price"
+                v-model="form.meal_plan_price"
+                :class="{ 'is-invalid': form.errors.has('meal_plan_price') }"
+              />
+              <has-error :form="form" field="meal_plan_price"></has-error>
+            </div>
+          </div>
+
+          <div class="col-sm-3" v-if="gst_list.length">
+            <div class="form-group">
+                <label for="gst_fee">Gst fee(%)</label>
+                <select v-model="form.gst_fee" class="form-control customSelect">
+                    <option v-for="{key,value} in gst_list" :value="key"  :key="key">{{value}}</option>
+                </select>
+            </div>
+          </div>
+          <div class="col-sm-3" v-if="tcs_list.length>0&& form.tour_type == 'International'">
+            <div class="form-group">
+                <label for="tcs_fee">Tcs fee(%)</label>
+                  <select v-model="form.tcs_fee" class="form-control customSelect">
+                    <option v-for="{key,value} in tcs_list" :value="key"  :key="key">{{value}}</option>
+                  </select>
+            </div>
+          </div>
         </div>
         <form-buttons />
       </form>
@@ -169,8 +250,12 @@ export default {
   data() {
     return {
       itinerary_list: [],
+      client_type:'eduInstitute',
+      tour_type:'National',
       school_list: [],
       company_list: [],
+      gst_list:[],
+      tcs_list:[],
       tours: [],
       minDate: '',
       /*customer_list: [
@@ -179,8 +264,11 @@ export default {
         {name:"General",id:'general'}
       ],*/
       
-      form: new Form({
+      form: new Form({ 
         customer_type: "school",
+        room_sharing:"Quad",
+        meal_plan_type:"ep",
+        tour_type:"National",
         tour_id: "",
         travel_code: "",
         itinerary_id: "",
@@ -189,9 +277,41 @@ export default {
         tour_start_date: "",
         tour_end_date: "",
         tour_price: "",
+        tcs_fee:5,
+        gst_fee:5,
       }),
       loading: false
     };
+  },
+  created(){
+    this.gst_list=[
+      {
+      "key":5,
+      "value":"5%"
+      },
+      {
+      "key":12,
+      "value":"12%"
+      },
+      {
+      "key":18,
+      "value":"18%"
+      }
+    ],
+    this.tcs_list=[
+      {
+        "key":5,
+        "value":"5%"
+        },
+        {
+        "key":10,
+        "value":"10%"
+        },
+        {
+        "key":20,
+        "value":"20%"
+        }
+    ]
   },
   mounted() {
     this.tourData();
@@ -206,12 +326,12 @@ export default {
       var month = dtToday.getMonth() + 1;
       var day = dtToday.getDate();
       var year = dtToday.getFullYear();
-
+      
       if(month < 10)
-          month = '0' + month.toString();
-      if(day < 10)
-          day = '0' + day.toString();
-
+      month = '0' + month.toString();
+    if(day < 10)
+    day = '0' + day.toString();
+  
       var minDate = year + '-' + month + '-' + day;
       this.minDate = minDate;
       this.form.tour_start_date = minDate;
@@ -228,7 +348,7 @@ export default {
         }
       });
     },
-
+    
     companyData() {
       axios.get(`/api/company`).then((res) => {
         if (res.data) {
@@ -243,7 +363,8 @@ export default {
     },
 
     itineraryData() {
-      axios.get(`/api/itinerary`).then((res) => {
+      this.itinerary_list=[],
+      axios.get(`/api/itinerary/${this.client_type}/${this.tour_type}`).then((res) => {
         if (res.data) {
           for(let i = 0;i<res.data.length;i++){
             this.itinerary_list.push({
@@ -253,6 +374,11 @@ export default {
           }
         }
       });
+    },
+    onTourTypeChange(){
+      console.log(this.form.tour_type)
+      this.tour_type = this.form.tour_type
+      this.itineraryData()
     },
 
     tourData() {
