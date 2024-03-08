@@ -411,6 +411,24 @@ class ItineraryController extends Controller
         }
         return $slug;
     }
+
+    public function pricePerItinerary($itinerary_id){
+        try{
+            $data = Itinerary::where('id',$itinerary_id)->select([
+            'id','tcs_fee','gst_fee','single_sharing_base_price','double_sharing_base_price','triple_sharing_base_price','quad_sharing_base_price','child_with_mattress_price','child_without_mattress_price',
+            'infant_price','apai_price','mapai_price','cpai_price','ep_price','price'
+            ])->first();
+            if($data){
+                return response()->json($data);
+            }
+            else{
+                return $this->sendError("Data not exist!", 404);
+            }
+        }
+        catch(Exception $e){
+            return $this->sendError($e->getMessage(), 500);
+        }
+    }
 }
 
 

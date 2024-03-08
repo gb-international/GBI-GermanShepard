@@ -530,8 +530,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 
 
@@ -576,7 +574,9 @@ __webpack_require__.r(__webpack_exports__);
         tour_end_date: "",
         tour_price: "",
         tcs_fee: 5,
-        gst_fee: 5
+        gst_fee: 5,
+        meal_plan_price: 0,
+        no_of_adults: 0
       }),
       loading: false
     };
@@ -663,44 +663,93 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
     },
+    onItineraryChange: function onItineraryChange() {},
     onTourTypeChange: function onTourTypeChange() {
-      console.log(this.form.tour_type);
       this.tour_type = this.form.tour_type;
       this.itineraryData();
+      this.form.tour_price = 0;
+      this.form.meal_plan_price = 0;
+      this.form.tcs = 0;
+      this.form.gst = 0;
+    },
+    priceChange: function priceChange($itinerary_id) {
+      var _this4 = this;
+
+      axios.get("/api/price-per-itinerary/".concat($itinerary_id)).then(function (res) {
+        if (res.data) {
+          if (_this4.form.room_sharing == "Triple") {
+            _this4.form.tour_price = res.data.triple_sharing_base_price;
+
+            if (_this4.form.meal_plan_type == 'ep') {
+              _this4.form.meal_plan_price = res.data.ep_price;
+            } else if (_this4.form.meal_plan_type == 'cpai') {
+              _this4.form.meal_plan_price = res.data.cpai_price;
+            } else if (_this4.form.meal_plan_type == 'mapai') {
+              _this4.form.meal_plan_price = res.data.mapai_price;
+            } else if (_this4.form.meal_plan_type == 'apai') {
+              _this4.form.meal_plan_price = res.data.apai_price;
+            }
+          } else if (_this4.form.room_sharing == "Quad") {
+            _this4.form.tour_price = res.data.quad_sharing_base_price;
+
+            if (_this4.form.meal_plan_type == 'ep') {
+              _this4.form.meal_plan_price = res.data.ep_price;
+            } else if (_this4.form.meal_plan_type == 'cpai') {
+              _this4.form.meal_plan_price = res.data.cpai_price;
+            } else if (_this4.form.meal_plan_type == 'mapai') {
+              _this4.form.meal_plan_price = res.data.mapai_price;
+            } else if (_this4.form.meal_plan_type == 'apai') {
+              _this4.form.meal_plan_price = res.data.apai_price;
+            }
+          }
+
+          _this4.form.gst_fee = res.data.gst_fee;
+
+          if (_this4.form.tour_type == "International") {
+            _this4.form.tcs_fee = res.data.tcs_fee;
+          }
+        }
+      });
+    },
+    onRoomSharingChange: function onRoomSharingChange() {
+      this.priceChange(this.form.itinerary_id);
+    },
+    onMealPlanType: function onMealPlanType() {
+      this.priceChange(this.form.itinerary_id);
     },
     tourData: function tourData() {
-      var _this4 = this;
+      var _this5 = this;
 
       axios.get("/api/tour").then(function (res) {
         if (res.data) {
-          _this4.tours = res.data.data;
+          _this5.tours = res.data.data;
 
-          if (_this4.tours.length >= 1 && _this4.tours.length) {
-            var last_id = _this4.tours[_this4.tours.length - 1].id;
+          if (_this5.tours.length >= 1 && _this5.tours.length) {
+            var last_id = _this5.tours[_this5.tours.length - 1].id;
             last_id++;
             var trCode = "GBI TOUR CODE 00" + last_id;
-            _this4.form.tour_id = trCode;
+            _this5.form.tour_id = trCode;
           } else {
             var trCode = "GBI TOUR CODE 001";
-            _this4.form.tour_id = trCode;
+            _this5.form.tour_id = trCode;
           }
         }
       });
     },
     AddTour: function AddTour() {
-      var _this5 = this;
+      var _this6 = this;
 
       this.form.post("/api/tour").then(function (res) {
-        _this5.loading = true;
+        _this6.loading = true;
 
-        _this5.$router.push("/school/tours/");
+        _this6.$router.push("/school/tours/");
 
-        _this5.$toast.fire({
+        _this6.$toast.fire({
           icon: "success",
           title: "Tour Added successfully"
         });
 
-        _this5.loading = false;
+        _this6.loading = false;
       })["catch"](function () {});
     },
     schoolUpdate: function schoolUpdate(value) {
@@ -710,7 +759,10 @@ __webpack_require__.r(__webpack_exports__);
       this.form.company_id = value.id;
     },
     itineraryUpdate: function itineraryUpdate(value) {
-      this.form.itinerary_id = value.id;
+      if (value.id != undefined) {
+        this.form.itinerary_id = value.id;
+        this.priceChange(this.form.itinerary_id);
+      }
     },
     customerUpdate: function customerUpdate(value) {
       this.form.customer_type = value.id;
@@ -1658,30 +1710,33 @@ var render = function () {
                                       ],
                                       staticClass: "form-control customSelect",
                                       on: {
-                                        change: function ($event) {
-                                          var $$selectedVal =
-                                            Array.prototype.filter
-                                              .call(
-                                                $event.target.options,
-                                                function (o) {
-                                                  return o.selected
-                                                }
-                                              )
-                                              .map(function (o) {
-                                                var val =
-                                                  "_value" in o
-                                                    ? o._value
-                                                    : o.value
-                                                return val
-                                              })
-                                          _vm.$set(
-                                            _vm.form,
-                                            "room_sharing",
-                                            $event.target.multiple
-                                              ? $$selectedVal
-                                              : $$selectedVal[0]
-                                          )
-                                        },
+                                        change: [
+                                          function ($event) {
+                                            var $$selectedVal =
+                                              Array.prototype.filter
+                                                .call(
+                                                  $event.target.options,
+                                                  function (o) {
+                                                    return o.selected
+                                                  }
+                                                )
+                                                .map(function (o) {
+                                                  var val =
+                                                    "_value" in o
+                                                      ? o._value
+                                                      : o.value
+                                                  return val
+                                                })
+                                            _vm.$set(
+                                              _vm.form,
+                                              "room_sharing",
+                                              $event.target.multiple
+                                                ? $$selectedVal
+                                                : $$selectedVal[0]
+                                            )
+                                          },
+                                          _vm.onRoomSharingChange,
+                                        ],
                                       },
                                     },
                                     [
@@ -1868,6 +1923,7 @@ var render = function () {
                                     attrs: { itemList: _vm.itinerary_list },
                                     on: {
                                       "update:option": _vm.itineraryUpdate,
+                                      change: _vm.onItineraryChange,
                                     },
                                   }),
                                   _vm._v(" "),
@@ -2356,7 +2412,7 @@ var render = function () {
               ],
               null,
               false,
-              598210201
+              172721651
             ),
           })
         : _vm._e(),

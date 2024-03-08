@@ -8,7 +8,7 @@ use App\Http\Controllers\Admin\Payment\BankDetailController;
 use App\Http\Controllers\Admin\Tour\UserpaymentController;
 use App\Http\Controllers\Admin\TravellerPolicy\TravellerPolicyCategoryController;
 use App\Http\Controllers\Admin\TravellerPolicy\TravellerPolicyController;
-
+use App\Http\Controllers\Admin\Itinerary\ItineraryController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -63,6 +63,8 @@ Route::namespace('Admin')->group(function (){
 		Route::get('itinerary/all/{size}','ItineraryController@all');
 		Route::resource('itinerary','ItineraryController');
 		Route::get('itinerary/{client_type}/{tour_type}','ItineraryController@getItinerary');
+		Route::get('price-per-itinerary/{itinerary_id}',[ItineraryController::class, 'pricePerItinerary']);
+		
 		Route::get('itinerarydayget/{id}','ItinerarydayController@index');
 		Route::get('itineraryrequst/all/{size}','ItineraryrequestController@all');
 		Route::get('itineraryrequst/{id}','ItineraryrequestController@show');

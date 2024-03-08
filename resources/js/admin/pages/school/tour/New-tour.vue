@@ -68,7 +68,7 @@ This template helps us to create a new Tour.
           <div class="col-sm-4">
             <div class="form-group">
               <label for="room_sharing">Room Sharing</label>
-              <select class="form-control customSelect" v-model="form.room_sharing">
+              <select @change="onRoomSharingChange" class="form-control customSelect" v-model="form.room_sharing">
                 <!-- <option value="Single">Single</option>
                 <option value="Double">Double</option> -->
                 <option value="Triple">Triple</option>
@@ -108,9 +108,7 @@ This template helps us to create a new Tour.
           <div class="col-sm-12">
             <div class="form-group">
               <label for="itinerary_id">Itinerary</label>
-
-              <dropdown-filter class="mb-2" :itemList="itinerary_list" @update:option="itineraryUpdate"/>
-
+              <dropdown-filter class="mb-2" :itemList="itinerary_list" @update:option="itineraryUpdate" @change="onItineraryChange"/>
               <div class="error" v-if="form.errors.has('itinerary_id')">
                 <label class="danger text-danger">{{
                   form.errors.get("itinerary_id")
@@ -279,6 +277,8 @@ export default {
         tour_price: "",
         tcs_fee:5,
         gst_fee:5,
+        meal_plan_price:0,
+        no_of_adults:0,
       }),
       loading: false
     };
@@ -330,7 +330,7 @@ export default {
       if(month < 10)
       month = '0' + month.toString();
     if(day < 10)
-    day = '0' + day.toString();
+        day = '0' + day.toString();
   
       var minDate = year + '-' + month + '-' + day;
       this.minDate = minDate;
@@ -375,12 +375,66 @@ export default {
         }
       });
     },
+    onItineraryChange(){
+    },
     onTourTypeChange(){
-      console.log(this.form.tour_type)
       this.tour_type = this.form.tour_type
       this.itineraryData()
+      this.form.tour_price = 0;
+      this.form.meal_plan_price = 0;
+      this.form.tcs = 0;
+      this.form.gst = 0;
     },
-
+    priceChange($itinerary_id){
+      axios.get(`/api/price-per-itinerary/${$itinerary_id}`).then((res) => {
+        if (res.data) {       
+          if(this.form.room_sharing == "Triple"){
+            this.form.tour_price = res.data.triple_sharing_base_price;
+            if(this.form.meal_plan_type == 'ep'){
+              this.form.meal_plan_price = res.data.ep_price;
+            }
+            else if(this.form.meal_plan_type == 'cpai'){
+              this.form.meal_plan_price = res.data.cpai_price;
+              
+            }
+            else if(this.form.meal_plan_type == 'mapai'){
+              this.form.meal_plan_price = res.data.mapai_price;
+              
+            }
+            else if(this.form.meal_plan_type == 'apai'){
+              this.form.meal_plan_price = res.data.apai_price;
+            }
+          }
+          else if(this.form.room_sharing == "Quad"){ 
+            this.form.tour_price = res.data.quad_sharing_base_price;
+            if(this.form.meal_plan_type == 'ep'){
+              this.form.meal_plan_price = res.data.ep_price;
+            }
+            else if(this.form.meal_plan_type == 'cpai'){
+              this.form.meal_plan_price = res.data.cpai_price;
+              
+            }
+            else if(this.form.meal_plan_type == 'mapai'){
+              this.form.meal_plan_price = res.data.mapai_price;
+              
+            }
+            else if(this.form.meal_plan_type == 'apai'){
+              this.form.meal_plan_price = res.data.apai_price;
+            }
+          }
+          this.form.gst_fee = res.data.gst_fee
+          if(this.form.tour_type == "International"){
+            this.form.tcs_fee = res.data.tcs_fee
+          }
+        }
+      })
+    },
+    onRoomSharingChange(){
+      this.priceChange(this.form.itinerary_id);
+    },
+    onMealPlanType(){
+      this.priceChange(this.form.itinerary_id);
+    },
     tourData() {
       axios.get(`/api/tour`).then((res) => {
         if (res.data) {
@@ -420,7 +474,10 @@ export default {
     },
     
     itineraryUpdate(value){
-      this.form.itinerary_id = value.id;
+      if(value.id != undefined){
+        this.form.itinerary_id = value.id;
+        this.priceChange(this.form.itinerary_id);
+      }
     },
 
     customerUpdate(value){

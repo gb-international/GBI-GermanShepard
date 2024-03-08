@@ -133,8 +133,6 @@ This template helps us to create a new Tour.
                 type="text"
                 class="form-control"
                 placeholder="Enter Tour Price"
-                v-model="form.tour_price"
-                :class="{ 'is-invalid': form.errors.has('tour_price') }"
               />
               <has-error :form="form" field="tour_price"></has-error>
             </div>
@@ -282,7 +280,7 @@ export default {
     companyUpdate(value){
       this.form.company_id = value.id;
     },
-    
+     
     itineraryUpdate(value){
       this.form.itinerary_id = value.id;
     },
@@ -294,3 +292,4 @@ export default {
   },
 };
 </script>
+ 
