@@ -652,6 +652,7 @@ __webpack_require__.r(__webpack_exports__);
     itineraryData: function itineraryData() {
       var _this3 = this;
 
+      console.log("Testing");
       this.itinerary_list = [], axios.get("/api/itinerary/".concat(this.client_type, "/").concat(this.tour_type)).then(function (res) {
         if (res.data) {
           for (var i = 0; i < res.data.length; i++) {
@@ -738,6 +739,12 @@ __webpack_require__.r(__webpack_exports__);
     },
     AddTour: function AddTour() {
       var _this6 = this;
+
+      if (this.form.tour_type == "National") {
+        this.form.tcs_fee = 0;
+      } // console.log(this.form)
+      // return false;
+
 
       this.form.post("/api/tour").then(function (res) {
         _this6.loading = true;

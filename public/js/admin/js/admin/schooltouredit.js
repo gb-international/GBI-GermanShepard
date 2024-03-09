@@ -302,6 +302,87 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_components_buttons_FormButtons_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/admin/components/buttons/FormButtons.vue */ "./resources/js/admin/components/buttons/FormButtons.vue");
 /* harmony import */ var _admin_components_layout_FormLayout_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/admin/components/layout/FormLayout.vue */ "./resources/js/admin/components/layout/FormLayout.vue");
 /* harmony import */ var _admin_components_form_DropdownList_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/admin/components/form/DropdownList.vue */ "./resources/js/admin/components/form/DropdownList.vue");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -467,25 +548,52 @@ __webpack_require__.r(__webpack_exports__);
     "dropdown-filter": _admin_components_form_DropdownList_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   data: function data() {
+    var _Form;
+
     return {
       itinerary_list: [],
+      client_type: 'eduInstitute',
+      tour_type: 'National',
       school_list: [],
       company_list: [],
+      gst_list: [],
+      tcs_list: [],
       tours: [],
       minDate: '',
-      form: new vform__WEBPACK_IMPORTED_MODULE_0__.Form({
+      form: new vform__WEBPACK_IMPORTED_MODULE_0__.Form((_Form = {
+        customer_type: "school",
+        room_sharing: "Quad",
+        meal_plan_type: "ep",
+        tour_type: "National",
         tour_id: "",
         travel_code: "",
         itinerary_id: "",
         school_id: "",
-        company_id: "NA",
-        customer_type: "",
-        tour_start_date: "",
-        tour_end_date: "",
-        tour_price: ""
-      }),
+        company_id: "NA"
+      }, _defineProperty(_Form, "customer_type", ""), _defineProperty(_Form, "tour_start_date", ""), _defineProperty(_Form, "tour_end_date", ""), _defineProperty(_Form, "tour_price", ""), _defineProperty(_Form, "tcs_fee", 5), _defineProperty(_Form, "gst_fee", 5), _defineProperty(_Form, "meal_plan_price", 0), _defineProperty(_Form, "no_of_adults", 0), _Form)),
       loading: false
     };
+  },
+  created: function created() {
+    this.gst_list = [{
+      "key": 5,
+      "value": "5%"
+    }, {
+      "key": 12,
+      "value": "12%"
+    }, {
+      "key": 18,
+      "value": "18%"
+    }], this.tcs_list = [{
+      "key": 5,
+      "value": "5%"
+    }, {
+      "key": 10,
+      "value": "10%"
+    }, {
+      "key": 20,
+      "value": "20%"
+    }];
   },
   mounted: function mounted() {
     this.tourData();
@@ -517,13 +625,81 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
     },
-    companyData: function companyData() {
+    itineraryData: function itineraryData() {
       var _this3 = this;
+
+      this.itinerary_list = [], axios.get("/api/itinerary/".concat(this.client_type, "/").concat(this.tour_type)).then(function (res) {
+        if (res.data) {
+          for (var i = 0; i < res.data.length; i++) {
+            _this3.itinerary_list.push({
+              name: res.data[i].title + " (".concat(res.data[i].id, ")"),
+              id: res.data[i].id
+            });
+          }
+        }
+      });
+    },
+    onItineraryChange: function onItineraryChange() {},
+    onTourTypeChange: function onTourTypeChange() {
+      this.tour_type = this.form.tour_type;
+      this.itineraryData();
+      this.form.tour_price = 0;
+      this.form.meal_plan_price = 0;
+      this.form.tcs = 0;
+      this.form.gst = 0;
+    },
+    priceChange: function priceChange($itinerary_id) {
+      var _this4 = this;
+
+      axios.get("/api/price-per-itinerary/".concat($itinerary_id)).then(function (res) {
+        if (res.data) {
+          if (_this4.form.room_sharing == "Triple") {
+            _this4.form.tour_price = res.data.triple_sharing_base_price;
+
+            if (_this4.form.meal_plan_type == 'ep') {
+              _this4.form.meal_plan_price = res.data.ep_price;
+            } else if (_this4.form.meal_plan_type == 'cpai') {
+              _this4.form.meal_plan_price = res.data.cpai_price;
+            } else if (_this4.form.meal_plan_type == 'mapai') {
+              _this4.form.meal_plan_price = res.data.mapai_price;
+            } else if (_this4.form.meal_plan_type == 'apai') {
+              _this4.form.meal_plan_price = res.data.apai_price;
+            }
+          } else if (_this4.form.room_sharing == "Quad") {
+            _this4.form.tour_price = res.data.quad_sharing_base_price;
+
+            if (_this4.form.meal_plan_type == 'ep') {
+              _this4.form.meal_plan_price = res.data.ep_price;
+            } else if (_this4.form.meal_plan_type == 'cpai') {
+              _this4.form.meal_plan_price = res.data.cpai_price;
+            } else if (_this4.form.meal_plan_type == 'mapai') {
+              _this4.form.meal_plan_price = res.data.mapai_price;
+            } else if (_this4.form.meal_plan_type == 'apai') {
+              _this4.form.meal_plan_price = res.data.apai_price;
+            }
+          }
+
+          _this4.form.gst_fee = res.data.gst_fee;
+
+          if (_this4.form.tour_type == "International") {
+            _this4.form.tcs_fee = res.data.tcs_fee;
+          }
+        }
+      });
+    },
+    onRoomSharingChange: function onRoomSharingChange() {
+      this.priceChange(this.form.itinerary_id);
+    },
+    onMealPlanType: function onMealPlanType() {
+      this.priceChange(this.form.itinerary_id);
+    },
+    companyData: function companyData() {
+      var _this5 = this;
 
       axios.get("/api/company").then(function (response) {
         if (response.data) {
           for (var i = 0; i < response.data.length; i++) {
-            _this3.company_list.push({
+            _this5.company_list.push({
               name: response.data[i].company_name,
               id: response.data[i].id
             });
@@ -531,32 +707,18 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
     },
-    itineraryData: function itineraryData() {
-      var _this4 = this;
-
-      axios.get("/api/itinerary").then(function (response) {
-        if (response.data) {
-          for (var i = 0; i < response.data.length; i++) {
-            _this4.itinerary_list.push({
-              name: response.data[i].title,
-              id: response.data[i].id
-            });
-          }
-        }
-      });
-    },
     UpdateTour: function UpdateTour() {
-      var _this5 = this;
+      var _this6 = this;
 
       this.form.put("/api/tour/".concat(this.$route.params.id)).then(function (response) {
-        _this5.loading = true; // this.$router.push(`/tours/`);
+        _this6.loading = true; // this.$router.push(`/tours/`);
 
-        _this5.$toast.fire({
+        _this6.$toast.fire({
           icon: "success",
           title: "Successfully Updated"
         });
 
-        _this5.loading = false;
+        _this6.loading = false;
       })["catch"](function () {});
     },
     schoolUpdate: function schoolUpdate(value) {
@@ -1312,7 +1474,7 @@ var render = function () {
                             ? _c("div", { staticClass: "row" }, [
                                 _c(
                                   "div",
-                                  { staticClass: "col-sm-6 d-hidden" },
+                                  { staticClass: "col-sm-4 d-hidden" },
                                   [
                                     _c(
                                       "div",
@@ -1370,7 +1532,7 @@ var render = function () {
                                   ]
                                 ),
                                 _vm._v(" "),
-                                _c("div", { staticClass: "col-sm-6" }, [
+                                _c("div", { staticClass: "col-sm-4" }, [
                                   _c(
                                     "div",
                                     { staticClass: "form-group" },
@@ -1421,6 +1583,315 @@ var render = function () {
                                         attrs: {
                                           form: _vm.form,
                                           field: "travel_code",
+                                        },
+                                      }),
+                                    ],
+                                    1
+                                  ),
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "col-sm-4" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "form-group" },
+                                    [
+                                      _c(
+                                        "label",
+                                        { attrs: { for: "tour_type" } },
+                                        [_vm._v("Tour Type")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "select",
+                                        {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.form.tour_type,
+                                              expression: "form.tour_type",
+                                            },
+                                          ],
+                                          staticClass:
+                                            "form-control customSelect",
+                                          on: {
+                                            change: [
+                                              function ($event) {
+                                                var $$selectedVal =
+                                                  Array.prototype.filter
+                                                    .call(
+                                                      $event.target.options,
+                                                      function (o) {
+                                                        return o.selected
+                                                      }
+                                                    )
+                                                    .map(function (o) {
+                                                      var val =
+                                                        "_value" in o
+                                                          ? o._value
+                                                          : o.value
+                                                      return val
+                                                    })
+                                                _vm.$set(
+                                                  _vm.form,
+                                                  "tour_type",
+                                                  $event.target.multiple
+                                                    ? $$selectedVal
+                                                    : $$selectedVal[0]
+                                                )
+                                              },
+                                              _vm.onTourTypeChange,
+                                            ],
+                                          },
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "National" } },
+                                            [_vm._v("National")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            {
+                                              attrs: { value: "International" },
+                                            },
+                                            [_vm._v("International")]
+                                          ),
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("has-error", {
+                                        attrs: {
+                                          form: _vm.form,
+                                          field: "tour_type",
+                                        },
+                                      }),
+                                    ],
+                                    1
+                                  ),
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "col-sm-4" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "form-group" },
+                                    [
+                                      _c(
+                                        "label",
+                                        { attrs: { for: "room_sharing" } },
+                                        [_vm._v("Room Sharing")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "select",
+                                        {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.form.room_sharing,
+                                              expression: "form.room_sharing",
+                                            },
+                                          ],
+                                          staticClass:
+                                            "form-control customSelect",
+                                          on: {
+                                            change: [
+                                              function ($event) {
+                                                var $$selectedVal =
+                                                  Array.prototype.filter
+                                                    .call(
+                                                      $event.target.options,
+                                                      function (o) {
+                                                        return o.selected
+                                                      }
+                                                    )
+                                                    .map(function (o) {
+                                                      var val =
+                                                        "_value" in o
+                                                          ? o._value
+                                                          : o.value
+                                                      return val
+                                                    })
+                                                _vm.$set(
+                                                  _vm.form,
+                                                  "room_sharing",
+                                                  $event.target.multiple
+                                                    ? $$selectedVal
+                                                    : $$selectedVal[0]
+                                                )
+                                              },
+                                              _vm.onRoomSharingChange,
+                                            ],
+                                          },
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "Triple" } },
+                                            [_vm._v("Triple")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "Quad" } },
+                                            [_vm._v("Quad")]
+                                          ),
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("has-error", {
+                                        attrs: {
+                                          form: _vm.form,
+                                          field: "room_sharing",
+                                        },
+                                      }),
+                                    ],
+                                    1
+                                  ),
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "col-sm-4" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "form-group" },
+                                    [
+                                      _c(
+                                        "label",
+                                        { attrs: { for: "meal_plan_type" } },
+                                        [_vm._v("Meal plan type")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "select",
+                                        {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.form.meal_plan_type,
+                                              expression: "form.meal_plan_type",
+                                            },
+                                          ],
+                                          staticClass:
+                                            "form-control customSelect",
+                                          on: {
+                                            change: function ($event) {
+                                              var $$selectedVal =
+                                                Array.prototype.filter
+                                                  .call(
+                                                    $event.target.options,
+                                                    function (o) {
+                                                      return o.selected
+                                                    }
+                                                  )
+                                                  .map(function (o) {
+                                                    var val =
+                                                      "_value" in o
+                                                        ? o._value
+                                                        : o.value
+                                                    return val
+                                                  })
+                                              _vm.$set(
+                                                _vm.form,
+                                                "meal_plan_type",
+                                                $event.target.multiple
+                                                  ? $$selectedVal
+                                                  : $$selectedVal[0]
+                                              )
+                                            },
+                                          },
+                                        },
+                                        [
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "ep" } },
+                                            [_vm._v("ep")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "cpai" } },
+                                            [_vm._v("cpai")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "mapai" } },
+                                            [_vm._v("mapai")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "option",
+                                            { attrs: { value: "apai" } },
+                                            [_vm._v("apai")]
+                                          ),
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("has-error", {
+                                        attrs: {
+                                          form: _vm.form,
+                                          field: "meal_plan_type",
+                                        },
+                                      }),
+                                    ],
+                                    1
+                                  ),
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "col-sm-4" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "form-group" },
+                                    [
+                                      _c(
+                                        "label",
+                                        { attrs: { for: "no_of_adults" } },
+                                        [_vm._v("No of adults")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value: _vm.form.no_of_adults,
+                                            expression: "form.no_of_adults",
+                                          },
+                                        ],
+                                        staticClass: "form-control",
+                                        class: {
+                                          "is-invalid":
+                                            _vm.form.errors.has("no_of_adults"),
+                                        },
+                                        attrs: {
+                                          type: "number",
+                                          min: "0",
+                                          placeholder: "Enter No of adults",
+                                        },
+                                        domProps: {
+                                          value: _vm.form.no_of_adults,
+                                        },
+                                        on: {
+                                          input: function ($event) {
+                                            if ($event.target.composing) {
+                                              return
+                                            }
+                                            _vm.$set(
+                                              _vm.form,
+                                              "no_of_adults",
+                                              $event.target.value
+                                            )
+                                          },
+                                        },
+                                      }),
+                                      _vm._v(" "),
+                                      _c("has-error", {
+                                        attrs: {
+                                          form: _vm.form,
+                                          field: "no_of_adults",
                                         },
                                       }),
                                     ],
@@ -1777,6 +2248,201 @@ var render = function () {
                                     1
                                   ),
                                 ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "col-sm-4" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "form-group" },
+                                    [
+                                      _c(
+                                        "label",
+                                        { attrs: { for: "meal_plan_price" } },
+                                        [_vm._v("Meal plan price")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value: _vm.form.meal_plan_price,
+                                            expression: "form.meal_plan_price",
+                                          },
+                                        ],
+                                        staticClass: "form-control",
+                                        class: {
+                                          "is-invalid":
+                                            _vm.form.errors.has(
+                                              "meal_plan_price"
+                                            ),
+                                        },
+                                        attrs: {
+                                          type: "number",
+                                          min: "0",
+                                          placeholder: "Enter meal plan price",
+                                        },
+                                        domProps: {
+                                          value: _vm.form.meal_plan_price,
+                                        },
+                                        on: {
+                                          input: function ($event) {
+                                            if ($event.target.composing) {
+                                              return
+                                            }
+                                            _vm.$set(
+                                              _vm.form,
+                                              "meal_plan_price",
+                                              $event.target.value
+                                            )
+                                          },
+                                        },
+                                      }),
+                                      _vm._v(" "),
+                                      _c("has-error", {
+                                        attrs: {
+                                          form: _vm.form,
+                                          field: "meal_plan_price",
+                                        },
+                                      }),
+                                    ],
+                                    1
+                                  ),
+                                ]),
+                                _vm._v(" "),
+                                _vm.gst_list.length
+                                  ? _c("div", { staticClass: "col-sm-3" }, [
+                                      _c("div", { staticClass: "form-group" }, [
+                                        _c(
+                                          "label",
+                                          { attrs: { for: "gst_fee" } },
+                                          [_vm._v("Gst fee(%)")]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "select",
+                                          {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.form.gst_fee,
+                                                expression: "form.gst_fee",
+                                              },
+                                            ],
+                                            staticClass:
+                                              "form-control customSelect",
+                                            on: {
+                                              change: function ($event) {
+                                                var $$selectedVal =
+                                                  Array.prototype.filter
+                                                    .call(
+                                                      $event.target.options,
+                                                      function (o) {
+                                                        return o.selected
+                                                      }
+                                                    )
+                                                    .map(function (o) {
+                                                      var val =
+                                                        "_value" in o
+                                                          ? o._value
+                                                          : o.value
+                                                      return val
+                                                    })
+                                                _vm.$set(
+                                                  _vm.form,
+                                                  "gst_fee",
+                                                  $event.target.multiple
+                                                    ? $$selectedVal
+                                                    : $$selectedVal[0]
+                                                )
+                                              },
+                                            },
+                                          },
+                                          _vm._l(_vm.gst_list, function (ref) {
+                                            var key = ref.key
+                                            var value = ref.value
+                                            return _c(
+                                              "option",
+                                              {
+                                                key: key,
+                                                domProps: { value: key },
+                                              },
+                                              [_vm._v(_vm._s(value))]
+                                            )
+                                          }),
+                                          0
+                                        ),
+                                      ]),
+                                    ])
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                _vm.tcs_list.length > 0 &&
+                                _vm.form.tour_type == "International"
+                                  ? _c("div", { staticClass: "col-sm-3" }, [
+                                      _c("div", { staticClass: "form-group" }, [
+                                        _c(
+                                          "label",
+                                          { attrs: { for: "tcs_fee" } },
+                                          [_vm._v("Tcs fee(%)")]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "select",
+                                          {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.form.tcs_fee,
+                                                expression: "form.tcs_fee",
+                                              },
+                                            ],
+                                            staticClass:
+                                              "form-control customSelect",
+                                            on: {
+                                              change: function ($event) {
+                                                var $$selectedVal =
+                                                  Array.prototype.filter
+                                                    .call(
+                                                      $event.target.options,
+                                                      function (o) {
+                                                        return o.selected
+                                                      }
+                                                    )
+                                                    .map(function (o) {
+                                                      var val =
+                                                        "_value" in o
+                                                          ? o._value
+                                                          : o.value
+                                                      return val
+                                                    })
+                                                _vm.$set(
+                                                  _vm.form,
+                                                  "tcs_fee",
+                                                  $event.target.multiple
+                                                    ? $$selectedVal
+                                                    : $$selectedVal[0]
+                                                )
+                                              },
+                                            },
+                                          },
+                                          _vm._l(_vm.tcs_list, function (ref) {
+                                            var key = ref.key
+                                            var value = ref.value
+                                            return _c(
+                                              "option",
+                                              {
+                                                key: key,
+                                                domProps: { value: key },
+                                              },
+                                              [_vm._v(_vm._s(value))]
+                                            )
+                                          }),
+                                          0
+                                        ),
+                                      ]),
+                                    ])
+                                  : _vm._e(),
                               ])
                             : _vm._e(),
                           _vm._v(" "),
@@ -1791,7 +2457,7 @@ var render = function () {
               ],
               null,
               false,
-              2232375432
+              868608619
             ),
           })
         : _vm._e(),

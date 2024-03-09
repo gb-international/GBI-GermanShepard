@@ -363,6 +363,7 @@ export default {
     },
 
     itineraryData() {
+      console.log("Testing")
       this.itinerary_list=[],
       axios.get(`/api/itinerary/${this.client_type}/${this.tour_type}`).then((res) => {
         if (res.data) {
@@ -452,6 +453,13 @@ export default {
       });
     },
     AddTour() {
+      if(this.form.tour_type=="National"){
+        this.form.tcs_fee = 0;
+      }
+  
+
+    // console.log(this.form)
+    // return false;
       this.form
         .post("/api/tour")
         .then((res) => {

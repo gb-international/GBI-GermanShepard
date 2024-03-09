@@ -116,7 +116,11 @@ class TourController extends BaseController
             $data['tour_price'] = $request->tour_price??0;
             $data['tcs_fee'] = $request->tcs_fee??0;
             $data['gst_fee'] = $request->gst_fee??0;
-            $data['pg_convenience_and_internet_fee'] = $request->pg_convenience_and_internet_fee??0;
+            $data['meal_plan_price'] = $request->meal_plan_price??0;
+            $data['meal_plan_type'] = $request->meal_plan_type??'cp';
+            $data['room_sharing'] = $request->room_sharing??'quad';
+            $data['no_of_adults'] = $request->no_of_adults??0;
+            $data['pg_convenience_and_internet_fee'] = 2;
             $tour = Tour::create($data);
             return response()->json(['Message'=> 'Successfully Added...']);
         }
@@ -192,7 +196,11 @@ class TourController extends BaseController
             $data['tour_price'] = $request->tour_price??$tour->tour_price;
             $data['tcs_fee'] = $request->tcs_fee??$tour->tcs_fee;
             $data['gst_fee'] = $request->gst_fee??$tour->gst_fee;
-            $data['pg_convenience_and_internet_fee'] = $request->pg_convenience_and_internet_fee??$tour->pg_convenience_and_internet_fee;
+            $data['meal_plan_price'] = $request->meal_plan_price??0;
+            $data['meal_plan_type'] = $request->meal_plan_type??'cp';
+            $data['room_sharing'] = $request->room_sharing??'quad';
+            $data['no_of_adults'] = $request->no_of_adults??0;
+            $data['pg_convenience_and_internet_fee'] = 2;
             $tourUpdate = $tour->update($data);
             return response()->json(['message'=>'Successfully Updated']);
         }
