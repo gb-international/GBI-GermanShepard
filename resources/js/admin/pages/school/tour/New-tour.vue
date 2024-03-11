@@ -80,7 +80,7 @@ This template helps us to create a new Tour.
           <div class="col-sm-4">
             <div class="form-group">
               <label for="meal_plan_type">Meal plan type</label>
-              <select class="form-control customSelect" v-model="form.meal_plan_type">
+              <select @change="onMealPlanType" class="form-control customSelect" v-model="form.meal_plan_type">
                 <option value="ep">ep</option>
                 <option value="cpai">cpai</option>
                 <option value="mapai">mapai</option>
@@ -363,7 +363,6 @@ export default {
     },
 
     itineraryData() {
-      console.log("Testing")
       this.itinerary_list=[],
       axios.get(`/api/itinerary/${this.client_type}/${this.tour_type}`).then((res) => {
         if (res.data) {

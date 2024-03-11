@@ -534,6 +534,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -599,16 +600,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     this.tourData();
     this.schoolData();
     this.companyData();
-    this.itineraryData();
   },
   methods: {
     tourData: function tourData() {
       var _this = this;
 
       axios.get("/api/tour/".concat(this.$route.params.id, "/edit")).then(function (response) {
+        console.log(response.data);
+
         _this.form.fill(response.data);
 
         _this.minDate = response.data.tour_start_date;
+
+        _this.itineraryData();
       });
     },
     schoolData: function schoolData() {
@@ -628,7 +632,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     itineraryData: function itineraryData() {
       var _this3 = this;
 
-      this.itinerary_list = [], axios.get("/api/itinerary/".concat(this.client_type, "/").concat(this.tour_type)).then(function (res) {
+      this.itinerary_list = [], axios.get("/api/itinerary/".concat(this.client_type, "/").concat(this.form.tour_type)).then(function (res) {
         if (res.data) {
           for (var i = 0; i < res.data.length; i++) {
             _this3.itinerary_list.push({
@@ -639,14 +643,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }
       });
     },
-    onItineraryChange: function onItineraryChange() {},
     onTourTypeChange: function onTourTypeChange() {
       this.tour_type = this.form.tour_type;
       this.itineraryData();
       this.form.tour_price = 0;
-      this.form.meal_plan_price = 0;
-      this.form.tcs = 0;
-      this.form.gst = 0;
+      this.form.meal_plan_price = 0; // this.form.tcs = 5;
+      // this.form.gst = 5;
     },
     priceChange: function priceChange($itinerary_id) {
       var _this4 = this;
@@ -728,7 +730,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.form.company_id = value.id;
     },
     itineraryUpdate: function itineraryUpdate(value) {
-      this.form.itinerary_id = value.id;
+      console.log(this.form.itinerary_id);
+
+      if (value.id != undefined) {
+        this.form.itinerary_id = value.id;
+        this.priceChange(this.form.itinerary_id);
+      }
+    },
+    onItineraryChange: function onItineraryChange() {
+      this.priceChange(this.form.itinerary_id);
     }
   }
 });
@@ -1777,30 +1787,33 @@ var render = function () {
                                           staticClass:
                                             "form-control customSelect",
                                           on: {
-                                            change: function ($event) {
-                                              var $$selectedVal =
-                                                Array.prototype.filter
-                                                  .call(
-                                                    $event.target.options,
-                                                    function (o) {
-                                                      return o.selected
-                                                    }
-                                                  )
-                                                  .map(function (o) {
-                                                    var val =
-                                                      "_value" in o
-                                                        ? o._value
-                                                        : o.value
-                                                    return val
-                                                  })
-                                              _vm.$set(
-                                                _vm.form,
-                                                "meal_plan_type",
-                                                $event.target.multiple
-                                                  ? $$selectedVal
-                                                  : $$selectedVal[0]
-                                              )
-                                            },
+                                            change: [
+                                              function ($event) {
+                                                var $$selectedVal =
+                                                  Array.prototype.filter
+                                                    .call(
+                                                      $event.target.options,
+                                                      function (o) {
+                                                        return o.selected
+                                                      }
+                                                    )
+                                                    .map(function (o) {
+                                                      var val =
+                                                        "_value" in o
+                                                          ? o._value
+                                                          : o.value
+                                                      return val
+                                                    })
+                                                _vm.$set(
+                                                  _vm.form,
+                                                  "meal_plan_type",
+                                                  $event.target.multiple
+                                                    ? $$selectedVal
+                                                    : $$selectedVal[0]
+                                                )
+                                              },
+                                              _vm.onMealPlanType,
+                                            ],
                                           },
                                         },
                                         [
@@ -1913,6 +1926,11 @@ var render = function () {
                                       _c("dropdown-filter", {
                                         staticClass: "mb-2",
                                         attrs: { itemList: _vm.itinerary_list },
+                                        on: {
+                                          change: function ($event) {
+                                            return _vm.onItineraryChange()
+                                          },
+                                        },
                                         model: {
                                           value: _vm.form.itinerary_id,
                                           callback: function ($$v) {
@@ -2457,7 +2475,7 @@ var render = function () {
               ],
               null,
               false,
-              868608619
+              2489735493
             ),
           })
         : _vm._e(),

@@ -652,7 +652,6 @@ __webpack_require__.r(__webpack_exports__);
     itineraryData: function itineraryData() {
       var _this3 = this;
 
-      console.log("Testing");
       this.itinerary_list = [], axios.get("/api/itinerary/".concat(this.client_type, "/").concat(this.tour_type)).then(function (res) {
         if (res.data) {
           for (var i = 0; i < res.data.length; i++) {
@@ -1796,30 +1795,33 @@ var render = function () {
                                       ],
                                       staticClass: "form-control customSelect",
                                       on: {
-                                        change: function ($event) {
-                                          var $$selectedVal =
-                                            Array.prototype.filter
-                                              .call(
-                                                $event.target.options,
-                                                function (o) {
-                                                  return o.selected
-                                                }
-                                              )
-                                              .map(function (o) {
-                                                var val =
-                                                  "_value" in o
-                                                    ? o._value
-                                                    : o.value
-                                                return val
-                                              })
-                                          _vm.$set(
-                                            _vm.form,
-                                            "meal_plan_type",
-                                            $event.target.multiple
-                                              ? $$selectedVal
-                                              : $$selectedVal[0]
-                                          )
-                                        },
+                                        change: [
+                                          function ($event) {
+                                            var $$selectedVal =
+                                              Array.prototype.filter
+                                                .call(
+                                                  $event.target.options,
+                                                  function (o) {
+                                                    return o.selected
+                                                  }
+                                                )
+                                                .map(function (o) {
+                                                  var val =
+                                                    "_value" in o
+                                                      ? o._value
+                                                      : o.value
+                                                  return val
+                                                })
+                                            _vm.$set(
+                                              _vm.form,
+                                              "meal_plan_type",
+                                              $event.target.multiple
+                                                ? $$selectedVal
+                                                : $$selectedVal[0]
+                                            )
+                                          },
+                                          _vm.onMealPlanType,
+                                        ],
                                       },
                                     },
                                     [
@@ -2419,7 +2421,7 @@ var render = function () {
               ],
               null,
               false,
-              172721651
+              2962392662
             ),
           })
         : _vm._e(),

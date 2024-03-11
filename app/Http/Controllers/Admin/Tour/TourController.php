@@ -105,6 +105,7 @@ class TourController extends BaseController
         try{
             $data = array();
             $data['customer_type'] = $request->customer_type??0; 
+            $data['tour_type'] = $request->tour_type??'National'; 
             $data['school_id'] = $request->school_id??0; 
             $data['company_id'] = $request->company_id??0; 
             // $data['family_id'] = $request->family_id??0; 
@@ -201,6 +202,7 @@ class TourController extends BaseController
             $data['room_sharing'] = $request->room_sharing??'quad';
             $data['no_of_adults'] = $request->no_of_adults??0;
             $data['pg_convenience_and_internet_fee'] = 2;
+            $data['tour_type'] = $request->tour_type??'National'; 
             $tourUpdate = $tour->update($data);
             return response()->json(['message'=>'Successfully Updated']);
         }

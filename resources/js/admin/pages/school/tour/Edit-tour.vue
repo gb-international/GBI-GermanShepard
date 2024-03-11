@@ -67,7 +67,7 @@ to submit the data we are using a function.
           <div class="col-sm-4">
             <div class="form-group">
               <label for="meal_plan_type">Meal plan type</label>
-              <select class="form-control customSelect" v-model="form.meal_plan_type">
+              <select class="form-control customSelect" @change="onMealPlanType" v-model="form.meal_plan_type">
                 <option value="ep">ep</option>
                 <option value="cpai">cpai</option>
                 <option value="mapai">mapai</option>
@@ -98,6 +98,7 @@ to submit the data we are using a function.
               <dropdown-filter 
                 class="mb-2" :itemList="itinerary_list" 
                 v-model="form.itinerary_id"
+                @change="onItineraryChange()"
               />
 
               <div class="error" v-if="form.errors.has('itinerary_id')">
@@ -309,13 +310,14 @@ export default {
     this.tourData();
     this.schoolData();
     this.companyData();
-    this.itineraryData();
   },
   methods: {
     tourData() {
       axios.get(`/api/tour/${this.$route.params.id}/edit`).then((response) => {
+        console.log(response.data)
         this.form.fill(response.data);
         this.minDate = response.data.tour_start_date;
+        this.itineraryData();
       });
     },
     schoolData() {
@@ -332,7 +334,7 @@ export default {
     },
     itineraryData() {
       this.itinerary_list=[],
-      axios.get(`/api/itinerary/${this.client_type}/${this.tour_type}`).then((res) => {
+      axios.get(`/api/itinerary/${this.client_type}/${this.form.tour_type}`).then((res) => {
         if (res.data) {
           for(let i = 0;i<res.data.length;i++){
             this.itinerary_list.push({
@@ -343,15 +345,13 @@ export default {
         }
       });
     },
-    onItineraryChange(){
-    },
     onTourTypeChange(){
       this.tour_type = this.form.tour_type
       this.itineraryData()
       this.form.tour_price = 0;
       this.form.meal_plan_price = 0;
-      this.form.tcs = 0;
-      this.form.gst = 0;
+      // this.form.tcs = 5;
+      // this.form.gst = 5;
     },
     priceChange($itinerary_id){
       axios.get(`/api/price-per-itinerary/${$itinerary_id}`).then((res) => {
@@ -437,9 +437,16 @@ export default {
     companyUpdate(value){
       this.form.company_id = value.id;
     },
-    
     itineraryUpdate(value){
-      this.form.itinerary_id = value.id;
+        console.log(this.form.itinerary_id)
+      if(value.id != undefined){
+        this.form.itinerary_id = value.id;
+        this.priceChange(this.form.itinerary_id);
+      }
+    },
+    
+    onItineraryChange(){
+      this.priceChange(this.form.itinerary_id);
     },
   },
 };
