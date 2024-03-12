@@ -356,13 +356,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 			Route::get('schooltrip/all/{size}','SchoolTripController@all');
 			Route::resource('schooltrip','SchoolTripController');
 		});
-		Route::group(['prefix' => '/groupmember', 'as' => 'groupmember.'], function () {
-			Route::controller(\GroupmemberController::class)->group(function () {
-				Route::post('update','updateMember');
-				Route::post('destroy','destroyMember');
-				Route::post('add','addMember');
-				Route::get('{tour_code}/{user_type}/{tour_type}','getMember');
-				Route::get('{tour_code}/{user_type}/{tour_type}/{pending}','getMemberPending')->where('pending', 'pending');	
+		Route::group(['prefix' => '/{tour_type}/groupmember', 'as' => 'groupmember.'], function () {
+			Route::controller(\School\GroupmemberController::class)->group(function () {
+				Route::post('update','updateMember')->where('tour_type', 'school|company|family');
+				Route::post('add','addMember')->where('tour_type', 'school|company|family');
+				Route::post('destroy','destroyMember')->where('tour_type', 'school|company|family');
+				Route::get('{tour_code}/{user_type}','getMember')->where('tour_type', 'school|company|family');
+				Route::get('{tour_code}/{user_type}/{pending}','getMemberPending')->where('pending', 'pending')->where('tour_type', 'school|company|family');	
 			});
 			Route::group(['prefix' => '/school', 'as' => 'school.'], function () {
 				Route::controller(School\GroupmemberController::class)->group(function () {

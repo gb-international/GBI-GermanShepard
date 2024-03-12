@@ -29,13 +29,18 @@ class GroupMemberRequest extends FormRequest
      */
     public function rules()
     {  
+        $tour_type = request()->route('tour_type')??'';
+        // 'edu_institute_id' => $tour_type == 'school' ? 'required|exists:edu_institutes,id' : '',
+        // 'family_user_id' => $tour_type == 'family' ? 'required|exists:family_users,id' : '',
+        // 'company_user_id' => $tour_type == 'company' ? 'required|exists:company_users,id' : '',
+
         return [
             'user_type' => 'required|in:teacher,student,corporate,family',
-            'tour_type'=>'required|in:school,family,corporate',
+            // 'tour_type'=>'required|in:school,family,corporate',
             'tour_id'=>'required|exists:tours,tour_id',
-            'school_id' => ['required_if:tour_type,school','exists:schools,id'],
-            'family_user_id' => ['required_if:tour_type,family','exists:family_users,id'],
-            'company_id' => ['required_if:tour_type,corporate','exists:companies,id'],
+            'school_id' => $tour_type == 'school' ?['required','exists:schools,id']:'',
+            'family_user_id' => $tour_type == 'family' ?['required','exists:family_users,id']:'',
+            'company_id' => $tour_type == 'company' ?['required','exists:companies,id']:'',
             'details' => 'required|array',
             "details.*.first_name" => ['required',new AlphaSpace],
             "details.*.last_name" => ['required',new AlphaSpace],
