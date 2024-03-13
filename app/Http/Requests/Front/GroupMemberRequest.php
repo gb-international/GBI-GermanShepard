@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Admin;
+namespace App\Http\Requests\Front;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
@@ -28,11 +28,19 @@ class GroupMemberRequest extends FormRequest
      * @return array
      */
     public function rules()
-    {  
-        $tour_type = request()->route('tour_type')??'';
+    {
+        $tour_type = '';
+        if(request()->route('school')){
+            $tour_type = request()->route('school')??'';
+        }
+        else if(request()->route('family')){
+            $tour_type = request()->route('family')??'';
+        }
+        else if(request()->route('school')){
+            $tour_type = request()->route('school')??'';
+        }
         return [
             'user_type' => 'required|in:teacher,student,corporate,family',
-            // 'tour_type'=>'required|in:school,family,corporate',
             'tour_id'=>'required|exists:tours,tour_id',
             'school_id' => $tour_type == 'school' ?['required','exists:schools,id']:'',
             'family_user_id' => $tour_type == 'family' ?['required','exists:family_users,id']:'',

@@ -364,10 +364,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 				Route::get('{tour_code}/{user_type}','getMember')->where('tour_type', 'school|company|family');
 				Route::get('{tour_code}/{user_type}/{pending}','getMemberPending')->where('pending', 'pending')->where('tour_type', 'school|company|family');	
 			});
-			Route::group(['prefix' => '/school', 'as' => 'school.'], function () {
+			Route::group(['prefix' => '/institute', 'as' => 'institute.'], function () {
 				Route::controller(School\GroupmemberController::class)->group(function () {
-					Route::post('addlogindetail','addlogindetail');
-					Route::post('send-member-login','sendMemberLogin');
+					Route::post('addlogindetail','addlogindetail')->where('tour_type', 'school|company|family');
+					Route::post('send-member-login','sendMemberLogin')->where('tour_type', 'school|company|family');
 				});
 			});
 			Route::group(['prefix' => '/corporate', 'as' => 'corporate.'], function () {

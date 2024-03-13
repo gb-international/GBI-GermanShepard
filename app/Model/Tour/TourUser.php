@@ -23,6 +23,10 @@ class TourUser extends Model
         'date_of_issue',
         'payment_data',
         'status',
+        'edu_institute_id', 
+        'company_user_id',
+        'family_user_id',
+        'tour_type',
         'added_by'
     ];
 
