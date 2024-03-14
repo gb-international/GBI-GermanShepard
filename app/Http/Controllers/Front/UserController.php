@@ -1,8 +1,8 @@
 <?php
 /* 
 Created by : Ajay yadav 
-Purpose : Manage front user login and register 
-
+Edited by : Rahul Rawat update function
+Purpose : Manage front user login and register  
 */
 namespace App\Http\Controllers\Front;
 use Illuminate\Http\Request;
@@ -63,12 +63,11 @@ class UserController extends Controller{
         $validator = Validator::make($request->all(), [ 
             'name' => 'required', 
             'email' => ['required','email',new EmailValidate],
-            'phone_no' => ['required','phone_no',new PhoneNubmerValidate],
             'password' => 'required', 
             'c_password' => 'required|same:password', 
         ]);
         if ($validator->fails()) { 
-            return response()->json(['error'=>$validator->errors()], 401);            
+            return response()->json(['error'=>$validator->errors()], 422);            
         }
         $input = $request->all(); 
         $input['password'] = bcrypt($input['password']); 
@@ -136,11 +135,12 @@ class UserController extends Controller{
             $user->admission_year = $request->admission_year??$user->admission_year;
             $user->user_class = $request->user_class??$user->user_class;
         }
-        else if($guard_name == "company"){
+        elseif($guard_name == "company"){
             $validator = Validator::make($request->all(), [ 
-            'name' => 'required', 
-            'email' => ['required','email',new EmailValidate, Rule::unique('company_users')->ignore($user_id)],
-            'phone_no' => ['required','numeric',new PhoneNubmerValidate, Rule::unique('company_users')->ignore($user_id)],]);
+                'name' => 'required', 
+                'email' => ['required','email',new EmailValidate, Rule::unique('company_users')->ignore($user_id)],
+                'phone_no' => ['required','numeric',new PhoneNubmerValidate, Rule::unique('company_users')->ignore($user_id)],
+            ]);
             
             if ($validator->fails()) { 
                 return response()->json(['error'=>$validator->errors()], 422);            
@@ -177,7 +177,7 @@ class UserController extends Controller{
                 return response()->json(['error'=>$validator->errors()], 422);            
             }
             $user->address1 = $request->address1??$user->address1; 
-                $user->address2 = $request->address2??$user->address2; 
+            $user->address2 = $request->address2??$user->address2; 
             // if user is already subscribed
             if($subscriber = Subscriber::where('family_user_id',$user_id)->first()){
                 $subscriber->status = $request->subscribe??$subscriber->status;
@@ -258,11 +258,36 @@ class UserController extends Controller{
         return response()->json(['docType'=>$user->doc_type, 'docFront'=>$user->doc_front, 'docBack'=>$user->doc_back]);
     }
     // User Edit 
-/** 
-     * details api 
-     * 
-     * @return \Illuminate\Http\Response 
-     */ 
+    /** 
+    * details api 
+    * 
+    * @return \Illuminate\Http\Response 
+    */ 
+    /**
+    * @OA\Post(
+    * path="/details",
+    * operationId="Details",
+    * tags={"Details"},
+    *   security={
+    *    {
+    *     "passport": {}},
+    *    },
+    
+    * summary="User Details",
+    * description="User Details here",
+    *     @OA\RequestBody(
+    *         @OA\JsonContent()
+    *    ),
+    *      @OA\Response(
+    *          response=200,
+    *          description="Successfully get details !!!",
+    *          @OA\JsonContent()
+    *       ),
+    *      @OA\Response(response=400, description="Bad request"),
+    *      @OA\Response(response=404, description="Resource Not Found"),
+    *      @OA\Response(response=401, description="Unauthentication"),
+    * )
+    */
     public function details($guard_name) 
     {  
         $user = Auth::guard($guard_name."-api")->user();
@@ -283,7 +308,7 @@ class UserController extends Controller{
                         'profession_address' => 'required',
                 ]);
                 if ($validator->fails()) { 
-                    return response()->json(['error'=>$validator->errors()], 401);            
+                    return response()->json(['error'=>$validator->errors()], 422);            
                 }
     
                 $data = array('school_name'=>$request->profession_name,'address'=>$request->profession_address);
@@ -364,7 +389,6 @@ class UserController extends Controller{
     }
 
     public function logout(Request $request){
-
         if(Auth::user()){
             Auth::user()->AauthAccessToken()->delete();
         }

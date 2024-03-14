@@ -11,6 +11,7 @@ use App\Http\Requests\Front\GroupMemberRequest;
 use App\Http\Controllers\Admin\BaseController;
 use Illuminate\Http\Request;
 use App\Model\School\Groupmember;
+use Validator;
 use App\User;
 use Auth;
 
@@ -108,6 +109,13 @@ class GroupmemberController extends BaseController
 
     public function destroy($guard_name, Request $request){
        try{
+            $validator = Validator::make($request->all(), [ 
+                'id'=>'required|exists:groupmembers,id', 
+            ]);
+
+            if ($validator->fails()) { 
+                return response()->json(['error'=>$validator->errors()], 401);            
+            }
             $member = Groupmember::find($request->id);
             if($member){
                 $member->delete();

@@ -291,7 +291,6 @@ Route::group(['prefix' => '{company}', 'middleware' => 'company.authentication']
 
 // School
 Route::group(['prefix' => '{school}', 'middleware' => 'school.authentication'], function () {
-	Route::post('/request-itinerary',[ItineraryController::class, 'requestItinerary'])->where('school', 'school');
 
 	//Incharge payment status update on tour
 	Route::post('tour-payment-through-status',[TourController::class, 'paymentThrough'])->where('school', 'school');
@@ -319,7 +318,7 @@ Route::group(['prefix' => '{school}', 'middleware' => 'school.authentication'], 
 			Route::get('payment-history/{size?}', 'allHistory')->where('school', 'school');
 		});
 	});
-	Route::post('refreshtoken',[AuthController::class, 'refresh'])->where('school', 'school');
+
 	Route::post('logout-user',[AuthController::class, 'logout'])->where('school', 'school');
 	Route::post('refreshtoken',[AuthController::class, 'refresh'])->where('school', 'school');
 	
