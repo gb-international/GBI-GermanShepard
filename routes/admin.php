@@ -389,6 +389,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 				});
 			});
 		});
+		Route::group(['prefix' => '/traveller-policy-category', 'as' => 'traveller-policy-category.'], function () {
+			Route::post('store',[TravellerPolicyCategoryController::class, 'store']);
+			Route::put('update/{id}',[TravellerPolicyCategoryController::class, 'update']);
+			Route::delete('delete/{id}',[TravellerPolicyCategoryController::class, 'destroy']);
+			Route::get('{id}/edit',[TravellerPolicyCategoryController::class, 'edit']);
+			Route::get('{id}/show',[TravellerPolicyCategoryController::class, 'show']);
+			Route::get('all/{size?}',[TravellerPolicyCategoryController::class, 'all']);
+		});
 		//Traveller Policy
 		Route::group(['prefix' => '/traveller-policy', 'as' => 'traveller-policy.'], function () {
 			Route::post('store',[TravellerPolicyController::class, 'store']);

@@ -17,8 +17,8 @@ class CreatedRoomsTable extends Migration
             $table->increments('id');
             $table->text('name')->nullable();
             $table->unsignedInteger('room_category_id')->nullable();
-            $table->unsignedBigInteger('traveller_policy_id')->nullable()->after('name');
             $table->text('description')->nullable();
+            $table->unsignedBigInteger('traveller_policy_id')->nullable();
             $table->string('meal_plan_type')->nullable();
             $table->Integer('maximum_occupancy')->default(0);            
             $table->double('inches')->default(0);            
