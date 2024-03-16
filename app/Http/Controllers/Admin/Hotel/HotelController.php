@@ -20,6 +20,7 @@ use App\Http\Requests\Admin\Hotel\HotelRequest;
 use App\Model\Hotel\HotelImages;
 use App\Http\Controllers\Admin\BaseController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Admin\Location\MapsController;
 use Validator;
 
 class HotelController extends BaseController
@@ -71,8 +72,15 @@ class HotelController extends BaseController
     public function store(HotelRequest $request)
     {
         try{
+            // $request->address??''
             $data = array("name"=>$request->name, "traveller_policy_id"=>$request->traveller_policy_id, "description" => $request->description??'',"no_of_rooms"=>$request->no_of_room??0,
             "star_category"=>$request->star_category??0, "hotel_type"=>$request->hotel_type??0, "email" => $request->email??'', "phone_number" => $request->phone_number??'', "no_of_banquet" => $request->no_of_banquet??0, "hotel_policies_description" => $request->hotel_policies_description??'', "safety_hygiene_description" => $request->safety_hygiene_description??'', "address" => $request->address??'', "state_id"=>$request->state_id??0, "city_id"=>$request->city_id??0, "pincode"=>$request->pincode, "country_id" => $request->country_id??'');
+            if($request->address){
+                $latlng = MapsController::getLatLng($request->address);
+                $data['latitude'] = $latlng['latitude'];
+                $data['longitude'] = $latlng['longitude'];
+            }
+
             $hotel = Hotel::create($data);
             $hotel_id = $hotel->id??0;
             // $meta_keywords= [];
@@ -166,6 +174,11 @@ class HotelController extends BaseController
         try{
             $data = array("name"=>$request->name??$hotel->name, "description" => $request->description??$hotel->description, "traveller_policy_id"=>$request->traveller_policy_id??$hotel->traveller_policy_id,"no_of_rooms"=>$request->no_of_room??$hotel->no_of_room,
             "star_category"=>$request->star_category??$hotel->star_category, "hotel_type"=>$request->hotel_type??$hotel->hotel_type, "email" => $request->email??$hotel->email, "phone_number" => $request->phone_number??$hotel->phone_number, "no_of_banquet" => $request->no_of_banquet??$hotel->no_of_banquet, "hotel_policies_description" => $request->hotel_policies_description??$hotel->hotel_policies_description, "safety_hygiene_description" => $request->safety_hygiene_description??$hotel->hotel_policies_description, "address" => $request->address??$hotel->address, "state_id"=>$request->state_id??$hotel->state_id, "city_id"=>$request->city_id??$hotel->city_id, "pincode"=>$request->pincode??$hotel->pincode, "country_id" => $request->country_id??$hotel->country_id, 'status'=>$request->status??$hotel->status);
+            if($request->address && ($request->address != $hotel->address)){
+                $latlng = MapsController::getLatLng($request->address);
+                $data['latitude'] = $latlng['latitude'];
+                $data['longitude'] = $latlng['longitude'];
+            }
             $hotel->update($data);
             if($request->new_images){
                 foreach($request->new_images as $imagedata) {

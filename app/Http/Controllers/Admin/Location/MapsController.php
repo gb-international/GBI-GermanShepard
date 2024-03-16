@@ -117,4 +117,13 @@ class MapsController extends Controller
             
             return $data2;
     }
+    public function getLatLng($address){
+        $latlng = \GoogleMaps::load('geocoding')
+        ->setParam (['address' => $address])
+        ->get('results.geometry.location');
+        $lat = $latlng['results'][0]['geometry']['location']['lat']??0;
+        $lng = $latlng['results'][0]['geometry']['location']['lng']??0;
+        return ["latitude"=>$lat, "longitude"=>$lng]; 
+    }
 }
+

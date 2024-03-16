@@ -13,9 +13,14 @@ class ModificationColumnBookedhotelsTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::table('bookedhotels', function (Blueprint $table) {
+            $table->unsignedInteger('tour_id')->nullable()->change();
+            $table->unsignedInteger('hotel_id')->nullable()->change();
+            $table->foreign('tour_id')->references('id')->on('tours')->onDelete('cascade');
+            $table->foreign('hotel_id')->references('id')->on('hotels')->onDelete('cascade');
+        });
     }
-
+    
     /**
      * Reverse the migrations.
      *
@@ -23,6 +28,9 @@ class ModificationColumnBookedhotelsTable extends Migration
      */
     public function down()
     {
-        //
-    }
+        Schema::table('bookedhotels', function (Blueprint $table) {
+        
+        
+    });
+}
 }

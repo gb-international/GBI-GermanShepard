@@ -16,6 +16,7 @@ use App\Rules\PhoneNubmerValidate;
 use App\Rules\AlphaSpace;
 use App\Http\Requests\Admin\Hotel\BanquetRequest;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Admin\Location\MapsController;
 
 class BanquetController extends Controller
 {
@@ -72,6 +73,11 @@ class BanquetController extends Controller
     {
         try{
             $data = array("name"=>$request->name, "description" => $request->description??'', "no_of_banquet" =>$request->no_of_banquet??0, "star_category"=>$request->star_category??0, "email" => $request->email??'', "phone_number" => $request->phone_number??'', "address" => $request->address??'', "state_id"=>$request->state_id??0, "city_id"=>$request->city_id??0, "pincode"=>$request->pincode, "country_id" => $request->country_id??''); 
+            if($request->address){
+                $latlng = MapsController::getLatLng($request->address);
+                $data['latitude'] = $latlng['latitude'];
+                $data['longitude'] = $latlng['longitude'];
+            }
             $banquet = Banquet::create($data);
             $banquet_id =  $banquet->id??0;
             if($request->banner_image){
@@ -133,6 +139,11 @@ class BanquetController extends Controller
     {
         try{
             $data = array("name"=>$request->name??$banquet->name, "description" => $request->description??$banquet->description, "no_of_banquet" => $request->no_of_banquet??$banquet->no_of_banquet,     "star_category"=>$request->star_category??$banquet->star_category, "email" => $request->email??$banquet->email, "phone_number" => $request->phone_number??$banquet->phone_number, "address" => $request->address??$banquet->address, "state_id"=>$request->state_id??$banquet->state_id, "city_id"=>$request->city_id??$banquet->city_id, "pincode"=>$request->pincode??$banquet->pincode, "country_id" => $request->country_id??$banquet->country_id, 'status'=>$request->status??$banquet->status); 
+            if($request->address && ($request->address != $banquet->address)){
+                $latlng = MapsController::getLatLng($request->address);
+                $data['latitude'] = $latlng['latitude'];
+                $data['longitude'] = $latlng['longitude'];
+            }
             $banquet->update($data);
             if($request->banner_image){
                 $this->AwsDeleteImage($banquet->banner_image);

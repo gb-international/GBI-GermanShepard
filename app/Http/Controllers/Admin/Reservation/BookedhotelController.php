@@ -42,10 +42,12 @@ class BookedhotelController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'price'=>'required',
-            'check_in'=>'required',
-            'check_out'=>'required',
-            'hotel_id' => 'required' 
+            'price'=>'required|numeric',
+            'tour_id'=>'required|exists:tours,id',
+            'tour_code'=>'required|exists:tours,tour_id',
+            'check_in'=>'required|date|after:today',
+            'check_out'=>'required|date|after_or_equal:check_in',
+            'hotel_id' => 'required|exists:hotels,id' 
         ]);
         //$check = Bookedhotel::where(['tour_code' => $request->tour_code, 'hotel_id' => $request->hotel_id])->get();
         /*if(count($check->all()) > 0){
