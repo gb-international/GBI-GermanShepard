@@ -24,6 +24,7 @@ class GroupmemberController extends BaseController
 {
     public function getMember($tour_type, $tour_code,$user_type){
         try{
+            
             $where = ['tour_id'=>$tour_code,'user_type'=>$user_type, 'tour_type'=>$tour_type];
             $groupmember = Groupmember::where($where)->get();
             if($groupmember->count() > 0){
@@ -151,7 +152,7 @@ class GroupmemberController extends BaseController
                         $data['email'] = $edu_institute->email;
                         $data['edu_institute_id'] = $edu_institute->id;
                         $data['name'] = $edu_institute->name;
-                        $data['client_type'] = $request->tour_type;
+                        $data['client_type'] = $tour_type;
                         Subscriber::create($data);
                     }
                 }else{
@@ -163,7 +164,7 @@ class GroupmemberController extends BaseController
                     'travel_code'=>$travel_code->travel_code,
                     'edu_institute_id'=>$edu_institute->id,
                     'tour_code'=>$request->tour_id,
-                    'user_type' => $request->tour_type,
+                    'user_type' => $tour_type,
                     'is_paid' => $groupmember['is_paid']??0
                 ];
                 $tour_user = TourUser::where($tour)->first();
@@ -200,10 +201,20 @@ class GroupmemberController extends BaseController
     }
 
     public function sendMemberLogin($tour_type, Request $request){
+        $table = "edu_institutes";
+        if($tour_type == "school"){
+            $table = "edu_institutes";
+        }
+        else if($tour_type == "company"){
+            $table = "company_users";
+        }
+        else if($tour_type == "family"){
+            $table = "family_users";
+        }
         $validator = Validator::make($request->all(), [ 
             'first_name' => 'required',  
-            'mobile' => ['required',new PhoneNubmerValidate, 'unique:edu_institutes,phone_no'],
-            'email' => ['required', 'email',new EmailValidate, 'unique:edu_institutes,email'],
+            'mobile' => ['required',new PhoneNubmerValidate, 'unique:'.$table.',phone_no'],
+            'email' => ['required', 'email',new EmailValidate, 'unique:'.$table.',email'],
             'school_id' => 'required|exists:schools,id',
         ]);
        

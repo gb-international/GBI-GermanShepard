@@ -368,7 +368,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 			Route::get('schooltrip/all/{size}','SchoolTripController@all');
 			Route::resource('schooltrip','SchoolTripController');
 		});
-		Route::group(['prefix' => '/{tour_type}/groupmember', 'as' => 'groupmember.'], function () {
+		Route::group(['prefix' => '/{tour_type}/groupmembers', 'as' => 'groupmember.'], function () {
 			Route::controller(\School\GroupmemberController::class)->group(function () {
 				Route::post('update','updateMember')->where('tour_type', 'school|company|family');
 				Route::post('add','addMember')->where('tour_type', 'school|company|family');

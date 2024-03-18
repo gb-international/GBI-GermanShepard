@@ -1,4 +1,8 @@
 <?php
+ /* 
+Edited by : Rahul Rawat created edu_institute function
+Purpose :  modify incharge function
+*/
 
 namespace App\Model\School;
 
@@ -8,7 +12,7 @@ class School extends Model
 {
 	// use SoftDeletes;
     protected $fillable = [
-        'school_name', 'street', 'city_name','state_name','country_name','pincode','finance_email_id','principal_email_id','mobile','address','principal_name','principal_mobile_number','user_id'
+        'id', 'surname', 'school_name', 'street', 'city_name','state_name','country_name','pincode','finance_email_id','principal_email_id','mobile','address','principal_name','principal_mobile_number','user_id', 'edu_institute_id'
     ];
 
     public function setFinanceEmailIdEmailAttribute($value){
@@ -32,8 +36,16 @@ class School extends Model
         return $this->hasMany('App\Model\User\Information');
     }
 
-    public function incharge(){
-        return $this->hasOne('App\User','id','user_id');
+    // public function incharge(){
+    //     return $this->hasOne('App\User','id','user_id');
+    // }
+
+    public function incharge()
+    {
+        return $this->belongsTo('App\Model\School\EducationInstitute','edu_institute_id', 'id');
     }
     
+    public function education_institute(){
+        return $this->hasOne('App\Model\School\EducationInstitute');
+    }
 }

@@ -39,6 +39,8 @@ class SendSms{
     public function sendLoginDetails($mobile,$message){
         $phone = '91'.$mobile;
         $ApiUrl = "https://www.businesssms.co.in/smsaspx?Id=".$this->id."&Pwd=".urlencode($this->pwd)."&PhNo=".$phone."&TEXT=".urldecode($message);
+        echo $ApiUrl;
+        exit;
         $client = new \GuzzleHttp\Client(['verify' => false ]);
         $request = $client->get($ApiUrl);
     }
