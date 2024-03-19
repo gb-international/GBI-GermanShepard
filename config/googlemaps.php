@@ -13,9 +13,8 @@ return [
     |
     |
     */
-
-    'key' => 'AIzaSyAmaMnqu4EjFsEpF4hAlWr8kLx9B8JnOpU',
-
+    
+    'key' => env('GOOGLE_MAP_KEY'),
     /*
     |--------------------------------------------------------------------------
     | Verify SSL Peer

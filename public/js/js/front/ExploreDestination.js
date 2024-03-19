@@ -2008,7 +2008,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-var API_KEY = "AIzaSyAmaMnqu4EjFsEpF4hAlWr8kLx9B8JnOpU";
+var API_KEY = "";
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (API_KEY); // export constant to be able to use them in components
 
 /***/ }),

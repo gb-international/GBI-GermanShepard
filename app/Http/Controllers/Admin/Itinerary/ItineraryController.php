@@ -19,7 +19,8 @@ use App\Traits\ImageTrait;
 use Image;
 use App\Jobs\Notifications;
 use Illuminate\Support\Str;
-
+use App\Http\Requests\Admin\ItineraryRequest;
+use App\Http\Controllers\Admin\Location\MapsController;
 
 /**
      *
@@ -75,10 +76,35 @@ class ItineraryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ItineraryRequest $request)
     {
-        
-        $data = $this->validateItinerary($request);
+        $data = array('traveller_policy_id'=>$request->traveller_policy_id??null,
+        'source'=>$request->source, 'destination'=>$request->destination, 'noofdays'=>$request->noofdays,
+        'title'=>$request->title, 'description'=> $request->description, 
+        'tourtype'=>$request->tourtype, 'food'=>$request->food,
+        'hotel_type'=>$request->hotel_type,
+        'bus'=>$request->bus??0, 'train'=>$request->train??0,
+        'flight'=>$request->flight??0,
+        'no_of_nights'=>$request->no_of_nights,
+        'single_sharing_base_price'=>$request->single_sharing_base_price,
+        'tcs_fee'=>$request->tcs_fee,
+        'gst_fee'=>$request->gst_fee,
+        'double_sharing_base_price'=>$request->double_sharing_base_price,
+        'triple_sharing_base_price'=>$request->triple_sharing_base_price,
+        'quad_sharing_base_price'=>$request->quad_sharing_base_price,
+        'child_with_mattress_price'=>$request->child_with_mattress_price,
+        'child_without_mattress_price'=>$request->child_without_mattress_price,
+        'infant_price'=>$request->infant_price,
+        'apai_price'=>$request->apai_price,
+        'mapai_price'=>$request->mapai_price,
+        'cpai_price'=>$request->cpai_price,
+        'ep_price'=>$request->ep_price,
+        'client_type'=>$request->client_type,
+        'meta_title'=>$request->meta_title,
+        'meta_description'=>$request->meta_description,
+        'detail_photo_alt'=>$request->detail_photo_alt??'',
+        'photo_alt'=>$request->photo_alt??'');
+        // $data = $this->validateItinerary($request);
         $tag_id= array();
         $meta_keyword="";   
         foreach ($request->tags as $tag) {
@@ -120,10 +146,23 @@ class ItineraryController extends Controller
         $itinerary = Itinerary::where('id',$id)->first();
 
         $dayModels = [];
-        foreach ($request->itinerarydays as $data) {
-            $dayModels[] = new Itineraryday($data);
+        if($request->itinerarydays){
+            foreach ($request->itinerarydays as $data) {
+                if($data['day_source']){
+                    $latlng = MapsController::getLatLng($data['day_source']);
+                    $data['source_latitude'] = $latlng['latitude'];
+                    $data['source_longitude'] = $latlng['longitude'];
+                }
+                if($data['day_destination']){
+                    $latlng = MapsController::getLatLng($data['day_destination']);
+                    $data['destination_latitude'] = $latlng['latitude'];
+                    $data['destination_longitude'] = $latlng['longitude'];
+                }
+                // return $data;
+                $dayModels[] = new Itineraryday($data);
+            }
+            $itinerary->itinerarydays()->saveMany($dayModels);
         }
-        $itinerary->itinerarydays()->saveMany($dayModels);
 
         // Tour Type
         $tourtypeModels = [];
@@ -230,9 +269,35 @@ class ItineraryController extends Controller
      * @param  \App\Itinerary  $itinerary
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Itinerary $itinerary)
+    public function update(ItineraryRequest $request, Itinerary $itinerary)
     {
-        $data = $this->validateItinerary($request);
+        $data = array('traveller_policy_id'=>$request->traveller_policy_id??$itinerary->traveller_policy_id,
+        'source'=>$request->source??$itinerary->source, 'destination'=>$request->destination??$itinerary->destination, 'noofdays'=>$request->noofdays??$itinerary->noofdays,
+        'title'=>$request->title??$itinerary->title,  
+        'tourtype'=>$request->tourtype??$itinerary->tourtype, 'food'=>$request->food??$itinerary->food,
+        'hotel_type'=>$request->hotel_type??$itinerary->hotel_type,
+        'bus'=>$request->bus??$itinerary->bus, 'train'=>$request->train??$itinerary->train,
+        'flight'=>$request->flight??$itinerary->flight,
+        'no_of_nights'=>$request->no_of_nights??$itinerary->no_of_nights,
+        'single_sharing_base_price'=>$request->single_sharing_base_price??$itinerary->single_sharing_base_price,
+        'tcs_fee'=>$request->tcs_fee??$itinerary->tcs_fee,
+        'gst_fee'=>$request->gst_fee??$itinerary->gst_fee,
+        'double_sharing_base_price'=>$request->double_sharing_base_price??$itinerary->double_sharing_base_price,
+        'triple_sharing_base_price'=>$request->triple_sharing_base_price??$itinerary->triple_sharing_base_price,
+        'quad_sharing_base_price'=>$request->quad_sharing_base_price??$itinerary->quad_sharing_base_price,
+        'child_with_mattress_price'=>$request->child_with_mattress_price??$itinerary->child_with_mattress_price,
+        'child_without_mattress_price'=>$request->child_without_mattress_price??$itinerary->child_without_mattress_price,
+        'infant_price'=>$request->infant_price??$itinerary->infant_price,
+        'apai_price'=>$request->apai_price??$itinerary->apai_price,
+        'mapai_price'=>$request->mapai_price??$itinerary->mapai_price,
+        'cpai_price'=>$request->cpai_price??$itinerary->cpai_price,
+        'ep_price'=>$request->ep_price??$itinerary->ep_price,
+        'client_type'=>$request->client_type??$itinerary->client_type,
+        'meta_title'=>$request->meta_title??$itinerary->meta_title,
+        'meta_description'=>$request->meta_description??$itinerary->meta_description,
+        'detail_photo_alt'=>$request->detail_photo_alt??$itinerary->detail_photo_alt,
+        'photo_alt'=>$request->photo_alt??$itinerary->photo_alt);
+        // $data = $this->validateItinerary($request);
         //$data = $request->all();
         $tag_id= [];
         $meta_keyword="";   
@@ -304,11 +369,25 @@ class ItineraryController extends Controller
         
         // Itinerary Day 
         $itinerary->itinerarydays()->delete();
+
         $dayModels = [];
-        foreach ($request->itinerarydays as $data) {
-            $dayModels[] = new Itineraryday($data);
+        if($request->itinerarydays){
+            foreach ($request->itinerarydays as $data) {
+                if($data['day_source']){
+                    $latlng = MapsController::getLatLng($data['day_source']);
+                    $data['source_latitude'] = $latlng['latitude'];
+                    $data['source_longitude'] = $latlng['longitude'];
+                }
+                if($data['day_destination']){
+                    $latlng = MapsController::getLatLng($data['day_destination']);
+                    $data['destination_latitude'] = $latlng['latitude'];
+                    $data['destination_longitude'] = $latlng['longitude'];
+                }
+                // return $data;
+                $dayModels[] = new Itineraryday($data);
+            }
+            $itinerary->itinerarydays()->saveMany($dayModels);
         }
-        $itinerary->itinerarydays()->saveMany($dayModels);
 
         $itinerary->meta_keyword = $meta_keyword;
         $itinerary->save();
