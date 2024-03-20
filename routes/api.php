@@ -16,6 +16,8 @@ use App\Http\Controllers\Front\GroupmemberController;
 use App\Http\Controllers\Front\Payment\BankDetailController;
 use App\Http\Controllers\Front\UserpaymentController;
 use App\Http\Controllers\Front\PasswordResetController;
+use App\Http\Controllers\Admin\Location\MapsController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -443,3 +445,8 @@ Route::group(['prefix' => '{user}', 'middleware' => 'user.authentication'], func
 	Route::post('logout-user',[AuthController::class, 'logout'])->where('user', 'user');
 	Route::post('refreshtoken',[AuthController::class, 'refresh'])->where('user', 'user');
 });
+
+Route::group(['prefix' => '/map', 'as' => 'map.'], function () {
+	Route::post('neighbourhood',[MapsController::class, 'neighbourhood']);
+});
+

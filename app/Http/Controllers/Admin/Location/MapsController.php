@@ -108,8 +108,8 @@ class MapsController extends Controller
                     
             $data2 = \GoogleMaps::load('nearbysearch')           
                     ->setParam([
-                        'location'  => $request->origin,
-                        'radius'    => $request->radius,
+                        'location'  => $request->lag,
+                        'radius'    => $request->radius??500,
                         'name'      => $request->name,
                         'type'      => $request->type
                 ])
@@ -124,6 +124,19 @@ class MapsController extends Controller
         $lat = $latlng['results'][0]['geometry']['location']['lat']??0;
         $lng = $latlng['results'][0]['geometry']['location']['lng']??0;
         return ["latitude"=>$lat, "longitude"=>$lng]; 
+    }
+    public function neighbourhood(Request $request){
+
+        $data = array('location'  => "$request->langitute,$request->longitude", 'radius'=>$request->radius??500);
+        if($request->name){
+            $data['name'] = $request->name;  
+        }
+        if($request->type){
+            $data['type'] = $request->type;  
+        }
+        // return $data;
+        $nearbysearch = \GoogleMaps::load('nearbysearch')->setParam($data)->getResponseByKey();
+        return response()->json($nearbysearch);
     }
 }
 
