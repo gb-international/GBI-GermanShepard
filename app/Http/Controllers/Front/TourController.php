@@ -198,19 +198,21 @@ class TourController extends Controller{
          return response()->json($travels);
     }
 
-    public function tourDetail(Request $request){
-        $user = Auth::user();
-        $tour = Tour::with(
-            'itinerary:id,title,destination,source,startLoc,endLoc',
-            'itinerary.itinerarydays',
-            'bookedhotels:id,check_in,check_out,hotel_id,tour_id',
-            'bookedhotels.hotel:id,name,type,image',
-            'bookedflights:id,arrival,departure,destination,flight_id,flight_number,source,tour_id,tour_code',
-            'bookedflights.flight:id,code,name',
-        )
-        ->where("tour_id",$request->travel_id)
-        ->first();
-        $tour['user_id'] = $user->id;
+    public function tourDetail($guard_name, Request $request){
+        $this->validate($request, [ 
+            'travel_code' => 'required|exists:tours,tour_id',
+        ]);
+        $user = Auth::guard($guard_name."-api")->user();
+        $tour = Tour::with('itinerary:id,title,destination,source,startLoc,endLoc','itinerary.itinerarydays', 'bookedhotels:id,check_in,check_out,hotel_id,tour_id','bookedhotels.hotel:id,name,type,image','bookedflights:id,arrival,departure,destination,flight_id,flight_number,source,tour_id,tour_code', 'bookedflights.flight:id,code,name')->where("tour_id",$request->travel_id)->first();
+        if($guard_name == "school"){
+            $tour['edu_institute_id'] = $user->id??0;
+        }
+        else if($guard_name == "company"){
+            $tour['company_user_id'] = $user->id??0;
+        }
+        if($guard_name == "family"){
+            $tour['family_user_id'] = $user->id??0;
+        }
         $locations = [];
 
         /*$locSource = \GoogleMaps::load('geocoding')
@@ -223,8 +225,8 @@ class TourController extends Controller{
         ->setParam (['address' => $tour['itinerary']->destination])
         ->get('results.geometry.location');*/
         
-        $tour['startLoc'] = json_decode($tour['itinerary']['startLoc']);
-        $tour['endLoc'] = json_decode($tour['itinerary']['endLoc']);
+        $tour['startLoc'] = json_decode($tour['itinerary']['startLoc']??0);
+        $tour['endLoc'] = json_decode($tour['itinerary']['endLoc']??0);
         $tour['sights'] = SightsResource::collection(
             Bookedsightseeing::where('tour_code',$request->travel_id)->get()
         );
