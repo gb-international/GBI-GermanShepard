@@ -56,7 +56,7 @@ class TravellerPolicyCategoryController extends BaseController
             ]);
     
             if ($validator->fails()) { 
-                return response()->json(['error'=>$validator->errors()], 422);            
+                return response()->json(['errors'=>$validator->errors(), 'status'=>422,]);            
             }
             $data = array("name" => $request->name??'');
             TravellerPolicyCategory::create($data);

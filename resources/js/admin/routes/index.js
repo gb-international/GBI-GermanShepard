@@ -1,3 +1,4 @@
+import Policy from '@/admin/routes/policy.js';
 import AssignUsers from '@/admin/routes/assignUsers.js'
 import Bank from '@/admin/routes/Bank.js';
 import Blog from '@/admin/routes/Blog.js';
@@ -56,4 +57,5 @@ export const routes = [
     ...Transport,
     ...Website,
     ...ErrorFile,
+    ...Policy
 ]
